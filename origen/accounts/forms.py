@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
-from django import Forms
+from django import forms
 
 class PersonCreateForm(UserCreationForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'First Name', 'autocomplete': 'off'}),label='')
