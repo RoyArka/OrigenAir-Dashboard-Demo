@@ -1,3 +1,33 @@
-body {
-    background-color: red;
+main {
+    display: grid;
+    grid-template-areas:
+        "aside"
+        "header"
+        "section";
 }
+
+aside {grid-area: aside;}
+header {grid-area: header;}
+section {grid-area: section;}
+
+    main {
+        grid-template-columns: 1fr 6fr;
+        grid-template-areas:
+            "aside header"
+            "aside section";
+        height: 100vh;
+    }
+
+    aside {
+        background-color: green;
+    }
+
+    header {
+        background-color: red;
+        height: 10vh;
+    }
+
+    section {
+        background-color: blue;
+        height: 90vh;
+    }
