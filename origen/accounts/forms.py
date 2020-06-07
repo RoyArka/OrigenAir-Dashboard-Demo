@@ -18,7 +18,7 @@ class PersonCreateForm(UserCreationForm):
 
         for fieldname in ['username', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
-    
+
     def save(self):
         user = super().save(commit=False)
         user.first_name = self.cleaned_data.get('first_name')
