@@ -69,8 +69,18 @@ a.bg-dark {
 
 /* ----------------------------------------------- */
 
-/* Nav bar */
+/* Sidebar */
 
+.img-profile{
+    height: 30px;
+    width: 30px;
+}
 
+.topbar-divider{
+    border-left: 2px solid rgb(204, 203, 203);
+    height: 40px;
+}
 
-/* ----------------------------------------------- */
+.fas{
+    color: rgb(204, 203, 203);
+}
