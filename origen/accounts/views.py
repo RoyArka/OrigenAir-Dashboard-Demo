@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
+from django.http import JsonResponse
 
 from . import forms
 
@@ -13,3 +14,10 @@ class SignUp(CreateView):
 class Login(CreateView):
     form_class = forms.PersonCreateForm
     template_name = 'accounts/login.html'
+
+def get_data(request, *args, **kwargs):
+    data = {
+        "sales": 100,
+        "customers": 10,
+    }
+    return JsonResponse(data) # http response  
