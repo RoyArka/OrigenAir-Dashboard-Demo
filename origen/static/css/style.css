@@ -4,6 +4,14 @@
 
 /* ----------------------------------------------- */
 
+/* PAGE */
+
+body {
+    overflow-y: hidden;
+}
+
+/* ----------------------------------------------- */
+
 /* SIDEBAR */
 
 #body-row {
@@ -19,7 +27,7 @@
 }
 
 .sidebar-expanded {
-    width: 230px;
+    width: 230px;;
 }
 
 .sidebar-collapsed {
@@ -27,7 +35,7 @@
     /* width: 100px; */
 }
 
-/* ----------| Menu item*/    
+/* ----------| Menu item*/
 #sidebar-container .list-group a {
     height: 50px;
     color: white;
@@ -91,58 +99,11 @@ a.bg-dark {
 
 /* ----------------------------------------------- */
 
-/* CONTENT GRID VERSON 1 TEST */
+/* MAIN CONTENT */
 
-.contentwrapper{
-    display:grid;
-    grid-template-columns: 70% 30%;
-    grid-column-gap:1em;
-    grid-row-gap:1em;
+.container {
+    height: 100vh;
+    overflow: auto;
 }
-
-.contentwrapper > div{
-    background:#eee;
-    padding:1em;
-
-}
-
-.contentwrapper > div:nth-child(odd){
-    background:#ddd;
-}
-
-/*CONTENT GRID VERSION 2 TEST */
-
-.contentwrapperV2{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap:1em;
-    grid-row-gap:1em;
-    grid-auto-rows: minmax(100px, auto);
-}
-
-.nested{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    grid-auto-rows: 70px;
-    grid-gap:1em;
-}
-
-.contentwrapperV2 > div{
-    background: lightskyblue;
-    padding:1em;
-
-}
-
-.contentwrapperV2 > div:nth-child(odd){
-    background:orange;
-}
-
-.nested > div{
-    border:#333 1px solid;
-    padding:1em;
-}
-
-
-
 
 /* ----------------------------------------------- */
