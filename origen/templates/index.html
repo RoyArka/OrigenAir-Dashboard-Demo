@@ -1,22 +1,12 @@
 {% extends "base.html" %}
-
-<script>
-var endpoint = '/api/data/' // {% url "api-data" %}
-
-$.ajax({
-    method: "GET",
-    url: endpoint,
-    success: function(data){
-        console.log(data)
-    },
-    error: function(error_data){
-        console.log("error")
-        console.log(data)
-    }
-})
-
-</script>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 {% block content %}
-
+<div class="container">
+    <canvas id="myCharts"></canvas>
+</div>
 {% endblock %}
+
+<!-- Charts Javascript -->
+<script src="../static/js/charts.js"></script>
