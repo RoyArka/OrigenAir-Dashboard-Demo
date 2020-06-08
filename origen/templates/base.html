@@ -8,7 +8,8 @@
   <title>OrigenAir Dashboard</title>
 
   <!-- Front Awesome Used in Top Bar-->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css"
+    integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous">
 
   <!-- Bootstrap CDN -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -17,10 +18,10 @@
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
     integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
-  </script>
+    </script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
     integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
-  </script>
+    </script>
 
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -31,153 +32,178 @@
 </head>
 
 <body>
-  <main>
-    <!-- Sidebar -->
-    <div class="container-fluid p-0">
+  <main class="container-fluid p-0">
+    <!-- Bootstrap row -->
+    <div class="row" id="body-row">
+      <!-- SIDEBAR -->
+      <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+        <!-- d-* hides the Sidebar in smaller devices. Its items can be kept on the Navbar 'Menu' -->
 
-      <!-- Bootstrap row -->
-      <div class="row" id="body-row">
-        <!-- Sidebar -->
-        <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
-          <!-- d-* hides the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
-          <!-- Bootstrap List Group -->
-          <ul class="list-group">
-            <!-- Separator with title -->
-            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-              <small>MAIN MENU</small>
-            </li>
-            <!-- /END Separator -->
-            <!-- Menu with submenu -->
-            <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
-              class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-star fa-fw mr-3"></span>
-                <span class="menu-collapsed">Dashboard</span>
-                <span class="submenu-icon ml-auto"></span>
-              </div>
-            </a>
-            <!-- Submenu content -->
-            <div id='submenu1' class="collapse sidebar-submenu">
-              <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Charts</span>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Reports</span>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Tables</span>
-              </a>
+        <!-- SIDEBAR Menu -->
+        <ul class="list-group">
+          <!-- Separator with title -->
+          <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+            <small>MAIN MENU</small>
+          </li>
+          <!-- /END Separator -->
+
+          <!-- DASHBOARD -->
+          <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
+            class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+              <span class="fa fa-star fa-fw mr-3"></span>
+              <span class="menu-collapsed">Dashboard</span>
+              <span class="submenu-icon ml-auto"></span>
             </div>
-            <a href="#submenu2" data-toggle="collapse" aria-expanded="false"
-              class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-user fa-fw mr-3"></span>
-                <span class="menu-collapsed">Profile</span>
-                <span class="submenu-icon ml-auto"></span>
-              </div>
+          </a>
+          <!-- DASHBOARD Submenu -->
+          <div id='submenu1' class="collapse sidebar-submenu">
+            <a href="/" class="list-group-item list-group-item-action bg-dark text-white">
+              <span class="menu-collapsed">Charts</span>
             </a>
-            <!-- Submenu content -->
-            <div id='submenu2' class="collapse sidebar-submenu">
-              <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Settings</span>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Password</span>
-              </a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+              <span class="menu-collapsed">Reports</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+              <span class="menu-collapsed">Tables</span>
+            </a>
+          </div>
+          <!-- /END DASHBOARD -->
+
+          <!-- PROFILE -->
+          <a href="#submenu2" data-toggle="collapse" aria-expanded="false"
+            class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+              <span class="fa fa-user fa-fw mr-3"></span>
+              <span class="menu-collapsed">Profile</span>
+              <span class="submenu-icon ml-auto"></span>
             </div>
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-tasks fa-fw mr-3"></span>
-                <span class="menu-collapsed">Tasks</span>
-              </div>
+          </a>
+          <!-- PROFILE Submenu -->
+          <div id='submenu2' class="collapse sidebar-submenu">
+            <a href="accounts/signup" class="list-group-item list-group-item-action bg-dark text-white">
+              <span class="menu-collapsed">Settings</span>
             </a>
-            <!-- Separator with title -->
-            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-              <small>OPTIONS</small>
-            </li>
-            <!-- /END Separator -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-calendar fa-fw mr-3"></span>
-                <span class="menu-collapsed">Calendar</span>
-              </div>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+              <span class="menu-collapsed">Password</span>
             </a>
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-paper-plane fa-fw mr-3"></span>
-                <span class="menu-collapsed">Messages<span class="badge badge-pill badge-primary ml-2">5</span></span>
-              </div>
-            </a>
-            <!-- Separator without title -->
-            <li class="list-group-item sidebar-separator menu-collapsed"></li>
-            <!-- /END Separator -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-question fa-fw mr-3"></span>
-                <span class="menu-collapsed">Help</span>
-              </div>
-            </a>
-            <a href="#" data-toggle="sidebar-colapse"
-              class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
-              <div class="d-flex w-100 justify-content-start align-items-center">
-                <span id="collapse-icon" class="fa fa-2x mr-3"></span>
-                <span id="collapse-text" class="menu-collapsed">Collapse</span>
-              </div>
-            </a>
-          </ul><!-- List Group END-->
-        </div><!-- sidebar-container END -->
+          </div>
+          <!-- /END PROFILE -->
 
-        <!-- MAIN -->
-        <div class="col">
+          <!-- TASKS -->
+          <a href="#" class="bg-dark list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+              <span class="fa fa-tasks fa-fw mr-3"></span>
+              <span class="menu-collapsed">Tasks</span>
+            </div>
+          </a>
+          <!-- /END TASKS -->
 
-          <!--TOP BAR BEGINNING -->
-          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-            <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+          <!-- Separator with title -->
+          <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+            <small>OPTIONS</small>
+          </li>
+          <!-- /END Separator -->
 
-            <!-- Top Bar Search Bar Section-->
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-              <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                  aria-label="Search" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary" type="button">
-                    <i class="fas fa-search fa-sm"></i>
-                  </button>
-                </div>
+          <!-- CALENDAR -->
+          <a href="#" class="bg-dark list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+              <span class="fa fa-calendar fa-fw mr-3"></span>
+              <span class="menu-collapsed">Calendar</span>
+            </div>
+          </a>
+          <!-- /END CALENDAR -->
+
+          <!-- MESSAGES -->
+          <a href="#" class="bg-dark list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+              <span class="fa fa-paper-plane fa-fw mr-3"></span>
+              <span class="menu-collapsed">Messages<span class="badge badge-pill badge-primary ml-2">5</span></span>
+            </div>
+          </a>
+          <!-- /END MESSAGES -->
+
+          <!-- Separator without title -->
+          <li class="list-group-item sidebar-separator menu-collapsed"></li>
+          <!-- /END Separator -->
+
+          <!-- HELP -->
+          <a href="#" class="bg-dark list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+              <span class="fa fa-question fa-fw mr-3"></span>
+              <span class="menu-collapsed">Help</span>
+            </div>
+          </a>
+          <!-- /END HELP -->
+
+          <!-- COLLAPSE -->
+          <a href="#" data-toggle="sidebar-colapse"
+            class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+              <span id="collapse-icon" class="fa fa-2x mr-3"></span>
+              <span id="collapse-text" class="menu-collapsed">Collapse</span>
+            </div>
+          </a>
+          <!-- /END COLLAPSE -->
+        </ul>
+        <!-- /END SIDEBAR Menu -->
+      </div>
+      <!-- /END SIDEBAR Container -->
+
+      <!-- Bootstrap column -->
+      <div class="col">
+        <!-- TOP BAR -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <!-- SEARCH BAR -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
               </div>
-            </form>
+            </div>
+          </form>
+          <!-- /END SEARCH BAR -->
 
-            <!-- Top Bar Profile Notification Section -->
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown no-arrow mx-1">
-                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-bell fa-fw"></i>
-                  <!-- Counter - Alerts -->
-                  <span class="badge badge-danger badge-counter">10+</span>
-                </a>
-              </li>
-              <!-- Verticle Line Spacing -->
-              <div class="topbar-divider d-none d-sm-block"></div>
-              <!-- User Profile Section -->
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+          <!-- NOTIFICATION / USER PROFILE -->
+          <ul class="navbar-nav ml-auto">
+            <!-- NOTIFICATION -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Keanu Reeves</span>
-                <img class="img-profile rounded-circle"
-                  src="https://www.irishtimes.com/polopoly_fs/1.3899578.1558445909!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Alerts -->
+                <span class="badge badge-danger badge-counter">10+</span>
               </a>
-            </ul>
-          </nav>
-          <!--END OF TOP BAR -->
-          <!-- Main Content -->
-            {% block content %}
-            {% endblock %}
+            </li>
+            <!-- /END NOTIFICATION -->
 
-        </div><!-- Main Col END -->
+            <!-- Verticle Line Spacing -->
+            <div class="topbar-divider d-none d-sm-block"></div>
 
-      </div><!-- body-row END -->
+            <!-- USER PROFILE -->
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Keanu Reeves</span>
+              <img class="img-profile rounded-circle"
+                src="https://www.irishtimes.com/polopoly_fs/1.3899578.1558445909!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg">
+            </a>
+            <!-- /END USER PROFILE -->
+          </ul>
+          <!-- /END NOTIFICATION / USER PROFILE -->
+        </nav>
+        <!-- /END TOP BAR -->
 
-    </div><!-- container -->
+        <!-- Main Content -->
+        {% block content %}
+        {% endblock %}
+      </div>
+      <!-- /END Bootstrap column -->
+    </div>
+    <!-- /END Bootstrap row -->
   </main>
 
   <!-- Javascript -->
@@ -185,16 +211,16 @@
   <!-- Bootstrap CDN -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-  </script>
+    </script>
 
-  <!-- Sidebar Javascript -->
-  <script src="../static/js/sidebar.js"></script>
-  
   <!-- Chart.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
   <!-- Charts Javascript -->
   <script src="../static/js/charts.js"></script>
+
+  <!-- Sidebar Javascript -->
+  <script src="../static/js/sidebar.js"></script>
 </body>
 
 </html>
