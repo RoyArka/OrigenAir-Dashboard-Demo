@@ -101,9 +101,10 @@ a.bg-dark {
 
 /* MAIN CONTENT */
 
-.container {
+.main-container {
     height: 100vh;
-    overflow: auto;
+    overflow-y: auto;
+    padding: 15px;
 }
 
 /* ----------------------------------------------- */
