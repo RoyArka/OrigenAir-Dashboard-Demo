@@ -4,6 +4,14 @@
 
 /* ----------------------------------------------- */
 
+/* PAGE */
+
+body {
+    overflow-y: hidden;
+}
+
+/* ----------------------------------------------- */
+
 /* SIDEBAR */
 
 #body-row {
@@ -19,7 +27,7 @@
 }
 
 .sidebar-expanded {
-    width: 230px;
+    width: 230px;;
 }
 
 .sidebar-collapsed {
@@ -27,7 +35,7 @@
     /* width: 100px; */
 }
 
-/* ----------| Menu item*/    
+/* ----------| Menu item*/
 #sidebar-container .list-group a {
     height: 50px;
     color: white;
@@ -87,6 +95,15 @@ a.bg-dark {
 .topbar-divider{
     border-left: 2px solid rgb(204, 203, 203);
     height: 40px;
+}
+
+/* ----------------------------------------------- */
+
+/* MAIN CONTENT */
+
+.container {
+    height: 100vh;
+    overflow: auto;
 }
 
 /* ----------------------------------------------- */
