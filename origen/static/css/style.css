@@ -19,9 +19,14 @@ body {
     margin-right: 0;
 }
 
+#logo-space {
+    background-color: rgb(27, 154, 75);
+}
+
 #sidebar-container {
     min-height: 100vh;
-    background-color: #132644;
+    background-color: rgb(27, 154, 75);
+    /* background-color: #132644; */
     padding: 0;
     /* flex: unset; */
 }
@@ -43,7 +48,8 @@ body {
 
 /* ----------| Submenu item*/    
 #sidebar-container .list-group li.list-group-item {
-    background-color: #132644;
+    background-color: rgb(27, 154, 75);
+    /* background-color: #132644; */
 }
 
 #sidebar-container .list-group .sidebar-submenu a {
@@ -57,27 +63,35 @@ body {
 
 /* ----------| Separators */    
 .sidebar-separator-title {
-    background-color: #132644;
+    background-color: rgb(27, 154, 75);
+    /* background-color: #132644; */
     height: 35px;
 }
 
 .sidebar-separator {
-    background-color: #132644;
+    background-color: rgb(27, 154, 75);
+    /* background-color: #132644; */
     height: 25px;
 }
 
 .logo-separator {
-    background-color: #132644;
+    background-color: rgb(27, 154, 75);
+    /* background-color: #132644; */
     height: 60px;
 }
 
-a.bg-dark {
-    background-color: #132644 !important;
+a.bg-success {
+    background-color: rgb(27, 154, 75) !important;
+    /* background-color: #132644 !important; */
 }
 
 /* ----------------------------------------------- */
 
 /* TOP BAR */
+
+.btn-success {
+    background-color: rgb(27, 154, 75) !important;
+}
 
 .col {
     padding: 0px;
@@ -108,6 +122,7 @@ a.bg-dark {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .nested{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
@@ -131,6 +146,5 @@ a.bg-dark {
 }
 
 
-=======
->>>>>>> 81299123179978a8626928ea0de4d78ea835935e
 /* ----------------------------------------------- */
+
