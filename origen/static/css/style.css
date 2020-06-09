@@ -4,14 +4,6 @@
 
 /* ----------------------------------------------- */
 
-/* PAGE */
-
-body {
-    overflow-y: hidden;
-}
-
-/* ----------------------------------------------- */
-
 /* SIDEBAR */
 
 #body-row {
@@ -27,7 +19,7 @@ body {
 }
 
 .sidebar-expanded {
-    width: 230px;;
+    width: 230px;
 }
 
 .sidebar-collapsed {
@@ -35,7 +27,7 @@ body {
     /* width: 100px; */
 }
 
-/* ----------| Menu item*/
+/* ----------| Menu item*/    
 #sidebar-container .list-group a {
     height: 50px;
     color: white;
@@ -99,15 +91,35 @@ a.bg-dark {
 
 /* ----------------------------------------------- */
 
-/* MAIN CONTENT */
+/* CONTENT GRID VERSON 1 TEST */
 
-.main-container {
-    height: 100vh;
-    overflow-y: auto;
-    padding: 15px;
+.contentwrapper{
+    display:grid;
+    grid-template-columns: 70% 30%;
+    grid-column-gap:1em;
+    grid-row-gap:1em;
 }
 
-<<<<<<< HEAD
+.contentwrapper > div{
+    background:#eee;
+    padding:1em;
+
+}
+
+.contentwrapper > div:nth-child(odd){
+    background:#ddd;
+}
+
+/*CONTENT GRID VERSION 2 TEST */
+
+.contentwrapperV2{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap:1em;
+    grid-row-gap:1em;
+    grid-auto-rows: minmax(100px, auto);
+}
+
 .nested{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
@@ -130,7 +142,4 @@ a.bg-dark {
     padding:1em;
 }
 
-
-=======
->>>>>>> 81299123179978a8626928ea0de4d78ea835935e
 /* ----------------------------------------------- */
