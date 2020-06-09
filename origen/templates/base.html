@@ -41,15 +41,23 @@
 
         <!-- SIDEBAR Menu -->
         <ul class="list-group">
+
+          <!-- LOGO -->
+          <div class="d-flex w-100 justify-content-start align-items-center" id="logo-space">
+            <img id="logo" src="../static/img/logo2.png" width="60">
+            <img id="logo-expanded" src="../static/img/logo1.5.png" width="150">
+          </div>
+          <!-- /END LOGO -->
+
           <!-- Separator with title -->
-          <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+          <li class="list-group-item sidebar-separator-title text-white d-flex align-items-center menu-collapsed">
             <small>MAIN MENU</small>
           </li>
           <!-- /END Separator -->
 
           <!-- DASHBOARD -->
           <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
-            class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+            class="bg-success list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-start align-items-center">
               <span class="fa fa-star fa-fw mr-3"></span>
               <span class="menu-collapsed">Dashboard</span>
@@ -58,13 +66,13 @@
           </a>
           <!-- DASHBOARD Submenu -->
           <div id='submenu1' class="collapse sidebar-submenu">
-            <a href="/" class="list-group-item list-group-item-action bg-dark text-white">
+            <a href="/" class="list-group-item list-group-item-action bg-success text-white">
               <span class="menu-collapsed">Charts</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+            <a href="#" class="list-group-item list-group-item-action bg-success text-white">
               <span class="menu-collapsed">Reports</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+            <a href="#" class="list-group-item list-group-item-action bg-success text-white">
               <span class="menu-collapsed">Tables</span>
             </a>
           </div>
@@ -72,7 +80,7 @@
 
           <!-- PROFILE -->
           <a href="#submenu2" data-toggle="collapse" aria-expanded="false"
-            class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+            class="bg-success list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-start align-items-center">
               <span class="fa fa-user fa-fw mr-3"></span>
               <span class="menu-collapsed">Profile</span>
@@ -81,17 +89,17 @@
           </a>
           <!-- PROFILE Submenu -->
           <div id='submenu2' class="collapse sidebar-submenu">
-            <a href="accounts/signup" class="list-group-item list-group-item-action bg-dark text-white">
+            <a href="accounts/signup" class="list-group-item list-group-item-action bg-success text-white">
               <span class="menu-collapsed">Settings</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+            <a href="#" class="list-group-item list-group-item-action bg-success text-white">
               <span class="menu-collapsed">Password</span>
             </a>
           </div>
           <!-- /END PROFILE -->
 
           <!-- TASKS -->
-          <a href="#" class="bg-dark list-group-item list-group-item-action">
+          <a href="#" class="bg-success list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
               <span class="fa fa-tasks fa-fw mr-3"></span>
               <span class="menu-collapsed">Tasks</span>
@@ -100,13 +108,13 @@
           <!-- /END TASKS -->
 
           <!-- Separator with title -->
-          <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+          <li class="list-group-item sidebar-separator-title text-white d-flex align-items-center menu-collapsed">
             <small>OPTIONS</small>
           </li>
           <!-- /END Separator -->
 
           <!-- CALENDAR -->
-          <a href="#" class="bg-dark list-group-item list-group-item-action">
+          <a href="#" class="bg-success list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
               <span class="fa fa-calendar fa-fw mr-3"></span>
               <span class="menu-collapsed">Calendar</span>
@@ -115,7 +123,7 @@
           <!-- /END CALENDAR -->
 
           <!-- MESSAGES -->
-          <a href="#" class="bg-dark list-group-item list-group-item-action">
+          <a href="#" class="bg-success list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
               <span class="fa fa-paper-plane fa-fw mr-3"></span>
               <span class="menu-collapsed">Messages<span class="badge badge-pill badge-primary ml-2">5</span></span>
@@ -128,7 +136,7 @@
           <!-- /END Separator -->
 
           <!-- HELP -->
-          <a href="#" class="bg-dark list-group-item list-group-item-action">
+          <a href="#" class="bg-success list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
               <span class="fa fa-question fa-fw mr-3"></span>
               <span class="menu-collapsed">Help</span>
@@ -138,7 +146,7 @@
 
           <!-- COLLAPSE -->
           <a href="#" data-toggle="sidebar-colapse"
-            class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
+            class="bg-success list-group-item list-group-item-action d-flex align-items-center">
             <div class="d-flex w-100 justify-content-start align-items-center">
               <span id="collapse-icon" class="fa fa-2x mr-3"></span>
               <span id="collapse-text" class="menu-collapsed">Collapse</span>
@@ -160,7 +168,7 @@
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                 aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-success" type="button">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
