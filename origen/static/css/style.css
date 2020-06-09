@@ -97,31 +97,10 @@ a.bg-dark {
 
 /* CONTENT GRID VERSON 1 TEST */
 
-.contentwrapper{
-    display:grid;
-    grid-template-columns: 70% 30%;
-    grid-column-gap:1em;
-    grid-row-gap:1em;
-}
-
-.contentwrapper > div{
-    background:#eee;
-    padding:1em;
-
-}
-
-.contentwrapper > div:nth-child(odd){
-    background:#ddd;
-}
-
-/*CONTENT GRID VERSION 2 TEST */
-
-.contentwrapperV2{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap:1em;
-    grid-row-gap:1em;
-    grid-auto-rows: minmax(100px, auto);
+.main-container {
+    height: 90vh;
+    overflow-y: auto;
+    padding: 15px;
 }
 
 .nested{
