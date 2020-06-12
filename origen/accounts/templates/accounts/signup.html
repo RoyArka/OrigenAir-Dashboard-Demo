@@ -1,11 +1,11 @@
 {% extends "baseLogin.html" %}
 
 {% block content %}
-
+{% load static %}
 <div class="loginContainer">
 
     <div class="pic">
-        <img class="homePic" src="../../static/img/login.png">
+        <img class="homePic" src="{% static 'img/login.png' %}">
     </div>
 
     <div class="homeInfo">
