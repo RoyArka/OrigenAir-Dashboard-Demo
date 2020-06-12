@@ -26,7 +26,6 @@ body {
 #sidebar-container {
     min-height: 100vh;
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
     padding: 0;
     /* flex: unset; */
 }
@@ -49,7 +48,6 @@ body {
 /* ----------| Submenu item*/    
 #sidebar-container .list-group li.list-group-item {
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
 }
 
 #sidebar-container .list-group .sidebar-submenu a {
@@ -64,25 +62,21 @@ body {
 /* ----------| Separators */    
 .sidebar-separator-title {
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
     height: 35px;
 }
 
 .sidebar-separator {
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
     height: 25px;
 }
 
 .logo-separator {
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
     height: 60px;
 }
 
 a.bg-success {
     background-color: rgb(27, 154, 75) !important;
-    /* background-color: #132644 !important; */
 }
 
 /* ----------------------------------------------- */
