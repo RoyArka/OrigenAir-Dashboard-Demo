@@ -26,13 +26,12 @@ body {
 #sidebar-container {
     min-height: 100vh;
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
     padding: 0;
     /* flex: unset; */
 }
 
 .sidebar-expanded {
-    width: 230px;;
+    width: 230px;
 }
 
 .sidebar-collapsed {
@@ -49,7 +48,6 @@ body {
 /* ----------| Submenu item*/    
 #sidebar-container .list-group li.list-group-item {
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
 }
 
 #sidebar-container .list-group .sidebar-submenu a {
@@ -64,25 +62,21 @@ body {
 /* ----------| Separators */    
 .sidebar-separator-title {
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
     height: 35px;
 }
 
 .sidebar-separator {
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
     height: 25px;
 }
 
 .logo-separator {
     background-color: rgb(27, 154, 75);
-    /* background-color: #132644; */
     height: 60px;
 }
 
 a.bg-success {
     background-color: rgb(27, 154, 75) !important;
-    /* background-color: #132644 !important; */
 }
 
 /* ----------------------------------------------- */
@@ -143,12 +137,13 @@ a.bg-success {
     padding:1em;
 }
 
+<<<<<<< HEAD
 
 /* ----------------------------------------------- */
 
 
 /* Login/Signup page */
-
+/*
 body#loginPage {
     margin: 0;
     background-color: #f3f2f2;
@@ -258,3 +253,6 @@ div#loginDiv {
 div#signupDiv {
     margin-top: 10%;
 }
+*/
+/* ----------------------------------------------- */
+/*>>>>>>> aaa130cdb2bb7a7ac7950dc09615255fd0df3ef1*/

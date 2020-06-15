@@ -1,71 +1,75 @@
 {% extends "baseLogin.html" %}
 
 {% block content %}
-
+{% load static %}
 <div class="loginContainer">
 
     <div class="pic">
-        <img class="homePic" src="../../static/img/login.png">
+        <img class="homePic" src="{% static 'img/plant.jpeg' %}">
     </div>
 
     <div class="homeInfo">
 
-        <h1><span class="h1color">OrigenAir</span> Sign Up</h1>
+        <h1><span class="h1color">OrigenAir</span> SignUp</h1>
         <h3 id="sigupTxt">Welcome New User!</h3>
 
+    </div>
 
+    <div id="signupDiv">
 
-        <div id="signupDiv">
             <div class="icons">
-                <img class="iconPic" src="../../static/img/email.png"> <br>
-                <img class="iconPic" src="../../static/img/lock1.png"> <br>
-                <img class="iconPic" src="../../static/img/email.png"> <br>
-                <img class="iconPic" src="../../static/img/lock1.png"> <br>
-                <img class="iconPic" src="../../static/img/email.png"> <br>
-                <img class="iconPic" src="../../static/img/lock1.png"> <br>
+                <i class="fas fa-user"></i><br>
+                <i class="fas fa-user"></i><br>
+                <i class="fas fa-user"></i><br>
+                <i class="fas fa-user"></i><br>
+                <i class="fas fa-user"></i><br>
+                <i class="fas fa-user"></i>
             </div>
 
-            <form method="post">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
+            <div class="inputs">
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
 
                     <div class="form-group">
-                      {{form.first_name.errors}}
-                      {{form.first_name}}
+                        {{form.first_name.errors}}
+                        {{form.first_name}}
                     </div>
 
                     <div class="form-group">
-                      {{form.last_name.errors}}
-                      {{form.last_name}}
+                        {{form.last_name.errors}}
+                        {{form.last_name}}
                     </div>
 
                     <div class="form-group">
-                      {{form.username.errors}}
-                      {{form.username}}
+                        {{form.username.errors}}
+                        {{form.username}}
                     </div>
 
                     <div class="form-group">
-                      {{form.email.errors}}
-                      {{form.email}}
+                        {{form.email.errors}}
+                        {{form.email}}
                     </div>
 
                     <div class="form-group">
-                      {{form.password1.errors}}
-                      {{form.password1}}
+                        {{form.password1.errors}}
+                        {{form.password1}}
                     </div>
 
                     <div class="form-group mt-4">
-                      {{form.password2.errors}}
-                      {{form.password2}}
+                        {{form.password2.errors}}
+                        {{form.password2}}
                     </div>
-                <input type="submit" class="btn btn-default" value="Sign Up">
-            </form>
-        </div>
-    </div>
+                    <input type="submit" class="btn btn-default" value="Sign Up"><br>
+                </form>
 
-    <a class="homeLink" href="../login">Login</a>
+                <a class="homeLink" href="../login">Login</a>
+            </div>
+
+        </div>
+
 
 
 </div>
-
 {% endblock %}

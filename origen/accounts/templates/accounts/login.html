@@ -1,25 +1,27 @@
 {% extends "baseLogin.html" %}
 
 {% block content %}
+{% load static %}
+<div class="loginContainer">
 
-    <div class="loginContainer">
+    <div class="pic">
+        <img class="homePic" src="{% static 'img/plant.jpeg' %}">
+    </div>
 
-        <div class="pic">
-            <img class="homePic" src="../../static/img/login.png">
-        </div>
+    <div class="homeInfo">
 
-        <div class="homeInfo">
+        <h1><span class="h1color">OrigenAir</span> Login</h1>
+        <h3 id="loginTxt">Welcome Back! Login to your <br>account to view today's <br>Information:</h3>
 
-            <h1><span class="h1color">OrigenAir</span> Login</h1>
-            <h3 id="loginTxt">Welcome Back! Login to your <br>account to view today's <br>Information:</h3>
+    </div>
 
+    <div id="loginDiv">
+            <div class="icons">
+                <i class="fas fa-user"></i> <br>
+                <i class="fas fa-user"></i>
+            </div>
 
-            <div id="loginDiv">
-                <div class="icons">
-                    <img class="iconPic" src="../../static/img/email.png"> <br>
-                    <img class="iconPic" src="../../static/img/lock1.png">
-                </div>
-
+            <div class="inputs">
 
                 <form method="post">
                     {% csrf_token %}
@@ -39,12 +41,12 @@
                     <input type="submit" class="btn btn-default" value="Login"><br>
 
                 </form>
+
+                <a class="homeLink" href="../signup">Signup</a>
             </div>
 
-            <a class="homeLink" href="../signup">Signup</a>
+        </div>
 
-         </div>
-
-    </div>
+</div>
 
 {% endblock %}
