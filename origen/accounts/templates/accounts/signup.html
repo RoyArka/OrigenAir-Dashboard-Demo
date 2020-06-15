@@ -15,6 +15,12 @@
 
                 <!-- CONTENT -->
                 <div class="card-body">
+                    
+                    <!--LOGO IMAGE-->
+                    <div class="text-center">
+                        <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
+                    </div>
+
                     <h5 class="card-title text-center">Register</h5>
                     <form class="form-signin">
                         
@@ -74,9 +80,9 @@
 
                         <!-- BUTTONS -->
                         <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Register</button>
-                        <a class="d-block text-center mt-2 small" href="../login">Log In</a>
+                        <a class="d-block text-center mt-2 small" href="{% url 'accounts:login' %}">Log In</a>
                         <div class="text-center">
-                            <a class="small" href="../../">Home</a>
+                            <a class="small" href="{% url 'home' %}">Home</a>
                         </div>
                         <!-- /END BUTTONS -->
                     </form>
