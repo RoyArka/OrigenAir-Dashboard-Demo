@@ -3,67 +3,51 @@
 {% block content %}
 {% load static %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-xl-9 mx-auto">
-            <div class="card card-signin flex-row my-5">
-                <!-- IMAGE -->
-                <div class="card-img-left d-none d-md-flex">
-                    <!-- Background image for card set in CSS! -->
-                </div>
-                <!-- /END IMAGE -->
-
-                <!-- CONTENT -->
-                <div class="card-body">
-                    <!-- CLOSE BUTTON -->
-                    <div class="text-right">
-                        <a class="large" href="{% url 'home' %}"><i class="fas fa-times"></i></a>
-                    </div>
-                    <!-- /END CLOSE BUTTON -->
-
-                    <!--LOGO IMAGE-->
-                    <div class="text-center">
-                        <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
-                    </div>
-                    <!-- /END LOGO IMAGE -->
-
-                    <h3 class="card-title text-center">Welcome back!</h3>
-                    <form method="post">
-
-                        <!-- EMAIL ADDRESS -->
-                        <div class="form-label-group">
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                required autofocus>
-                            <label for="inputEmail">Email address</label>
-                        </div>
-                        <!-- /END EMAIL ADDRESS -->
-
-                        <!-- PASSWORD -->
-                        <div class="form-label-group">
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password"
-                                required>
-                            <label for="inputPassword">Password</label>
-                        </div>
-                        <!-- /END PASSWORD -->
-
-                        <hr class="my-4">
-
-                        <!-- BUTTONS -->
-                        <button class="btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"
-                            type="submit">Sign in</button>
-                        <div class="text-center">
-                            <a class="small" href="#">Forgot password?</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="{% url 'accounts:signup' %}">Register</a>
-                        </div>
-                        <!-- /END BUTTONS -->
-                    </form>
-                </div>
-                <!-- /END CONTENT -->
-            </div>
-        </div>
+<!-- CONTENT -->
+<div class="card-body">
+    <!-- CLOSE BUTTON -->
+    <div class="text-right">
+        <a class="large" href="{% url 'home' %}"><i class="fas fa-times"></i></a>
     </div>
+    <!-- /END CLOSE BUTTON -->
+
+    <!--LOGO IMAGE-->
+    <div class="text-center">
+        <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
+    </div>
+    <!-- /END LOGO IMAGE -->
+
+    <h3 class="card-title text-center">Welcome back!</h3>
+    <form method="post">
+
+        <!-- EMAIL ADDRESS -->
+        <div class="form-label-group">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputEmail">Email address</label>
+        </div>
+        <!-- /END EMAIL ADDRESS -->
+
+        <!-- PASSWORD -->
+        <div class="form-label-group">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <label for="inputPassword">Password</label>
+        </div>
+        <!-- /END PASSWORD -->
+
+        <hr class="my-4">
+
+        <!-- BUTTONS -->
+        <button class="btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"
+            type="submit">Sign in</button>
+        <div class="text-center">
+            <a class="small" href="#">Forgot password?</a>
+        </div>
+        <div class="text-center">
+            <a class="small" href="{% url 'accounts:signup' %}">Register</a>
+        </div>
+        <!-- /END BUTTONS -->
+    </form>
 </div>
+<!-- /END CONTENT -->
 
 {% endblock %}
