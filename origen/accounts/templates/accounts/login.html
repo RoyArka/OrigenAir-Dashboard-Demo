@@ -15,11 +15,17 @@
 
                 <!-- CONTENT -->
                 <div class="card-body">
+                    <!-- CLOSE BUTTON -->
+                    <div class="text-right">
+                        <a class="large" href="{% url 'home' %}"><i class="fas fa-times"></i></a>
+                    </div>
+                    <!-- /END CLOSE BUTTON -->
 
                     <!--LOGO IMAGE-->
                     <div class="text-center">
                         <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
                     </div>
+                    <!-- /END LOGO IMAGE -->
 
                     <h3 class="card-title text-center">Welcome back!</h3>
                     <form method="post">
@@ -50,9 +56,6 @@
                         </div>
                         <div class="text-center">
                             <a class="small" href="{% url 'accounts:signup' %}">Register</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="{% url 'home' %}">Home</a>
                         </div>
                         <!-- /END BUTTONS -->
                     </form>

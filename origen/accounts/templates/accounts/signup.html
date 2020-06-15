@@ -15,11 +15,17 @@
 
                 <!-- CONTENT -->
                 <div class="card-body">
+                    <!-- CLOSE BUTTON -->
+                    <div class="text-right">
+                        <a class="large" href="{% url 'home' %}"><i class="fas fa-times"></i></a>
+                    </div>
+                    <!-- /END CLOSE BUTTON -->
                     
                     <!--LOGO IMAGE-->
                     <div class="text-center">
                         <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
                     </div>
+                    <!-- /END LOGO IMAGE -->
 
                     <h5 class="card-title text-center">Register</h5>
                     <form class="form-signin">
@@ -81,9 +87,6 @@
                         <!-- BUTTONS -->
                         <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Register</button>
                         <a class="d-block text-center mt-2 small" href="{% url 'accounts:login' %}">Log In</a>
-                        <div class="text-center">
-                            <a class="small" href="{% url 'home' %}">Home</a>
-                        </div>
                         <!-- /END BUTTONS -->
                     </form>
                 </div>
