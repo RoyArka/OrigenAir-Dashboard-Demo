@@ -202,8 +202,8 @@ input.btn.btn-default {
 }
 
 .form-group.mt3 {
-    width: 80%;
     float: right;
+    width: 80%;
 }
 
 .form-group.mt-4 {
@@ -219,7 +219,7 @@ input.btn.btn-default {
 img.iconPic {
     width: 30px;
     height: 30px;
-    padding-top: 60%;
+    padding-top: 85%;
 }
 
 input.form-control {
