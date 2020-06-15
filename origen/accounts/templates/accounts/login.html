@@ -2,48 +2,61 @@
 
 {% block content %}
 {% load static %}
-<div class="loginContainer">
 
-    <div class="pic">
-        <img class="homePic" src="{% static 'img/plant.png' %}">
-    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <!-- IMAGE -->
+                <div class="card-img-left d-none d-md-flex">
+                <!-- Background image for card set in CSS! -->
+                </div>
+                <!-- /END IMAGE -->
 
-    <div class="homeInfo">
+                <!-- CONTENT -->
+                <div class="card-body">
+                    <h3 class="card-title text-center">Welcome back!</h3>
+                    <form method="post">
 
-        <h1><span class="h1color">OrigenAir</span> Login</h1>
-        <h3 id="loginTxt">Welcome Back! Login to your <br>account to view today's <br>Information:</h3>
+                        <!-- EMAIL ADDRESS -->
+                        <div class="form-label-group">
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+                                required autofocus>
+                            <label for="inputEmail">Email address</label>
+                        </div>
+                        <!-- /END EMAIL ADDRESS -->
 
+                        <!-- PASSWORD -->
+                        <div class="form-label-group">
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                                required>
+                            <label for="inputPassword">Password</label>
+                        </div>
+                        <!-- /END PASSWORD -->
 
-        <div id="loginDiv">
-            <div class="icons">
-                <img class="iconPic" src="../../static/img/email.png"> <br>
-                <img class="iconPic" src="../../static/img/lock1.png">
+                        <!-- REMEMBER PASSWORD -->
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Remember password</label>
+                        </div>
+                        <!-- /END REMEMBER PASSWORD -->
+
+                        <!-- BUTTONS -->
+                        <button class="btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"
+                            type="submit">Sign in</button>
+                        <div class="text-center">
+                            <a class="small" href="#">Forgot password?</a>
+                        </div>
+                        <div class="text-center">
+                            <a class="small" href="../signup">Register</a>
+                        </div>
+                        <!-- /END BUTTONS -->
+                    </form>
+                </div>
+                <!-- /END CONTENT -->
             </div>
-
-
-            <form method="post">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
-
-
-                <div class="form-group">
-                    {{form.username.errors}}
-                    {{form.username}}
-                </div>
-
-                <div class="form-group">
-                    {{form.password.errors}}
-                    {{form.password}}
-                </div>
-
-                <input type="submit" class="btn btn-default" value="Login"><br>
-
-            </form>
         </div>
-
-        <a class="homeLink" href="../signup">Signup</a>
-
     </div>
-
 </div>
+
 {% endblock %}
