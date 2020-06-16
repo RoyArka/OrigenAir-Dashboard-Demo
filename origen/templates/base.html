@@ -186,9 +186,8 @@
                     <!-- NOTIFICATION / USER PROFILE -->
                     <ul class="navbar-nav ml-auto">
                         <!-- NOTIFICATION -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item dropdown no-arrow mx-1 topbarnotification">
+                            <a>
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Alerts -->
                                 <span class="badge badge-danger badge-counter">10+</span>
@@ -213,6 +212,24 @@
                             <img class="img-profile rounded-circle"
                                 src="https://www.irishtimes.com/polopoly_fs/1.3899578.1558445909!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg">
                         </a>
+
+                        <!-- Drop Down for Log In/Log Out -->
+                        <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                            <!-- Log In Drop Down -->
+                            {% if user.is_authenticated %}
+                            <a class="dropdown-item" href="#">Something 1</a>
+                            <a class="dropdown-item" href="#">Something 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Log Out</a>
+                            <!-- Log Out Drop Down -->
+                            {% else %}
+                            <a class="dropdown-item" href="#">Something 1</a>
+                            <a class="dropdown-item" href="#">Something 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Log In</a>
+                            {% endif %}
+                        </div>
+                        
                         <!-- /END USER PROFILE -->
                     </ul>
                     <!-- /END NOTIFICATION / USER PROFILE -->
