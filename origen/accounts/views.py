@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView
 from . import forms
 
 # Create your views here.
@@ -19,5 +20,4 @@ class SignUp(CreateView):
 class Login(LoginView):
     form_class = forms.LoginForm
     template_name = 'accounts/login.html'
-
 
