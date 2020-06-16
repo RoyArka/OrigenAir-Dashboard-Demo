@@ -204,13 +204,12 @@
 
                             {% if user.is_authenticated %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.get_full_name}}</span>
-                            {% else %}
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">You need to login!</span>
-                            {% endif %}
-
-
                             <img class="img-profile rounded-circle"
                                 src="https://www.irishtimes.com/polopoly_fs/1.3899578.1558445909!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg">
+                            {% else %}
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">You need to login!</span>
+                            <img class="img-profile rounded-circle" src="{% static 'img/guestProfile.png' %}">
+                            {% endif %}                          
                         </a>
 
                         <!-- Drop Down for User Profile is Logged In/Logged Out -->
