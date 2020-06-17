@@ -33,3 +33,38 @@ class PersonCreateForm(UserCreationForm):
         person = Person.objects.create(user=user)
         person.save()
         return user
+
+from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm, PasswordChangeForm
+class MyPasswordResetForm(PasswordResetForm):
+    # email = forms.EmailField(label=_("Email"), max_length=254)
+    # captcha = ReCaptchaField(widget=ReCaptchaV3)
+    def __init__(self, *args, **kwargs):
+        super(MyPasswordResetForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
+            visible.field.widget.attrs['placeholder'] = 'Email Address'
+            visible.field.widget.attrs['autocomplete'] = 'off'
+
+class MySetPasswordForm(SetPasswordForm):
+
+    def __init__(self, *args, **kwargs):
+        super(MySetPasswordForm, self).__init__(*args, **kwargs)
+        for i, visible in enumerate(self.visible_fields()):
+            visible.field.widget.attrs['class'] = 'form-control'
+            visible.field.widget.attrs['placeholder'] = 'New Password'
+            visible.field.widget.attrs['autocomplete'] = 'off'
+            if (i==1):
+                visible.field.widget.attrs['placeholder'] = 'Confirm New Password'
+
+class MyPasswordChangeForm(PasswordChangeForm):
+
+    def __init__(self, *args, **kwargs):
+        super(MyPasswordChangeForm, self).__init__(*args, **kwargs)
+        for i, visible in enumerate(self.visible_fields()):
+            visible.field.widget.attrs['class'] = 'form-control change-password-input'
+            visible.field.widget.attrs['placeholder'] = 'Old Password'
+            visible.field.widget.attrs['autocomplete'] = 'off'
+            if (i==1):
+                visible.field.widget.attrs['placeholder'] = 'New Password'
+            if (i==2):
+                visible.field.widget.attrs['placeholder'] = 'Confirm New Password'
