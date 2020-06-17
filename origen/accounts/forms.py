@@ -7,6 +7,10 @@ class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Username', 'autocomplete': 'off'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'inputPassword','placeholder':'Password'}))
 
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Username', 'autocomplete': 'off'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'inputPassword','placeholder':'Password'}))
+
 class PersonCreateForm(UserCreationForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputFirstName', 'placeholder': 'First Name', 'autocomplete': 'off'}),label='')
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputLastName', 'placeholder': 'Last Name', 'autocomplete': 'off'}),label='')
@@ -54,6 +58,7 @@ class MySetPasswordForm(SetPasswordForm):
     def __init__(self, *args, **kwargs):
         super(MySetPasswordForm, self).__init__(*args, **kwargs)
         for i, visible in enumerate(self.visible_fields()):
+            visible.
             visible.field.widget.attrs['class'] = 'form-control'
             visible.field.widget.attrs['placeholder'] = 'New Password'
             visible.field.widget.attrs['autocomplete'] = 'off'
