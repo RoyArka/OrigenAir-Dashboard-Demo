@@ -5,18 +5,24 @@
 
 <h5 class="card-title text-center">Register</h5>
 
-<form class="form-signin">
+<form method=post class="form-signin">
+    {% csrf_token %}
+    {{form.non_field_errors}}
     
     <!-- FIRST NAME -->
     <div class="form-label-group">
-        <input type="text" id="inputFirstName" class="form-control" placeholder="FirstName" required autofocus>
+        {{form.first_name.errors}}
+        {{form.first_name}}
+        <!-- <input type="text" id="inputFirstName" class="form-control" placeholder="FirstName" required autofocus> -->
         <label for="inputFirstName">First Name</label>
     </div>
     <!-- /END FIRST NAME -->
 
     <!-- LAST NAME -->
     <div class="form-label-group">
-        <input type="text" id="inputLastName" class="form-control" placeholder="LastName" required autofocus>
+        {{form.last_name.errors}}
+        {{form.last_name}}
+        <!-- <input type="text" id="inputLastName" class="form-control" placeholder="LastName" required autofocus> -->
         <label for="inputLastName">Last Name</label>
     </div>
 
@@ -26,14 +32,18 @@
 
     <!-- USERNAME -->
     <div class="form-label-group">
-        <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputUserame">Username</label>
+        {{form.username.errors}}
+        {{form.username}}
+        <!-- <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus> -->
+        <label for="inputUsername">Username</label>
     </div>
     <!-- /END USERNAME -->
 
     <!-- EMAIL ADDRESS -->
     <div class="form-label-group">
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+        {{form.email.errors}}
+        {{form.email}}
+        <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required> -->
         <label for="inputEmail">Email Address</label>
     </div>
     <!-- /END EMAIL ADDRESS -->
@@ -42,14 +52,18 @@
 
     <!-- PASSWORD -->
     <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        {{form.password1.errors}}
+        {{form.password1}}
+        <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
         <label for="inputPassword">Password</label>
     </div>
     <!-- /END PASSWORD -->
 
     <!-- CONFIRM PASSWORD -->
     <div class="form-label-group">
-        <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+        {{form.password2.errors}}
+        {{form.password2}}
+        <!-- <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required> -->
         <label for="inputConfirmPassword">Confirm Password</label>
     </div>
     <!-- /END CONFIRM PASSWORD -->
