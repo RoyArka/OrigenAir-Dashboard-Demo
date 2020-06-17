@@ -139,5 +139,5 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 # REMOVE DURING DEPLOYMENT ONLY FOR TESTING
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackEnd' 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
 
