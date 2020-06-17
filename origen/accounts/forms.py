@@ -8,12 +8,12 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control','placeholder':'Password'}))
 
 class PersonCreateForm(UserCreationForm):
-    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'First Name', 'autocomplete': 'off'}),label='')
-    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Last Name', 'autocomplete': 'off'}),label='')
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Username', 'autocomplete': 'off'}),label='')
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control','placeholder':'Password'}),label='')
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control','placeholder':'Confirm Password'}),label='')
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control','placeholder':'Email', 'autocomplete': 'off'}),label='')
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputFirstName', 'placeholder': 'First Name', 'autocomplete': 'off'}),label='')
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputLastName', 'placeholder': 'Last Name', 'autocomplete': 'off'}),label='')
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Username', 'autocomplete': 'off'}),label='')
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'inputPassword', 'placeholder':'Password'}),label='')
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'inputConfirmPassword', 'placeholder':'Confirm Password'}),label='')
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'id': 'inputEmail', 'placeholder':'Email', 'autocomplete': 'off'}),label='')
 
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
