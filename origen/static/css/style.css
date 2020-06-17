@@ -105,6 +105,59 @@ a.bg-success {
     height: 40px;
 }
 
+.topbarnotification{
+    padding: 10px;
+}
+
+.dropdown-menu{
+    margin-right: 26px;
+}
+
+/* animation for the user profile */
+@media (min-width: 992px) {
+    .animate {
+      animation-duration: 0.3s;
+      -webkit-animation-duration: 0.3s;
+      animation-fill-mode: both;
+      -webkit-animation-fill-mode: both;
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    100% {
+      transform:translateY(0rem);
+      opacity: 1;
+    }
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+  }
+  
+  @-webkit-keyframes slideIn {
+    0% {
+      -webkit-transform: transform;
+      -webkit-opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      -webkit-opacity: 1;
+    }
+    0% {
+      -webkit-transform: translateY(1rem);
+      -webkit-opacity: 0;
+    }
+  }
+  
+  .slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+  }
+
 /* ----------------------------------------------- */
 
 /* MAIN CONTENT */
@@ -136,123 +189,3 @@ a.bg-success {
     border:#333 1px solid;
     padding:1em;
 }
-
-<<<<<<< HEAD
-
-/* ----------------------------------------------- */
-
-
-/* Login/Signup page */
-/*
-body#loginPage {
-    margin: 0;
-    background-color: #f3f2f2;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.loginContainer {
-    background-color: #ffffff;
-    content: "";
-    display: table;
-    clear: both;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width:60%;
-    height:40%;
-}
-
-.pic {
-    float: left;
-    width: 37%;
-}
-
-img.homePic {
-    width: 100%;
-}
-
-.homeInfo {
-    float: left;
-    height: 470px;
-    width: 60%;
-    margin-top: 7%;
-    width: 50%;
-    padding-left: 5%;
-}
-
-input.btn.btn-default {
-    background-color: #a98df1;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 25px;
-    position: absolute;
-    bottom: 15%;
-    right: 5%;
-}
-
-.form-group.mt3 {
-    float: right;
-    width: 80%;
-}
-
-.form-group.mt-4 {
-    float: right;
-    width: 80%;
-}
-
-.icons {
-    float: left;
-    padding-left: 5%;
-}
-
-img.iconPic {
-    width: 30px;
-    height: 30px;
-    padding-top: 85%;
-}
-
-input.form-control {
-    font-size: 25px;
-    border-bottom: 3px solid #8b8c90;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    padding: 3%;
-}
-
-a.homeLink {
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-    color: #b6b6b6;
-}
-
-h1 .h1color {
-    color: #8b8c90;
-}
-
-#loginTxt {
-    color: #8b8c90;
-}
-
-#sigupTxt {
-    color: #8b8c90;
-    font-size: 15px;
-}
-
-div#loginDiv {
-    margin-top: 25%;
-}
-
-div#signupDiv {
-    margin-top: 10%;
-}
-*/
-/* ----------------------------------------------- */
-/*>>>>>>> aaa130cdb2bb7a7ac7950dc09615255fd0df3ef1*/

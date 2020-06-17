@@ -21,10 +21,10 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
-    </script>
+        </script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
-    </script>
+        </script>
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -33,10 +33,40 @@
     <!-- Stylesheet CSS -->
     <link href="{% static 'css/style2.css' %}" rel="stylesheet" type="text/css" media="all" />
 </head>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <!-- IMAGE -->
+                <div class="card-img-left d-none d-md-flex">
+                    <!-- Background image for card set in CSS! -->
+                </div>
+                <!-- /END IMAGE -->
+                <!-- CONTENT -->
+                <div class="card-body">
+                    <!-- CLOSE BUTTON -->
+                    <div class="text-right">
+                        <a class="large" href="{% url 'home' %}" style="color:rgb(27, 154, 75)"><i class="fas fa-times"></i></a>
+                    </div>
+                    <!-- /END CLOSE BUTTON -->
 
-<body>
-    {% block content %}
-    {% endblock %}
-</body>
+                    <!--LOGO IMAGE-->
+                    <div class="text-center">
+                        <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
+                    </div>
+                    <!-- /END LOGO IMAGE -->
+
+                    <!-- CONTENT -->
+
+                    <body>
+                        {% block content %}
+                        {% endblock %}
+                    </body>
+                    <!-- /END CONTENT -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </html>

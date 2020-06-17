@@ -3,63 +3,37 @@
 {% block content %}
 {% load static %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-xl-9 mx-auto">
-            <div class="card card-signin flex-row my-5">
-                <!-- IMAGE -->
-                <div class="card-img-left d-none d-md-flex">
-                <!-- Background image for card set in CSS! -->
-                </div>
-                <!-- /END IMAGE -->
+<h3 class="card-title text-center">Welcome Back!</h3>
 
-                <!-- CONTENT -->
-                <div class="card-body">
-                    <h3 class="card-title text-center">Welcome back!</h3>
-                    <form method="post">
+<form method="post">
 
-                        <!-- EMAIL ADDRESS -->
-                        <div class="form-label-group">
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                required autofocus>
-                            <label for="inputEmail">Email address</label>
-                        </div>
-                        <!-- /END EMAIL ADDRESS -->
-
-                        <!-- PASSWORD -->
-                        <div class="form-label-group">
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password"
-                                required>
-                            <label for="inputPassword">Password</label>
-                        </div>
-                        <!-- /END PASSWORD -->
-
-                        <!-- REMEMBER PASSWORD -->
-                        <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">Remember password</label>
-                        </div>
-                        <!-- /END REMEMBER PASSWORD -->
-
-                        <!-- BUTTONS -->
-                        <button class="btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"
-                            type="submit">Sign in</button>
-                        <div class="text-center">
-                            <a class="small" href="#">Forgot password?</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="{% url 'accounts:signup' %}">Register</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="{% url 'home' %}">Home</a>
-                        </div>
-                        <!-- /END BUTTONS -->
-                    </form>
-                </div>
-                <!-- /END CONTENT -->
-            </div>
-        </div>
+    <!-- EMAIL ADDRESS -->
+    <div class="form-label-group">
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputEmail">Email Address</label>
     </div>
-</div>
+    <!-- /END EMAIL ADDRESS -->
+
+    <!-- PASSWORD -->
+    <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <label for="inputPassword">Password</label>
+    </div>
+    <!-- /END PASSWORD -->
+
+    <hr class="my-4">
+
+    <!-- BUTTONS -->
+    <button class="btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">
+        Sign In</button>
+    <div class="text-center">
+        <a class="small" href="{% url 'accounts:admin_password_reset' %}">Forgot Password?</a>
+    </div>
+    <div class="text-center">
+        <a class="small" href="{% url 'accounts:signup' %}">Register</a>
+    </div>
+    <!-- /END BUTTONS -->
+</form>
+<!-- /END CONTENT -->
 
 {% endblock %}
