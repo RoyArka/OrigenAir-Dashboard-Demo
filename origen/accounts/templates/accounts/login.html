@@ -9,16 +9,20 @@
     {% csrf_token %}
     {{form.non_field_errors}}
 
-    <!-- EMAIL ADDRESS -->
+    <!-- USERNAME -->
     <div class="form-label-group">
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputEmail">Email Address</label>
+        {{form.username.errors}}
+        {{form.username}}
+        <!-- <input type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus> -->
+        <label for="inputUsername">Username</label>
     </div>
-    <!-- /END EMAIL ADDRESS -->
+    <!-- /END USERNAME -->
 
     <!-- PASSWORD -->
     <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        {{form.password.errors}}
+        {{form.password}}
+        <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> -->
         <label for="inputPassword">Password</label>
     </div>
     <!-- /END PASSWORD -->

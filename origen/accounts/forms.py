@@ -4,8 +4,8 @@ from django import forms
 from accounts.models import Person
 
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Username', 'autocomplete': 'off'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control','placeholder':'Password'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Username', 'autocomplete': 'off'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'inputPassword','placeholder':'Password'}))
 
 class PersonCreateForm(UserCreationForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputFirstName', 'placeholder': 'First Name', 'autocomplete': 'off'}),label='')
@@ -47,6 +47,9 @@ class MyPasswordResetForm(PasswordResetForm):
             visible.field.widget.attrs['autocomplete'] = 'off'
 
 class MySetPasswordForm(SetPasswordForm):
+
+    # password3 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'inputPassword', 'placeholder':'Password'}),label='')
+    # password4 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'inputConfirmPassword', 'placeholder':'Confirm Password'}),label='')
 
     def __init__(self, *args, **kwargs):
         super(MySetPasswordForm, self).__init__(*args, **kwargs)
