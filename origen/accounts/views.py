@@ -20,4 +20,3 @@ class Login(LoginView):
     form_class = forms.LoginForm
     template_name = 'accounts/login.html'
 
-

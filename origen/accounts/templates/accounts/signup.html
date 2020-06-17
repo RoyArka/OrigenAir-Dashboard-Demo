@@ -3,77 +3,62 @@
 {% block content %}
 {% load static %}
 
-<!-- CONTENT -->
-<div class="card-body">
-    <!-- CLOSE BUTTON -->
-    <div class="text-right">
-        <a class="large" href="{% url 'home' %} "><i class="fas fa-times"></i></a>
+<h5 class="card-title text-center">Register</h5>
+<form class="form-signin">
+
+    <!-- USERNAME -->
+    <div class="form-label-group">
+        <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputUserame">Username</label>
     </div>
-    <!-- /END CLOSE BUTTON -->
+    <!-- /END USERNAME -->
 
-    <!--LOGO IMAGE-->
-    <div class="text-center">
-        <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
+    <!-- EMAIL ADDRESS -->
+    <div class="form-label-group">
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+        <label for="inputEmail">Email address</label>
     </div>
-    <!-- /END LOGO IMAGE -->
+    <!-- /END EMAIL ADDRESS -->
 
-    <h5 class="card-title text-center">Register</h5>
-    <form class="form-signin">
+    <hr>
 
-        <!-- USERNAME -->
-        <div class="form-label-group">
-            <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-            <label for="inputUserame">Username</label>
-        </div>
-        <!-- /END USERNAME -->
+    <!-- PASSWORD -->
+    <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <label for="inputPassword">Password</label>
+    </div>
+    <!-- /END PASSWORD -->
 
-        <!-- EMAIL ADDRESS -->
-        <div class="form-label-group">
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-            <label for="inputEmail">Email address</label>
-        </div>
-        <!-- /END EMAIL ADDRESS -->
+    <!-- CONFIRM PASSWORD -->
+    <div class="form-label-group">
+        <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+        <label for="inputConfirmPassword">Confirm Password</label>
+    </div>
+    <!-- /END CONFIRM PASSWORD -->
 
-        <hr>
+    <hr>
 
-        <!-- PASSWORD -->
-        <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <label for="inputPassword">Password</label>
-        </div>
-        <!-- /END PASSWORD -->
+    <!-- FIRST NAME -->
+    <div class="form-label-group">
+        <input type="text" id="inputFirstName" class="form-control" placeholder="FirstName" required autofocus>
+        <label for="inputFirstName">First Name</label>
+    </div>
+    <!-- /END FIRST NAME -->
 
-        <!-- CONFIRM PASSWORD -->
-        <div class="form-label-group">
-            <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
-            <label for="inputConfirmPassword">Confirm Password</label>
-        </div>
-        <!-- /END CONFIRM PASSWORD -->
+    <!-- LAST NAME -->
+    <div class="form-label-group">
+        <input type="text" id="inputLastName" class="form-control" placeholder="LastName" required autofocus>
+        <label for="inputLastName">Last Name</label>
+    </div>
+    <!-- /END LAST NAME -->
 
-        <hr>
+    <hr class="my-4">
 
-        <!-- FIRST NAME -->
-        <div class="form-label-group">
-            <input type="text" id="inputFirstName" class="form-control" placeholder="FirstName" required autofocus>
-            <label for="inputFirstName">First Name</label>
-        </div>
-        <!-- /END FIRST NAME -->
-
-        <!-- LAST NAME -->
-        <div class="form-label-group">
-            <input type="text" id="inputLastName" class="form-control" placeholder="LastName" required autofocus>
-            <label for="inputLastName">Last Name</label>
-        </div>
-        <!-- /END LAST NAME -->
-
-        <hr class="my-4">
-
-        <!-- BUTTONS -->
-        <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Register</button>
-        <a class="d-block text-center mt-2 small" href="{% url 'accounts:login' %}">Log In</a>
-        <!-- /END BUTTONS -->
-    </form>
-</div>
+    <!-- BUTTONS -->
+    <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Register</button>
+    <a class="d-block text-center mt-2 small" href="{% url 'accounts:login' %}">Log In</a>
+    <!-- /END BUTTONS -->
+</form>
 <!-- /END CONTENT -->
 
 {% endblock %}
