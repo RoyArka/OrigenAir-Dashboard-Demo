@@ -3,13 +3,14 @@
 {% block content %}
 {% load static %}
 
-<h3 class="card-title text-center">Welcome back!</h3>
+<h3 class="card-title text-center">Welcome Back!</h3>
+
 <form method="post">
 
     <!-- EMAIL ADDRESS -->
     <div class="form-label-group">
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputEmail">Email address</label>
+        <label for="inputEmail">Email Address</label>
     </div>
     <!-- /END EMAIL ADDRESS -->
 
@@ -23,10 +24,10 @@
     <hr class="my-4">
 
     <!-- BUTTONS -->
-    <button class="btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign
-        in</button>
+    <button class="btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">
+        Sign In</button>
     <div class="text-center">
-        <a class="small" href="#">Forgot password?</a>
+        <a class="small" href="#">Forgot Password?</a>
     </div>
     <div class="text-center">
         <a class="small" href="{% url 'accounts:signup' %}">Register</a>
