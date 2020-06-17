@@ -42,6 +42,7 @@ class MyPasswordResetForm(PasswordResetForm):
         super(MyPasswordResetForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-control'
+            visible.field.widget.attrs['id'] = 'inputEmail'
             visible.field.widget.attrs['placeholder'] = 'Email Address'
             visible.field.widget.attrs['autocomplete'] = 'off'
 
