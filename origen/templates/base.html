@@ -207,7 +207,7 @@
                             <img class="img-profile rounded-circle"
                                 src="https://www.irishtimes.com/polopoly_fs/1.3899578.1558445909!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg">
                             {% else %}
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">You need to login!</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guest</span>
                             <img class="img-profile rounded-circle" src="{% static 'img/guestProfile.png' %}">
                             {% endif %}                          
                         </a>
@@ -217,9 +217,9 @@
                             <!-- Drop Down when user is logged in -->
                             {% if user.is_authenticated %}
                             <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" href="#">Something 1</a>
+                            <a class="dropdown-item" href="#">Profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Log Out</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
                             <!-- Drop Down when user is logged out -->
                             {% else %}
                             <a class="dropdown-item" href="#">Settings</a>
