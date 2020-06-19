@@ -91,25 +91,29 @@ a.bg-success {
     padding: 0px;
 }
 
-.fas{
+.fas {
     color: rgb(204, 203, 203);
 }
 
-.img-profile{
+.greeniconcolor {
+    color: rgb(27, 154, 75);
+}
+
+.img-profile {
     height: 30px;
     width: 30px;
 }
 
-.topbar-divider{
+.topbar-divider {
     border-left: 2px solid rgb(204, 203, 203);
     height: 40px;
 }
 
-.topbarnotification{
+.topbarnotification {
     padding: 10px;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     margin-right: 26px;
 }
 
