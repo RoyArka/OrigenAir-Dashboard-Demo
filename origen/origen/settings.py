@@ -147,4 +147,8 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 # REMOVE DURING DEPLOYMENT ONLY FOR TESTING
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
-
+EMAIL_HOST = 'mail.origenair.com'
+EMAIL_HOST_USER = 'forgot-password@origenair.com'
+EMAIL_HOST_PASSWORD = '9YxWrUkeqkU9'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
