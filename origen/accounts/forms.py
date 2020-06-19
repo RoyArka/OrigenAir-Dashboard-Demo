@@ -57,8 +57,10 @@ class MySetPasswordForm(SetPasswordForm):
             visible.field.widget.attrs['class'] = 'form-control'
             visible.field.widget.attrs['placeholder'] = 'New Password'
             visible.field.widget.attrs['autocomplete'] = 'off'
+            visible.field.widget.attrs['id'] = 'inputNewPassword'
             if (i==1):
                 visible.field.widget.attrs['placeholder'] = 'Confirm New Password'
+                visible.field.widget.attrs['id'] = 'inputConfirmPassword'
 
 class MyPasswordChangeForm(PasswordChangeForm):
 
@@ -68,7 +70,10 @@ class MyPasswordChangeForm(PasswordChangeForm):
             visible.field.widget.attrs['class'] = 'form-control change-password-input'
             visible.field.widget.attrs['placeholder'] = 'Old Password'
             visible.field.widget.attrs['autocomplete'] = 'off'
+            visible.field.widget.attrs['id'] = 'inputOldPassword'
             if (i==1):
                 visible.field.widget.attrs['placeholder'] = 'New Password'
+                visible.field.widget.attrs['id'] = 'inputNewPassword'
             if (i==2):
                 visible.field.widget.attrs['placeholder'] = 'Confirm New Password'
+                visible.field.widget.attrs['id'] = 'inputConfirmPassword'
