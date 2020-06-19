@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import psycopg2
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -84,6 +85,12 @@ DATABASES = {
     }
 }
 
+# DATABASE_ENGINE = 'postgresql_psycopg2'
+# DATABASE_NAME = 'wilsondevtest.postgres.database.azure.com'
+# DATABASE_USER = 'wilson@wilsondevtest'
+# DATABASE_PASSWORD = 'X#X8g95$a%W3gsiG'
+# DATABASE_HOST = ''
+# DATABASE_PORT = ''
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',

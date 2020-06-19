@@ -17,6 +17,5 @@ class Person(models.Model):
     alerts = models.BooleanField(default=True)
     time_zone = models.CharField(max_length=100, choices = TIMEZONES, default='PST')
 
-    # def __str__(self):
     def __unicode__(self):
         return self.user
