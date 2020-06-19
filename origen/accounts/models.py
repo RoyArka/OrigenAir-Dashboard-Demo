@@ -13,9 +13,10 @@ class Person(models.Model):
     # organization = models.ForeignKey()
     
     biography = models.TextField(null=True, blank=True)
-    job_title = models.CharField(max_length=120, null= True, blank=True)
+    job_title = models.CharField(max_length=120, blank=True, null=True)
     alerts = models.BooleanField(default=True)
     time_zone = models.CharField(max_length=100, choices = TIMEZONES, default='PST')
 
-    def __str__(self):
+    # def __str__(self):
+    def __unicode__(self):
         return self.user
