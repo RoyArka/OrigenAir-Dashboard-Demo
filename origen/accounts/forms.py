@@ -1,7 +1,8 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django import forms
 from accounts.models import Person
+from django.forms import ModelForm
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Username', 'autocomplete': 'off'}))
@@ -77,3 +78,15 @@ class MyPasswordChangeForm(PasswordChangeForm):
             if (i==2):
                 visible.field.widget.attrs['placeholder'] = 'Confirm New Password'
                 visible.field.widget.attrs['id'] = 'inputConfirmPassword'
+
+#Test form for profile to update etc.
+class PersonModelForm(ModelForm):
+    class Meta:
+        model = Person
+        fields = [
+            'user',
+            'biography',
+            'job_title',
+            'alerts',
+            'time_zone',
+        ]
