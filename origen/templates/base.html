@@ -49,10 +49,12 @@
                 <ul class="list-group">
 
                     <!-- LOGO -->
-                    <div class="d-flex w-100 justify-content-start align-items-center" id="logo-space">
+                    <div class="d-flex w-100 justify-content-start align-items-center" id="logo-space" >
                         <a href="{% url 'home' %}">
                             <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
-                            <img id="logo-expanded" src="{% static 'img/logo1.5.png' %}" width="150">
+                            <span class="menu-collapsed">
+                                <img id="logo-expanded" src="{% static 'img/logo1.5.png' %}" width="150">
+                            </span>
                         </a>
                     </div>
                     <!-- /END LOGO -->
