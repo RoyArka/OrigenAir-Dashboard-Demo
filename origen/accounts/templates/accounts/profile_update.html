@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<form method=post class="form-signin">
+    {% csrf_token %}
+    {{form.non_field_errors}}
+    
 <div class="container mt-5">
     <div class="row">
         <div class="col-lg-4 pb-5">
@@ -15,7 +20,7 @@
                     </div>
                     <div class="author-card-details">
                         <h5 class="author-card-name text-lg">Daniel Adams</h5><span class="author-card-position">Joined
-                            February 06, 2017</span>
+                            {{user.date_joined}}</span>
                     </div>
                 </div>
             </div>
