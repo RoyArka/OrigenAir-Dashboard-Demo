@@ -13,9 +13,10 @@ class Person(models.Model):
     user = models.OneToOneField(auth.models.User, on_delete=models.CASCADE, primary_key=True)
     # organization = models.ForeignKey()
     
-    biography = models.TextField(default='', null=True, blank=True)
-    job_title = models.CharField(max_length=120, null= True, blank=True)
     alerts = models.BooleanField(default=True)
+    biography = models.TextField(default='', null=True, blank=True)
+    job_title = models.CharField(max_length=100, null=True, blank=True)
+    phone_number = models.CharField(max_length=100, null=True, blank=True)
     time_zone = models.CharField(max_length=100, choices = TIMEZONES, default='PST')
     
     # USED for profile images will need to pip install pillow for later
