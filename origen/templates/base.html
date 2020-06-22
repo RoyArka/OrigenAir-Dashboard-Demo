@@ -93,7 +93,7 @@
                     </a>
                     <!-- PROFILE Submenu -->
                     <div id='submenu2' class="collapse sidebar-submenu">
-                        <a href="accounts/signup" class="list-group-item list-group-item-action bg-success text-white">
+                        <a href="#" class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Settings</span>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action bg-success text-white">
@@ -209,25 +209,29 @@
                             {% else %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guest</span>
                             <img class="img-profile rounded-circle" src="{% static 'img/guestProfile.png' %}">
-                            {% endif %}                          
+                            {% endif %}
                         </a>
 
                         <!-- Drop Down for User Profile is Logged In/Logged Out -->
                         <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                             <!-- Drop Down when user is logged in -->
                             {% if user.is_authenticated %}
-                            <a class="dropdown-item" href="accounts/profile"><i class="fa fa-user-circle mr-2 greeniconcolor" aria-hidden="true"></i>Profile</a>
-                            <a class="dropdown-item" href=""><i class="fa fa-cog mr-2 greeniconcolor" aria-hidden="true"></i>Settings</a>
+                            <a class="dropdown-item" href="{% url 'accounts:profile' %}"><i
+                                    class="fa fa-user-circle mr-2 greeniconcolor" aria-hidden="true"></i>Profile</a>
+                            <a class="dropdown-item" href="{% url 'accounts:profile_update' %}"><i
+                                    class="fa fa-cog mr-2 greeniconcolor" aria-hidden="true"></i>Settings</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-2 greeniconcolor"></i>Log Out</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}"><i
+                                    class="fas fa-sign-out-alt mr-2 greeniconcolor"></i>Log Out</a>
                             <!-- Drop Down when user is logged out -->
                             {% else %}
-                            <a class="dropdown-item" href="accounts/login" class="list-group-item list-group-item-action bg-success text-white">
+                            <a class="dropdown-item" href="{% url 'login' %}"
+                                class="list-group-item list-group-item-action bg-success text-white">
                                 <i class="fas fa-sign-in-alt mr-2 greeniconcolor"></i>Log In</a>
                             {% endif %}
                         </div>
                         <!-- /END Drop Down for User Profile is Logged In/Logged Out -->
-                        
+
                         <!-- /END USER PROFILE -->
                     </ul>
                     <!-- /END NOTIFICATION / USER PROFILE -->
