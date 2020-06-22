@@ -18,6 +18,7 @@ class Person(models.Model):
     job_title = models.CharField(max_length=100, null=True, blank=True)
     phone_number = models.CharField(max_length=100, null=True, blank=True)
     time_zone = models.CharField(max_length=100, choices = TIMEZONES, default='PST')
+    organization = models.CharField(max_length=100, null=True, blank=True)
     
     # USED for profile images will need to pip install pillow for later
     # profile_image = models.ImageField(default='', blank=True, null='')
