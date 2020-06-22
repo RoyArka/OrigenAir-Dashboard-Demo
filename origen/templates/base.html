@@ -47,14 +47,15 @@
 
                     <!-- LOGO -->
                     <div class="d-flex w-100 justify-content-start align-items-center" id="logo-space">
-                        <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
-                        <img id="logo-expanded" src="{% static 'img/logo1.5.png' %}" width="150">
+                        <a href="{% url 'home' %}">
+                            <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
+                            <img id="logo-expanded" src="{% static 'img/logo1.5.png' %}" width="150">
+                        </a>
                     </div>
                     <!-- /END LOGO -->
 
                     <!-- Separator with title -->
-                    <li
-                        class="list-group-item sidebar-separator-title text-white d-flex align-items-center menu-collapsed">
+                    <li class="list-group-item sidebar-separator-title text-white d-flex align-items-center menu-collapsed">
                         <small>MAIN MENU</small>
                     </li>
                     <!-- /END Separator -->

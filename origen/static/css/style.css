@@ -21,6 +21,8 @@ body {
 
 #logo-space {
     background-color: rgb(27, 154, 75);
+    margin-bottom: 10px;
+    padding: 2px;
 }
 
 #sidebar-container {
