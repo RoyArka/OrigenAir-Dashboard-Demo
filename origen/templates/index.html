@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="main-container">
@@ -24,3 +25,8 @@
     </div>
 </div>
 {% endblock %}
+
+{% block scripts %}
+    {{block.super}}
+    <script src="{% static 'js/charts.js' %}"></script>
+{% endblock scripts %}
