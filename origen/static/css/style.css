@@ -212,7 +212,7 @@ a {
 
 a:hover {
   color: rgb(104, 219, 66);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .emp-profile{
