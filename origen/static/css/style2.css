@@ -1,4 +1,7 @@
 /* SIGN-UP */
+a:hover {
+    text-decoration: none;
+}
 
 :root {
     --input-padding-x: 1.5rem;
