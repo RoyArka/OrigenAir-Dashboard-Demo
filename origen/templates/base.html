@@ -89,6 +89,7 @@
                     <!-- /END DASHBOARD -->
 
                     <!-- PROFILE -->
+                    {% if user.is_authenticated %}
                     <a href="#submenu2" data-toggle="collapse" aria-expanded="false"
                         class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-start align-items-center">
@@ -109,6 +110,8 @@
                             <span class="menu-collapsed">Password</span>
                         </a>
                     </div>
+                    {% else %}
+                    {% endif %}
                     <!-- /END PROFILE -->
 
                     <!-- TASKS -->
