@@ -6,75 +6,78 @@
     {% csrf_token %}
     {{form.non_field_errors}} -->
     
-<div class="container mt-5">
+<div class="container mt-5 emp-profile-update">
     <div class="row">
         <div class="col-lg-4 pb-5">
-            <!-- Account Sidebar-->
+            <!-- PROFILE PHOTO -->
             <div class="author-card pb-3">
-                <div class="author-card-cover"
-                    style="background-image: url(https://demo.createx.studio/createx-html/img/widgets/author/cover.jpg);">
-                </div>
                 <div class="author-card-profile">
-                    <div class="author-card-avatar"><img src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                            alt="Daniel Adams">
-                    </div>
+                    <!-- PROFILE IMAGE -->
+                    <div class="author-card-avatar"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Daniel Adams"></div>
+                    <!-- /END PROFILE IMAGE -->
                     <div class="author-card-details">
-                        <h5 class="author-card-name text-lg">Daniel Adams</h5><span class="author-card-position">Joined
-                            {{user.date_joined}}</span>
+                        <!-- FULL NAME -->
+                        <h5 class="author-card-name text-lg">Daniel Adams</h5>
+                        <!-- /END FULL NAME -->
+
+                        <!-- DATE JOINED -->
+                        <span class="author-card-position">Joined {{user.date_joined}}</span>
+                        <!-- /END DATE JOINED -->
                     </div>
                 </div>
             </div>
+            <!-- /END PROFILE PHOTO -->
         </div>
-        <!-- Profile Settings-->
+
         <div class="col-lg-8 pb-5">
-            <form class="row">
+            <!-- EDIT PROFILE FORM -->
+            <form method="post" class="row">
+                <!-- USERNAME -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control" type="email" id="account-username" value="Kshiti123" disabled="">
+                    </div>
+                </div>
+                <!-- /END USERNAME -->
+
+                <!-- FIRST NAME -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="accountFirstName">First Name</label>
                         <input class="form-control" type="text" id="account-fn" value="Daniel" required="">
                     </div>
                 </div>
+                <!-- /END FIRST NAME -->
+
+                <!-- LAST NAME -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="accountLastName">Last Name</label>
                         <input class="form-control" type="text" id="account-ln" value="Adams" required="">
                     </div>
                 </div>
+                <!-- /END LAST NAME -->
+
+                <!-- EMAIL -->
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input class="form-control" type="email" id="account-username" value="Kshiti123"
-                            disabled="">
+                        <label for="accountEmail">Email</label>
+                        <input class="form-control" type="email" id="account-email" value="daniel.adams@example.com" required="">
                     </div>
                 </div>
+                <!-- /END EMAIL -->
+
+                <!-- PHONE -->
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="accountEmail">E-mail Address</label>
-                        <input class="form-control" type="email" id="account-email" value="daniel.adams@example.com"
-                            required="">
+                        <label for="accountPhoneNumber">Phone</label>
+                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountPhoneNumber">Phone Number</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72"
-                            required="">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountJobTitle">Job Title</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72"
-                            required="">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountTimeZone">Time Zone</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72"
-                            required="">
-                    </div>
-                </div>
+                <!-- /END PHONE -->
+
+                <!-- ORGANIZATION -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="accountOrganization">Organization</label>
@@ -82,27 +85,56 @@
                             required="">
                     </div>
                 </div>
+                <!-- /END ORGANIZATION -->
+
+                <!-- JOB TITLE -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="accountJobTitle">Job Title</label>
+                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
+                    </div>
+                </div>
+                <!-- /END JOB TITLE -->
+
+                <!-- TIME ZONE -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="accountTimeZone">Time Zone</label>
+                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
+                    </div>
+                </div>
+                <!-- /END TIMEZONE -->
+
+                <!-- BIO -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="accountBio">Bio</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72"
-                            required="">
+                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
                     </div>
                 </div>
+                <!-- /END BIO -->
+
                 <div class="col-12">
                     <hr class="mt-2 mb-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
+                        <!-- ENABLE NOTIFICATIONS -->
                         <div class="custom-control custom-checkbox d-block">
                             <input class="custom-control-input" type="checkbox" id="subscribe_me" checked="">
                             <label class="custom-control-label" for="subscribe_me">Enable Notifications</label>
                         </div>
+                        <!-- /END ENABLE NOTIFICATIONS -->
+
+                        <!-- UPDATE PROFILE BUTTON -->
                         <a class="btn btn-success" href="{% url 'accounts:profile' %}">Update Profile</a>
-                    </div>
+                        <!-- /END UPDATE PROFILE BUTTON -->
+                </div>
             </form>
+            <!-- /END EDIT PROFILE FORM -->
         </div>
     </div>
 </div>
 {% endblock %}
+
 <!-- Scripts Block -->
 {% block scripts %}
     {{block.super}}
