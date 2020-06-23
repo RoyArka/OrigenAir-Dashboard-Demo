@@ -31,8 +31,9 @@
     <!-- /END LAST NAME -->
 
     <!-- USERNAME -->
+    {{form.username.errors}}
     <div class="form-label-group">
-        {{form.username.errors}}
+        <!-- {{form.username.errors}} -->
         {{form.username}}
         <!-- <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus> -->
         <label for="inputUsername">Username</label>
@@ -60,8 +61,8 @@
     <!-- /END PASSWORD -->
 
     <!-- CONFIRM PASSWORD -->
+    {{form.password2.errors}}
     <div class="form-label-group">
-        {{form.password2.errors}}
         {{form.password2}}
         <!-- <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required> -->
         <label for="inputConfirmPassword">Confirm Password</label>
