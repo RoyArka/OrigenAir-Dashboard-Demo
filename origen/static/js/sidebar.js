@@ -1,5 +1,7 @@
 //[we added this] - This is collapse status variable for sidebar
 var status = false;
+status = localStorage.getItem("collapsevariable");
+console.log("first Status " + status);
 
 // Hide submenus
 $('#body-row .collapse').collapse('hide'); 
@@ -10,6 +12,7 @@ $('#collapse-icon').addClass('fa-angle-double-left');
 // Collapse click
 $('[data-toggle=sidebar-colapse]').click(function() {
     SidebarCollapse();
+
     //[we added this] - if we click on a non-collapsed sidebar it is now 
     //collapsed and therefore we set collapse status for sidebar to true
     //we then saved the status to local storage so the status will be saved
@@ -17,7 +20,7 @@ $('[data-toggle=sidebar-colapse]').click(function() {
     //we used a localStorage.removeItem to clear old status
     if (status === "false"){
         status = true;
-        console.log(status);
+        console.log("status is " + status);
         localStorage.removeItem("collapsevariable");
         localStorage.setItem("collapsevariable", status);
     } 
@@ -36,7 +39,9 @@ $('[data-toggle=sidebar-colapse]').click(function() {
 
 //[we added this] - Using the saved collapse status from local storage it will 
 //keep our page collapsed or non-collapse
-if(localStorage.getItem("collapsevariable") === "true"){
+var temp = localStorage.getItem("collapsevariable");
+console.log("temp is " + temp);
+if(temp === "true"){
     SidebarCollapse ();
 }
 
