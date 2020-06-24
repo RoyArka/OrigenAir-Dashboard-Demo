@@ -5,133 +5,208 @@
 <!-- <form method=post class="form-signin">
     {% csrf_token %}
     {{form.non_field_errors}} -->
-    
-<div class="container mt-5 emp-profile-update">
-    <div class="row">
-        <div class="col-lg-4 pb-5">
-            <!-- PROFILE PHOTO -->
-            <div class="author-card pb-3">
-                <div class="author-card-profile">
-                    <!-- PROFILE IMAGE -->
-                    <div class="author-card-avatar"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Daniel Adams"></div>
-                    <!-- /END PROFILE IMAGE -->
-                    <div class="author-card-details">
-                        <!-- FULL NAME -->
-                        <h5 class="author-card-name text-lg">Daniel Adams</h5>
-                        <!-- /END FULL NAME -->
 
-                        <!-- DATE JOINED -->
-                        <span class="author-card-position">Joined {{user.date_joined}}</span>
-                        <!-- /END DATE JOINED -->
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <!-- PROFILE PHOTO -->
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <!-- PROFILE IMAGE -->
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                    <!-- /END PROFILE IMAGE -->
+
+                    <!-- CHANGE PHOTO -->
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file"/>
                     </div>
+                    <!-- /END CHANGE PHOTO -->
                 </div>
             </div>
             <!-- /END PROFILE PHOTO -->
+
+            <!-- PROFILE HEAD -->
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <!-- FULL NAME -->
+                    <h5>{{user.get_full_name}}</h5>
+                    <!-- /END FULL NAME -->
+                    
+                    <!-- JOB TITLE -->
+                    <h6>{{user.person.job_title}}</h6>
+                    <!-- /END JOB TITLE -->
+                    
+                    <br>
+                    
+                    <!-- TAB SELECTION -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <!-- ABOUT -->
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <!-- /END ABOUT -->
+
+                        <!-- DETAILS -->
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Details</a>
+                        </li>
+                        <!-- /END DETAILS -->
+                    </ul>
+                    <!-- /END TAB SELECTION -->
+                </div>
+            </div>
+            <!-- /END PROFILE HEAD -->
         </div>
 
-        <div class="col-lg-8 pb-5">
-            <!-- EDIT PROFILE FORM -->
-            <form method="post" class="row">
-                <!-- USERNAME -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input class="form-control" type="email" id="account-username" value="Kshiti123" disabled="">
-                    </div>
+        <div class="row">
+            <div class="col-md-4">
+                <!-- PROFILE LINKS -->
+                <div class="profile-work">
+                    <!-- DATE JOINED -->
+                    <p>Joined {{user.date_joined}}</p>
+                    <!-- /END DATE JOINED -->
                 </div>
-                <!-- /END USERNAME -->
+                <!-- /END PROFILE LINKS -->
+            </div>
 
-                <!-- FIRST NAME -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountFirstName">First Name</label>
-                        <input class="form-control" type="text" id="account-fn" value="Daniel" required="">
-                    </div>
-                </div>
-                <!-- /END FIRST NAME -->
-
-                <!-- LAST NAME -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountLastName">Last Name</label>
-                        <input class="form-control" type="text" id="account-ln" value="Adams" required="">
-                    </div>
-                </div>
-                <!-- /END LAST NAME -->
-
-                <!-- EMAIL -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountEmail">Email</label>
-                        <input class="form-control" type="email" id="account-email" value="daniel.adams@example.com" required="">
-                    </div>
-                </div>
-                <!-- /END EMAIL -->
-
-                <!-- PHONE -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountPhoneNumber">Phone</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
-                    </div>
-                </div>
-                <!-- /END PHONE -->
-
-                <!-- ORGANIZATION -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountOrganization">Organization</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72"
-                            required="">
-                    </div>
-                </div>
-                <!-- /END ORGANIZATION -->
-
-                <!-- JOB TITLE -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountJobTitle">Job Title</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
-                    </div>
-                </div>
-                <!-- /END JOB TITLE -->
-
-                <!-- TIME ZONE -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountTimeZone">Time Zone</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
-                    </div>
-                </div>
-                <!-- /END TIMEZONE -->
-
-                <!-- BIO -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="accountBio">Bio</label>
-                        <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
-                    </div>
-                </div>
-                <!-- /END BIO -->
-
-                <div class="col-12">
-                    <hr class="mt-2 mb-3">
-                    <div class="d-flex flex-wrap justify-content-between align-items-center">
-                        <!-- ENABLE NOTIFICATIONS -->
-                        <div class="custom-control custom-checkbox d-block">
-                            <input class="custom-control-input" type="checkbox" id="subscribe_me" checked="">
-                            <label class="custom-control-label" for="subscribe_me">Enable Notifications</label>
+            <div class="col-md-6">
+                <!-- EDIT PROFILE FORM -->
+                <form method="post" class="row"></form>
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <!-- ABOUT TAB -->
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        
+                        <!-- JOB TITLE -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="accountJobTitle">Job Title</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" id="account-jobTitle" value="Student" required="">
+                            </div>
                         </div>
-                        <!-- /END ENABLE NOTIFICATIONS -->
+                        <!-- /END JOB TITLE -->
 
-                        <!-- UPDATE PROFILE BUTTON -->
-                        <a class="btn btn-success" href="{% url 'accounts:profile' %}">Update Profile</a>
-                        <!-- /END UPDATE PROFILE BUTTON -->
+                        <!-- ORGANIZATION -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountOrganization">Organization</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" id="account-organization" value="BCIT" required="">
+                            </div>
+                        </div>
+                        <!-- /END ORGANIZATION -->
+
+                        <!-- TIME ZONE -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountTimeZone">Time Zone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" id="account-timeZone" value="PST" required="">
+                            </div>
+                        </div>
+                        <!-- /END TIME ZONE -->
+
+                        <!-- BIO -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountBio">Bio</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" id="account-bio" value="I'm a BCIT student." required="">
+                            </div>
+                        </div>
+                        <!-- /END BIO -->
+                    </div>
+                    <!-- /END ABOUT TAB -->
+
+                    <!-- DETAILS TAB -->
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        
+                        <!-- USERNAME -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="username">Username</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="email" id="account-username" value="Mangogo" disabled="">
+                            </div>
+                        </div>
+                        <!-- /END USERNAME -->
+
+                        <!-- FIRST NAME -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountFirstName">First Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" id="account-fn" value="Mango" required="">
+                            </div>
+                        </div>
+                        <!-- /END FIRST NAME -->
+
+                        <!-- LAST NAME -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountLastName">Last Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" id="account-ln" value="Fruit" required="">
+                            </div>
+                        </div>
+                        <!-- /END LAST NAME -->
+
+                        <!-- EMAIL -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountEmail">Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="email" id="account-email" value="mango@fruit.com" required="">
+                            </div>
+                        </div>
+                        <!-- /END EMAIL -->
+
+                        <!-- PHONE NUMBER -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountPhoneNumber">Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
+                            </div>
+                        </div>
+                        <!-- /END PHONE NUMBER -->
+                    </div>
+                    <!-- /END DETAILS TAB -->
+
+                    <!-- NOTIFICATION & BUTTON -->
+                    <div class="col-13">
+                        <hr class="mt-3 mb-3">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                            <!-- ENABLE NOTIFICATIONS -->
+                            <div class="custom-control custom-checkbox d-block">
+                                <input class="custom-control-input" type="checkbox" id="subscribe_me" checked="">
+                                <label class="custom-control-label" for="subscribe_me">Enable Notifications</label>
+                            </div>
+                            <!-- /END ENABLE NOTIFICATIONS -->
+    
+                            <!-- UPDATE PROFILE BUTTON -->
+                            <a class="btn btn-success" href="{% url 'accounts:profile' %}">Update Profile</a>
+                            <!-- /END UPDATE PROFILE BUTTON -->
+                        </div>
+                    </div>
+                    <!-- /END NOTIFICATION & BUTTON -->
                 </div>
-            </form>
-            <!-- /END EDIT PROFILE FORM -->
+                </form>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 {% endblock %}
 
