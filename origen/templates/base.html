@@ -217,7 +217,7 @@
                             {% if user.is_authenticated %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.get_full_name}}</span>
                             <img class="img-profile rounded-circle"
-                                src="https://www.irishtimes.com/polopoly_fs/1.3899578.1558445909!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg">
+                                src="{% static 'img/guestProfile.png' %}">
                             {% else %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guest</span>
                             <img class="img-profile rounded-circle" src="{% static 'img/guestProfile.png' %}">
