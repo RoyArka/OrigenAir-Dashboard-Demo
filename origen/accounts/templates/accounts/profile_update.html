@@ -10,6 +10,8 @@
 
 <div class="container emp-profile">
     <form method="post">
+        {{csrf_token}}
+        {{form.non_field_errors}}
         <div class="row">
             <!-- PROFILE PHOTO -->
             <div class="col-md-4">
@@ -76,7 +78,7 @@
 
             <div class="col-md-6">
                 <!-- EDIT PROFILE FORM -->
-                <form method="post" class="row"></form>
+                
                 <div class="tab-content profile-tab" id="myTabContent">
                     <!-- ABOUT TAB -->
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -87,7 +89,8 @@
                                 <label for="accountJobTitle">Job Title</label>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" id="account-jobTitle" value="Student" required="">
+                                {{form.job_title.errors}}
+                                {{form.job_title}}
                             </div>
                         </div>
                         <!-- /END JOB TITLE -->
@@ -109,7 +112,8 @@
                                 <label for="accountTimeZone">Time Zone</label>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" id="account-timeZone" value="PST" required="">
+                                {{form.time_zone.errors}}
+                                {{form.time_zone}}
                             </div>
                         </div>
                         <!-- /END TIME ZONE -->
@@ -120,7 +124,8 @@
                                 <label for="accountBio">Bio</label>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" id="account-bio" value="I'm a BCIT student." required="">
+                                {{form.biography.errors}}
+                                {{form.biography}}
                             </div>
                         </div>
                         <!-- /END BIO -->
@@ -180,7 +185,8 @@
                                 <label for="accountPhoneNumber">Phone</label>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" id="account-phone" value="+7 (805) 348 95 72" required="">
+                                {{form.phone_number.errors}}
+                                {{form.phone_number}}
                             </div>
                         </div>
                         <!-- /END PHONE NUMBER -->
@@ -193,13 +199,14 @@
                         <div class="d-flex flex-wrap justify-content-between align-items-center">
                             <!-- ENABLE NOTIFICATIONS -->
                             <div class="custom-control custom-checkbox d-block">
-                                <input class="custom-control-input" type="checkbox" id="subscribe_me" checked="">
+                                {{form.alerts.errors}}
+                                {{form.alerts}}
                                 <label class="custom-control-label" for="subscribe_me">Enable Notifications</label>
                             </div>
                             <!-- /END ENABLE NOTIFICATIONS -->
     
                             <!-- UPDATE PROFILE BUTTON -->
-                            <a class="btn btn-success" href="{% url 'accounts:profile' %}">Update Profile</a>
+                            <a class="btn btn-success" href="{% url 'accounts:profile' username=user.username %}">Update Profile</a>
                             <!-- /END UPDATE PROFILE BUTTON -->
                         </div>
                     </div>

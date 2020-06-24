@@ -90,3 +90,27 @@ class PersonModelForm(ModelForm):
             'alerts',
             'time_zone',
         ]
+class PersonUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Person
+        fields = ('job_title', 'time_zone', 'phone_number', 'alerts', 'biography')
+
+        widgets = {
+            'job_title': forms.TextInput(attrs={'class': 'form-control',
+                                        'placeholder': 'Job Title',
+                                        'name': 'job-title-edit'}),
+            'time_zone': forms.TextInput(attrs={'class': 'form-control',
+                                        'placeholder': 'Time Zone',
+                                        'name': 'time-zone-edit'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control',
+                                        'placeholder': 'Phone Number',
+                                        'name': 'phone-number-edit'}),
+            'biography': forms.Textarea(attrs={'class': 'form-control',
+                                            'rows': '5',
+                                            'id': 'biography-edit',
+                                            'input type': 'text',
+                                            'placeholder': 'Biography',
+                                            'name': 'biography-edit'}),
+            'alerts': forms.CheckboxInput(attrs={'class': 'custom-control-input', 'id': 'subscribe_me', 'checked': ''}),
+
+        }

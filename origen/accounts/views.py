@@ -5,7 +5,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView
-from . forms import PersonModelForm
+from . forms import PersonUpdateForm
 from . models import Person
 from . import forms
 
@@ -30,9 +30,10 @@ class UserProfile(ListView):
 
 class UserProfileUpdate(UpdateView):
     model = Person 
-    form_class = PersonModelForm
+    form_class = PersonUpdateForm
     template_name = 'accounts/profile_update.html'
-    success_url = '/accounts/profile'
+    def get_success_url(self):
+        return reverse_lazy('accounts:profile', user=user.username)
 
     def get_object(self):
         return self.request.user
