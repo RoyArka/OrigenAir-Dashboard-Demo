@@ -10,7 +10,7 @@
 
 <div class="container emp-profile">
     <form method="post">
-        {{csrf_token}}
+        {% csrf_token %}
         {{form.non_field_errors}}
         <div class="row">
             <!-- PROFILE PHOTO -->
@@ -23,7 +23,7 @@
                     <!-- CHANGE PHOTO -->
                     <div class="file btn btn-lg btn-primary">
                         Change Photo
-                        <input type="file" name="file"/>
+                        <!-- <input type="file" name="file"/> -->
                     </div>
                     <!-- /END CHANGE PHOTO -->
                 </div>
@@ -101,7 +101,7 @@
                                 <label for="accountOrganization">Organization</label>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" id="account-organization" value="BCIT" required="">
+                                <!-- <input class="form-control" type="text" id="account-organization" value="BCIT" required=""> -->
                             </div>
                         </div>
                         <!-- /END ORGANIZATION -->
@@ -141,7 +141,7 @@
                                 <label for="username">Username</label>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="email" id="account-username" value="Mangogo" disabled="">
+                                <!-- <input class="form-control" type="email" id="account-username" value="Mangogo" disabled=""> -->
                             </div>
                         </div>
                         <!-- /END USERNAME -->
@@ -152,7 +152,7 @@
                                 <label for="accountFirstName">First Name</label>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" id="account-fn" value="Mango" required="">
+                                <!-- <input class="form-control" type="text" id="account-fn" value="Mango" required=""> -->
                             </div>
                         </div>
                         <!-- /END FIRST NAME -->
@@ -163,7 +163,7 @@
                                 <label for="accountLastName">Last Name</label>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" id="account-ln" value="Fruit" required="">
+                                <!-- <input class="form-control" type="text" id="account-ln" value="Fruit" required=""> -->
                             </div>
                         </div>
                         <!-- /END LAST NAME -->
@@ -174,7 +174,7 @@
                                 <label for="accountEmail">Email</label>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="email" id="account-email" value="mango@fruit.com" required="">
+                                <!-- <input class="form-control" type="email" id="account-email" value="mango@fruit.com" required=""> -->
                             </div>
                         </div>
                         <!-- /END EMAIL -->
@@ -206,7 +206,8 @@
                             <!-- /END ENABLE NOTIFICATIONS -->
     
                             <!-- UPDATE PROFILE BUTTON -->
-                            <a class="btn btn-success" href="{% url 'accounts:profile' username=user.username %}">Update Profile</a>
+                            <button type="submit" class="btn btn-success">Update Profile</button>
+                            <!-- <a class="btn btn-success" href="{% url 'accounts:profile' username=user.username %}">Update Profile</a> -->
                             <!-- /END UPDATE PROFILE BUTTON -->
                         </div>
                     </div>
