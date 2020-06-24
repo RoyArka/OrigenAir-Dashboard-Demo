@@ -1,7 +1,15 @@
 //[we added this] - This is collapse status variable for sidebar
 var status = false;
-status = localStorage.getItem("collapsevariable");
-console.log("first Status " + status);
+
+//[we added this] - if first time session storage is null 
+//just make status = false
+//if it isnt the first time then make status = the saved session storage
+if(sessionStorage.getItem("collapsevariable") === null){
+    status = false;
+} else{
+    status = sessionStorage.getItem("collapsevariable");
+}
+
 
 // Hide submenus
 $('#body-row .collapse').collapse('hide'); 
@@ -17,29 +25,29 @@ $('[data-toggle=sidebar-colapse]').click(function() {
     //collapsed and therefore we set collapse status for sidebar to true
     //we then saved the status to local storage so the status will be saved
     //when the page is refreshed
-    //we used a localStorage.removeItem to clear old status
+    //we used a sessionStorage.removeItem to clear old status
     if (status === "false"){
         status = true;
         console.log("status is " + status);
-        localStorage.removeItem("collapsevariable");
-        localStorage.setItem("collapsevariable", status);
+        sessionStorage.removeItem("collapsevariable");
+        sessionStorage.setItem("collapsevariable", status);
     } 
     //[we added this] - if we click on a collapsed sidebar it is now 
     //non-collapsed and therefore we set collapse status for sidebar to false
     //we then saved the status to local storage so the status will be saved
     //when the page is refreshed
-    //we used a localStorage.removeItem to clear old status
+    //we used a sessionStorage.removeItem to clear old status
     else if (status === "true"){
         status = false;
         console.log(status);
-        localStorage.removeItem("collapsevariable");
-        localStorage.setItem("collapsevariable", status);
+        sessionStorage.removeItem("collapsevariable");
+        sessionStorage.setItem("collapsevariable", status);
     }
 });
 
 //[we added this] - Using the saved collapse status from local storage it will 
 //keep our page collapsed or non-collapse
-var temp = localStorage.getItem("collapsevariable");
+var temp = sessionStorage.getItem("collapsevariable");
 console.log("temp is " + temp);
 if(temp === "true"){
     SidebarCollapse ();
