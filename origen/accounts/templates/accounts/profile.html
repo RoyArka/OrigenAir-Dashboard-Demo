@@ -86,6 +86,56 @@
                 <div class="tab-content profile-tab" id="myTabContent">
                     <!-- ABOUT TAB -->
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        
+                        <!-- JOB TITLE -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Job Title</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.person.job_title}}</p>
+                            </div>
+                        </div>
+                        <!-- /END JOB TITLE -->
+
+                        <!-- ORGANIZATION -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Organization</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.person.organization}}</p>
+                            </div>
+                        </div>
+                        <!-- /END ORGANIZATION -->
+
+                        <!-- TIME ZONE -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Time Zone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.person.time_zone}}</p>
+                            </div>
+                        </div>
+                        <!-- /END TIME ZONE -->
+
+                        <!-- BIO -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Bio</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.person.biography}}</p>
+                            </div>
+                        </div>
+                        <!-- /END BIO -->
+                    </div>
+                    <!-- /END ABOUT TAB -->
+
+                    <!-- TIMELINE TAB -->
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        
                         <!-- USERNAME -->
                         <div class="row">
                             <div class="col-md-6">
@@ -141,53 +191,6 @@
                         </div>
                         <!-- /END PHONE NUMBER -->
 
-                        <!-- ORGANIZATION -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Organization</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{user.person.organization}}</p>
-                            </div>
-                        </div>
-                        <!-- /END ORGANIZATION -->
-
-                        <!-- JOB TITLE -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Job Title</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{user.person.job_title}}</p>
-                            </div>
-                        </div>
-                        <!-- /END JOB TITLE -->
-                    </div>
-                    <!-- /END ABOUT TAB -->
-
-                    <!-- TIMELINE TAB -->
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <!-- TIME ZONE -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Time Zone</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{user.person.time_zone}}</p>
-                            </div>
-                        </div>
-                        <!-- /END TIME ZONE -->
-
-                        <!-- BIO -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Bio</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{user.person.biography}}</p>
-                            </div>
-                        </div>
-                        <!-- /END BIO -->
                     </div>
                     <!-- /END TIMELINE TAB -->
                 </div>
