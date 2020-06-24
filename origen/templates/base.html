@@ -67,7 +67,7 @@
 
                     <!-- DASHBOARD -->
                     <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
-                        class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+                        class="bg-success list-group-item list-group-item-action flex-column align-items-start sidebarclick">
                         <div class="d-flex w-100 justify-content-start align-items-center">
                             <span class="fa fa-star fa-fw mr-3"></span>
                             <span class="menu-collapsed">Dashboard</span>
@@ -91,7 +91,7 @@
                     <!-- PROFILE -->
                     {% if user.is_authenticated %}
                     <a href="#submenu2" data-toggle="collapse" aria-expanded="false"
-                        class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+                        class="bg-success list-group-item list-group-item-action flex-column align-items-start sidebarclick">
                         <div class="d-flex w-100 justify-content-start align-items-center">
                             <span class="fa fa-user fa-fw mr-3"></span>
                             <span class="menu-collapsed">User</span>
@@ -115,8 +115,8 @@
                     <!-- /END PROFILE -->
 
                     <!-- TASKS -->
-                    <a href="#" class="bg-success list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-start align-items-center">
+                    <a href="#" id="bug" class="bg-success list-group-item list-group-item-action sidebarclick">
+                        <div id="bug2" class="d-flex w-100 justify-content-start align-items-center">
                             <span class="fa fa-tasks fa-fw mr-3"></span>
                             <span class="menu-collapsed">Tasks</span>
                         </div>
@@ -131,7 +131,7 @@
                     <!-- /END Separator -->
 
                     <!-- CALENDAR -->
-                    <a href="#" class="bg-success list-group-item list-group-item-action">
+                    <a href="#" class="bg-success list-group-item list-group-item-action sidebarclick">
                         <div class="d-flex w-100 justify-content-start align-items-center">
                             <span class="fa fa-calendar fa-fw mr-3"></span>
                             <span class="menu-collapsed">Calendar</span>
@@ -140,7 +140,7 @@
                     <!-- /END CALENDAR -->
 
                     <!-- MESSAGES -->
-                    <a href="#" class="bg-success list-group-item list-group-item-action">
+                    <a href="#" class="bg-success list-group-item list-group-item-action sidebarclick">
                         <div class="d-flex w-100 justify-content-start align-items-center">
                             <span class="fa fa-paper-plane fa-fw mr-3"></span>
                             <span class="menu-collapsed">Messages<span
@@ -154,7 +154,7 @@
                     <!-- /END Separator -->
 
                     <!-- HELP -->
-                    <a href="#" class="bg-success list-group-item list-group-item-action">
+                    <a href="#" class="bg-success list-group-item list-group-item-action sidebarclick">
                         <div class="d-flex w-100 justify-content-start align-items-center">
                             <span class="fa fa-question fa-fw mr-3"></span>
                             <span class="menu-collapsed">Help</span>
