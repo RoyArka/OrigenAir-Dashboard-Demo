@@ -264,16 +264,6 @@ a:hover {
   color: #6c757d;
   cursor: pointer;
 }
-.proile-rating{
-  font-size: 12px;
-  color: #818182;
-  margin-top: 5%;
-}
-.proile-rating span{
-  color: #495057;
-  font-size: 15px;
-  font-weight: 600;
-}
 .profile-head .nav-tabs{
   margin-bottom:5%;
 }
@@ -287,7 +277,7 @@ a:hover {
 }
 .profile-work{
   padding: 14%;
-  margin-top: -20%;
+  margin-top: -15%;
 }
 .profile-work p{
   font-size: 12px;
