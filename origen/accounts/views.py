@@ -11,7 +11,6 @@ from . models import Person
 from . import forms
 User = get_user_model()
 
-
 # Create your views here.
 class SignUp(CreateView):
     form_class = forms.PersonCreateForm
@@ -50,4 +49,5 @@ class UserProfileUpdate(UpdateView):
         return reverse_lazy('accounts:profile', kwargs={'username': self.object.user.username})
 
     def get_object(self):
-        return self.request.user.person
+        return self.request.user
+        # return self.request.user.person

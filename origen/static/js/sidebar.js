@@ -10,7 +10,6 @@ if(sessionStorage.getItem("collapsevariable") === null){
     status = sessionStorage.getItem("collapsevariable");
 }
 
-
 // Hide submenus
 $('#body-row .collapse').collapse('hide'); 
 
