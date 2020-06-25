@@ -79,17 +79,6 @@ class MyPasswordChangeForm(PasswordChangeForm):
                 visible.field.widget.attrs['placeholder'] = 'Confirm New Password'
                 visible.field.widget.attrs['id'] = 'inputConfirmPassword'
 
-#Test form for profile to update etc.
-class PersonModelForm(ModelForm):
-    class Meta:
-        model = Person
-        fields = [
-            'user',
-            'biography',
-            'job_title',
-            'alerts',
-            'time_zone',
-        ]
 class PersonUpdateForm(forms.ModelForm):
     class Meta:
         model = Person
