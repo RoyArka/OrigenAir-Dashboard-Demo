@@ -76,14 +76,14 @@
                     </a>
                     <!-- DASHBOARD Submenu -->
                     <div id='submenu1' class="collapse sidebar-submenu">
-                        <a href="/" class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Charts</span>
+                        <a href="{% url 'organization:create_org' %}" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Charts / Create</span>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Reports</span>
+                        <a href="{% url 'organization:org_members' %}" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Reports / Members</span>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Tables</span>
+                        <a href="{% url 'organization:org_list' %}" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Tables / List</span>
                         </a>
                     </div>
                     <!-- /END DASHBOARD -->
