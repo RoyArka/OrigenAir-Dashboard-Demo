@@ -14,11 +14,24 @@ if(sessionStorage.getItem("collapsevariable") === null){
 $('#body-row .collapse').collapse('hide'); 
 
 // Collapse/Expand icon
-$('#collapse-icon').addClass('fa-angle-double-left'); 
+$('#collapse-icon').addClass('fa-angle-double-left');
+
+//[we added this] - if any items of the sidebar is clicked while collapsed it will uncollapse
+$('.sidebarclick').click(function() {
+    console.log("hello");
+    if(status === "true"){
+        SidebarCollapse();
+        status = false;
+        sessionStorage.removeItem("collapsevariable");
+        sessionStorage.setItem("collapsevariable", status);
+        console.log("bye");
+    }
+});
 
 // Collapse click
 $('[data-toggle=sidebar-colapse]').click(function() {
     SidebarCollapse();
+    console.log("roll");
 
     //[we added this] - if we click on a non-collapsed sidebar it is now 
     //collapsed and therefore we set collapse status for sidebar to true

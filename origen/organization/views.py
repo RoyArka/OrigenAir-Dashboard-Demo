@@ -10,13 +10,13 @@ from django.http import Http404
 # Create your views here.
 class CreateOrg(CreateView):
     form_class = forms.OrganizationCreateForm
-    template_name = 'organization/'
+    template_name = 'organization/organization_create.html'
 
-class OrgProfile(DetailView):
+# class OrgProfile(DetailView):
 
-class OrgProfileMembers(ListView):
+# class OrgProfileMembers(ListView):
 
-class OrgProfileUpdate(UpdateView):
+# class OrgProfileUpdate(UpdateView):
 
-class OrgList(ListView):
+# class OrgList(ListView):
 
