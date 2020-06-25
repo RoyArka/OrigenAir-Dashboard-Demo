@@ -58,7 +58,7 @@ $('[data-toggle=sidebar-colapse]').click(function() {
     }
 });
 
-//[we added this] - Using the saved collapse status from local storage it will 
+//[we added this] - Using the saved collapse status from session storage it will 
 //keep our page collapsed or non-collapse
 var temp = sessionStorage.getItem("collapsevariable");
 console.log("temp is " + temp);
