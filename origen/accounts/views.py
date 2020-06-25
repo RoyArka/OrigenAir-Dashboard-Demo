@@ -50,3 +50,4 @@ class UserProfileUpdate(UpdateView):
 
     def get_object(self):
         return self.request.user
+        # return self.request.user.person
