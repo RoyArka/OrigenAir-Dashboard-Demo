@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from django import forms
 from accounts.models import Person
 from django.forms import ModelForm
+import pytz
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Username', 'autocomplete': 'off'}))
@@ -98,7 +99,8 @@ class PersonUpdateForm(forms.ModelForm):
             'job_title': forms.TextInput(attrs={'class': 'form-control',
                                         'placeholder': 'Job Title',
                                         'name': 'job-title-edit'}),
-            'time_zone': forms.TextInput(attrs={'class': 'form-control',
+            'time_zone': forms.Select(choices=[(x, x) for x in pytz.common_timezones],
+                                        attrs={'class': 'form-control',
                                         'placeholder': 'Time Zone',
                                         'name': 'time-zone-edit'}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control',
