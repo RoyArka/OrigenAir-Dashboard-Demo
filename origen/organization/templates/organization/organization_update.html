@@ -1,1 +1,196 @@
-<h1>organization update</h1>
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <!-- PROFILE PHOTO -->
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <!-- PROFILE IMAGE -->
+                    <img src="{% static 'img/guestProfile.png' %}" alt=""/>
+                    <!-- /END PROFILE IMAGE -->
+                </div>
+            </div>
+            <!-- /END PROFILE PHOTO -->
+
+            <!-- PROFILE HEAD -->
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <!-- FULL NAME -->
+                    <h5>{{other_user.get_full_name}}</h5>
+                    <!-- /END FULL NAME -->
+                    
+                    <br>
+                    
+                    <!-- TAB SELECTION -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <!-- ABOUT -->
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <!-- /END ABOUT -->
+
+                        <!-- TIMELINE -->
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Details</a>
+                        </li>
+                        <!-- /END TIMELINE -->
+                    </ul>
+                    <!-- /END TAB SELECTION -->
+                </div>
+            </div>
+            <!-- /END PROFILE HEAD -->
+
+            <!-- EDIT PROFILE BUTTON -->
+            <div class="col-md-2">
+                <div class="text-center">
+                    <a class="btn btn-success" href="{% url 'accounts:profile_update' %}">Edit Profile</a>
+                </div>
+            </div>
+            <!-- /END EDIT PROFILE BUTTON -->
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <!-- PROFILE LINKS -->
+                <div class="profile-work">
+                    <p>WORK LINK</p>
+                    <a href="">Website Link</a><br />
+                    <a href="">Bootsnipp Profile</a><br />
+                    <a href="">Bootply Profile</a>
+                    <p>SKILLS</p>
+                    <a href="">Web Designer</a><br />
+                    <a href="">Web Developer</a><br />
+                    <a href="">WordPress</a><br />
+                    <a href="">WooCommerce</a><br />
+                    <a href="">PHP, .Net</a><br />
+                </div>
+                <!-- /END PROFILE LINKS -->
+            </div>
+
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <!-- ABOUT TAB -->
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        
+                        <!-- JOB TITLE -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Job Title</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{other_user.person.job_title}}</p>
+                            </div>
+                        </div>
+                        <!-- /END JOB TITLE -->
+
+                        <!-- ORGANIZATION -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Organization</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{other_user.person.organization}}</p>
+                            </div>
+                        </div>
+                        <!-- /END ORGANIZATION -->
+
+                        <!-- TIME ZONE -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Time Zone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{other_user.person.time_zone}}</p>
+                            </div>
+                        </div>
+                        <!-- /END TIME ZONE -->
+
+                        <!-- BIO -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Bio</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{other_user.person.biography}}</p>
+                            </div>
+                        </div>
+                        <!-- /END BIO -->
+                    </div>
+                    <!-- /END ABOUT TAB -->
+
+                    <!-- TIMELINE TAB -->
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        
+                        <!-- USERNAME -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Username</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{other_user.username}}</p>
+                            </div>
+                        </div>
+                        <!-- /END USERNAME -->
+
+                        <!-- FIRST NAME -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>First Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{other_user.first_name}}</p>
+                            </div>
+                        </div>
+                        <!-- /END FIRST NAME -->
+
+                        <!-- LAST NAME -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Last Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{other_user.last_name}}</p>
+                            </div>
+                        </div>
+                        <!-- /END LAST NAME -->
+
+                        <!-- EMAIL -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{other_user.email}}</p>
+                            </div>
+                        </div>
+                        <!-- /END EMAIL -->
+
+                        <!-- PHONE NUMBER -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{other_user.person.phone_number}}</p>
+                            </div>
+                        </div>
+                        <!-- /END PHONE NUMBER -->
+                    </div>
+                    <!-- /END TIMELINE TAB -->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+    {{block.super}}
+{% endblock scripts %}
