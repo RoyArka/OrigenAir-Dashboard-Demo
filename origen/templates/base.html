@@ -85,14 +85,14 @@
                     </a>
                     <!-- DASHBOARD Submenu -->
                     <div id='submenu1' class="collapse sidebar-submenu">
-                        <a href="{% url 'organization:create_org' %}" class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Charts / Create</span>
+                        <a href="#" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Charts</span>
                         </a>
-                        <a href="{% url 'organization:org_members' %}" class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Reports / Members</span>
+                        <a href="#" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Reports</span>
                         </a>
-                        <a href="{% url 'organization:org_list' %}" class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Tables / List</span>
+                        <a href="#" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Tables</span>
                         </a>
                     </div>
                     <!-- /END DASHBOARD -->
@@ -122,6 +122,29 @@
                     {% else %}
                     {% endif %}
                     <!-- /END PROFILE -->
+
+                    <!-- ORGANIZATION -->
+                    <a href="#submenu3" data-toggle="collapse" aria-expanded="false"
+                        class="bg-success list-group-item list-group-item-action flex-column align-items-start sidebarclick">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-star fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Organization</span>
+                            <span class="submenu-icon ml-auto"></span>
+                        </div>
+                    </a>
+                    <!-- ORGANIZATION Submenu -->
+                    <div id='submenu3' class="collapse sidebar-submenu">
+                        <a href="{% url 'organization:create_org' %}" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Create</span>
+                        </a>
+                        <a href="{% url 'organization:org_members' %}" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Members</span>
+                        </a>
+                        <a href="{% url 'organization:org_list' %}" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">List</span>
+                        </a>
+                    </div>
+                    <!-- /END ORGANIZATION -->
 
                     <!-- TASKS -->
                     <a href="#" id="bug" class="bg-success list-group-item list-group-item-action sidebarclick">
