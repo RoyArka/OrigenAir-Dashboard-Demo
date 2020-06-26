@@ -1,18 +1,38 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django import forms
 from organization.models import Organization
 from django.forms import ModelForm
 
+class OrganizationCreateForm(forms.ModelForm):
+    class Meta:
+        model = Organization
+        fields = ('organization', 'location', 'description', 'color')
 
-class OrganizationCreateForm(UserCreationForm):
-    organization = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputOrg', 'placeholder': 'Organization Name', 'autocomplete': 'off'}), label='')
-    location = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Username', 'autocomplete': 'off'}), label='')
-    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5', 'input type': 'text', 'placeholder': 'Description', 'autocomplete': 'off'}), label='')
-    
+        widgets = {
+            'organization': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputOrganization',
+                                        'placeholder': 'Organization Name',
+                                        'name': 'Org-name'}),
+            'location': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputLocation',
+                                        'placeholder': 'Location',
+                                        'name': 'location'}),
+            'description': forms.Textarea(attrs={'class': 'form-control',
+                                            'rows': '5',
+                                            'id': 'inputDescription',
+                                            'input type': 'text',
+                                            'placeholder': 'Description',
+                                            'name': 'description'}),
+            'color': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputColor',
+                                        'placeholder': 'Color',
+                                        'name': 'color'}),
+        }
+
+
 class OrganizationUpdateForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ('organization', 'description', 'location')
+        fields = ('organization', 'location', 'description')
 
         widgets = {
             'organization': forms.TextInput(attrs={'class': 'form-control',
@@ -27,4 +47,8 @@ class OrganizationUpdateForm(forms.ModelForm):
                                             'input type': 'text',
                                             'placeholder': 'Description',
                                             'name': 'description-edit'}),
+            'color': forms.TextInput(attrs={'class': 'form-control', 
+                                        'id': 'color-edit',
+                                        'placeholder': 'Color',
+                                        'name': 'color-edit'}),
         }
