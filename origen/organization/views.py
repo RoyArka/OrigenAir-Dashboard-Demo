@@ -15,7 +15,7 @@ class CreateOrg(CreateView):
 
 class OrgProfile(DetailView):
     model = Organization
-    template_name = 'organization/organization_profile.html'
+    template_name = 'organization/organization_profile.html' 
 
 class OrgMembers(ListView):
     model = Organization

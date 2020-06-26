@@ -1,0 +1,23 @@
+/* ORGANIZATION LIST */
+
+#organization-list {
+    padding: 25px;
+}
+
+/* ----------------------------------------------- */
+
+/* ORGANIZATION PROFILE */
+
+.carousel {
+    height: 50vh;
+}
+
+.carousel-item>a>img {
+    height: 50vh;
+}
+
+.create-content {
+    padding-top: 25px;
+}
+
+/* ----------------------------------------------- */

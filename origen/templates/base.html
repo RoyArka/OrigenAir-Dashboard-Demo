@@ -10,14 +10,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>OrigenAir Dashboard</title>
 
-    <!-- Front Awesome Used in Top Bar-->
+    <!-- Front Awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css"
         integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
@@ -35,11 +42,12 @@
 
     <!-- Stylesheet CSS -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
-    
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'css/profile.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'css/organization.css' %}" rel="stylesheet" type="text/css" media="all" />
     {% block css %}
 
     {% endblock %}
-
 </head>
 
 <body>
@@ -81,14 +89,14 @@
                     </a>
                     <!-- DASHBOARD Submenu -->
                     <div id='submenu1' class="collapse sidebar-submenu">
-                        <a href="{% url 'organization:create_org' %}" class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Charts / Create</span>
+                        <a href="#" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Charts</span>
                         </a>
-                        <a href="{% url 'organization:org_members' %}" class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Reports / Members</span>
+                        <a href="#" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Reports</span>
                         </a>
-                        <a href="{% url 'organization:org_list' %}" class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Tables / List</span>
+                        <a href="#" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Tables</span>
                         </a>
                     </div>
                     <!-- /END DASHBOARD -->
@@ -118,6 +126,29 @@
                     {% else %}
                     {% endif %}
                     <!-- /END PROFILE -->
+
+                    <!-- ORGANIZATION -->
+                    <a href="#submenu3" data-toggle="collapse" aria-expanded="false"
+                        class="bg-success list-group-item list-group-item-action flex-column align-items-start sidebarclick">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fas fa-building fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Organization</span>
+                            <span class="submenu-icon ml-auto"></span>
+                        </div>
+                    </a>
+                    <!-- ORGANIZATION Submenu -->
+                    <div id='submenu3' class="collapse sidebar-submenu">
+                        <a href="{% url 'organization:create_org' %}" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Create</span>
+                        </a>
+                        <a href="{% url 'organization:org_members' %}" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Members</span>
+                        </a>
+                        <a href="{% url 'organization:org_list' %}" class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">List</span>
+                        </a>
+                    </div>
+                    <!-- /END ORGANIZATION -->
 
                     <!-- TASKS -->
                     <a href="#" id="bug" class="bg-success list-group-item list-group-item-action sidebarclick">
