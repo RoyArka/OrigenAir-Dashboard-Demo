@@ -5,11 +5,11 @@ from django.forms import ModelForm
 class OrganizationCreateForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ('organization', 'location', 'description', 'color')
+        fields = ('name', 'location', 'description', 'color')
 
         widgets = {
-            'organization': forms.TextInput(attrs={'class': 'form-control',
-                                        'id': 'inputOrganization',
+            'name': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputName',
                                         'placeholder': 'Organization Name',
                                         'name': 'Org-name'}),
             'location': forms.TextInput(attrs={'class': 'form-control',
@@ -32,10 +32,10 @@ class OrganizationCreateForm(forms.ModelForm):
 class OrganizationUpdateForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ('organization', 'location', 'description')
+        fields = ('name', 'location', 'description')
 
         widgets = {
-            'organization': forms.TextInput(attrs={'class': 'form-control',
+            'name': forms.TextInput(attrs={'class': 'form-control',
                                         'placeholder': 'Organization Name',
                                         'name': 'Org-edit'}),
             'location': forms.TextInput(attrs={'class': 'form-control',
