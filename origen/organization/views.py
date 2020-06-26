@@ -29,4 +29,3 @@ class OrgProfileUpdate(UpdateView):
 class OrgList(ListView): 
     model = Organization
     template_name = 'organization/organization_list.html'
-

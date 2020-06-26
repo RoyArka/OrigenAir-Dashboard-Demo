@@ -1,1 +1,64 @@
-<h1>Organization Members List</h1>
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Carousel -->
+<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+    <!-- Number of pages in Carousel -->
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <!-- End -->
+
+    <!-- CAROUSEL PHOTOS -->
+    <div class="carousel-inner">
+        <!-- CAROUSEL 1 -->
+        <div class="carousel-item active">
+            <a href="#">
+                <img class="d-block w-100 active"
+                    src="https://ultrawidewallpapers.com/wp-content/uploads/2015/08/the-perfect-vacation-3440x1440.jpg"
+                    alt="First slide">
+            </a>
+        </div>
+        <!-- /END CAROUSEL 1 -->
+
+        <!-- CAROUSEL 2 -->
+        <div class="carousel-item">
+            <a href="#">
+                <img class="d-block w-100" src="https://wallpaperaccess.com/full/306406.jpg" alt="Second slide">
+            </a>
+        </div>
+        <!-- /END CAROUSEL 2 -->
+
+        <!-- CAROUSEL 3 -->
+        <div class="carousel-item">
+            <a href="#">
+                <img class="d-block w-100" src="https://i.pinimg.com/originals/e7/37/97/e73797e90db90a056e96291ca4f2a788.jpg" alt="Third slide">
+            </a>
+        </div>
+        <!-- /END CAROUSEL 3 -->
+    </div>
+    <!-- /END CAROUSEL PHOTOS -->
+
+    <!-- Carousel Control: Previous photo -->
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <!-- Carousel Control: Next photo -->
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+{% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+{{block.super}}
+{% endblock scripts %}
