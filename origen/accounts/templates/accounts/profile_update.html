@@ -17,12 +17,16 @@
             <div class="col-md-4">
                 <div class="profile-img">
                     <!-- PROFILE IMAGE -->
-                    <img src="{% static 'img/guestProfile.png' %}" alt=""/>
+                    <img src="{{user.person.avatar.url}}" alt=""/>
                     <!-- /END PROFILE IMAGE -->
 
                     <!-- CHANGE PHOTO -->
                     <div class="file btn btn-lg btn-primary">
+                       <span class="file">
                         Change Photo
+                       </span>
+                        {{form.avatar.errors}}
+                        {{form.avatar}}
                         <!-- <input type="file" name="file"/> -->
                     </div>
                     <!-- /END CHANGE PHOTO -->
