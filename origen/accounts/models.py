@@ -31,23 +31,3 @@ class Person(models.Model):
     def __str__(self):
         return self.user.username
 
-    # def get_biography(self):
-    #     return self.person.biography
-
-    # def get_email(self):
-    #     return self.user.email
-
-    # def get_job_title(self):
-    #     return self.job_title
-
-    # def get_last_name(self):
-    #     return self.user.last_name
-
-    # def get_organization(self):
-    #     return self.organization
-
-    # def get_phone(self):
-    #     return self.phone_number
-    
-    # def get_time_zone(self):
-    #     return self.person.time_zone

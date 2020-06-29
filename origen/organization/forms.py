@@ -29,6 +29,7 @@ class OrganizationCreateForm(forms.ModelForm):
         }
 
 
+
 class OrganizationUpdateForm(forms.ModelForm):
     class Meta:
         model = Organization

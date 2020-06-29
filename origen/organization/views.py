@@ -13,9 +13,24 @@ class CreateOrg(CreateView):
     form_class = forms.OrganizationCreateForm
     template_name = 'organization/organization_create.html'
 
+    def form_valid(self, form):
+        form.save()
+        return super(CreateOrg, self).form_valid(form)
+
 class OrgProfile(DetailView):
     model = Organization
-    template_name = 'organization/organization_profile.html' 
+    template_name = 'organization/organization_profile.html'
+
+    def get_queryset(self):
+        try:
+            self.other_org = Organization.objects.get(slug__iexact=self.kwargs.get('name'))
+        except Organization.DoesNotExist:
+            raise Http404
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['other_org'] = self.other_org
+        return context 
 
 class OrgMembers(ListView):
     model = Organization
@@ -29,3 +44,7 @@ class OrgProfileUpdate(UpdateView):
 class OrgList(ListView): 
     model = Organization
     template_name = 'organization/organization_list.html'
+
+    def queryset(self):
+        return Organization.objects.all()
+        
