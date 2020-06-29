@@ -7,18 +7,25 @@
 <div id="organization-list">
     <!-- CREATE BUTTON -->
     <div class="text-right">
-        <a class="btn btn-success" href="{% url 'organization:create_org' %}">Create</a>
+        <a class="btn btn-success" href="{% url 'organization:create' %}">Create</a>
     </div>
     <!-- /END EDIT PROFILE BUTTON -->
 
-    <a href="{% url 'organization:org_list' %}#A">A</a>
-    <a href="{% url 'organization:org_list' %}#B">B</a>
-    <a href="{% url 'organization:org_list' %}#C">C</a>
-    <a href="{% url 'organization:org_list' %}#D">D</a>
+    <a href="{% url 'organization:all' %}#A">A</a>
+    <a href="{% url 'organization:all' %}#B">B</a>
+    <a href="{% url 'organization:all' %}#C">C</a>
+    <a href="{% url 'organization:all' %}#D">D</a>
+
+    {% for organization in object_list %}
+        <h1>{{organization.name}}</h1>
+        <a href="{% url 'organization:single' slug=organization.slug %}">{{organization.name}}</a>
+    {% endfor %}
 
     <div id="A">
         <h1>A</h1>
     </div>
+
+    
 
     <!-- ORGANIZATION LIST -->
     <div class="row text-center">

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib import auth
 from django.contrib.auth.models import User 
+from organization.models import Organization
 # Create your models here.
 
 def user_directory_path(instance, filename):
@@ -19,10 +20,11 @@ class Person(models.Model):
     alerts = models.BooleanField(default=True)
     biography = models.TextField(default='', null=True, blank=True)
     job_title = models.CharField(max_length=100, null=True, blank=True)
-    organization = models.CharField(max_length=100, null=True, blank=True)
+    organization = models.ForeignKey(Organization, related_name='persons', null=True, blank=True, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=100, null=True, blank=True)
     time_zone = models.CharField(max_length=100, choices = TIMEZONES, default='America/Vancouver')
     avatar = models.ImageField(upload_to=user_directory_path, default='person/avatars/default.png', null=True, blank=True)
+    
 
     # last_name = models.CharField(max_length=32)
     
