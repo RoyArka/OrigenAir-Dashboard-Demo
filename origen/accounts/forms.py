@@ -4,6 +4,7 @@ from django import forms
 from accounts.models import Person
 from django.forms import ModelForm
 import pytz
+from django.forms.widgets import ClearableFileInput
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Username', 'autocomplete': 'off'}))
@@ -79,6 +80,12 @@ class MyPasswordChangeForm(PasswordChangeForm):
             if (i==2):
                 visible.field.widget.attrs['placeholder'] = 'Confirm New Password'
                 visible.field.widget.attrs['id'] = 'inputConfirmPassword'
+
+class MyClearableFileInput(ClearableFileInput):
+    initial_text = ''
+    input_text = ''
+    clear_checkbox_label = ''
+    template_name = 'custom_clearable_file_input.html'
 
 class PersonUpdateForm(forms.ModelForm):
     class Meta:
