@@ -7,9 +7,13 @@ from . forms import OrganizationUpdateForm
 from . import forms
 from . models import Organization
 from django.http import Http404 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import generic
+from django.urls import reverse
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
-class CreateOrg(CreateView):
+class CreateOrg(LoginRequiredMixin, CreateView):
     form_class = forms.OrganizationCreateForm
     template_name = 'organization/organization_create.html'
 
@@ -23,7 +27,7 @@ class OrgProfile(DetailView):
 
     def get_queryset(self):
         try:
-            self.other_org = Organization.objects.get(slug__iexact=self.kwargs.get('name'))
+            self.other_org = Organization.objects.get(slug__iexact=self.kwargs.get('slug'))
         except Organization.DoesNotExist:
             raise Http404
 
@@ -32,11 +36,11 @@ class OrgProfile(DetailView):
         context['other_org'] = self.other_org
         return context 
 
-class OrgMembers(ListView):
+class OrgMembers(DetailView):
     model = Organization
     template_name = 'organization/organization_members.html'
 
-class OrgProfileUpdate(UpdateView):
+class OrgProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Organization
     form_class = OrganizationUpdateForm
     template_name = 'organization/organization_update.html'
@@ -47,4 +51,11 @@ class OrgList(ListView):
 
     def queryset(self):
         return Organization.objects.all()
-        
+
+class JoinOrg(LoginRequiredMixin, generic.RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('organization:single', kwargs={'slug':self.kwargs.get('slug')})
+
+    def get(self, request, *args, **kwargs):
+        organization = get_object_or_404(Organization, slug=self.kwargs.get('slug'))
+        return super().get(request, *args, **kwargs)

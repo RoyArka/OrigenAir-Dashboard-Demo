@@ -5,7 +5,7 @@ from django.utils import timezone
 # Create your models here.
 class Organization(models.Model):
 
-    name = models.CharField(max_length=100, null= True, blank=True)
+    name = models.CharField(max_length=100, null=False, blank=False)
     location = models.CharField(max_length=100, null= True, blank=True)
     description = models.TextField(max_length=255, default='', null=True, blank=True)
     color = models.CharField(max_length=7, default='#1B9A4B')
