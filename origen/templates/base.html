@@ -141,7 +141,11 @@
                         <a href="{% url 'organization:create' %}" class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Create</span>
                         </a>
+<<<<<<< HEAD
                         <a href="" class="list-group-item list-group-item-action bg-success text-white">
+=======
+                        <a href="{% url 'organization:members' %}" class="list-group-item list-group-item-action bg-success text-white">
+>>>>>>> dfad5198165c2997ca9b6186706f3c2140da3a1a
                             <span class="menu-collapsed">Members</span>
                         </a>
                         <a href="{% url 'organization:all' %}" class="list-group-item list-group-item-action bg-success text-white">
@@ -253,7 +257,7 @@
                             {% if user.is_authenticated %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.get_full_name}}</span>
                             <img class="img-profile rounded-circle"
-                                src="{% static 'img/guestProfile.png' %}">
+                                src="{{user.person.avatar.url}}">
                             {% else %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guest</span>
                             <img class="img-profile rounded-circle" src="{% static 'img/guestProfile.png' %}">
