@@ -1,7 +1,7 @@
 /* PROFILE */
 
 a {
-    color: rgb(27, 154, 75);
+    color: #1B9A4B;
     text-decoration: none;
     background-color: transparent;
   }
@@ -45,7 +45,7 @@ a {
     color: #333;
   }
   .profile-head h6{
-    color: rgb(27, 154, 75);
+    color: #1B9A4B;
   }
   .profile-edit-btn{
     border: none;
@@ -65,7 +65,7 @@ a {
   }
   .profile-head .nav-tabs .nav-link.active{
     border: none;
-    border-bottom:2px solid rgb(27, 154, 75);
+    border-bottom:2px solid #1B9A4B;
   }
   .profile-work{
     padding: 14%;
@@ -91,7 +91,7 @@ a {
   }
   .profile-tab p{
     font-weight: 600;
-    color: rgb(27, 154, 75);
+    color: #1B9A4B;
   }
   
   /* ----------------------------------------------- */
