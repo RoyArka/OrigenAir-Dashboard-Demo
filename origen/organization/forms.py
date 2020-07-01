@@ -5,13 +5,17 @@ from django.forms import ModelForm
 class OrganizationCreateForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ('name', 'location', 'description', 'color')
+        fields = ('name', 'email', 'location', 'description', 'color')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputName',
                                         'placeholder': 'Organization Name',
                                         'name': 'Org-name'}),
+            'email': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputEmail',
+                                        'placeholder': 'Contact Email',
+                                        'name': 'Org-email'}),
             'location': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputLocation',
                                         'placeholder': 'Location',
@@ -28,12 +32,14 @@ class OrganizationCreateForm(forms.ModelForm):
                                         'name': 'color'}),
         }
 
-
+    def __init__(self, *args, **kwargs):
+        super(OrganizationCreateForm, self).__init__(*args, **kwargs)
+        
 
 class OrganizationUpdateForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ('name', 'location', 'description')
+        fields = ('name', 'email', 'location', 'description')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',

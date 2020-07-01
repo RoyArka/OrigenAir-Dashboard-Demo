@@ -17,7 +17,7 @@ class SignUp(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'accounts/signup.html'
 
-    def form_valid(self, form):
+    def form_valid(self, form):     
         user = form.save()
         login(self.request, user, backend='django.contrib.auth.backends.ModelBackend')
         return redirect('home')

@@ -25,10 +25,6 @@ class Person(models.Model):
     time_zone = models.CharField(max_length=100, choices = TIMEZONES, default='America/Vancouver')
     avatar = models.ImageField(upload_to=user_directory_path, default='person/avatars/default.png', null=True, blank=True)
     
-
-    # last_name = models.CharField(max_length=32)
-    
-    
     def __unicode__(self):
         return self.user
 
