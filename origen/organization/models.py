@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
+from django.urls import reverse
 
 # Create your models here.
 class Organization(models.Model):
 
     name = models.CharField(max_length=100, null=False, blank=False)
+    email = models.EmailField(max_length=100, null=True, blank=True)
     location = models.CharField(max_length=100, null= True, blank=True)
     description = models.TextField(max_length=255, default='', null=True, blank=True)
     color = models.CharField(max_length=7, default='#1B9A4B')
@@ -19,4 +21,5 @@ class Organization(models.Model):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
-    
+    def get_absolute_url(self):
+        return reverse("organization:single", kwargs={"slug": self.slug})

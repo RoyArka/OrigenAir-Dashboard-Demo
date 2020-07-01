@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views.generic import CreateView 
 from django.views.generic.edit import UpdateView
 from django.views.generic.list import ListView 
@@ -18,23 +19,12 @@ class CreateOrg(LoginRequiredMixin, CreateView):
     template_name = 'organization/organization_create.html'
 
     def form_valid(self, form):
-        form.save()
-        return super(CreateOrg, self).form_valid(form)
-
+        print(form.cleaned_data)
+        return super().form_valid(form)
+        
 class OrgProfile(DetailView):
     model = Organization
     template_name = 'organization/organization_profile.html'
-
-    def get_queryset(self):
-        try:
-            self.other_org = Organization.objects.get(slug__iexact=self.kwargs.get('slug'))
-        except Organization.DoesNotExist:
-            raise Http404
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['other_org'] = self.other_org
-        return context 
 
 class OrgMembers(DetailView):
     model = Organization
@@ -48,9 +38,6 @@ class OrgProfileUpdate(LoginRequiredMixin, UpdateView):
 class OrgList(ListView): 
     model = Organization
     template_name = 'organization/organization_list.html'
-
-    def queryset(self):
-        return Organization.objects.all()
 
 class JoinOrg(LoginRequiredMixin, generic.RedirectView):
     def get_redirect_url(self, *args, **kwargs):
