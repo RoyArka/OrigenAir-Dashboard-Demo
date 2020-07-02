@@ -6,7 +6,6 @@ class OrganizationCreateForm(forms.ModelForm):
     class Meta:
         model = Organization
         fields = ('name', 'email', 'phone', 'website', 'location', 'description', 'color')
-        # fields = ('name', 'email', 'phone', 'website', 'location', 'description')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
@@ -48,9 +47,8 @@ class OrganizationUpdateForm(forms.ModelForm):
     class Meta:
         model = Organization
         fields = ('name', 'email', 'phone', 'website', 'location', 'description', 'color')
-        # fields = ('name', 'email', 'phone', 'website', 'location', 'description')
-
-        widgets = {
+ 
+         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
                                         'placeholder': 'Organization Name',
                                         'name': 'Org-edit'}),
