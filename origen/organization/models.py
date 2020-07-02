@@ -14,6 +14,7 @@ class Organization(models.Model):
     phone = models.CharField(max_length=12, null=True, blank=True, default='None')
     description = models.TextField(max_length=255, default='', null=True, blank=True)
     color = RGBColorField(default='#1B9A4B')
+    avatar = models.ImageField(null=True, blank=True)
     slug = models.SlugField(allow_unicode=True, unique=True)
     created_at = models.DateTimeField(default=timezone.now, null=False)
    
