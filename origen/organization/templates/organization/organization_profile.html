@@ -119,16 +119,19 @@
             <!-- PHONE/EMAIL -->
             <address>
                 <abbr title="Phone">P:</abbr>
-                (123) 456-7890
+                {{organization.phone}}
                 <br>
                 <abbr title="Email">E:</abbr>
                 <a href="mailto:#">{{organization.email}}</a>
+                <br>
+                <abbr title="Website">W:</abbr>
+                {{organization.website}}
             </address>
             <!-- /END PHONE/EMAIL -->
 
             <!-- EDIT BUTTON -->
             <address>
-                <a class="btn btn-success" href="{% url 'organization:all' %}">Edit</a>
+                <a class="btn btn-success" href="{% url 'organization:update' slug=organization.slug %}">Edit</a>
             </address>
             <!-- /END EDIT BUTTON -->
         </div>

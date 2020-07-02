@@ -10,7 +10,6 @@
 
 .list-card-text {
     height: 100px;
-    text-overflow: ellipsis;
     overflow: hidden;
 }
 
