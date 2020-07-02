@@ -5,7 +5,7 @@ from django.forms import ModelForm
 class OrganizationCreateForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ('name', 'email', 'phone', 'location', 'description', 'color')
+        fields = ('name', 'email', 'phone', 'website', 'location', 'description', 'color')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
@@ -20,6 +20,10 @@ class OrganizationCreateForm(forms.ModelForm):
                                         'id': 'inputPhone',
                                         'placeholder': 'Phone Number',
                                         'name': 'Org-phone'}),
+            'website': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputWebsite',
+                                        'placeholder': 'Website',
+                                        'name': 'Org-Website'}),
             'location': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputLocation',
                                         'placeholder': 'Location',
@@ -39,16 +43,24 @@ class OrganizationCreateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(OrganizationCreateForm, self).__init__(*args, **kwargs)
         
-
 class OrganizationUpdateForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ('name', 'email', 'location', 'description')
+        fields = ('name', 'email', 'phone', 'website', 'location', 'description', 'color')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
                                         'placeholder': 'Organization Name',
                                         'name': 'Org-edit'}),
+            'email': forms.TextInput(attrs={'class': 'form-control',
+                                        'placeholder': 'Contact Email',
+                                        'name': 'Org-email-edit'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control',
+                                        'placeholder': 'Phone Number',
+                                        'name': 'Org-phone-edit'}),
+            'website': forms.TextInput(attrs={'class': 'form-control',
+                                        'placeholder': 'Website',
+                                        'name': 'Org-Website-edit'}),
             'location': forms.TextInput(attrs={'class': 'form-control',
                                         'placeholder': 'Location',
                                         'name': 'location-edit'}),
