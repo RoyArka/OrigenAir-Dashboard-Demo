@@ -5,7 +5,7 @@ from django.forms import ModelForm
 class OrganizationCreateForm(forms.ModelForm):
     class Meta:
         model = Organization
-        fields = ('name', 'email', 'location', 'description', 'color')
+        fields = ('name', 'email', 'phone', 'location', 'description', 'color')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
@@ -16,6 +16,10 @@ class OrganizationCreateForm(forms.ModelForm):
                                         'id': 'inputEmail',
                                         'placeholder': 'Contact Email',
                                         'name': 'Org-email'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputPhone',
+                                        'placeholder': 'Phone Number',
+                                        'name': 'Org-phone'}),
             'location': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputLocation',
                                         'placeholder': 'Location',
