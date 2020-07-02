@@ -9,5 +9,6 @@ urlpatterns = [
     path('<slug>/', views.OrgProfile.as_view(), name='single'),
     path('<slug>/members/', views.OrgMembers.as_view(), name='members'),
     path('<slug>/update/', views.OrgProfileUpdate.as_view(), name='update'),   
-    path('<slug>/join/', views.JoinOrg.as_view(), name='join')
+    path('<slug>/join/', views.JoinOrg.as_view(), name='join'),
+    path('<slug>/leave/', views.LeaveOrg.as_view(), name='leave'),
 ]

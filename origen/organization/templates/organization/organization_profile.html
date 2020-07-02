@@ -73,10 +73,17 @@
             <!-- /END DESCRIPTION -->
             
             <!-- JOIN BUTTON -->
-            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">
+            {% if not user.person.organization %}
+            <a href="{% url 'organization:join' slug=organization.slug %}" class="btn btn-success btn-lg">
                 Join &raquo;
-            </button>
+            </a>
+            {% endif %}
             <!-- /END JOIN BUTTON -->
+            {% if user.person.organization == organization %}
+            <a href="{% url 'organization:leave' slug=organization.slug %}" class="btn btn-danger btn-lg">
+                Leave &raquo;
+            </a>
+            {% endif %}
 
             <!-- JOIN MODAL -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

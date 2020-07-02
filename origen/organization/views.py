@@ -52,4 +52,23 @@ class JoinOrg(LoginRequiredMixin, generic.RedirectView):
 
     def get(self, request, *args, **kwargs):
         organization = get_object_or_404(Organization, slug=self.kwargs.get('slug'))
+        if (self.request.user.person.organization):
+            print("You're already in an organization!")
+        else:
+            self.request.user.person.organization = organization
+            self.request.user.person.save()
+        return super().get(request, *args, **kwargs)
+
+class LeaveOrg(LoginRequiredMixin, generic.RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('organization:single', kwargs={'slug':self.kwargs.get('slug')})
+    
+    def get(self, request, *args, **kwargs):
+        organization = get_object_or_404(Organization, slug=self.kwargs.get('slug'))
+
+        if (self.request.user.person.organization == organization):
+            self.request.user.person.organization = None
+            self.request.user.person.save()
+        else:
+            print("You're not a member of this organization!")
         return super().get(request, *args, **kwargs)
