@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
 from django.urls import reverse
+from colorfield.fields import ColorField
+from colorful.fields import RGBColorField
 
 # Create your models here.
 class Organization(models.Model):
@@ -12,7 +14,8 @@ class Organization(models.Model):
     website = models.URLField(max_length=200, null=True, blank=True)
     phone = models.CharField(max_length=12, null=True, blank=True)
     description = models.TextField(max_length=255, default='', null=True, blank=True)
-    color = models.CharField(max_length=7, default='#1B9A4B')
+    # color = models.CharField(max_length=7, default='#1B9A4B')
+    color = RGBColorField()
     slug = models.SlugField(allow_unicode=True, unique=True)
     created_at = models.DateTimeField(default=timezone.now, null=False)
    
