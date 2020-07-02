@@ -7,7 +7,7 @@ from django.urls import reverse
 class Organization(models.Model):
 
     name = models.CharField(max_length=100, null=False, blank=False)
-    email = models.EmailField(max_length=100, null=True, blank=True)
+    email = models.EmailField(max_length=100, null=True, blank=True, default='None')
     location = models.CharField(max_length=100, null= True, blank=True)
     website = models.URLField(max_length=200, null=True, blank=True)
     phone = models.CharField(max_length=12, null=True, blank=True)
