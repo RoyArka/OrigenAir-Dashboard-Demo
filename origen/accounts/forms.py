@@ -51,9 +51,6 @@ class MyPasswordResetForm(PasswordResetForm):
 
 class MySetPasswordForm(SetPasswordForm):
 
-    # password3 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'inputPassword', 'placeholder':'Password'}),label='')
-    # password4 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'id': 'inputConfirmPassword', 'placeholder':'Confirm Password'}),label='')
-
     def __init__(self, *args, **kwargs):
         super(MySetPasswordForm, self).__init__(*args, **kwargs)
         for i, visible in enumerate(self.visible_fields()):
