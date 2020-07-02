@@ -20,14 +20,14 @@ body {
 }
 
 #logo-space {
-    background-color: rgb(27, 154, 75);
+    background-color: #1B9A4B;
     margin-bottom: 10px;
     padding: 2px;
 }
 
 #sidebar-container {
     min-height: 100vh;
-    background-color: rgb(27, 154, 75);
+    background-color: #1B9A4B;
     padding: 0;
     /* flex: unset; */
 }
@@ -49,7 +49,7 @@ body {
 
 /* ----------| Submenu item*/    
 #sidebar-container .list-group li.list-group-item {
-    background-color: rgb(27, 154, 75);
+    background-color: #1B9A4B;
 }
 
 #sidebar-container .list-group .sidebar-submenu a {
@@ -63,22 +63,22 @@ body {
 
 /* ----------| Separators */    
 .sidebar-separator-title {
-    background-color: rgb(27, 154, 75);
+    background-color: #1B9A4B;
     height: 35px;
 }
 
 .sidebar-separator {
-    background-color: rgb(27, 154, 75);
+    background-color: #1B9A4B;
     height: 25px;
 }
 
 .logo-separator {
-    background-color: rgb(27, 154, 75);
+    background-color: #1B9A4B;
     height: 60px;
 }
 
 a.bg-success {
-    background-color: rgb(27, 154, 75) !important;
+    background-color: #1B9A4B !important;
 }
 
 /* ----------------------------------------------- */
@@ -86,7 +86,7 @@ a.bg-success {
 /* TOP BAR */
 
 .btn-success {
-    background-color: rgb(27, 154, 75) !important;
+    background-color: #1B9A4B !important;
 }
 
 .col {
@@ -98,7 +98,7 @@ a.bg-success {
 }
 
 .greeniconcolor {
-    color: rgb(27, 154, 75);
+    color: #1B9A4B;
 }
 
 .img-profile {
