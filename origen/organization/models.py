@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils import timezone
 from django.urls import reverse
-from colorfield.fields import ColorField
 from colorful.fields import RGBColorField
 
 # Create your models here.
