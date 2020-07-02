@@ -6,11 +6,10 @@
 
 <!-- Header -->
 
-<header class="bg-primary text-center py-5 mb-4">
+<header class="bg-primary text-center py-5 mb-4 members-banner">
     <div class="container">
+      <h1 class="font-weight-light text-white">{{organization.name}}</h1>
       <h1 class="font-weight-light text-white">Meet the Team</h1>
-      <h1>{{organization.name}}</h1>
-      <a href="{% url 'organization:join' slug=organization.slug %}"><h2>JOIN</h2></a>
     </div>
   </header>
   
