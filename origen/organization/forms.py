@@ -66,7 +66,7 @@ class OrganizationUpdateForm(forms.ModelForm):
             'location': forms.TextInput(attrs={'class': 'form-control',
                                         'placeholder': 'Location',
                                         'name': 'location-edit'}),
-            'description': forms.Textarea(attrs={'class': 'form-control',
+            'description': forms.Textarea(attrs={'class': 'form-control abouttextbox',
                                             'rows': '5',
                                             'id': 'description-edit',
                                             'input type': 'text',
