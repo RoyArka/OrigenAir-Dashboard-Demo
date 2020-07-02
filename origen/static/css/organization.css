@@ -1,4 +1,22 @@
+/* ORGANIZATION MEMBERS */
+
+.members-banner {
+    background-color: #1B9A4B !important;
+}
+
+/* ----------------------------------------------- */
+
 /* ORGANIZATION LIST */
+
+.list-card-text {
+    height: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.list-field {
+    padding-top: 25px;
+}
 
 #organization-list {
     padding: 25px;

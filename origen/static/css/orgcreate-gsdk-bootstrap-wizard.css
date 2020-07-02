@@ -38,7 +38,7 @@ input[type="button"]:focus {
   outline: 0;
 }
 
-/*           Animations              */
+/* Animations */
 .form-control, .input-group-addon {
   -webkit-transition: all 300ms linear;
   -moz-transition: all 300ms linear;
@@ -126,13 +126,13 @@ input[type="button"]:focus {
   letter-spacing: 1px;
 }
 
-/*           Font Smoothing      */
+/* Font Smoothing */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, .btn-simple {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
 
-/*           Typography          */
+/* Typography */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-weight: 400;
   margin: 30px 0 15px;
@@ -260,7 +260,7 @@ h1 .subtitle {
   font-size: 12px;
   text-transform: uppercase;
   -webkit-font-smoothing: subpixel-antialiased;
-  background-color: #05AE0E;
+  background-color: #1B9A4B;
   top: 0px;
   left: 0px;
   color: #FFFFFF;
@@ -394,7 +394,7 @@ h1 .subtitle {
   font-size: 14px;
 }
 
-/*             Inputs               */
+/* Inputs */
 .form-control {
   background-color: #FFFFFF;
   border: 1px solid #E3E3E3;
@@ -575,8 +575,8 @@ h1 .subtitle {
 }
 
 .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open .dropdown-toggle .btn-warning {
-  color: #ED8D00;
-  border-color: #ED8D00;
+  color: #FF9500;
+  border-color: #FF9500;
   background-color: transparent;
 }
 
@@ -658,8 +658,8 @@ h1 .subtitle {
   border-color: #FF9500;
 }
 .btn-fill.btn-warning:hover, .btn-fill.btn-warning:focus, .btn-fill.btn-warning:active, .btn-fill.btn-warning.active, .open .dropdown-toggle .btn-fill.btn-warning {
-  background-color: #ED8D00;
-  border-color: #ED8D00;
+  background-color: #FF9500;
+  border-color: #FF9500;
 }
 .btn-fill.btn-danger {
   background-color: #FF3B30;
