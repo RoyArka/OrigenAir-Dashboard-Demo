@@ -58,24 +58,65 @@
     </a>
 </div>
 
-<!-- Page Content -->
+<!-- PAGE CONTENT -->
 <div class="container create-content">
     <div class="row">
+        <!-- LEFT COLUMN -->
         <div class="col-md-8 mb-5">
+            <!-- HEADER -->
             <h2>What We Do</h2>
             <hr>
+            <!-- /END HEADER -->
+
+            <!-- DESCRIPTION -->
             <p>{{organization.description}}</p>
-            <a class="btn btn-success btn-lg" href="{% url 'organization:join' slug=organization.slug %}">Team &raquo;</a>
-            <a class="btn btn-success btn-lg" href="{% url 'organization:all' %}">Join &raquo;</a>
+            <!-- /END DESCRIPTION -->
+            
+            <!-- JOIN BUTTON -->
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">
+                Join &raquo;
+            </button>
+            <!-- /END JOIN BUTTON -->
+
+            <!-- JOIN MODAL -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Success</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            You have successfully joined {{organization.name}}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /END JOIN MODAL -->
         </div>
+        <!-- /END LEFT COLUMN -->
+
+        <!-- RIGHT COLUMN -->
         <div class="col-md-4 mb-5">
+            <!-- HEADER -->
             <h2>Contact Us</h2>
             <hr>
+            <!-- /END HEADER -->
+
+            <!-- NAME/LOCATION -->
             <address>
                 <strong>{{organization.name}}</strong>
                 <br>{{organization.location}}
                 <br>
             </address>
+            <!-- /END NAME/LOCATION -->
+            
+            <!-- PHONE/EMAIL -->
             <address>
                 <abbr title="Phone">P:</abbr>
                 (123) 456-7890
@@ -83,10 +124,18 @@
                 <abbr title="Email">E:</abbr>
                 <a href="mailto:#">{{organization.email}}</a>
             </address>
+            <!-- /END PHONE/EMAIL -->
+
+            <!-- EDIT BUTTON -->
+            <address>
+                <a class="btn btn-success" href="{% url 'organization:all' %}">Edit</a>
+            </address>
+            <!-- /END EDIT BUTTON -->
         </div>
+        <!-- /END RIGHT COLUMN -->
     </div>
 </div>
-<!-- /.container -->
+<!-- /END PAGE CONTENT -->
 
 {% endblock %}
 
