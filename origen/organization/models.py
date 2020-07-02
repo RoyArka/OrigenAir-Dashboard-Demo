@@ -7,9 +7,9 @@ from django.urls import reverse
 class Organization(models.Model):
 
     name = models.CharField(max_length=100, null=False, blank=False)
-    email = models.EmailField(max_length=100, null=True, blank=True, default='None')
+    email = models.EmailField(max_length=100, null=True, blank=True)
     location = models.CharField(max_length=100, null= True, blank=True)
-    website = models.URLField(max_length=200, null=True, blank=True)
+    website = models.URLField(max_length=200, null=True, blank=True, default='None')
     phone = models.CharField(max_length=12, null=True, blank=True)
     description = models.TextField(max_length=255, default='', null=True, blank=True)
     color = models.CharField(max_length=7, default='#1B9A4B')

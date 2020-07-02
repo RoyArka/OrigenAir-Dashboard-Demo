@@ -28,7 +28,7 @@ class OrganizationCreateForm(forms.ModelForm):
                                         'id': 'inputLocation',
                                         'placeholder': 'Location',
                                         'name': 'location'}),
-            'description': forms.Textarea(attrs={'class': 'form-control',
+            'description': forms.Textarea(attrs={'class': 'form-control abouttextbox',
                                             'rows': '5',
                                             'id': 'inputDescription',
                                             'input type': 'text',
