@@ -15,16 +15,16 @@
         integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    
+
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
@@ -41,7 +41,6 @@
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
     <!-- Stylesheet CSS -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" media="all" />
     <link href="{% static 'css/profile.css' %}" rel="stylesheet" type="text/css" media="all" />
     <link href="{% static 'css/organization.css' %}" rel="stylesheet" type="text/css" media="all" />
@@ -62,7 +61,7 @@
                 <ul class="list-group">
 
                     <!-- LOGO -->
-                    <div class="d-flex w-100 justify-content-start align-items-center" id="logo-space" >
+                    <div class="d-flex w-100 justify-content-start align-items-center" id="logo-space">
                         <a href="{% url 'home' %}">
                             <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
                             <span class="menu-collapsed">
@@ -73,7 +72,8 @@
                     <!-- /END LOGO -->
 
                     <!-- Separator with title -->
-                    <li class="list-group-item sidebar-separator-title text-white d-flex align-items-center menu-collapsed">
+                    <li
+                        class="list-group-item sidebar-separator-title text-white d-flex align-items-center menu-collapsed">
                         <small>MAIN MENU</small>
                     </li>
                     <!-- /END Separator -->
@@ -113,13 +113,16 @@
                     </a>
                     <!-- PROFILE Submenu -->
                     <div id='submenu2' class="collapse sidebar-submenu">
-                        <a href="{% url 'accounts:profile' username=user.username %}" class="list-group-item list-group-item-action bg-success text-white">
+                        <a href="{% url 'accounts:profile' username=user.username %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Profile</span>
                         </a>
-                        <a href="{% url 'accounts:profile_update' %}" class="list-group-item list-group-item-action bg-success text-white">
+                        <a href="{% url 'accounts:profile_update' %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Settings</span>
                         </a>
-                        <a href="{% url 'accounts:password_change' %}" class="list-group-item list-group-item-action bg-success text-white">
+                        <a href="{% url 'accounts:password_change' %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Change Password</span>
                         </a>
                     </div>
@@ -139,15 +142,18 @@
                     </a>
                     <!-- ORGANIZATION Submenu -->
                     <div id='submenu3' class="collapse sidebar-submenu">
-                        <a href="{% url 'organization:create' %}" class="list-group-item list-group-item-action bg-success text-white">
+                        <a href="{% url 'organization:create' %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Create</span>
                         </a>
                         {% if user.person.organization %}
-                        <a href="{% url 'organization:members' slug=user.person.organization.slug %}" class="list-group-item list-group-item-action bg-success text-white">
+                        <a href="{% url 'organization:members' slug=user.person.organization.slug %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Members</span>
                         </a>
                         {% endif %}
-                        <a href="{% url 'organization:all' %}" class="list-group-item list-group-item-action bg-success text-white">
+                        <a href="{% url 'organization:all' %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">List</span>
                         </a>
                     </div>
@@ -256,8 +262,7 @@
 
                             {% if user.is_authenticated %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.get_full_name}}</span>
-                            <img class="img-profile rounded-circle"
-                                src="{{user.person.avatar.url}}">
+                            <img class="img-profile rounded-circle" src="{{user.person.avatar.url}}">
                             {% else %}
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Guest</span>
                             <img class="img-profile rounded-circle" src="{% static 'img/guestProfile.png' %}">
@@ -277,7 +282,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'logout' %}">
                                 <i class="fas fa-sign-out-alt mr-2 greeniconcolor"></i>Log Out</a>
-                                
+
                             <!-- Drop Down when user is logged out -->
                             {% else %}
                             <a class="dropdown-item" href="{% url 'login' %}"
@@ -303,7 +308,19 @@
         </div>
         <!-- /END Bootstrap row -->
     </main>
+
     <!-- Javascript -->
+
+    <!-- JS Color -->
+    <script>
+        const dbValues = {
+            'main-bg-color': '{{user.person.organization.color}}'
+        }
+
+        Object.entries(dbValues).map(([key, value]) => {
+            document.documentElement.style.setProperty(`--${key}`, value)
+        })
+    </script>
 
     <!-- JS Bootstrap CDN -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"

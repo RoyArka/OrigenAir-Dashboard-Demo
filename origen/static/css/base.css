@@ -10,6 +10,10 @@ body {
     overflow-y: hidden;
 }
 
+:root {
+    --main-bg-color: #1B9A4B;
+}
+
 /* ----------------------------------------------- */
 
 /* SIDEBAR */
@@ -20,16 +24,15 @@ body {
 }
 
 #logo-space {
-    background-color: #1B9A4B;
+    background-color: var(--main-bg-color);
     margin-bottom: 10px;
     padding: 2px;
 }
 
 #sidebar-container {
     min-height: 100vh;
-    background-color: #1B9A4B;
+    background-color: var(--main-bg-color);
     padding: 0;
-    /* flex: unset; */
 }
 
 .sidebar-expanded {
@@ -38,7 +41,6 @@ body {
 
 .sidebar-collapsed {
     width: 60px;
-    /* width: 100px; */
 }
 
 /* ----------| Menu item*/
@@ -49,7 +51,7 @@ body {
 
 /* ----------| Submenu item*/    
 #sidebar-container .list-group li.list-group-item {
-    background-color: #1B9A4B;
+    background-color: var(--main-bg-color);
 }
 
 #sidebar-container .list-group .sidebar-submenu a {
@@ -63,22 +65,28 @@ body {
 
 /* ----------| Separators */    
 .sidebar-separator-title {
-    background-color: #1B9A4B;
+    background-color: var(--main-bg-color);
     height: 35px;
 }
 
 .sidebar-separator {
-    background-color: #1B9A4B;
+    background-color: var(--main-bg-color);
     height: 25px;
 }
 
 .logo-separator {
-    background-color: #1B9A4B;
+    background-color: var(--main-bg-color);
     height: 60px;
 }
 
 a.bg-success {
-    background-color: #1B9A4B !important;
+    background-color: var(--main-bg-color) !important;
+}
+
+/* ------------- COLOR ------------- */
+a.bg-success:focus, a.bg-success:hover, button.bg-success:focus, button.bg-success:hover {
+    background-color: var(--main-bg-color) !important;
+    filter: brightness(90%);
 }
 
 /* ----------------------------------------------- */
@@ -86,7 +94,8 @@ a.bg-success {
 /* TOP BAR */
 
 .btn-success {
-    background-color: #1B9A4B !important;
+    background-color: var(--main-bg-color) !important;
+    border-color: var(--main-bg-color) !important;
 }
 
 .col {
@@ -98,7 +107,7 @@ a.bg-success {
 }
 
 .greeniconcolor {
-    color: #1B9A4B;
+    color: var(--main-bg-color);
 }
 
 .img-profile {

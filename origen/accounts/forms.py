@@ -87,7 +87,7 @@ class MyClearableFileInput(ClearableFileInput):
 class PersonUpdateForm(forms.ModelForm):
     class Meta:
         model = Person
-        fields = ('job_title', 'time_zone', 'phone_number', 'alerts', 'biography', 'avatar',)
+        fields = ('job_title', 'time_zone', 'phone_number', 'alerts', 'biography', 'avatar')
 
         widgets = {
             'job_title': forms.TextInput(attrs={'class': 'form-control',
@@ -107,6 +107,5 @@ class PersonUpdateForm(forms.ModelForm):
                                             'placeholder': 'Biography',
                                             'name': 'biography-edit'}),
             'alerts': forms.CheckboxInput(attrs={'class': 'custom-control-input', 'id': 'subscribe_me', 'checked': ''}),
-            'avatar': MyClearableFileInput(),
-
+            'avatar': MyClearableFileInput()
         }
