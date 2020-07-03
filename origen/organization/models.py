@@ -4,6 +4,8 @@ from django.utils import timezone
 from django.urls import reverse
 from colorful.fields import RGBColorField
 
+# DEFAULT = '../origen/static/img/placeholder.jpg/'
+
 # Create your models here.
 class Organization(models.Model):
 
@@ -20,7 +22,7 @@ class Organization(models.Model):
     slug = models.SlugField(allow_unicode=True, unique=True)
     created_at = models.DateTimeField(default=timezone.now, null=False)
     
-    org_avatar = models.ImageField(null=True, blank=True)
+    org_avatar = models.ImageField(upload_to='org', null=True, blank=True)
    
     def __str__(self):
         return self.name
@@ -31,3 +33,12 @@ class Organization(models.Model):
 
     def get_absolute_url(self):
         return reverse("organization:single", kwargs={"slug": self.slug})
+
+    @property
+    def get_org_avatar_url(self):
+        if self.org_avatar and hasattr(self.org_avatar, 'url'):
+            return self.org_avatar.url
+        else:
+            return "../origen/static/img/placeholder.jpg/"
+            # self.org_avatar.url = DEFAULT
+            # return self.org_avatar.url
