@@ -16,6 +16,8 @@ class Organization(models.Model):
     color = RGBColorField(default='#1B9A4B')
     slug = models.SlugField(allow_unicode=True, unique=True)
     created_at = models.DateTimeField(default=timezone.now, null=False)
+    
+    picture = models.ImageField(null=True, blank=True)
    
     def __str__(self):
         return self.name
