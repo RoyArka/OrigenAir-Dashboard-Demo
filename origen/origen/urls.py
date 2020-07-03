@@ -31,5 +31,5 @@ urlpatterns = [
     path('organization/', include('organization.urls', namespace='organization')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# added this
-urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# added these two
+# urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

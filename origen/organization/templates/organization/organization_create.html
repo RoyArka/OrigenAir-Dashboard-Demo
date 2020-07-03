@@ -48,7 +48,7 @@
 
                     <!-- data-color controls the color of the active tab of the ACCOUNT/ABOUT/SIZE/LOCATION Nav Bar -->
                     <div class="card wizard-card hugecontainer" data-color="green" id="wizardProfile">
-                        <form action="" method="POST">
+                        <form action="" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
 
                             <!-- Title of Create Organization Page -->
@@ -89,10 +89,10 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="{% static 'img/placeholder.jpg' %}" class="picture-src"
-                                                        id="wizardPicturePreview" title="" />
-                                                    <!-- <img src="{{request.user.customer.sonic.url}}" class="picture-src"
+                                                    <!-- <img src="{% static 'img/placeholder.jpg' %}" class="picture-src"
                                                         id="wizardPicturePreview" title="" /> -->
+                                                    <img src="{{user.organization.avatar.url}}" class="picture-src"
+                                                        id="wizardPicturePreview" title="" />
                                                     <input type="file" id="wizard-picture">
                                                 </div>
                                                 <h6>Choose Picture</h6>

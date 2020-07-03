@@ -8,6 +8,7 @@ class OrganizationCreateForm(forms.ModelForm):
         fields = ('name', 'email', 'phone', 'website', 'location', 'description', 'color')
 
         widgets = {
+
             'name': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputName',
                                         'placeholder': 'Organization Name',

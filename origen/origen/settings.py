@@ -145,7 +145,7 @@ STATICFILES_DIRS = [STATIC_DIR]
 # MEDIA_URL = '/media/'
 
 # added MEDIA_ROOT & MEDIA_URL below to set up image upload, commented aboves original
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
 MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'home'

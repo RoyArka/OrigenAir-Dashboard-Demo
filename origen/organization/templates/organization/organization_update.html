@@ -62,7 +62,7 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="{% static 'img/placeholder.jpg' %}" class="picture-src"
+                                                    <img src="{{user.organizations.avatar.url}}" class="picture-src"
                                                         id="wizardPicturePreview" title="" />
                                                     <input type="file" id="wizard-picture">
                                                 </div>
