@@ -18,7 +18,6 @@ $('#collapse-icon').addClass('fa-angle-double-left');
 
 //[we added this] - if any items of the sidebar is clicked while collapsed it will uncollapse
 $('.sidebarclick').click(function () {
-    console.log("hello");
     if (status === "true") {
         SidebarCollapse();
         status = false;
@@ -31,7 +30,6 @@ $('.sidebarclick').click(function () {
 // Collapse click
 $('[data-toggle=sidebar-colapse]').click(function () {
     SidebarCollapse();
-    console.log("roll");
 
     //[we added this] - if we click on a non-collapsed sidebar it is now 
     //collapsed and therefore we set collapse status for sidebar to true
@@ -40,7 +38,7 @@ $('[data-toggle=sidebar-colapse]').click(function () {
     //we used a sessionStorage.removeItem to clear old status
     if (status === "false") {
         status = true;
-        console.log("status is " + status);
+
         sessionStorage.removeItem("collapsevariable");
         sessionStorage.setItem("collapsevariable", status);
     }
@@ -51,7 +49,7 @@ $('[data-toggle=sidebar-colapse]').click(function () {
     //we used a sessionStorage.removeItem to clear old status
     else if (status === "true") {
         status = false;
-        console.log(status);
+
         sessionStorage.removeItem("collapsevariable");
         sessionStorage.setItem("collapsevariable", status);
     }
