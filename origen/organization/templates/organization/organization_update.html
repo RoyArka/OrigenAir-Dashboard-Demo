@@ -53,7 +53,7 @@
                             </div>
                             <!-- End of Create Organization Page Nav Bar / Link to different sections -->
 
-                            <div class="tab-content">
+                             <div class="tab-content">
                                 <!-- Account Tab -->
                                 <div class="tab-pane" id="account">
                                     <div class="row commentcontainer">
@@ -73,13 +73,11 @@
                                             <div class="form-group contentpart1box1">
                                                 <label for="inputName" class="contentpart1label1">Organization Name
                                                     <small>(required)</small></label>
-                                                <!-- <input name="firstname" type="text" class="form-control" placeholder="Origen Air Systems Ltd."> -->
                                                 {{ form.name }}
                                             </div>
                                             <div class="form-group contentpart1box2">
                                                 <label for="inputEmail" class="contentpart1label2">Contact Email
                                                     <small>(optional)</small></label>
-                                                <!-- <input name="email" type="email" class="form-control" placeholder="info@origenair.com"> -->
                                                 {{form.email}}
                                             </div>
                                         </div>
@@ -87,7 +85,6 @@
                                             <div class="form-group contentpart2box1">
                                                 <label for="inputWebsite" class="contentpart2label1">Organization
                                                     Website <small>(optional)</small></label>
-                                                <!-- <input name="website" type="url" class="form-control" placeholder="https://origenair.com/"> -->
                                                 {{form.website}}
                                             </div>
                                         </div>
@@ -103,7 +100,6 @@
                                             <div class="form-group">
                                                 <label for="inputDescription" class="aboutinstruction">Organization
                                                     Description</label>
-                                                <!-- <textarea class="form-control abouttextbox" placeholder="Type something here..." rows="7"></textarea> -->
                                                 {{ form.description }}
                                             </div>
                                         </div>
@@ -116,7 +112,7 @@
                                     <div class="row aboutheadline">
                                         <h4 class="info-text"> Select Theme Color </h4>
                                         <div class="form-group themecolor1">
-                                            <label for="inputColor" class="themecolor">Banner Color</label>
+                                            <label for="inputColor" class="themecolor">Theme Color</label>
                                             {{ form.color }}
                                         </div>
                                     </div>
@@ -171,42 +167,27 @@
                                         </div>
                                         <div class="col-sm-7 col-sm-offset-1 contentpart3">
                                             <div class="form-group contentpart3box1">
-                                                <label for="inputLocation" class="contentpart3label1">Street
-                                                    Name</label>
-                                                <!-- <input type="text" class="form-control contentpart3input1" placeholder="McClure Street"> -->
-                                                {{ form.location }}
+                                                <label for="inputStreetName" class="contentpart3label1">Street Name</label>
+                                                {{ form.street_name }}
                                             </div>
                                         </div>
                                         <div class="col-sm-3 contentpart4">
                                             <div class="form-group">
-                                                <label>Street Number</label>
-                                                <!-- <input type="text" class="form-control" placeholder="924"> -->
-                                                <input type="text" class="form-control" placeholder="NOT WORKING">
+                                                <label for="inputStreetNumber">Street Number</label>
+                                                {{ form.street_number }}
                                             </div>
                                         </div>
                                         <div class="col-sm-5 col-sm-offset-1 contentpart5">
                                             <div class="form-group">
-                                                <label>City</label>
-                                                <!-- <input type="text" class="form-control" placeholder="Victoria, BC"> -->
-                                                <input type="text" class="form-control" placeholder="NOT WORKING">
+                                                <label for="inputCity">City</label>
+                                                {{ form.city }}
                                             </div>
                                         </div>
                                         <div class="col-sm-5 contentpart6">
                                             <div class="form-group">
-                                                <label>Country</label><br>
-                                                <select name="country" class="form-control">
-                                                    <option value="Canada"> NOT WORKING </option>
-                                                    <option value="Canada"> Canada </option>
-                                                    <option value="Africa"> Africa </option>
-                                                    <option value="Australia"> Australia </option>
-                                                    <option value="China"> China </option>
-                                                    <option value="France"> France </option>
-                                                    <option value="India"> India </option>
-                                                    <option value="Japan"> Japan </option>
-                                                    <option value="Korea"> Korea </option>
-                                                    <option value="United States"> United States </option>
-                                                    <option value="...">...</option>
-                                                </select>
+                                                <label for="inputCountry">Country</label>
+                                                {{ form.country }}  
+                                                <br>
                                             </div>
                                         </div>
                                     </div>
