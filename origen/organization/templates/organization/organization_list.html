@@ -11,13 +11,13 @@
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-80">
 
-                <!-- {% if organization.org_avatar.url %} -->
+                {% if organization.logo %}
+                    <img src="{{organization.logo.url}}" class="card-img-top" alt="img" height="169.8">
+                {% else %}
+                    <img src="{% static 'img/contemplating.png' %}" class="card-img-top" alt="img" height="169.8">
+                {% endif %}
                 
-                <img src="{{organization.get_org_avatar_url}}" class="card-img-top" alt="img" height="169.8">
                 
-                <!-- {% else %}
-                <img class="card-img-top" src="/origen/static/img/placeholder.jpg" alt="">
-                {% endif %} -->
 
                 <div class="card-body">
                     <h4 class="card-title">{{organization.name}}</h4>
