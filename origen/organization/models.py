@@ -20,7 +20,7 @@ class Organization(models.Model):
     slug = models.SlugField(allow_unicode=True, unique=True)
     created_at = models.DateTimeField(default=timezone.now, null=False)
     
-    picture = models.ImageField(null=True, blank=True)
+    org_avatar = models.ImageField(null=True, blank=True)
    
     def __str__(self):
         return self.name
