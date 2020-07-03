@@ -10,7 +10,14 @@
         {% for organization in object_list %}
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="card h-80">
-                <img class="card-img-top" src="{{organization.org_avatar.url}}" alt="" height="169.8">
+
+                {% if organization.logo %}
+                    <img src="{{organization.logo.url}}" class="card-img-top" alt="img" height="169.8">
+                {% else %}
+                    <img src="{% static 'img/contemplating.png' %}" class="card-img-top" alt="img" height="169.8">
+                {% endif %}
+                
+                
 
                 <div class="card-body">
                     <h4 class="card-title">{{organization.name}}</h4>
