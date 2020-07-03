@@ -17,9 +17,6 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 
-# added this for upload url, "from django.conf.urls.static import static" already exists
-from django.conf import settings
-
 from . import settings
 from django.conf.urls.static import static
 
@@ -30,6 +27,3 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('organization/', include('organization.urls', namespace='organization')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# added these two
-# urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
