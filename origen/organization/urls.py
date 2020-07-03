@@ -1,6 +1,9 @@
 from django.urls import path, include 
 from . import views
 
+from django.conf.urls.static import static
+from django.conf import settings
+
 app_name = 'organization'
 
 urlpatterns = [
@@ -12,3 +15,5 @@ urlpatterns = [
     path('<slug>/join/', views.JoinOrg.as_view(), name='join'),
     path('<slug>/leave/', views.LeaveOrg.as_view(), name='leave'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
