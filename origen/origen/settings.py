@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'organization',
-    'colorful'
+    'colorful',
+    'sensors'
 ]
 
 MIDDLEWARE = [
