@@ -36,15 +36,15 @@
                             <!-- Create Organization Page Nav Bar / Link to different sections -->
                             <div class="wizard-navigation">
                                 <ul class="createorgnavbar">
-                                    <!-- <li class="pickle">
+                                    <li class="pickle">
                                         <a class="createinside" href="#account" data-toggle="tab">Account</a>
-                                    </li> -->
-                                    <!-- <li class="pickle">
+                                    </li>
+                                    <li class="pickle">
                                         <a class="createinside" href="#about" data-toggle="tab">About</a>
-                                    </li> -->
-                                    <!-- <li class="pickle">
+                                    </li>
+                                    <li class="pickle">
                                         <a class="createinside" href="#theme" data-toggle="tab">Theme</a>
-                                    </li> -->
+                                    </li>
                                     <!-- <li>
                                         <a class="createinside" href="#size" data-toggle="tab">Size</a>
                                     </li> -->
@@ -57,17 +57,19 @@
 
                             <div class="tab-content">
                                 <!-- Account Tab -->
-                                <!-- <div class="tab-pane" id="account">
+                                <div class="tab-pane" id="account">
                                     <div class="row commentcontainer">
                                         <h4 class="info-text commentrow"> Let's start with the basic information (with
                                             validation)</h4>
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    
+                                                    <!-- <img src="{% static 'img/placeholder.jpg' %}" class="picture-src" 
+                                                        id="wizardPicturePreview" title="" /> -->
                                                     <img src="{{user.organization.avatar.url}}" class="picture-src"
                                                         id="wizardPicturePreview" title="" />
-                                                    
+                                                    <!-- <img src="{{request.user.person.organization.picture.url}}" class="picture-src" 
+                                                        id="wizardPicturePreview" title=""/> -->
                                                     <input type="file" id="wizard-picture">
                                                 </div>
                                                 <h6>Choose Picture</h6>
@@ -93,11 +95,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <!-- End of Account Tab -->
 
                                 <!-- About Tab -->
-                                <!-- <div class="tab-pane" id="about">
+                                <div class="tab-pane" id="about">
                                     <div class="row aboutheadline">
                                         <h4 class="info-text abouttitle"> Tell us about your organization. </h4>
                                         <div class="col-sm-6 col-sm-offset-1">
@@ -108,11 +110,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <!-- End of About Tab -->
 
                                 <!-- Theme Tab -->
-                                <!-- <div class="tab-pane" id="theme">
+                                <div class="tab-pane" id="theme">
                                     <div class="row aboutheadline">
                                         <h4 class="info-text themetitle"> Select Theme Color </h4>
                                         <div class="form-group themecolor1">
@@ -120,7 +122,7 @@
                                             {{ form.color }}
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                                 <!-- End of Theme Tab -->
 
                                 <!-- Size Tab -->
@@ -177,19 +179,19 @@
                                         </div>
                                         <div class="col-sm-3 contentpart4">
                                             <div class="form-group">
-                                                <label for="inputStreetNumber">Street Number</label>
+                                                <label for="inputStreetNumber" class="contentpart3label2">Street Number</label>
                                                 {{ form.street_number }}
                                             </div>
                                         </div>
                                         <div class="col-sm-5 col-sm-offset-1 contentpart5">
                                             <div class="form-group">
-                                                <label for="inputCity">City</label>
+                                                <label for="inputCity" class="contentpart3label3">City</label>
                                                 {{ form.city }}
                                             </div>
                                         </div>
                                         <div class="col-sm-5 contentpart6">
                                             <div class="form-group">
-                                                <label for="inputCountry">Country</label>
+                                                <label for="inputCountry" class="contentpart3label4">Country</label>
                                                 {{ form.country }}  
                                                 <br>
                                             </div>

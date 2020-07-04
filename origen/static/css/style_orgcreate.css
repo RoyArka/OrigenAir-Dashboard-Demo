@@ -70,13 +70,13 @@
     /* About Page */
 
     .abouttitle {
-        margin-right: 15%;
-        margin-left: 22%;
+        margin-right: 15% !important;
+        margin-left: 22% !important;
     }
 
     .aboutinstruction {
         
-        margin-top: 50px;
+        margin-top: -50px;
         margin-right: -25%;
         margin-left: 10%;
     }
@@ -105,7 +105,7 @@
 
 
 /* for screen size between 575px to 850px */
-@media screen and (min-width: 575px) and (max-width: 849px){
+@media screen and (min-width: 575px) and (max-width: 850px){
 
     .main-content{
         height: 100vh;
@@ -213,13 +213,13 @@
     /* About Page */
 
     .abouttitle {
-        margin-right: 23%;
-        margin-left: 30%;
+        margin-right: 23% !important;
+        margin-left: 30% !important;
     }
 
     .aboutinstruction {
         
-        margin-top: 50px;
+        margin-top: -50px;
         margin-right: -57%;
         margin-left: 47%;
     }
@@ -233,7 +233,6 @@
     }
 
     /* Theme */
-
     .themecolor1{
         margin-right: -40%;
         margin-left: 40%;
@@ -243,6 +242,46 @@
     .themetitle{
         margin-right: 30% !important;
         margin-left: 37% !important;
+    }
+
+    /* location */
+
+    /* Street Name */
+    .contentpart3label1{
+        margin-left: 100px;
+    }
+
+    #inputStreetName{
+        width: 80%;
+        margin-left: 100px;
+    }
+
+    /* Street Number */
+    .contentpart3label2{
+        /* no need */
+    }
+
+    #inputStreetNumber{
+        /* no need */
+    }
+
+    /* City */
+    .contentpart3label3{
+        margin-left: 100px;
+    }
+
+    #inputCity{
+        width: 70%;
+        margin-left: 100px;
+    }
+
+    /* Country */
+    .contentpart3label4{
+        /* margin-left: 100px; */
+    }
+    
+    #inputCountry{
+        width: 100%;
     }
 }
 
@@ -354,13 +393,12 @@
     /* About Page */
 
     .abouttitle {
-        margin-right: 15%;
-        margin-left: 22%;
+        margin-right: 15% !important;
+        margin-left: 22% !important;
     }
 
     .aboutinstruction {
-        
-        margin-top: 50px;
+        margin-top: -50px;
         margin-right: -45%;
         margin-left: 35%;
     }
@@ -384,6 +422,48 @@
     .themetitle{
         margin-right: 25% !important;
         margin-left: 32% !important;
+    }
+
+    /* Location */
+
+    /* Street Name */
+    .contentpart3label1{
+        margin-left: 25px;
+    }
+
+    #inputStreetName{
+        width: 80%;
+        margin-left: 25px;
+    }
+
+    /* Street Number */
+    .contentpart3label2{
+        margin-left: -35px;
+    }
+
+    #inputStreetNumber{
+        width: 200%;
+        margin-left: -35px;
+    }
+
+    /* City */
+    .contentpart3label3{
+        margin-left: 25px;
+    }
+
+    #inputCity{
+        width: 95%;
+        margin-left: 25px;
+    }
+
+    /* Country */
+    .contentpart3label4{
+        margin-left: 0px;
+    }
+    
+    #inputCountry{
+        width: 141%;
+        margin-left: 0px;
     }
 
 }
