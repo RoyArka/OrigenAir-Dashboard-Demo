@@ -5,10 +5,11 @@
 {% block content %}
 
 <!-- BANNER -->
-<header class="bg-primary text-center py-5 mb-4 members-banner"
-    style="background-color: {{organization.color}} !important;">
+<header class="bg-primary text-center py-5 mb-4 members-banner" style="background-color: {{organization.color}} !important;">
     <div class="container">
+        <!-- NAME Organization -->
         <h1 class="font-weight-light text-white">{{organization.name}}</h1>
+        <!-- Heading -->
         <h1 class="font-weight-light text-white">Meet the Team</h1>
     </div>
 </header>
@@ -16,23 +17,33 @@
 
 <!-- CONTAINER -->
 <div class="container">
-    <!-- MEMBERS LIST -->
+    <!-- LIST Member -->
     <div class="row">
         {% for person in organization.persons.all %}
         <a href="{% url 'accounts:profile' username=user.username %}" class="col-xl-3 col-md-6 mb-4">
             <div class="card border-0 shadow">
-                <img src="{{person.avatar.url}}" class="card-img-top" alt="">
+                <!-- PHOTO Member -->
                 <div class="text-center">
-                    <br>
-                    <h5 class="card-title mb-0">{{person.user.get_full_name}}</h5>
+                    <img src="{{person.avatar.url}}" class="card-img-top" alt="">
+                </div>
+                <!-- /END PHOTO Member -->
+
+                <!-- TEXT Member -->
+                <div class="text-center">
+                    <!-- NAME Member -->
+                    <div><h5 class="card-title mb-0">{{person.user.get_full_name}}</h5></div>
+
+                    <!-- JOB TITLE Member -->
                     <div class="card-text text-black-50">{{user.person.job_title}}</div>
+
                     <br>
                 </div>
+                <!-- /END TEXT Member -->
             </div>
         </a>
         {% endfor %}
     </div>
-    <!-- /END MEMBERS LIST -->
+    <!-- /END LIST Member -->
 </div>
 <!-- /END CONTAINER -->
 

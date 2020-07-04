@@ -11,7 +11,7 @@ class OrganizationCreateForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputName',
-                                        'placeholder': 'Organization Name',
+                                        'placeholder': 'Organization',
                                         'name': 'Org-name'}),
             'email': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputEmail',
