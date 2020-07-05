@@ -3,11 +3,6 @@
 /* for screen size less than 500px (Mobile View) */
 @media only screen and (max-width: 574px){
 
-    .main-content{
-        /* height: auto; */
-        height: 100vh;
-    }
-
     .hugecontainer{
         margin-top: -40px;
     }
@@ -106,10 +101,6 @@
 
 /* for screen size between 575px to 850px */
 @media screen and (min-width: 575px) and (max-width: 850px){
-
-    .main-content{
-        height: 100vh;
-    }
 
     .hugecontainer{
         margin-top: -40px;
@@ -287,9 +278,6 @@
 
 /* for screen size between 850 to 1250px */
 @media screen and (min-width: 850px) and (max-width: 1249px) {
-    .main-content{
-        height: 100vh;
-    }
 
     .hugecontainer{
         margin-top: -40px;
@@ -471,10 +459,6 @@
 
 /* when screen size is greater than 1250px (Desktop View) */
 @media screen and (min-width: 1250px) {
-
-    .main-content {
-        height: 100vh;
-    }
 
     .hugecontainer {
         margin-top: -40px;
