@@ -1,145 +1,624 @@
-.main-content{
-    height: auto;
+/*** MEDIA QUERIES ***/
+
+/* for screen size less than 500px (Mobile View) */
+@media only screen and (max-width: 574px){
+
+    .main-content{
+        /* height: auto; */
+        height: 100vh;
+    }
+
+    .hugecontainer{
+        margin-top: -40px;
+    }
+
+    .createorgnavbar{
+        text-align: center;
+    }
+
+    .createinside{
+        border: 1px solid #2CA8FF;
+        border-radius: 0;
+        color: #2CA8FF;
+        border: 0 !important;
+        text-transform: uppercase;
+        background-color: #999999;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        display:block;
+        padding: 10px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .pickle{
+        width: 25% !important;
+    }
+
+    .commentcontainer{
+        text-align: left;
+        margin: 0px 0px 0px 20px;
+        width: 95%;
+    }
+
+    /* extra */
+
+    .wizard-container {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    /* other */
+
+    .fa-search {
+        color: white !important;
+    }
+
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    /* About Page */
+
+    .abouttitle {
+        margin-right: 15% !important;
+        margin-left: 22% !important;
+    }
+
+    .aboutinstruction {
+        
+        margin-top: -50px;
+        margin-right: -25%;
+        margin-left: 10%;
+    }
+
+    .abouttextbox {
+        margin-top: 0px;
+        padding: 5px;
+        width: 80%;
+        margin-right: -10%;
+        margin-left: 10%;
+    }
+
+    /* Theme */
+
+    .themecolor1{
+        margin-right: -38%;
+        margin-left: 38%;
+
+    }
+
+    .themetitle{
+        margin-right: 30% !important;
+        margin-left: 37% !important;
+    }
 }
 
-.hugecontainer{
-    margin-top: -40px;
+
+/* for screen size between 575px to 850px */
+@media screen and (min-width: 575px) and (max-width: 850px){
+
+    .main-content{
+        height: 100vh;
+    }
+
+    .hugecontainer{
+        margin-top: -40px;
+    }
+
+    .createorgnavbar{
+        text-align: center;
+    }
+
+    .createinside{
+        border: 1px solid #2CA8FF;
+        border-radius: 0;
+        color: #2CA8FF;
+        border: 0 !important;
+        text-transform: uppercase;
+        background-color: #999999;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        display:block;
+        padding: 10px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .image-container {
+        min-height: 100vh;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    div {
+        display: block;
+    }
+
+    .row {
+        margin-right: -120px;
+        margin-left: -120px;
+    }
+
+    .col-sm-offset-2 {
+        margin-left: 16.66666667%;
+    }
+
+    .col-sm-8 {
+        width: 66.66666667%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .wizard-card {
+        min-height: 410px;
+        background-color: #FFFFFF;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 10px 0;
+    }
+
+    .wizard-card .tab-content {
+        min-height: 340px;
+        padding: 20px 10px;
+    }
+
+    .wizard-card .info-text {
+        text-align: center;
+        font-weight: 300;
+        margin: 10px 0 30px;
+    }
+
+    .commentcontainer{
+        text-align: left;
+        margin: 0px 0px 0px 20px;
+        width: 95%;
+    }
+
+    .pickle{
+        width: 25% !important;
+    }
+
+    /* other */
+
+    .fa-search {
+        color: white !important;
+    }
+
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    /* About Page */
+
+    .abouttitle {
+        margin-right: 23% !important;
+        margin-left: 30% !important;
+    }
+
+    .aboutinstruction {
+        
+        margin-top: -50px;
+        margin-right: -57%;
+        margin-left: 47%;
+    }
+
+    .abouttextbox {
+        margin-top: 0px;
+        padding: 5px;
+        width: 115%;
+        margin-right: -47%;
+        margin-left: 47%;
+    }
+
+    /* Theme */
+    .themecolor1{
+        margin-right: -40%;
+        margin-left: 40%;
+
+    }
+
+    .themetitle{
+        margin-right: 30% !important;
+        margin-left: 37% !important;
+    }
+
+    /* location */
+
+    /* Street Name */
+    .contentpart3label1{
+        margin-left: 100px;
+    }
+
+    #inputStreetName{
+        width: 80%;
+        margin-left: 100px;
+    }
+
+    /* Street Number */
+    .contentpart3label2{
+        /* no need */
+    }
+
+    #inputStreetNumber{
+        /* no need */
+    }
+
+    /* City */
+    .contentpart3label3{
+        margin-left: 100px;
+    }
+
+    #inputCity{
+        width: 70%;
+        margin-left: 100px;
+    }
+
+    /* Country */
+    .contentpart3label4{
+        /* margin-left: 100px; */
+    }
+    
+    #inputCountry{
+        width: 100%;
+    }
 }
 
-.createorgnavbar{
-    text-align: center;
+/* for screen size between 850 to 1250px */
+@media screen and (min-width: 850px) and (max-width: 1249px) {
+    .main-content{
+        height: 100vh;
+    }
+
+    .hugecontainer{
+        margin-top: -40px;
+    }
+
+    .createorgnavbar{
+        text-align: center;
+    }
+
+    .createinside{
+        border: 1px solid #2CA8FF;
+        border-radius: 0;
+        color: #2CA8FF;
+        border: 0 !important;
+        text-transform: uppercase;
+        background-color: #999999;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        display:block;
+        padding: 10px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .image-container {
+        min-height: 100vh;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    div {
+        display: block;
+    }
+
+    .row {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .col-sm-offset-2 {
+        margin-left: 16.66666667%;
+    }
+
+    .col-sm-8 {
+        width: 66.66666667%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .wizard-card {
+        min-height: 410px;
+        background-color: #FFFFFF;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 10px 0;
+    }
+
+    .wizard-card .tab-content {
+        min-height: 340px;
+        padding: 20px 10px;
+    }
+
+    .wizard-card .info-text {
+        text-align: center;
+        font-weight: 300;
+        margin: 10px 0 30px;
+    }
+
+    .commentcontainer{
+        text-align: left;
+        margin: 0px 0px 0px 20px;
+        width: 95%;
+    }
+
+    .pickle{
+        width: 25% !important;
+    }
+
+    /* other */
+
+    .fa-search {
+        color: white !important;
+    }
+
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    /* About Page */
+
+    .abouttitle {
+        margin-right: 15% !important;
+        margin-left: 22% !important;
+    }
+
+    .aboutinstruction {
+        margin-top: -50px;
+        margin-right: -45%;
+        margin-left: 35%;
+    }
+
+    .abouttextbox {
+        margin-top: 0px;
+        padding: 5px;
+        width: 145%;
+        margin-right: -35%;
+        margin-left: 35%;
+    }
+
+    /* Theme */
+
+    .themecolor1{
+        margin-right: -35%;
+        margin-left: 35%;
+
+    }
+
+    .themetitle{
+        margin-right: 25% !important;
+        margin-left: 32% !important;
+    }
+
+    /* Location */
+
+    /* Street Name */
+    .contentpart3label1{
+        margin-left: 25px;
+    }
+
+    #inputStreetName{
+        width: 80%;
+        margin-left: 25px;
+    }
+
+    /* Street Number */
+    .contentpart3label2{
+        margin-left: -35px;
+    }
+
+    #inputStreetNumber{
+        width: 200%;
+        margin-left: -35px;
+    }
+
+    /* City */
+    .contentpart3label3{
+        margin-left: 25px;
+    }
+
+    #inputCity{
+        width: 95%;
+        margin-left: 25px;
+    }
+
+    /* Country */
+    .contentpart3label4{
+        margin-left: 0px;
+    }
+    
+    #inputCountry{
+        width: 141%;
+        margin-left: 0px;
+    }
+
 }
 
-.createinside{
-    border: 1px solid #2CA8FF;
-    border-radius: 0;
-    color: #2CA8FF;
-    border: 0 !important;
-    text-transform: uppercase;
-    background-color: #999999;
-    text-align: center;
-    color: #FFFFFF !important;
-    font-size: 12px;
-    cursor: pointer;
-    position: relative;
-    display:block;
-    padding: 10px 15px;
-    text-decoration: none;
-    box-sizing: border-box;
+
+/* when screen size is greater than 1250px (Desktop View) */
+@media screen and (min-width: 1250px) {
+
+    .main-content {
+        height: 100vh;
+    }
+
+    .hugecontainer {
+        margin-top: -40px;
+    }
+
+    .createorgnavbar {
+        text-align: center;
+    }
+
+    .createinside {
+        border: 1px solid #2CA8FF;
+        border-radius: 0;
+        color: #2CA8FF;
+        border: 0 !important;
+        text-transform: uppercase;
+        background-color: #999999;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .secondcontainer {
+        margin-right: -265px;
+        margin-left: 135px;
+    }
+
+    .commentcontainer {
+        margin-right: 0px;
+        margin-left: 0px;
+        text-align: center;
+        font-weight: 300;
+        margin: 10px 100px 30px;
+    }
+
+    .commentrow {
+        font-size: 22px;
+    }
+
+    .contentpart1 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        position: relative;
+        width: 100%;
+        margin: 0 40px;
+    }
+
+    .contentpart1box1 {
+        margin-right: -100px;
+    }
+
+    .contentpart1label1 {
+        margin-right: 110px;
+    }
+
+    .contentpart1box2 {
+        margin-right: -100px;
+    }
+
+    .contentpart1label2 {
+        margin-right: 150px;
+    }
+
+    .contentpart2 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        position: relative;
+        width: 100%;
+    }
+
+    .contentpart2box1 {
+        margin-right: -60px;
+    }
+
+    .contentpart2label1 {
+        margin-right: 300px;
+    }
+
+    .fa-search {
+        color: white !important;
+    }
+
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .companysizerow {
+        margin-right: -65px;
+        margin-left: 65px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .smallb {
+        font-size: 30px;
+        margin-bottom: -45px;
+    }
+
+    .mediumb {
+        font-size: 50px;
+        margin-bottom: -55px;
+    }
+
+    .largeb {
+        font-size: 70px;
+        margin-bottom: -60px;
+    }
+
+    .contentpart3 {
+        margin: 0px 0px 0px 60px;
+    }
+
+    .contentpart5 {
+        margin: 0px 0px 0px 60px;
+    }
+
+    .aboutheadline {
+        text-align: center;
+        display: block;
+    }
+
+    .aboutinstruction {
+        margin-left: 5px;
+
+    }
+
+    .abouttextbox {
+        margin-left: 62px;
+        width: 170%;
+    }
+
+    .pickle{
+        width: 25% !important;
+    }
+
 }
-
-.secondcontainer{
-    margin-right: -175px;
-    margin-left: 175px;
-}
-
-.commentcontainer{
-    margin-right: 0px;
-    margin-left: 0px;
-    text-align: center;
-    font-weight: 300;
-    margin: 10px 100px 30px;
-}
-
-.commentrow{
-    font-size: 22px;
-}
-
-.contentpart1{
-    flex: 0 0 50%;
-    max-width: 50%;
-    position: relative;
-    width: 100%;
-    margin: 0 40px;
-}
-
-.contentpart1box1{
-    margin-right: -100px;
-}
-
-.contentpart1label1{
-    margin-right: 110px;
-}
-
-.contentpart1box2{
-    margin-right: -100px;
-}
-
-.contentpart1label2{
-    margin-right: 150px;
-}
-
-.contentpart2{
-    flex: 0 0 100%;
-    max-width: 100%;
-    position: relative;
-    width: 100%;
-}
-
-.contentpart2box1{
-    margin-right: -60px;
-}
-
-.contentpart2label1{
-    margin-right: 300px;
-}
-
-.fa-search{
-    color: white !important; 
-}
-
-.btn-next {
-    background: green !important;
-    border-color: rgb(2, 151, 2) !important;
-}
-
-.btn-finish{
-    background: green !important;
-    border-color: rgb(2, 151, 2)  !important;
-}
-
-.companysizerow{
-    margin-right: -65px;
-    margin-left: 65px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.smallb{
-    font-size:30px;
-    margin-bottom: -45px;
-}
-
-.mediumb{
-    font-size:50px;
-    margin-bottom: -55px;
-}
-
-.largeb{
-    font-size:70px;
-    margin-bottom: -60px;
-}
-
-.contentpart3{
-    margin: 0px 0px 0px 60px;
-}
-
-.contentpart5{
-    margin: 0px 0px 0px 60px;
-}
-
-.aboutheadline{
-    text-align: center;
-    display: block;
-}
-
-.aboutinstruction{
-    margin-left: 5px;
-
-}
-
-.abouttextbox{
-    margin-left: 62px;
-    width: 170%;
-}
-

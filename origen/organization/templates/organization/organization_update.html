@@ -3,8 +3,8 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/orgcreate-gsdk-bootstrap-wizard.css' %}"  />
-<link rel="stylesheet" type="text/css" href="{% static 'css/style_orgupdate.css' %}">
+<link rel="stylesheet" href="{% static 'css/orgcreate-gsdk-bootstrap-wizard.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_orgcreate.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -21,7 +21,7 @@
 
                     <!-- data-color controls the color of the active tab of the ACCOUNT/ABOUT/SIZE/LOCATION Nav Bar -->
                     <div class="card wizard-card hugecontainer" data-color="green" id="wizardProfile">
-                        <form action="" method="POST">
+                        <form action="" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
 
                             <!-- Title of Create Organization Page -->
@@ -36,24 +36,26 @@
                             <!-- Create Organization Page Nav Bar / Link to different sections -->
                             <div class="wizard-navigation">
                                 <ul class="createorgnavbar">
-                                    <li>
+                                    <li class="pickle">
                                         <a class="createinside" href="#account" data-toggle="tab">Account</a>
                                     </li>
-                                    <li><a class="createinside" href="#about" data-toggle="tab">About</a></li>
-                                    <li>
+                                    <li class="pickle">
+                                        <a class="createinside" href="#about" data-toggle="tab">About</a>
+                                    </li>
+                                    <li class="pickle">
                                         <a class="createinside" href="#theme" data-toggle="tab">Theme</a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a class="createinside" href="#size" data-toggle="tab">Size</a>
-                                    </li>
-                                    <li>
+                                    </li> -->
+                                    <li class="pickle">
                                         <a class="createinside" href="#location" data-toggle="tab">Location</a>
                                     </li>
                                 </ul>
                             </div>
                             <!-- End of Create Organization Page Nav Bar / Link to different sections -->
 
-                             <div class="tab-content">
+                            <div class="tab-content">
                                 <!-- Account Tab -->
                                 <div class="tab-pane" id="account">
                                     <div class="row commentcontainer">
@@ -62,8 +64,12 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="{% static 'img/placeholder.jpg' %}" class="picture-src"
+                                                    <!-- <img src="{% static 'img/placeholder.jpg' %}" class="picture-src" 
+                                                        id="wizardPicturePreview" title="" /> -->
+                                                    <img src="{{user.organization.avatar.url}}" class="picture-src"
                                                         id="wizardPicturePreview" title="" />
+                                                    <!-- <img src="{{request.user.person.organization.picture.url}}" class="picture-src" 
+                                                        id="wizardPicturePreview" title=""/> -->
                                                     <input type="file" id="wizard-picture">
                                                 </div>
                                                 <h6>Choose Picture</h6>
@@ -95,7 +101,7 @@
                                 <!-- About Tab -->
                                 <div class="tab-pane" id="about">
                                     <div class="row aboutheadline">
-                                        <h4 class="info-text"> Tell us about your organization. </h4>
+                                        <h4 class="info-text abouttitle"> Tell us about your organization. </h4>
                                         <div class="col-sm-6 col-sm-offset-1">
                                             <div class="form-group">
                                                 <label for="inputDescription" class="aboutinstruction">Organization
@@ -110,7 +116,7 @@
                                 <!-- Theme Tab -->
                                 <div class="tab-pane" id="theme">
                                     <div class="row aboutheadline">
-                                        <h4 class="info-text"> Select Theme Color </h4>
+                                        <h4 class="info-text themetitle"> Select Theme Color </h4>
                                         <div class="form-group themecolor1">
                                             <label for="inputColor" class="themecolor">Theme Color</label>
                                             {{ form.color }}
@@ -120,7 +126,7 @@
                                 <!-- End of Theme Tab -->
 
                                 <!-- Size Tab -->
-                                <div class="tab-pane" id="size">
+                                <!-- <div class="tab-pane" id="size">
                                     <h4 class="info-text"> Select Size of Company? </h4>
                                     <div class="row">
 
@@ -156,7 +162,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- End of Size Tab -->
 
                                 <!-- Location Tab -->
@@ -173,19 +179,19 @@
                                         </div>
                                         <div class="col-sm-3 contentpart4">
                                             <div class="form-group">
-                                                <label for="inputStreetNumber">Street Number</label>
+                                                <label for="inputStreetNumber" class="contentpart3label2">Street Number</label>
                                                 {{ form.street_number }}
                                             </div>
                                         </div>
                                         <div class="col-sm-5 col-sm-offset-1 contentpart5">
                                             <div class="form-group">
-                                                <label for="inputCity">City</label>
+                                                <label for="inputCity" class="contentpart3label3">City</label>
                                                 {{ form.city }}
                                             </div>
                                         </div>
                                         <div class="col-sm-5 contentpart6">
                                             <div class="form-group">
-                                                <label for="inputCountry">Country</label>
+                                                <label for="inputCountry" class="contentpart3label4">Country</label>
                                                 {{ form.country }}  
                                                 <br>
                                             </div>
@@ -200,7 +206,7 @@
                             <div class="wizard-footer height-wizard">
                                 <div class="pull-right">
                                     <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
-                                    <input type="submit" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' value="Update" />
+                                    <input type="submit" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' value="Create" />
                                 </div>
                                 <div class="pull-left">
                                     <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
@@ -208,7 +214,6 @@
                                 <div class="clearfix"></div>
                             </div>
                             <!-- End of The next, create and previous button -->
-
                         </form>
                     </div>
                 </div> <!-- wizard container -->
@@ -221,15 +226,15 @@
 
 <!-- Scripts Block -->
 {% block scripts %}
-    <!-- {{block.super}} -->
-    <!--   Core JS Files   -->
-    <script src="{% static 'js/orgcreate-jquery-2.2.4.min.js' %}"></script>
-    <script src="{% static 'js/orgcreate-bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/orgcreate-jquery.bootstrap.wizard.js' %}"></script>
+<!-- {{block.super}} -->
+<!--   Core JS Files   -->
+<script src="{% static 'js/orgcreate-jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/orgcreate-bootstrap.min.js' %}"></script>
+<script src="{% static 'js/orgcreate-jquery.bootstrap.wizard.js' %}"></script>
 
-    <!--  Plugin for the Wizard -->
-    <script src="{% static 'js/orgcreate-gsdk-bootstrap-wizard.js' %}"></script>
+<!--  Plugin for the Wizard -->
+<script src="{% static 'js/orgcreate-gsdk-bootstrap-wizard.js' %}"></script>
 
-     <!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
-    <script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+<!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
 {% endblock scripts %}
