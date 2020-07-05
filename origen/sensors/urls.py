@@ -8,5 +8,8 @@ from django.conf import settings
 app_name = 'sensors'
 
 urlpatterns = [
-    
+    path('create', views.CreateSensor.as_view(), name='create'),
+    path('detail', views.SensorDetail.as_view(), name='single'),
+    path('update', views.UpdateSensor.as_view(), name='update'),
+    # path('', views..as_view(), name='all'),
 ]
