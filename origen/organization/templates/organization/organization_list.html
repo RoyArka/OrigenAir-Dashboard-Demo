@@ -8,21 +8,32 @@
     <!-- LIST Organization -->
     <div class="row text-center">
         {% for organization in object_list %}
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-80">
-                {% if organization.logo %}
-                    <img src="{{organization.logo.url}}" class="card-img-top" alt="img" height="169.8">
-                {% else %}
-                    <img src="{% static 'img/contemplating.png' %}" class="card-img-top" alt="img" height="169.8">
-                {% endif %}
-                
+        <div class="col-md-4 list-card">
+            <div class="card card-profile">
+                <!-- PHOTO List -->
+                <div class="card-header card-header-image">
+                    {% if organization.logo %}
+                    <img src="{{organization.logo.url}}" class="img">
+                    <div class="colored-shadow" style="background-image: {{organization.logo.url}}; opacity: 1;"></div>
+                    {% else %}
+                    <img src="{% static 'img/contemplating.png' %}" class="img">
+                    <div class="colored-shadow" style="background-image: {% static 'img/contemplating.png' %}; opacity: 1;"></div>
+                    {% endif %}
+                </div>
+                <!-- /END PHOTO List -->
+
+                <!-- BODY List -->
                 <div class="card-body">
                     <h4 class="card-title">{{organization.name}}</h4>
                     <p class="card-text list-card-text">{{organization.description}}</p>
                 </div>
-                <div class="card-footer">
+                <!-- /END BODY List -->
+
+                <!-- FOOTER List -->
+                <div class="card-footer1 justify-content-center">
                     <a href="{% url 'organization:single' slug=organization.slug %}" class="btn btn-success">More Details</a>
                 </div>
+                <!-- /END FOOTER List -->
             </div>
         </div>
         {% endfor %}
@@ -30,7 +41,7 @@
     <!-- /END LIST Organization -->
 
     <!-- CREATE Button -->
-    <a class="fab" href="{% url 'organization:create' %}"> + </a>
+    <a class="fab" href="{% url 'organization:create' %}">+</a>
     <!-- /END CREATE Button -->
 </div>
 

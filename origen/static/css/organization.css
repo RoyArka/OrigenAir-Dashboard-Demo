@@ -65,12 +65,53 @@
 }
 
 .list-card-text {
-    height: 100px;
+    height: 120px;
     overflow: hidden;
 }
 
 #organization-list {
     padding: 30px;
+}
+
+.card .card-body{
+    padding: .9375rem 1.875rem;
+}
+
+.card .card-header.card-header-image {
+    position: relative;
+    padding: 0;
+    /* z-index: 1; */
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border-radius: 6px;
+    max-height: 215px;
+}
+
+.card .card-header.card-header-image a {
+    display: block;
+}
+
+.card .card-header.card-header-image img {
+    width: 100%;
+    height: 215px;
+    border-radius: 6px;
+    pointer-events: none;
+    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+
+.card .card-footer1 {
+    background-color: transparent;
+    border: 0;
+}
+
+.card-footer1 {
+    margin-bottom: 20px;
+}
+
+.list-card {
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 
 /* ----------------------------------------------- */
