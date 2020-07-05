@@ -65,7 +65,7 @@ class OrganizationUpdateForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control',
                                         'placeholder': 'Organization Name',
                                         'name': 'Org-edit'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control',
+            'email': forms.TextInput(attrs={'class': 'form-control',
                                         'placeholder': 'Contact Email',
                                         'name': 'Org-email-edit',
                                         'required': False}),
