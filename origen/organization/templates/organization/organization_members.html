@@ -16,27 +16,28 @@
 <!-- /END BANNER -->
 
 <!-- CONTAINER -->
-<div class="container">
+<div class="container member-container">
     <!-- LIST Member -->
     <div class="row">
         {% for person in organization.persons.all %}
-        <a href="{% url 'accounts:profile' username=user.username %}" class="col-xl-3 col-md-6 mb-4">
+        <a href="{% url 'accounts:profile' username=user.username %}" class="col-xl-3 col-md-6 mb-4 member-card">
             <div class="card border-0 shadow">
                 <!-- PHOTO Member -->
-                <div class="text-center">
-                    <img src="{{person.avatar.url}}" class="card-img-top" alt="">
+                <div class="card-avatar">
+                    <img class="img" src="{{person.avatar.url}}">
                 </div>
                 <!-- /END PHOTO Member -->
 
                 <!-- TEXT Member -->
-                <div class="text-center">
+                <div class="card-body2 text-center">
                     <!-- NAME Member -->
                     <div><h5 class="card-title mb-0">{{person.user.get_full_name}}</h5></div>
 
                     <!-- JOB TITLE Member -->
-                    <div class="card-text text-black-50">{{user.person.job_title}}</div>
+                    <div class="text-black-50">{{user.person.job_title}}</div>
 
-                    <br>
+                    <!-- BIO Member -->
+                    <div class="card-text2 text-black-50">{{user.person.biography}}</div>
                 </div>
                 <!-- /END TEXT Member -->
             </div>
