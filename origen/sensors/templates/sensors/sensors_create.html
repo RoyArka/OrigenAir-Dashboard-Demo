@@ -4,7 +4,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/orgcreate-gsdk-bootstrap-wizard.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/style_orgcreate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_sensorcreate.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@
                             <!-- Title of Create Organization Page -->
                             <div class="wizard-header">
                                 <h3>
-                                    <b>BUILD</b> YOUR ORGANIZATION <br>
+                                    <b>CREATE</b> YOUR ORGANIZATION <br>
                                     <small>This information will let us know more about you.</small>
                                 </h3>
                             </div>
@@ -37,76 +37,50 @@
                             <div class="wizard-navigation">
                                 <ul class="createorgnavbar">
                                     <li class="pickle">
-                                        <a class="createinside" href="#account" data-toggle="tab">Account</a>
+                                        <a class="createinside" href="#sensortype" data-toggle="tab">Sensor Type</a>
                                     </li>
                                     <li class="pickle">
-                                        <a class="createinside" href="#about" data-toggle="tab">About</a>
+                                        <a class="createinside" href="#sensorname" data-toggle="tab">Sensor Name</a>
                                     </li>
                                     <li class="pickle">
-                                        <a class="createinside" href="#theme" data-toggle="tab">Theme</a>
+                                        <a class="createinside" href="#sensorsettings" data-toggle="tab">Sensor Settings</a>
                                     </li>
-                                    <!-- <li>
-                                        <a class="createinside" href="#size" data-toggle="tab">Size</a>
-                                    </li> -->
-                                    <li class="pickle">
+                                    <!-- <li class="pickle">
                                         <a class="createinside" href="#location" data-toggle="tab">Location</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                             <!-- End of Create Organization Page Nav Bar / Link to different sections -->
 
                             <div class="tab-content">
-                                <!-- Account Tab -->
-                                <div class="tab-pane" id="account">
+                                <!-- Sensor Type Tab -->
+                                <div class="tab-pane" id="sensortype">
                                     <div class="row commentcontainer">
-                                        <h4 class="info-text commentrow"> Let's start with the basic information (with
-                                            validation)</h4>
+                                        <h4 class="info-text commentrow"> Select Sensor Type </h4>
                                         <div class="col-sm-4 col-sm-offset-1">
-                                            <div class="picture-container">
-                                                <div class="picture">
-                                                    <!-- <img src="{% static 'img/placeholder.jpg' %}" class="picture-src" 
-                                                        id="wizardPicturePreview" title="" /> -->
-                                                    <img src="{{user.organization.avatar.url}}" class="picture-src"
-                                                        id="wizardPicturePreview" title="" />
-                                                    <!-- <img src="{{request.user.person.organization.picture.url}}" class="picture-src" 
-                                                        id="wizardPicturePreview" title=""/> -->
-                                                    <input type="file" id="wizard-picture">
-                                                </div>
-                                                <h6>Choose Picture</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 contentpart1">
-                                            <div class="form-group contentpart1box1">
-                                                <label for="inputName" class="contentpart1label1">Organization Name
-                                                    <small>(required)</small></label>
-                                                {{form.name}}
-                                            </div>
-                                            <div class="form-group contentpart1box2">
-                                                <label for="inputEmail" class="contentpart1label2">Contact Email
-                                                    <small>(optional)</small></label>
-                                                {{form.email}}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-10 col-sm-offset-1 contentpart2">
-                                            <div class="form-group contentpart2box1">
-                                                <label for="inputWebsite" class="contentpart2label1">Organization
-                                                    Website <small>(optional)</small></label>
-                                                {{form.website}}
+                                            <div class="">
+                                                <form>
+                                                    <select id="" name="">
+                                                      <option value="one">Temperature Sensor</option>
+                                                      <option value="two">Humidity Sensor</option>
+                                                      <option value="three">Chloroform Sensor</option>
+                                                      <option value="four">Benzene Sensor</option>
+                                                      <option value="four">Carbon Dioxide Sensor</option>
+                                                    </select>
+                                                  </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End of Account Tab -->
 
-                                <!-- About Tab -->
-                                <div class="tab-pane" id="about">
+                                <!-- Sensor Name Tab -->
+                                <div class="tab-pane" id="sensorname">
                                     <div class="row aboutheadline">
-                                        <h4 class="info-text abouttitle"> Tell us about your organization. </h4>
+                                        <h4 class="info-text abouttitle"> Label The Sensor </h4>
                                         <div class="col-sm-6 col-sm-offset-1">
                                             <div class="form-group">
-                                                <label for="inputDescription" class="aboutinstruction">Organization
-                                                    Description</label>
-                                                {{form.description}}
+                                                <input name="firstname" type="text" class="form-control" placeholder="Sensor Name">
                                             </div>
                                         </div>
                                     </div>
@@ -114,19 +88,36 @@
                                 <!-- End of About Tab -->
 
                                 <!-- Theme Tab -->
-                                <div class="tab-pane" id="theme">
+                                <div class="tab-pane" id="sensorsettings">
                                     <div class="row aboutheadline">
-                                        <h4 class="info-text themetitle"> Select Theme Color </h4>
+                                        <h4 class="info-text themetitle"> Maximum Warning Threshold </h4>
                                         <div class="form-group themecolor1">
-                                            <label for="inputColor" class="themecolor">Theme Color</label>
-                                            {{form.color}}
+                                            <p>
+                                                <label for="inputColor" class="themecolor">Fahrenheit</label>
+                                                <!-- <input name="temperature" type="number" id="inputFahrenheit" class="form-control" placeholder="Select Temperature" min="-100" max="100"> -->
+                                                <input id="inputFahrenheit" class="form-control" type="number"
+                                                    placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
+                                                    onchange="temperatureConverter(this.value)">
+                                            </p>
+                                            <p>Celcius: <span id="outputCelcius"></span></p>
+                                        </div>
+                                        <h4 class="info-text themetitle"> Minimum Warning Threshold </h4>
+                                        <div class="form-group themecolor1">
+                                            <p>
+                                                <label for="inputColor" class="themecolor">Fahrenheit</label>
+                                                <!-- <input name="temperature" type="number" id="inputFahrenheit" class="form-control" placeholder="Select Temperature" min="-100" max="100"> -->
+                                                <input id="inputFahrenheit" class="form-control" type="number"
+                                                    placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
+                                                    onchange="temperatureConverter(this.value)">
+                                            </p>
+                                            <p>Celcius: <span id="outputCelcius"></span></p>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End of Theme Tab -->
 
                                 <!-- Location Tab -->
-                                <div class="tab-pane" id="location">
+                                <!-- <div class="tab-pane" id="location">
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <h4 class="info-text"> Where can we find you? </h4>
@@ -157,7 +148,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- End of Size Tab -->
                             </div>
                             <!-- End of Container -->
@@ -197,4 +188,7 @@
 
 <!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+
+<!-- javascript for the sensor create page -->
+<script src="{% static 'js/sensorcreate.js' %}"></script>
 {% endblock scripts %}

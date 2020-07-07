@@ -6,10 +6,12 @@ from django.shortcuts import render, redirect
 from . models import Sensors
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-class CreateSensor(LoginRequiredMixin, ListView):
-    model = Sensors
-    template_name = 'sensors/sensors_create.html'
+# Create your views here.
 
+class CreateSensor(LoginRequiredMixin, ListView):
+    template_name = 'sensors/sensors_create.html'
+    model = Sensors
+    
 class SensorDetail(DetailView):
     template_name = 'sensors/' 
 
