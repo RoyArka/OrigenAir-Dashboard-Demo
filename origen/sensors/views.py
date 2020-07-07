@@ -7,10 +7,10 @@ from django.shortcuts import render, redirect
 # Create your views here.
 
 class CreateSensor(CreateView):
-    template_name = 'sensors/'
+    template_name = 'sensors/sensors_create.html'
 
 class SensorDetail(DetailView):
     template_name = 'sensors/' 
 
 class UpdateSensor(UpdateView):
-    template_name = 'sensors/'
+    template_name = 'sensors/sensors_update.html'
