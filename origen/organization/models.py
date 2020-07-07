@@ -6,8 +6,6 @@ from colorful.fields import RGBColorField
 
 # DEFAULT = '../origen/static/img/placeholder.jpg/'
 
-# Create your models here.
-
 def org_directory_path(instance, filename):
     return 'organization/logos/{0}'.format(filename)
 class Organization(models.Model):
