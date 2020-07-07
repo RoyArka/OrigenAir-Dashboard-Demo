@@ -4,12 +4,174 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/orgcreate-gsdk-bootstrap-wizard.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/style_orgcreate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_sensorcreate.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<p>This is a test</p>
+<div class="image-container mainbackgroundimage set-full-height"
+    style="background-image: url('{% static 'img/nature.jpg' %}')">
+    <!--   Big container   -->
+    <div class="container">
+        <div class="row secondcontainer">
+            <div class="col-sm-8 col-sm-offset-2">
+
+                <!--      Wizard container        -->
+                <div class="wizard-container">
+
+                    <!-- data-color controls the color of the active tab of the ACCOUNT/ABOUT/SIZE/LOCATION Nav Bar -->
+                    <div class="card wizard-card hugecontainer" data-color="green" id="wizardProfile">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <!-- Title of Create Organization Page -->
+                            <div class="wizard-header">
+                                <h3>
+                                    <b>CREATE</b> YOUR ORGANIZATION <br>
+                                    <small>This information will let us know more about you.</small>
+                                </h3>
+                            </div>
+                            <!-- End of Title of Create Organization Page -->
+
+                            <!-- Create Organization Page Nav Bar / Link to different sections -->
+                            <div class="wizard-navigation">
+                                <ul class="createorgnavbar">
+                                    <li class="pickle">
+                                        <a class="createinside" href="#sensortype" data-toggle="tab">Sensor Type</a>
+                                    </li>
+                                    <li class="pickle">
+                                        <a class="createinside" href="#sensorname" data-toggle="tab">Sensor Name</a>
+                                    </li>
+                                    <li class="pickle">
+                                        <a class="createinside" href="#sensorsettings" data-toggle="tab">Sensor Settings</a>
+                                    </li>
+                                    <!-- <li class="pickle">
+                                        <a class="createinside" href="#location" data-toggle="tab">Location</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                            <!-- End of Create Organization Page Nav Bar / Link to different sections -->
+
+                            <div class="tab-content">
+                                <!-- Sensor Type Tab -->
+                                <div class="tab-pane" id="sensortype">
+                                    <div class="row commentcontainer">
+                                        <h4 class="info-text commentrow"> Select Sensor Type </h4>
+                                        <div class="col-sm-4 col-sm-offset-1">
+                                            <div class="">
+                                                <form>
+                                                    <select id="" name="">
+                                                      <option value="one">Temperature Sensor</option>
+                                                      <option value="two">Humidity Sensor</option>
+                                                      <option value="three">Chloroform Sensor</option>
+                                                      <option value="four">Benzene Sensor</option>
+                                                      <option value="four">Carbon Dioxide Sensor</option>
+                                                    </select>
+                                                  </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of Account Tab -->
+
+                                <!-- Sensor Name Tab -->
+                                <div class="tab-pane" id="sensorname">
+                                    <div class="row aboutheadline">
+                                        <h4 class="info-text abouttitle"> Label The Sensor </h4>
+                                        <div class="col-sm-6 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <input name="firstname" type="text" class="form-control" placeholder="Sensor Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of About Tab -->
+
+                                <!-- Theme Tab -->
+                                <div class="tab-pane" id="sensorsettings">
+                                    <div class="row aboutheadline">
+                                        <h4 class="info-text themetitle"> Maximum Warning Threshold </h4>
+                                        <div class="form-group themecolor1">
+                                            <p>
+                                                <label for="inputColor" class="themecolor">Fahrenheit</label>
+                                                <!-- <input name="temperature" type="number" id="inputFahrenheit" class="form-control" placeholder="Select Temperature" min="-100" max="100"> -->
+                                                <input id="inputFahrenheit" class="form-control" type="number"
+                                                    placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
+                                                    onchange="temperatureConverter(this.value)">
+                                            </p>
+                                            <p>Celcius: <span id="outputCelcius"></span></p>
+                                        </div>
+                                        <h4 class="info-text themetitle"> Minimum Warning Threshold </h4>
+                                        <div class="form-group themecolor1">
+                                            <p>
+                                                <label for="inputColor" class="themecolor">Fahrenheit</label>
+                                                <!-- <input name="temperature" type="number" id="inputFahrenheit" class="form-control" placeholder="Select Temperature" min="-100" max="100"> -->
+                                                <input id="inputFahrenheit" class="form-control" type="number"
+                                                    placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
+                                                    onchange="temperatureConverter(this.value)">
+                                            </p>
+                                            <p>Celcius: <span id="outputCelcius"></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of Theme Tab -->
+
+                                <!-- Location Tab -->
+                                <!-- <div class="tab-pane" id="location">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h4 class="info-text"> Where can we find you? </h4>
+                                        </div>
+                                        <div class="col-sm-7 col-sm-offset-1 contentpart3">
+                                            <div class="form-group contentpart3box1">
+                                                <label for="inputStreetName" class="contentpart3label1">Street Name</label>
+                                                {{form.street_name}}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 contentpart4">
+                                            <div class="form-group">
+                                                <label for="inputStreetNumber">Street Number</label>
+                                                {{form.street_number}}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 col-sm-offset-1 contentpart5">
+                                            <div class="form-group">
+                                                <label for="inputCity">City</label>
+                                                {{form.city}}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 contentpart6">
+                                            <div class="form-group">
+                                                <label for="inputCountry">Country</label>
+                                                {{form.country}}  
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- End of Size Tab -->
+                            </div>
+                            <!-- End of Container -->
+
+                            <!-- The next, create and previous button -->
+                            <div class="wizard-footer height-wizard">
+                                <div class="pull-right">
+                                    <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                                    <input type="submit" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' value="Create" />
+                                </div>
+                                <div class="pull-left">
+                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- End of The next, create and previous button -->
+                        </form>
+                    </div>
+                </div> <!-- wizard container -->
+            </div>
+        </div><!-- end row -->
+    </div> <!--  big container -->
+</div>
 
 {% endblock %}
 
@@ -26,4 +188,7 @@
 
 <!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+
+<!-- javascript for the sensor create page -->
+<script src="{% static 'js/sensorcreate.js' %}"></script>
 {% endblock scripts %}
