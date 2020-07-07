@@ -4,152 +4,112 @@
 
 {% block content %}
 
-<!-- Carousel -->
-<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
-    <!-- Number of pages in Carousel -->
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <!-- End -->
-
-    <!-- CAROUSEL PHOTOS -->
-    <div class="carousel-inner">
-        <!-- CAROUSEL 1 -->
-        <div class="carousel-item active">
-            <a href="#">
-                <img class="d-block w-100 active"
-                    src="https://ultrawidewallpapers.com/wp-content/uploads/2015/08/the-perfect-vacation-3440x1440.jpg"
-                    alt="First slide">
-            </a>
-        </div>
-        <!-- /END CAROUSEL 1 -->
-
-        <!-- CAROUSEL 2 -->
-        <div class="carousel-item">
-            <a href="#">
-                <img class="d-block w-100" src="https://wallpaperaccess.com/full/306406.jpg" alt="Second slide">
-            </a>
-        </div>
-        <!-- /END CAROUSEL 2 -->
-
-        <!-- CAROUSEL 3 -->
-        <div class="carousel-item">
-            <a href="#">
-                <img class="d-block w-100"
-                    src="https://i.pinimg.com/originals/e7/37/97/e73797e90db90a056e96291ca4f2a788.jpg"
-                    alt="Third slide">
-            </a>
-        </div>
-        <!-- /END CAROUSEL 3 -->
+<body class="profile-page">
+    <!-- BACKGROUND Image -->
+    <div class="page-header header-filter"
+        style="background-image:url('https://i.pinimg.com/originals/e7/37/97/e73797e90db90a056e96291ca4f2a788.jpg');">
     </div>
-    <!-- /END CAROUSEL PHOTOS -->
+    <!-- /END BACKGROUND Image -->
 
-    <!-- Carousel Control: Previous photo -->
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <!-- Carousel Control: Next photo -->
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
-<!-- PAGE CONTENT -->
-<div class="container create-content">
-    <div class="row">
-        <!-- LEFT COLUMN -->
-        <div class="col-md-8 mb-5">
-            <!-- HEADER -->
-            <h2>What We Do</h2>
-            <hr>
-            <!-- /END HEADER -->
-
-            <!-- DESCRIPTION -->
-            <p>{{organization.description}}</p>
-            <!-- /END DESCRIPTION -->
-            
-            <!-- JOIN BUTTON -->
-            {% if not user.person.organization %}
-            <a href="{% url 'organization:join' slug=organization.slug %}" class="btn btn-success btn-lg">
-                Join &raquo;
-            </a>
-            {% endif %}
-            <!-- /END JOIN BUTTON -->
-            {% if user.person.organization == organization %}
-            <a href="{% url 'organization:leave' slug=organization.slug %}" class="btn btn-danger btn-lg">
-                Leave &raquo;
-            </a>
-            {% endif %}
-
-            <!-- JOIN MODAL -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Success</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+    <!-- MAIN Content -->
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <!-- HEADER -->
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <!-- IMAGE Profile -->
+                        <div class="card-avatar1">
+                            {% if organization.logo %}
+                            <img class="img" src="{{organization.logo.url}}">
+                            {% else %}
+                            <img class="img" src="{% static 'img/contemplating.png' %}">
+                            {% endif %}
                         </div>
-                        <div class="modal-body">
-                            You have successfully joined {{organization.name}}
+                        <!-- /END IMAGE Profile -->
+
+                        <!-- NAME Profile -->
+                        <div class="name text-center">
+                            <h1>{{organization.name}}</h1>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <!-- /END NAME Profile -->
+
+                        <!-- JOIN/LEAVE BUTTON -->
+                        <div class="btn-join-leave text-center">
+                            {% if not user.person.organization %}
+                            <a href="{% url 'organization:join' slug=organization.slug %}"
+                                class="btn btn-success btn-lg"> Join</a>
+                            {% endif %}
+                            {% if user.person.organization == organization %}
+                            <a href=" {% url 'organization:leave' slug=organization.slug %}"
+                                class="btn btn-danger btn-lg">Leave</a>
+                            {% endif %}
                         </div>
+                        <!-- /END JOIN/LEAVE BUTTON -->
                     </div>
+                    <!-- /END HEADER -->
+
+                    <!-- LEFT COLUMN -->
+                    <div class="col-md-8 mb-5 profile-left-content">
+                        <!-- HEADER -->
+                        <h2>What We Do</h2>
+                        <hr>
+                        <!-- /END HEADER -->
+
+                        <!-- DESCRIPTION -->
+                        <p>{{organization.description}}</p>
+                        <!-- /END DESCRIPTION -->
+                    </div>
+                    <!-- /END LEFT COLUMN -->
+
+                    <!-- RIGHT COLUMN -->
+                    <div class="col-md-4 mb-5 profile-right-content">
+                        <!-- HEADER -->
+                        <h2>Contact Us</h2>
+                        <hr>
+                        <!-- /END HEADER -->
+
+                        <!-- NAME/LOCATION -->
+                        <address>
+                            <strong>{{organization.name}}</strong>
+                            <br>
+                            {{organization.street_number}}
+                            {{organization.street_name}}
+                            </br>
+                            {{organization.city}},
+                            {{organization.country}}
+                        </address>
+                        <!-- /END NAME/LOCATION -->
+
+                        <!-- PHONE/EMAIL -->
+                        <address>
+                            <abbr title="Phone">P:</abbr>
+                            {{organization.phone}}
+                            <br>
+                            <abbr title="Email">E:</abbr>
+                            <a href="mailto:#">{{organization.email}}</a>
+                            <br>
+                            <abbr title="Website">W:</abbr>
+                            {{organization.website}}
+                        </address>
+                        <!-- /END PHONE/EMAIL -->
+
+                        <!-- EDIT BUTTON -->
+                        <address>
+                            <a class="btn btn-success"
+                                href="{% url 'organization:update' slug=organization.slug %}">Edit</a>
+                        </address>
+                        <!-- /END EDIT BUTTON -->
+                    </div>
+                    <!-- /END RIGHT COLUMN -->
+
+                    <!-- /END MAIN CONTENT -->
                 </div>
             </div>
-            <!-- /END JOIN MODAL -->
         </div>
-        <!-- /END LEFT COLUMN -->
-
-        <!-- RIGHT COLUMN -->
-        <div class="col-md-4 mb-5">
-            <!-- HEADER -->
-            <h2>Contact Us</h2>
-            <hr>
-            <!-- /END HEADER -->
-
-            <!-- NAME/LOCATION -->
-            <address>
-                <strong>{{organization.name}}</strong>
-                <br>
-                    {{organization.street_number}}
-                    {{organization.street_name}}
-                </br>
-                    {{organization.city}},
-                    {{organization.country}}
-            </address>
-            <!-- /END NAME/LOCATION -->
-            
-            <!-- PHONE/EMAIL -->
-            <address>
-                <abbr title="Phone">P:</abbr>
-                {{organization.phone}}
-                <br>
-                <abbr title="Email">E:</abbr>
-                <a href="mailto:#">{{organization.email}}</a>
-                <br>
-                <abbr title="Website">W:</abbr>
-                {{organization.website}}
-            </address>
-            <!-- /END PHONE/EMAIL -->
-
-            <!-- EDIT BUTTON -->
-            <address>
-                <a class="btn btn-success" href="{% url 'organization:update' slug=organization.slug %}">Edit</a>
-            </address>
-            <!-- /END EDIT BUTTON -->
-        </div>
-        <!-- /END RIGHT COLUMN -->
     </div>
-</div>
-<!-- /END PAGE CONTENT -->
+    <!-- /END MAIN Content -->
+</body>
 
 {% endblock %}
 
