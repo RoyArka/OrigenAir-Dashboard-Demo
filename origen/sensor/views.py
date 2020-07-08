@@ -3,6 +3,7 @@ from django.views.generic.edit import UpdateView
 from django.views.generic.list import ListView 
 from django.views.generic.detail import DetailView 
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from . models import Sensor
 from . import forms
 
@@ -10,6 +11,7 @@ from . import forms
 
 class CreateSensor(CreateView):
     form_class = forms.SensorCreateForm
+    success_url = reverse_lazy('single')
     template_name = 'sensor/sensor_create.html'
         
     def form_valid(self, form):
@@ -18,7 +20,7 @@ class CreateSensor(CreateView):
 
 class SensorDetail(DetailView):
     model = Sensor
-    template_name = 'sensor/' 
+    template_name = 'sensor/sensor_detail.html' 
 
 class UpdateSensor(UpdateView):
     model = Sensor
@@ -28,3 +30,7 @@ class UpdateSensor(UpdateView):
     def form_valid(self, form):
         print(form.cleaned_data)
         return super().form_valid(form)
+
+class SensorList(ListView):
+    model = Sensor
+    template_name = 'sensor/sensor_list.html'

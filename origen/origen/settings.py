@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'accounts',
     'organization',
     'colorful',
-    'sensor'
+    'sensor',
+    'django_plotly_dash.apps.DjangoPlotlyDashConfig'
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,5 @@ EMAIL_HOST_USER = 'forgot-password@origenair.com'
 EMAIL_HOST_PASSWORD = '9YxWrUkeqkU9'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
