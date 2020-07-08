@@ -1,7 +1,5 @@
 /*** MEDIA QUERIES ***/
 
-
-
 .hugecontainer {
     margin-top: -40px;
 }
@@ -43,45 +41,6 @@
     font-size: 22px;
 }
 
-.contentpart1 {
-    flex: 0 0 50%;
-    max-width: 50%;
-    position: relative;
-    width: 100%;
-    margin: 0 40px;
-}
-
-.contentpart1box1 {
-    margin-right: -100px;
-}
-
-.contentpart1label1 {
-    margin-right: 110px;
-}
-
-.contentpart1box2 {
-    margin-right: -100px;
-}
-
-.contentpart1label2 {
-    margin-right: 150px;
-}
-
-.contentpart2 {
-    flex: 0 0 100%;
-    max-width: 100%;
-    position: relative;
-    width: 100%;
-}
-
-.contentpart2box1 {
-    margin-right: -60px;
-}
-
-.contentpart2label1 {
-    margin-right: 300px;
-}
-
 .fa-search {
     color: white !important;
 }
@@ -94,13 +53,6 @@
 .btn-finish {
     background: green !important;
     border-color: rgb(2, 151, 2) !important;
-}
-
-.companysizerow {
-    margin-right: -65px;
-    margin-left: 65px;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .smallb {
@@ -118,27 +70,9 @@
     margin-bottom: -60px;
 }
 
-.contentpart3 {
-    margin: 0px 0px 0px 60px;
-}
-
-.contentpart5 {
-    margin: 0px 0px 0px 60px;
-}
-
 .aboutheadline {
     text-align: center;
     display: block;
-}
-
-.aboutinstruction {
-    margin-left: 5px;
-
-}
-
-.abouttextbox {
-    margin-left: 62px;
-    width: 170%;
 }
 
 .pickle2 {

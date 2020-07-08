@@ -78,7 +78,8 @@
                                             <h4 class="info-text"> Label The Sensor </h4>
                                             <form>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control form-control-lg" placeholder="Sensor Name">
+                                                    <input type="text" class="form-control form-control-lg"
+                                                        placeholder="Sensor Name">
                                                 </div>
                                             </form>
                                         </div>
@@ -86,34 +87,27 @@
                                 </div>
                                 <!-- End of Sensor Name Tab -->
 
-                                <!-- Theme Tab -->
+                                <!-- Sensor Setting Tab -->
                                 <div class="tab-pane" id="sensorsettings">
-                                    <div class="row aboutheadline">
-                                        <h4 class="info-text themetitle"> Maximum Warning Threshold </h4>
-                                        <div class="form-group themecolor1">
-                                            <p>
-                                                <label for="inputColor" class="themecolor">Fahrenheit</label>
-                                                <input id="inputFahrenheit" class="form-control" type="number"
-                                                    placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
-                                                    onchange="temperatureConverter(this.value)">
-                                            </p>
-                                            <p>Celcius: <span id="outputCelcius"></span></p>
+                                    <div class="row commentcontainer">
+                                        <div class="col">
+                                            <!-- Minimum Threshold -->
+                                            <h4 class="info-text"> Minimum Warning Threshold </h4>
+                                            <div class="form-group"></div>
+                                            <!-- End of Minimum Threshold -->
                                         </div>
-                                        <h4 class="info-text themetitle"> Minimum Warning Threshold </h4>
-                                        <div class="form-group themecolor1">
-                                            <p>
-                                                <label for="inputColor" class="themecolor">Fahrenheit</label>
-                                                <input id="inputFahrenheit" class="form-control" type="number"
-                                                    placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
-                                                    onchange="temperatureConverter(this.value)">
-                                            </p>
-                                            <p>Celcius: <span id="outputCelcius"></span></p>
+
+                                        <div class="col">
+                                            <!-- Maximum Threshold -->
+                                            <h4 class="info-text"> Maximum Warning Threshold </h4>
+                                            <div class="form-group"></div>
+                                            <!-- End of Maximum Threshold -->
                                         </div>
+                                        <!-- End of Sensor Setting Tab -->
                                     </div>
+                                    <!-- End of Container -->
                                 </div>
-                                <!-- End of Theme Tab -->
                             </div>
-                            <!-- End of Container -->
 
                             <!-- The next, create and previous button -->
                             <div class="wizard-footer height-wizard">
