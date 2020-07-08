@@ -90,16 +90,35 @@
 
     .sensorsettinglabel{
         font-weight: 500;
+        margin-left: 40%;
+        margin-right: -10%;
     }
 
+    .sensorfahrenheit{
+        margin-left: 40%;
+        margin-right: -10%;
+    }
 
+    .sensorfahrenheittitle{
+        margin-left: 40%;
+        margin-right: -10%;
+    }
 
+    .sensorfahrenheitinput{
+        margin-left: 40%;
+        margin-right: -10%;
+        width: 65%;
+    }
 
-    
+    .sensorcelciuslabel{
+        margin-left: 40%;
+        margin-right: -10%;
+    }
 
-    
-
-
-    
+    .sensorcelciusoutput{
+        margin-left: 40%;
+        margin-right: -10%;
+        width: 65%;
+    }
 
 }

@@ -99,13 +99,15 @@
                                                 <label class="sensorsettinglabel"> Minimum Warning Threshold </label>
                                                 <div class="form-group">
                                                     <p>
-                                                        <label for="inputColor" class="">Fahrenheit</label>
-                                                        <input id="inputFahrenheit" class="form-control" type="number"
-                                                            placeholder="Fahrenheit"
-                                                            oninput="temperatureConverter(this.value)"
-                                                            onchange="temperatureConverter(this.value)">
+                                                        <label for="inputColor" class="sensorfahrenheittitle">Degree
+                                                            Fahrenheit</label>
+                                                        <input class="form-control sensorfahrenheitinput" id="f"
+                                                            onkeyup="convert('F')" placeholder="Fahrenheit">
                                                     </p>
-                                                    <p>Celcius: <span id="outputCelcius"></span></p>
+                                                    <p>
+                                                        <label class="sensorcelciuslabel">Degree Celcius: </label>
+                                                        <input class="sensorcelciusoutput" id="c" onkeyup="convert('C')" placeholder="Celcius">
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,13 +116,14 @@
                                                 <label class="sensorsettinglabel"> Maximum Warning Threshold </label>
                                                 <div class="form-group">
                                                     <p>
-                                                        <label for="inputColor2" class="">Fahrenheit</label>
-                                                        <input id="inputFahrenheit2" class="form-control" type="number"
-                                                            placeholder="Fahrenheit"
-                                                            oninput="temperatureConverter(this.value)"
-                                                            onchange="temperatureConverter(this.value)">
+                                                        <label for="inputColor" class="sensorfahrenheittitle">Degree
+                                                            Fahrenheit</label>
+                                                        <input class="form-control sensorfahrenheitinput" id="a"
+                                                            onkeyup="convert2('A')" placeholder="Fahrenheit">
                                                     </p>
-                                                    <p>Celcius: <span id="outputCelcius"></span></p>
+                                                    <p> 
+                                                        <label class="sensorcelciuslabel">Degree Celcius: </label>
+                                                        <input class="sensorcelciusoutput" id="b" onkeyup="convert2('B')" placeholder="Celcius"></p>
                                                 </div>
                                             </div>
                                         </div>
