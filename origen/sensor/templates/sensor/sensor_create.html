@@ -57,12 +57,14 @@
                                             <h4 class="info-text"> Select Sensor Type </h4>
                                             <form>
                                                 <div class="form-group">
-                                                    <select class="form-control form-control-lg">
-                                                        <option value="temperature">Temperature</option>
-                                                        <option value="humidity">Humidity</option>
-                                                        <option value="benzene">Benzene</option>
-                                                        <option value="chloroform">Chloroform</option>
-                                                        <option value="carbondioxide">Carbon Dioxide</option>
+                                                    <select id="sensorselection" name="sensorselection" class="form-control form-control-lg" 
+                                                    onchange="myFunction()">
+                                                        <option disabled selected value>Select Sensor</option>
+                                                        <option value="Temperature">Temperature</option>
+                                                        <option value="Humidity">Humidity</option>
+                                                        <option value="Benzene">Benzene</option>
+                                                        <option value="Chloroform">Chloroform</option>
+                                                        <option value="Carbondioxide">Carbon Dioxide</option>
                                                     </select>
                                                 </div>
                                             </form>
