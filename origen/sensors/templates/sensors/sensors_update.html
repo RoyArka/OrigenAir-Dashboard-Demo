@@ -28,7 +28,7 @@
                             <div class="wizard-header">
                                 <h3>
                                     <b>UPDATE</b> YOUR SENSOR <br>
-                                    <small>This information will let us know more about you.</small>
+                                    <small>&nbsp;</small>
                                 </h3>
                             </div>
                             <!-- End of Title of Create Organization Page -->
@@ -55,17 +55,17 @@
                                 <div class="tab-pane" id="sensortype">
                                     <div class="row commentcontainer">
                                         <div class="col-sm-6 col-sm-offset-1">
-                                            <h4 class="info-text commentrow"> Select Sensor Type </h4>
+                                            <h4 class="info-text"> Select Sensor Type </h4>
                                             <form>
                                                 <div class="form-group">
-                                                        <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                                                    <select class="form-control form-control-lg">
                                                         <option value="humidity">Humidity Sensor</option>
                                                         <option value="benzene">Benzene Sensor</option>
                                                         <option value="chloroform">Chloroform Sensor</option>
                                                         <option value="carbondioxide">Carbon Dioxide Sensor</option>
                                                     </select>
-                                                </form>
-                                            </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -73,17 +73,18 @@
 
                                 <!-- Sensor Name Tab -->
                                 <div class="tab-pane" id="sensorname">
-                                    <div class="row aboutheadline">
-                                        <h4 class="info-text abouttitle"> Label The Sensor </h4>
+                                    <div class="row commentcontainer">
                                         <div class="col-sm-6 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <input name="firstname" type="text" class="form-control"
-                                                    placeholder="Sensor Name">
-                                            </div>
+                                            <h4 class="info-text"> Label The Sensor </h4>
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control form-control-lg" placeholder="Sensor Name">
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End of About Tab -->
+                                <!-- End of Sensor Name Tab -->
 
                                 <!-- Theme Tab -->
                                 <div class="tab-pane" id="sensorsettings">
@@ -92,7 +93,6 @@
                                         <div class="form-group themecolor1">
                                             <p>
                                                 <label for="inputColor" class="themecolor">Fahrenheit</label>
-                                                <!-- <input name="temperature" type="number" id="inputFahrenheit" class="form-control" placeholder="Select Temperature" min="-100" max="100"> -->
                                                 <input id="inputFahrenheit" class="form-control" type="number"
                                                     placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
                                                     onchange="temperatureConverter(this.value)">
@@ -103,7 +103,6 @@
                                         <div class="form-group themecolor1">
                                             <p>
                                                 <label for="inputColor" class="themecolor">Fahrenheit</label>
-                                                <!-- <input name="temperature" type="number" id="inputFahrenheit" class="form-control" placeholder="Select Temperature" min="-100" max="100"> -->
                                                 <input id="inputFahrenheit" class="form-control" type="number"
                                                     placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
                                                     onchange="temperatureConverter(this.value)">

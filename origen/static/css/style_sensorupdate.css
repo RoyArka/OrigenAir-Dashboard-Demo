@@ -1,155 +1,146 @@
 /*** MEDIA QUERIES ***/
 
-/* when screen size is greater than 1250px (Desktop View) */
-@media screen and (min-width: 1000px) {
 
-    .hugecontainer {
-        margin-top: -40px;
-    }
 
-    .createorgnavbar {
-        text-align: center;
-    }
+.hugecontainer {
+    margin-top: -40px;
+}
 
-    .createinside {
-        border: 1px solid #2CA8FF;
-        border-radius: 0;
-        color: #2CA8FF;
-        border: 0 !important;
-        text-transform: uppercase;
-        background-color: #999999;
-        text-align: center;
-        color: #FFFFFF !important;
-        font-size: 12px;
-        cursor: pointer;
-        position: relative;
-        display: block;
-        padding: 10px 15px;
-        text-decoration: none;
-        box-sizing: border-box;
-    }
+.createorgnavbar {
+    text-align: center;
+}
 
-    .secondcontainer {
-        margin-right: -265px;
-        margin-left: 135px;
-    }
+.createinside {
+    border: 1px solid #2CA8FF;
+    border-radius: 0;
+    color: #2CA8FF;
+    border: 0 !important;
+    text-transform: uppercase;
+    background-color: #999999;
+    text-align: center;
+    color: #FFFFFF !important;
+    font-size: 12px;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
 
-    .commentcontainer {
-        /* margin-right: 0px;
-        margin-left: 0px;
-        text-align: center;
-        font-weight: 300;
-        margin: 10px 100px 30px; */
-    }
+.secondcontainer {
+    margin-right: -265px;
+    margin-left: 135px;
+}
 
-    .tab-content {
+.commentcontainer{
+    text-align: center;
+    margin-left: 27%;
+    width: 95%;
+}
 
-    }
+.commentrow {
+    font-size: 22px;
+}
 
-    .commentrow {
-        font-size: 22px;
-    }
+.contentpart1 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+    width: 100%;
+    margin: 0 40px;
+}
 
-    .contentpart1 {
-        flex: 0 0 50%;
-        max-width: 50%;
-        position: relative;
-        width: 100%;
-        margin: 0 40px;
-    }
+.contentpart1box1 {
+    margin-right: -100px;
+}
 
-    .contentpart1box1 {
-        margin-right: -100px;
-    }
+.contentpart1label1 {
+    margin-right: 110px;
+}
 
-    .contentpart1label1 {
-        margin-right: 110px;
-    }
+.contentpart1box2 {
+    margin-right: -100px;
+}
 
-    .contentpart1box2 {
-        margin-right: -100px;
-    }
+.contentpart1label2 {
+    margin-right: 150px;
+}
 
-    .contentpart1label2 {
-        margin-right: 150px;
-    }
+.contentpart2 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+}
 
-    .contentpart2 {
-        flex: 0 0 100%;
-        max-width: 100%;
-        position: relative;
-        width: 100%;
-    }
+.contentpart2box1 {
+    margin-right: -60px;
+}
 
-    .contentpart2box1 {
-        margin-right: -60px;
-    }
+.contentpart2label1 {
+    margin-right: 300px;
+}
 
-    .contentpart2label1 {
-        margin-right: 300px;
-    }
+.fa-search {
+    color: white !important;
+}
 
-    .fa-search {
-        color: white !important;
-    }
+.btn-next {
+    background: green !important;
+    border-color: rgb(2, 151, 2) !important;
+}
 
-    .btn-next {
-        background: green !important;
-        border-color: rgb(2, 151, 2) !important;
-    }
+.btn-finish {
+    background: green !important;
+    border-color: rgb(2, 151, 2) !important;
+}
 
-    .btn-finish {
-        background: green !important;
-        border-color: rgb(2, 151, 2) !important;
-    }
+.companysizerow {
+    margin-right: -65px;
+    margin-left: 65px;
+    display: flex;
+    flex-wrap: wrap;
+}
 
-    .companysizerow {
-        margin-right: -65px;
-        margin-left: 65px;
-        display: flex;
-        flex-wrap: wrap;
-    }
+.smallb {
+    font-size: 30px;
+    margin-bottom: -45px;
+}
 
-    .smallb {
-        font-size: 30px;
-        margin-bottom: -45px;
-    }
+.mediumb {
+    font-size: 50px;
+    margin-bottom: -55px;
+}
 
-    .mediumb {
-        font-size: 50px;
-        margin-bottom: -55px;
-    }
+.largeb {
+    font-size: 70px;
+    margin-bottom: -60px;
+}
 
-    .largeb {
-        font-size: 70px;
-        margin-bottom: -60px;
-    }
+.contentpart3 {
+    margin: 0px 0px 0px 60px;
+}
 
-    .contentpart3 {
-        margin: 0px 0px 0px 60px;
-    }
+.contentpart5 {
+    margin: 0px 0px 0px 60px;
+}
 
-    .contentpart5 {
-        margin: 0px 0px 0px 60px;
-    }
+.aboutheadline {
+    text-align: center;
+    display: block;
+}
 
-    .aboutheadline {
-        text-align: center;
-        display: block;
-    }
+.aboutinstruction {
+    margin-left: 5px;
 
-    .aboutinstruction {
-        margin-left: 5px;
+}
 
-    }
+.abouttextbox {
+    margin-left: 62px;
+    width: 170%;
+}
 
-    .abouttextbox {
-        margin-left: 62px;
-        width: 170%;
-    }
-
-    .pickle2 {
-        width: 33.33% !important;
-    }
-
+.pickle2 {
+    width: 33.33% !important;
 }
