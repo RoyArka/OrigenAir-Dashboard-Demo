@@ -8,6 +8,7 @@ from colorful.fields import RGBColorField
 
 def org_directory_path(instance, filename):
     return 'organization/logos/{0}'.format(filename)
+    
 class Organization(models.Model):
 
     name = models.CharField(max_length=25, null=False, blank=False)

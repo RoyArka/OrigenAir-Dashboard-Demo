@@ -1,146 +1,135 @@
 /*** MEDIA QUERIES ***/
 
+/* for screen size smaller than 600px */
+@media (max-width: 600px) {
+    .hugecontainer {
+        margin-top: -40px;
+    }
 
+    .createorgnavbar {
+        text-align: center;
+    }
 
-.hugecontainer {
-    margin-top: -40px;
+    .createinside {
+        border: 1px solid #2CA8FF;
+        border-radius: 0;
+        color: #2CA8FF;
+        border: 0 !important;
+        text-transform: uppercase;
+        background-color: #999999;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .secondcontainer {
+        justify-content: center;
+    }
+
+    .commentcontainer {
+        text-align: center;
+        margin-left: 3%;
+        width: 95%;
+    }
+
+    .threshold {
+        margin-left: 27%;
+        width: 50%;
+    }
+
+    .fa-search {
+        color: white !important;
+    }
+
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .aboutheadline {
+        text-align: center;
+        display: block;
+    }
+
+    .pickle2 {
+        width: 33.33% !important;
+    }
 }
 
-.createorgnavbar {
-    text-align: center;
-}
+/* for screen size bigger than 600px */
+@media screen and (min-width: 601px) {
+    .hugecontainer {
+        margin-top: -40px;
+    }
 
-.createinside {
-    border: 1px solid #2CA8FF;
-    border-radius: 0;
-    color: #2CA8FF;
-    border: 0 !important;
-    text-transform: uppercase;
-    background-color: #999999;
-    text-align: center;
-    color: #FFFFFF !important;
-    font-size: 12px;
-    cursor: pointer;
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    box-sizing: border-box;
-}
+    .createorgnavbar {
+        text-align: center;
+    }
 
-.secondcontainer {
-    margin-right: -265px;
-    margin-left: 135px;
-}
+    .createinside {
+        border: 1px solid #2CA8FF;
+        border-radius: 0;
+        color: #2CA8FF;
+        border: 0 !important;
+        text-transform: uppercase;
+        background-color: #999999;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
 
-.commentcontainer{
-    text-align: center;
-    margin-left: 27%;
-    width: 95%;
-}
+    .secondcontainer {
+        justify-content: center;
+    }
 
-.commentrow {
-    font-size: 22px;
-}
+    .commentcontainer {
+        text-align: center;
+        margin-left: 27%;
+        width: 95%;
+    }
 
-.contentpart1 {
-    flex: 0 0 50%;
-    max-width: 50%;
-    position: relative;
-    width: 100%;
-    margin: 0 40px;
-}
+    .threshold {
+        margin-left: 27%;
+        width: 50%;
+    }
 
-.contentpart1box1 {
-    margin-right: -100px;
-}
+    .fa-search {
+        color: white !important;
+    }
 
-.contentpart1label1 {
-    margin-right: 110px;
-}
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
 
-.contentpart1box2 {
-    margin-right: -100px;
-}
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
 
-.contentpart1label2 {
-    margin-right: 150px;
-}
+    .aboutheadline {
+        text-align: center;
+        display: block;
+    }
 
-.contentpart2 {
-    flex: 0 0 100%;
-    max-width: 100%;
-    position: relative;
-    width: 100%;
-}
-
-.contentpart2box1 {
-    margin-right: -60px;
-}
-
-.contentpart2label1 {
-    margin-right: 300px;
-}
-
-.fa-search {
-    color: white !important;
-}
-
-.btn-next {
-    background: green !important;
-    border-color: rgb(2, 151, 2) !important;
-}
-
-.btn-finish {
-    background: green !important;
-    border-color: rgb(2, 151, 2) !important;
-}
-
-.companysizerow {
-    margin-right: -65px;
-    margin-left: 65px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.smallb {
-    font-size: 30px;
-    margin-bottom: -45px;
-}
-
-.mediumb {
-    font-size: 50px;
-    margin-bottom: -55px;
-}
-
-.largeb {
-    font-size: 70px;
-    margin-bottom: -60px;
-}
-
-.contentpart3 {
-    margin: 0px 0px 0px 60px;
-}
-
-.contentpart5 {
-    margin: 0px 0px 0px 60px;
-}
-
-.aboutheadline {
-    text-align: center;
-    display: block;
-}
-
-.aboutinstruction {
-    margin-left: 5px;
-
-}
-
-.abouttextbox {
-    margin-left: 62px;
-    width: 170%;
-}
-
-.pickle2 {
-    width: 33.33% !important;
+    .pickle2 {
+        width: 33.33% !important;
+    }
 }
