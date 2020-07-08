@@ -10,7 +10,6 @@ def user_directory_path(instance, filename):
 class Person(models.Model):
 
     import pytz
-    pytz.all_timezones
 
     TIMEZONES = tuple(zip(pytz.common_timezones, pytz.common_timezones))
 

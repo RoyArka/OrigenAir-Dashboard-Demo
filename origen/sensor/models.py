@@ -3,23 +3,26 @@ from django.utils import timezone
 from organization.models import Organization
 from django.utils.text import slugify
 from django.urls import reverse
+from django.utils.translation import gettext as _
 
 # Create your models here.
 
 class Sensor(models.Model):
-
+    TEMPERATURE = 'temperature'
+    HUMIDITY = 'humidity'
+    VOC = 'voc'
+    CO2 = 'co2'
     #Types of sensors 
-    # TYPES = (
-    #     ('Temperature', 'Temperature'),
-    #     ('Humidity', 'Humidity'),
-    #     ('Solar Intensity', 'Solar Intensity'),
-    #     ('2CO', '2CO'),
-    # )
+    TYPES = [
+        (TEMPERATURE, _('Temperature')),
+        (HUMIDITY, _('Humidity')),
+        (VOC, _('Volatile Organic Compound')),
+        (CO2, _('Carbon Dioxide')),
+    ]
     
     name = models.CharField(max_length=25, null=False, blank=False)
-    organization = models.ForeignKey(Organization, related_name='sensor', null=True, blank=True, on_delete=models.CASCADE)
-    # sensor_type = models.CharField(max_length=100, choices=TYPES, default='None')
-    slug = models.SlugField(allow_unicode=True, unique=True)
+    organization = models.ForeignKey(Organization, related_name='sensors', on_delete=models.CASCADE)
+    sensor_type = models.CharField(max_length=100, choices=TYPES, default='None')
     
     def __str__(self):
         return self.name

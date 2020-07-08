@@ -55,7 +55,7 @@
                                     <div class="row commentcontainer">
                                         <div class="col-sm-6 col-sm-offset-1">
                                             <h4 class="info-text"> Select Sensor Type </h4>
-                                            <form>
+                                            
                                                 <div class="form-group">
                                                     <select class="form-control form-control-lg">
                                                         <option value="temperature">Temperature</option>
@@ -65,7 +65,7 @@
                                                         <option value="carbondioxide">Carbon Dioxide</option>
                                                     </select>
                                                 </div>
-                                            </form>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -76,12 +76,12 @@
                                     <div class="row commentcontainer">
                                         <div class="col-sm-6 col-sm-offset-1">
                                             <h4 class="info-text"> Label The Sensor </h4>
-                                            <form>
+                                            
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control form-control-lg"
-                                                        placeholder="Sensor Name">
+                                                    {{form.name.errors}}
+                                                    {{form.name}}
                                                 </div>
-                                            </form>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -99,9 +99,9 @@
                                             <!-- Minimum Threshold -->
                                             <h4 class="info-text"> Minimum </h4>
                                             <div class="input-group threshold">
-                                                <input type="text" class="form-control form-control-lg"
+                                                <!-- <input type="text" class="form-control form-control-lg"
                                                     placeholder="Temp" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2">
+                                                    aria-describedby="basic-addon2"> -->
                                             </div>
                                             <div class="input-group threshold">
                                                 <div class="form-group">
@@ -118,9 +118,9 @@
                                             <!-- Maximum Threshold -->
                                             <h4 class="info-text"> Maximum </h4>
                                             <div class="input-group threshold">
-                                                <input type="text" class="form-control form-control-lg"
+                                                <!-- <input type="text" class="form-control form-control-lg"
                                                     placeholder="Temp" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2">
+                                                    aria-describedby="basic-addon2"> -->
                                             </div>
                                             <div class="input-group threshold">        
                                                 <div class="form-group">
