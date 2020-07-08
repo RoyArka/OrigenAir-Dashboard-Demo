@@ -13,7 +13,7 @@
     style="background-image: url('{% static 'img/nature.jpg' %}')">
     <!--   Big container   -->
     <div class="container">
-        <div class="row secondcontainer">
+        <div class="row secondcontainer sensorsecondcontainer">
             <div class="col-sm-8 col-sm-offset-2">
 
                 <!--      Wizard container        -->
@@ -28,7 +28,7 @@
                             <div class="wizard-header">
                                 <h3>
                                     <b>CREATE</b> YOUR SENSOR <br>
-                                    <small>This information will let us help with the set-up.</small>
+                                    <small>&nbsp;</small>
                                 </h3>
                             </div>
                             <!-- End of Title of Create Organization Page -->
@@ -53,9 +53,9 @@
                             <div class="tab-content">
                                 <!-- Sensor Type Tab -->
                                 <div class="tab-pane" id="sensortype">
-                                    <div class="row commentcontainer">
-                                        <h4 class="info-text commentrow"> Select Sensor Type </h4>
-                                        <div class="col-sm-4 col-sm-offset-1">
+                                    <div class="row commentcontainer sensortitle">
+                                        <h4 class="info-text commentrow sensortyperow"> Select Sensor Type </h4>
+                                        <div class="col-sm-4 col-sm-offset-1 sensortyperow">
                                             <div class="">
                                                 <form>
                                                     <select id="" name="">
@@ -75,11 +75,10 @@
                                 <!-- Sensor Name Tab -->
                                 <div class="tab-pane" id="sensorname">
                                     <div class="row aboutheadline">
-                                        <h4 class="info-text abouttitle"> Label The Sensor </h4>
-                                        <div class="col-sm-6 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <input name="firstname" type="text" class="form-control"
-                                                    placeholder="Sensor Name">
+                                        <h4 class="info-text sensornametitle"> Label The Sensor </h4>
+                                        <div class="col-sm-6 col-sm-offset-1 sensornamecontainer">
+                                            <div class="form-group sensornamecontainer">
+                                                <input name="firstname" type="text" class="form-control sensornamebox" placeholder="Sensor Name">
                                             </div>
                                         </div>
                                     </div>
@@ -93,7 +92,6 @@
                                         <div class="form-group themecolor1">
                                             <p>
                                                 <label for="inputColor" class="themecolor">Fahrenheit</label>
-                                                <!-- <input name="temperature" type="number" id="inputFahrenheit" class="form-control" placeholder="Select Temperature" min="-100" max="100"> -->
                                                 <input id="inputFahrenheit" class="form-control" type="number"
                                                     placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
                                                     onchange="temperatureConverter(this.value)">
@@ -104,8 +102,7 @@
                                         <div class="form-group themecolor1">
                                             <p>
                                                 <label for="inputColor" class="themecolor">Fahrenheit</label>
-                                                <!-- <input name="temperature" type="number" id="inputFahrenheit" class="form-control" placeholder="Select Temperature" min="-100" max="100"> -->
-                                                <input id="inputFahrenheit" class="form-control" type="number"
+                                                <input id="inputFahrenheit2" class="form-control" type="number"
                                                     placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
                                                     onchange="temperatureConverter(this.value)">
                                             </p>
@@ -114,7 +111,6 @@
                                     </div>
                                 </div>
                                 <!-- End of Sensor Settings Tab -->
-
                             </div>
                             <!-- End of Container -->
 
