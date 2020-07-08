@@ -1,36 +1,15 @@
-/* ** MEDIA QUERIES ** */
-
-/* for screen size less than 500px (Mobile View) */
-@media only screen and (max-width: 574px) {
-    
-}
-
-
-/* for screen size between 575px to 850px */
-@media screen and (min-width: 575px) and (max-width: 850px) {
-
-    
-}
-
-/* for screen size between 850 to 1250px */
-@media screen and (min-width: 850px) and (max-width: 1249px) {
-
-   
-
-}
-
+/*** MEDIA QUERIES ***/
 
 /* when screen size is greater than 1250px (Desktop View) */
-@media screen and (min-width: 100px) {
+@media screen and (min-width: 1000px) {
 
-    /* .hugecontainer {
+    .hugecontainer {
         margin-top: -40px;
     }
 
     .createorgnavbar {
         text-align: center;
-    } */
-   
+    }
 
     .createinside {
         border: 1px solid #2CA8FF;
@@ -50,18 +29,21 @@
         box-sizing: border-box;
     }
 
-    /*
     .secondcontainer {
         margin-right: -265px;
         margin-left: 135px;
     }
 
     .commentcontainer {
-        margin-right: 0px;
+        /* margin-right: 0px;
         margin-left: 0px;
         text-align: center;
         font-weight: 300;
-        margin: 10px 100px 30px;
+        margin: 10px 100px 30px; */
+    }
+
+    .tab-content {
+
     }
 
     .commentrow {
@@ -166,8 +148,8 @@
         width: 170%;
     }
 
-    .pickle{
-        width: 25% !important;
-    } */
+    .pickle2 {
+        width: 33.33% !important;
+    }
 
 }

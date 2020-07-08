@@ -15,5 +15,6 @@ class CreateSensor(LoginRequiredMixin, ListView):
 class SensorDetail(DetailView):
     template_name = 'sensors/' 
 
-class UpdateSensor(UpdateView):
+class UpdateSensor(ListView):
     template_name = 'sensors/sensors_update.html'
+    model = Sensors

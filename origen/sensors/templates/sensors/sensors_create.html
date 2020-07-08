@@ -27,8 +27,8 @@
                             <!-- Title of Create Organization Page -->
                             <div class="wizard-header">
                                 <h3>
-                                    <b>CREATE</b> YOUR ORGANIZATION <br>
-                                    <small>This information will let us know more about you.</small>
+                                    <b>CREATE</b> YOUR SENSOR <br>
+                                    <small>This information will let us help with the set-up.</small>
                                 </h3>
                             </div>
                             <!-- End of Title of Create Organization Page -->
@@ -43,11 +43,9 @@
                                         <a class="createinside" href="#sensorname" data-toggle="tab">Sensor Name</a>
                                     </li>
                                     <li class="pickle">
-                                        <a class="createinside" href="#sensorsettings" data-toggle="tab">Sensor Settings</a>
+                                        <a class="createinside" href="#sensorsettings" data-toggle="tab">Sensor
+                                            Settings</a>
                                     </li>
-                                    <!-- <li class="pickle">
-                                        <a class="createinside" href="#location" data-toggle="tab">Location</a>
-                                    </li> -->
                                 </ul>
                             </div>
                             <!-- End of Create Organization Page Nav Bar / Link to different sections -->
@@ -61,18 +59,18 @@
                                             <div class="">
                                                 <form>
                                                     <select id="" name="">
-                                                      <option value="one">Temperature Sensor</option>
-                                                      <option value="two">Humidity Sensor</option>
-                                                      <option value="three">Chloroform Sensor</option>
-                                                      <option value="four">Benzene Sensor</option>
-                                                      <option value="four">Carbon Dioxide Sensor</option>
+                                                        <option value="temperature">Temperature Sensor</option>
+                                                        <option value="humidity">Humidity Sensor</option>
+                                                        <option value="chloroform">Chloroform Sensor</option>
+                                                        <option value="benzene">Benzene Sensor</option>
+                                                        <option value="carbondioxide">Carbon Dioxide Sensor</option>
                                                     </select>
-                                                  </form>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End of Account Tab -->
+                                <!-- End of Sensor Type Tab -->
 
                                 <!-- Sensor Name Tab -->
                                 <div class="tab-pane" id="sensorname">
@@ -80,14 +78,15 @@
                                         <h4 class="info-text abouttitle"> Label The Sensor </h4>
                                         <div class="col-sm-6 col-sm-offset-1">
                                             <div class="form-group">
-                                                <input name="firstname" type="text" class="form-control" placeholder="Sensor Name">
+                                                <input name="firstname" type="text" class="form-control"
+                                                    placeholder="Sensor Name">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End of About Tab -->
 
-                                <!-- Theme Tab -->
+                                <!-- Senor Settings Tab -->
                                 <div class="tab-pane" id="sensorsettings">
                                     <div class="row aboutheadline">
                                         <h4 class="info-text themetitle"> Maximum Warning Threshold </h4>
@@ -114,53 +113,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End of Theme Tab -->
+                                <!-- End of Sensor Settings Tab -->
 
-                                <!-- Location Tab -->
-                                <!-- <div class="tab-pane" id="location">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <h4 class="info-text"> Where can we find you? </h4>
-                                        </div>
-                                        <div class="col-sm-7 col-sm-offset-1 contentpart3">
-                                            <div class="form-group contentpart3box1">
-                                                <label for="inputStreetName" class="contentpart3label1">Street Name</label>
-                                                {{form.street_name}}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3 contentpart4">
-                                            <div class="form-group">
-                                                <label for="inputStreetNumber">Street Number</label>
-                                                {{form.street_number}}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 col-sm-offset-1 contentpart5">
-                                            <div class="form-group">
-                                                <label for="inputCity">City</label>
-                                                {{form.city}}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 contentpart6">
-                                            <div class="form-group">
-                                                <label for="inputCountry">Country</label>
-                                                {{form.country}}  
-                                                <br>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- End of Size Tab -->
                             </div>
                             <!-- End of Container -->
 
                             <!-- The next, create and previous button -->
                             <div class="wizard-footer height-wizard">
                                 <div class="pull-right">
-                                    <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
-                                    <input type="submit" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' value="Create" />
+                                    <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm'
+                                        name='next' value='Next' />
+                                    <input type="submit" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm'
+                                        value="Create" />
                                 </div>
                                 <div class="pull-left">
-                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm'
+                                        name='previous' value='Previous' />
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
