@@ -15,7 +15,6 @@ class Person(models.Model):
     TIMEZONES = tuple(zip(pytz.common_timezones, pytz.common_timezones))
 
     user = models.OneToOneField(auth.models.User, on_delete=models.CASCADE, primary_key=True)
-    # organization = models.ForeignKey()
     
     alerts = models.BooleanField(default=True)
     biography = models.TextField(default='', null=True, blank=True)
