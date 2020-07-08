@@ -87,26 +87,39 @@
 
                                 <!-- Senor Settings Tab -->
                                 <div class="tab-pane" id="sensorsettings">
-                                    <div class="row aboutheadline">
-                                        <h4 class="info-text themetitle"> Maximum Warning Threshold </h4>
-                                        <div class="form-group themecolor1">
-                                            <p>
-                                                <label for="inputColor" class="themecolor">Fahrenheit</label>
-                                                <input id="inputFahrenheit" class="form-control" type="number"
-                                                    placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
-                                                    onchange="temperatureConverter(this.value)">
-                                            </p>
-                                            <p>Celcius: <span id="outputCelcius"></span></p>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h4 class="info-text"> Set The Warning Thresholds</h4>
                                         </div>
-                                        <h4 class="info-text themetitle"> Minimum Warning Threshold </h4>
-                                        <div class="form-group themecolor1">
-                                            <p>
-                                                <label for="inputColor" class="themecolor">Fahrenheit</label>
-                                                <input id="inputFahrenheit2" class="form-control" type="number"
-                                                    placeholder="Fahrenheit" oninput="temperatureConverter(this.value)"
-                                                    onchange="temperatureConverter(this.value)">
-                                            </p>
-                                            <p>Celcius: <span id="outputCelcius"></span></p>
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label class="sensorsettinglabel"> Minimum Warning Threshold </label>
+                                                <div class="form-group">
+                                                    <p>
+                                                        <label for="inputColor" class="">Fahrenheit</label>
+                                                        <input id="inputFahrenheit" class="form-control" type="number"
+                                                            placeholder="Fahrenheit"
+                                                            oninput="temperatureConverter(this.value)"
+                                                            onchange="temperatureConverter(this.value)">
+                                                    </p>
+                                                    <p>Celcius: <span id="outputCelcius"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <label class="sensorsettinglabel"> Maximum Warning Threshold </label>
+                                                <div class="form-group">
+                                                    <p>
+                                                        <label for="inputColor2" class="">Fahrenheit</label>
+                                                        <input id="inputFahrenheit2" class="form-control" type="number"
+                                                            placeholder="Fahrenheit"
+                                                            oninput="temperatureConverter(this.value)"
+                                                            onchange="temperatureConverter(this.value)">
+                                                    </p>
+                                                    <p>Celcius: <span id="outputCelcius"></span></p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
