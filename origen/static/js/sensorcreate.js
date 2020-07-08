@@ -1,31 +1,28 @@
-$(document).ready(function () {
 
-// function convert(degree) {
-//     var x;
-//     if (degree == "C") {
-//       x = document.getElementById("c").value * 9 / 5 + 32;
-//       document.getElementById("f").value = Math.round(x);
-//     } else {
-//       x = (document.getElementById("f").value -32) * 5 / 9;
-//       document.getElementById("c").value = Math.round(x);
-//     }
-// }   
+// sensor creation page - replaces min and max threshhold selection
+function myFunction() {
+    var x = document.getElementById("sensorselection").value;
+    console.log(x);
+    // console.log("noway");
+    if(x === "Temperature" || x === "Humidity"){
+        // console.log("match");
+        document.getElementById("sensormeasurement1").innerHTML = "<option value=celsius>C</option><option value=fahrenheit>F</option>";
+        document.getElementById("sensormeasurement2").innerHTML = "<option value=celsius>C</option><option value=fahrenheit>F</option>";
 
-// function convert2(degree) {
-//     var y;
-//     if (degree == "A") {
-//       y = document.getElementById("a").value * 9 / 5 + 32;
-//       document.getElementById("b").value = Math.round(y);
-//     } else {
-//       y = (document.getElementById("b").value -32) * 5 / 9;
-//       document.getElementById("a").value = Math.round(y);
-//     }
-// } 
+        document.getElementById("sensorwarningmin").innerHTML = '<input type=text class="form-control form-control-lg" placeholder=Temp aria-label=Recipients usernamearia-describedby=basic-addon2>';
+        document.getElementById("sensorwarningmax").innerHTML = '<input type=text class="form-control form-control-lg" placeholder=Temp aria-label=Recipients usernamearia-describedby=basic-addon2>';
 
-// function myFunction() {
-//     var x = document.getElementById("mySelect").value;
-//     document.getElementById("demo").innerHTML = "You selected: " + x;
-//   }
+    } else if(x === "Benzene" || x === "Chloroform" || x === "Carbon Dioxide"){
+        // console.log("other");
+        document.getElementById("sensormeasurement1").innerHTML = "<option value=ppm>PPM</option>";
+        document.getElementById("sensormeasurement2").innerHTML = "<option value=ppm>PPM</option>";
 
-});
+        document.getElementById("sensorwarningmin").innerHTML = '<input type=text class="form-control form-control-lg" placeholder=Concentration aria-label=Recipients usernamearia-describedby=basic-addon2>';
+        document.getElementById("sensorwarningmax").innerHTML = '<input type=text class="form-control form-control-lg" placeholder=Concentration aria-label=Recipients usernamearia-describedby=basic-addon2>';
+    }
+  }
+
+
+
+
 

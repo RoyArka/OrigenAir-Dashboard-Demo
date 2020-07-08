@@ -100,16 +100,16 @@
                                         <div class="col">
                                             <!-- Minimum Threshold -->
                                             <h4 class="info-text"> Minimum </h4>
-                                            <div class="input-group threshold">
-                                                <input type="text" class="form-control form-control-lg"
+                                            <div id="sensorwarningmin" class="input-group threshold">
+                                                <!-- <input type="text" class="form-control form-control-lg"
                                                     placeholder="Temp" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2">
+                                                    aria-describedby="basic-addon2"> -->
                                             </div>
                                             <div class="input-group threshold">
                                                 <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option value="celsius">C</option>
-                                                        <option value="fahrenheit">F</option>
+                                                    <select id="sensormeasurement1" class="form-control ">
+                                                        <!-- <option value="celsius">C</option>
+                                                        <option value="fahrenheit">F</option> -->
                                                     </select>
                                                 </div>
                                             </div>
@@ -119,16 +119,16 @@
                                         <div class="col">
                                             <!-- Maximum Threshold -->
                                             <h4 class="info-text"> Maximum </h4>
-                                            <div class="input-group threshold">
-                                                <input type="text" class="form-control form-control-lg"
+                                            <div id="sensorwarningmax" class="input-group threshold">
+                                                <!-- <input type="text" class="form-control form-control-lg"
                                                     placeholder="Temp" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2">
+                                                    aria-describedby="basic-addon2"> -->
                                             </div>
                                             <div class="input-group threshold">        
                                                 <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option value="celsius">C</option>
-                                                        <option value="fahrenheit">F</option>
+                                                    <select id="sensormeasurement2" class="form-control">
+                                                        <!-- <option value="celsius">C</option>
+                                                        <option value="fahrenheit">F</option> -->
                                                     </select>
                                                 </div>
                                             </div>
@@ -161,9 +161,9 @@
             </div>
         </div><!-- end row -->
     </div> <!--  big container -->
-</div>
 
 {% endblock %}
+
 
 <!-- Scripts Block -->
 {% block scripts %}
@@ -178,4 +178,8 @@
 
 <!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+
+<!-- javascript for the sensor create page -->
+<script type="text/javascript" src="{% static 'js/sensorcreate.js' %}"></script>
+
 {% endblock scripts %}
