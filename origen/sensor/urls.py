@@ -4,7 +4,8 @@ from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 
-app_name = 'sensors'
+
+app_name = 'sensor'
 
 urlpatterns = [
     path('create/', views.CreateSensor.as_view(), name='create'),

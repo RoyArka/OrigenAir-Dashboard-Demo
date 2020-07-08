@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'organization',
     'colorful',
-    'sensors'
+    'sensor'
 ]
 
 MIDDLEWARE = [
