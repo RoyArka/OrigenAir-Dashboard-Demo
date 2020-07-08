@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'organization',
     'colorful',
     'sensor'
+    'django_plotly_dash.apps.DjangoPlotlyDashConfig'
 ]
 
 MIDDLEWARE = [
