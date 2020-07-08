@@ -10,7 +10,7 @@ from . import forms
 
 class CreateSensor(CreateView):
     form_class = forms.SensorCreateForm
-    template_name = 'sensor/test.html'
+    template_name = 'sensor/sensor_create.html'
         
     def form_valid(self, form):
         print(form.cleaned_data)
@@ -23,7 +23,7 @@ class SensorDetail(DetailView):
 class UpdateSensor(UpdateView):
     model = Sensor
     form_class = forms.SensorUpdateForm
-    template_name = 'sensor/'
+    template_name = 'sensor/sensor_update.html'
 
     def form_valid(self, form):
         print(form.cleaned_data)

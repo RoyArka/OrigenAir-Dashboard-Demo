@@ -1,33 +1,15 @@
-/* ** MEDIA QUERIES ** */
+/*** MEDIA QUERIES ***/
 
-/* for screen size less than 500px (Mobile View) */
-@media only screen and (max-width: 574px) {
+/* for screen size smaller than 600px */
+@media (max-width: 600px) {
+    .hugecontainer {
+        margin-top: -40px;
+    }
 
-}
+    .createorgnavbar {
+        text-align: center;
+    }
 
-
-/* for screen size between 575px to 850px */
-@media screen and (min-width: 575px) and (max-width: 850px) {
-
-    
-}
-
-/* for screen size between 850 to 1250px */
-@media screen and (min-width: 850px) and (max-width: 1249px) {
-
-   
-
-}
-
-
-/* when screen size is greater than 1250px (Desktop View) */
-@media screen and (min-width: 100px) {
-
-    /* Jason Code */
-
-    /* [GENERAL] */
-    
-    /* Sensor Type, Sensor Name and Sensor Settings Bar CSS */
     .createinside {
         border: 1px solid #2CA8FF;
         border-radius: 0;
@@ -46,49 +28,108 @@
         box-sizing: border-box;
     }
 
-    /* Sensor Type, Sensor Name and Sensor Settings Bar Spacing */
-    .pickle2{
+    .secondcontainer {
+        justify-content: center;
+    }
+
+    .commentcontainer {
+        text-align: center;
+        margin-left: 3%;
+        width: 95%;
+    }
+
+    .threshold {
+        margin-left: 27%;
+        width: 50%;
+    }
+
+    .fa-search {
+        color: white !important;
+    }
+
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .aboutheadline {
+        text-align: center;
+        display: block;
+    }
+
+    .pickle2 {
         width: 33.33% !important;
     }
+}
 
-    /*  Centers the BIG Container */
-    .sensorsecondcontainer{
-        margin-right: -30%;
-        margin-left: 10%;
+/* for screen size bigger than 600px */
+@media screen and (min-width: 601px) {
+    .hugecontainer {
+        margin-top: -40px;
     }
 
-    /* [Sensor Type] */
-
-    /*  Sensor Type title */
-    .commentcontainer{
+    .createorgnavbar {
         text-align: center;
-        margin: 20px 0px 0px 39%;
+    }
+
+    .createinside {
+        border: 1px solid #2CA8FF;
+        border-radius: 0;
+        color: #2CA8FF;
+        border: 0 !important;
+        text-transform: uppercase;
+        background-color: #999999;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .secondcontainer {
+        justify-content: center;
+    }
+
+    .commentcontainer {
+        text-align: center;
+        margin-left: 27%;
         width: 95%;
     }
 
-    /* Sensor Type Selection Dropdown */
-    .sensortyperow{
-        margin-left: -27%;
-        margin-top: 80px;
+    .threshold {
+        margin-left: 27%;
+        width: 50%;
     }
 
-    /* [Sensor Name] */
+    .fa-search {
+        color: white !important;
+    }
 
-    /* Sensor Name title */
-    .sensornametitle {
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .aboutheadline {
         text-align: center;
-        margin: 27px 0px 15px 3% !important;
-        width: 95%;
+        display: block;
     }
 
-    /* Sensor Name input & Error field */
-    .sensornamecontainer{
-        margin: 0px 0px 0px 20% !important;
-    }
-
-    /* [Sensor Setting] */
-
-    .sensorsettinglabel{
-        font-weight: 500;
+    .pickle2 {
+        width: 33.33% !important;
     }
 }

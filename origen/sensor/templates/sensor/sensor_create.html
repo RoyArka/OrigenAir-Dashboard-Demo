@@ -14,7 +14,7 @@
     <!--   Big container   -->
     <div class="container">
         <div class="row secondcontainer">
-            <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-8 col-sm-offset-1">
 
                 <!--      Wizard container        -->
                 <div class="wizard-container">
@@ -37,14 +37,13 @@
                             <div class="wizard-navigation">
                                 <ul class="createorgnavbar">
                                     <li class="pickle2">
-                                        <a class="createinside" href="#sensortype" data-toggle="tab">Sensor Type</a>
+                                        <a class="createinside" href="#sensortype" data-toggle="tab">Type</a>
                                     </li>
                                     <li class="pickle2">
-                                        <a class="createinside" href="#sensorname" data-toggle="tab">Sensor Name</a>
+                                        <a class="createinside" href="#sensorname" data-toggle="tab">Name</a>
                                     </li>
                                     <li class="pickle2">
-                                        <a class="createinside" href="#sensorsettings" data-toggle="tab">Sensor
-                                            Settings</a>
+                                        <a class="createinside" href="#sensorsettings" data-toggle="tab">Settings</a>
                                     </li>
                                 </ul>
                             </div>
@@ -59,10 +58,11 @@
                                             <form>
                                                 <div class="form-group">
                                                     <select class="form-control form-control-lg">
-                                                        <option value="humidity">Humidity Sensor</option>
-                                                        <option value="benzene">Benzene Sensor</option>
-                                                        <option value="chloroform">Chloroform Sensor</option>
-                                                        <option value="carbondioxide">Carbon Dioxide Sensor</option>
+                                                        <option value="temperature">Temperature</option>
+                                                        <option value="humidity">Humidity</option>
+                                                        <option value="benzene">Benzene</option>
+                                                        <option value="chloroform">Chloroform</option>
+                                                        <option value="carbondioxide">Carbon Dioxide</option>
                                                     </select>
                                                 </div>
                                             </form>
@@ -90,17 +90,46 @@
                                 <!-- Sensor Setting Tab -->
                                 <div class="tab-pane" id="sensorsettings">
                                     <div class="row commentcontainer">
+                                        <div class="col-sm-6 col-sm-offset-1">
+                                            <h4 class="info-text"> Warning Threshold </h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col">
                                             <!-- Minimum Threshold -->
-                                            <h4 class="info-text"> Minimum Warning Threshold </h4>
-                                            <div class="form-group"></div>
+                                            <h4 class="info-text"> Minimum </h4>
+                                            <div class="input-group threshold">
+                                                <input type="text" class="form-control form-control-lg"
+                                                    placeholder="Temp" aria-label="Recipient's username"
+                                                    aria-describedby="basic-addon2">
+                                            </div>
+                                            <div class="input-group threshold">
+                                                <div class="form-group">
+                                                    <select class="form-control">
+                                                        <option value="celsius">C</option>
+                                                        <option value="fahrenheit">F</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <!-- End of Minimum Threshold -->
                                         </div>
 
                                         <div class="col">
                                             <!-- Maximum Threshold -->
-                                            <h4 class="info-text"> Maximum Warning Threshold </h4>
-                                            <div class="form-group"></div>
+                                            <h4 class="info-text"> Maximum </h4>
+                                            <div class="input-group threshold">
+                                                <input type="text" class="form-control form-control-lg"
+                                                    placeholder="Temp" aria-label="Recipient's username"
+                                                    aria-describedby="basic-addon2">
+                                            </div>
+                                            <div class="input-group threshold">        
+                                                <div class="form-group">
+                                                    <select class="form-control">
+                                                        <option value="celsius">C</option>
+                                                        <option value="fahrenheit">F</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <!-- End of Maximum Threshold -->
                                         </div>
                                         <!-- End of Sensor Setting Tab -->
@@ -115,7 +144,7 @@
                                     <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm'
                                         name='next' value='Next' />
                                     <input type="submit" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm'
-                                        value="Update" />
+                                        value="Create" />
                                 </div>
                                 <div class="pull-left">
                                     <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm'
