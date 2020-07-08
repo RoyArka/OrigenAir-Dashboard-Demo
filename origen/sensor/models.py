@@ -17,7 +17,7 @@ class Sensor(models.Model):
     # )
     
     name = models.CharField(max_length=25, null=False, blank=False)
-    # organization = models.ForeignKey(Organization, related_name='sensor', null=True, blank=True, on_delete=models.CASCADE)
+    organization = models.ForeignKey(Organization, related_name='sensor', null=True, blank=True, on_delete=models.CASCADE)
     # sensor_type = models.CharField(max_length=100, choices=TYPES, default='None')
     slug = models.SlugField(allow_unicode=True, unique=True)
     
