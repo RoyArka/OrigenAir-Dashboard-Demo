@@ -86,16 +86,29 @@
                                             <h4 class="info-text"> Warning Threshold </h4>
                                         </div>
                                     </div>
-                                    <div class="row threshold">
-                                        <div class="col-md-5 col-sm-offset-1">
-                                            {{form.threshold_min.errors}}
-                                            {{form.threshold_min}}
+                                    <div class="row">
+                                        <div class="col">
+                                            <!-- Minimum Threshold -->
+                                            <h4 class="info-text"> Minimum </h4>
+                                            <div class="threshold">
+                                                {{form.threshold_min.errors}}
+                                                {{form.threshold_min}}
+                                            </div>
+                                            <!-- End of Minimum Threshold -->
                                         </div>
-                                        <div class="col-md-5 col-sm-offset-1">
-                                            {{form.threshold_max.errors}}
-                                            {{form.threshold_max}}
+
+                                        <div class="col">
+                                            <!-- Maximum Threshold -->
+                                            <h4 class="info-text"> Maximum </h4>
+                                            <div class="threshold">
+                                                {{form.threshold_max.errors}}
+                                                {{form.threshold_max}}
+                                            </div>
+                                            <!-- End of Maximum Threshold -->
                                         </div>
+                                        <!-- End of Sensor Setting Tab -->
                                     </div>
+                                    <!-- End of Container -->
                                 </div>
                             </div>
 
