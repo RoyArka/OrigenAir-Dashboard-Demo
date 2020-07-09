@@ -20,7 +20,7 @@ class CreateSensor(CreateView):
 
 class SensorDetail(DetailView):
     model = Sensor
-    template_name = 'sensor/sensor_detail.html' 
+    template_name = 'sensor/sensor_detail.html'
 
 class UpdateSensor(UpdateView):
     model = Sensor
