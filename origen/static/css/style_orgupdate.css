@@ -1,13 +1,12 @@
 /*** MEDIA QUERIES ***/
 
 /* for screen size less than 500px (Mobile View) */
-@media only screen and (max-width: 574px){
-
-    .hugecontainer{
+@media only screen and (max-width: 574px) {
+    .hugecontainer {
         margin-top: -40px;
     }
 
-    .createorgnavbar{
+    .createorgnavbar {
         text-align: center;
     }
 
@@ -100,7 +99,7 @@
 
 
 /* for screen size between 575px to 850px */
-@media screen and (min-width: 575px) and (max-width: 850px){
+@media screen and (min-width: 575px) and (max-width: 850px) {
 
     .hugecontainer{
         margin-top: -40px;

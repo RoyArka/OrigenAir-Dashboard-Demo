@@ -4,7 +4,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/orgcreate-gsdk-bootstrap-wizard.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/style_sensorupdate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_orgupdate.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -64,8 +64,12 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="picture-container">
                                                 <div class="picture">
+                                                    <!-- <img src="{% static 'img/placeholder.jpg' %}" class="picture-src" 
+                                                        id="wizardPicturePreview" title="" /> -->
                                                     <img src="{{user.organization.avatar.url}}" class="picture-src"
                                                         id="wizardPicturePreview" title="" />
+                                                    <!-- <img src="{{request.user.person.organization.picture.url}}" class="picture-src" 
+                                                        id="wizardPicturePreview" title=""/> -->
                                                     <input type="file" id="wizard-picture">
                                                 </div>
                                                 <h6>Choose Picture</h6>
@@ -75,7 +79,7 @@
                                             <div class="form-group contentpart1box1">
                                                 <label for="inputName" class="contentpart1label1">Organization Name
                                                     <small>(required)</small></label>
-                                                {{ form.name }}
+                                                {{form.name}}
                                             </div>
                                             <div class="form-group contentpart1box2">
                                                 <label for="inputEmail" class="contentpart1label2">Contact Email
@@ -102,7 +106,7 @@
                                             <div class="form-group">
                                                 <label for="inputDescription" class="aboutinstruction">Organization
                                                     Description</label>
-                                                {{ form.description }}
+                                                {{form.description}}
                                             </div>
                                         </div>
                                     </div>
@@ -115,7 +119,7 @@
                                         <h4 class="info-text themetitle"> Select Theme Color </h4>
                                         <div class="form-group themecolor1">
                                             <label for="inputColor" class="themecolor">Theme Color</label>
-                                            {{ form.color }}
+                                            {{form.color}}
                                         </div>
                                     </div>
                                 </div>
@@ -130,25 +134,25 @@
                                         <div class="col-sm-7 col-sm-offset-1 contentpart3">
                                             <div class="form-group contentpart3box1">
                                                 <label for="inputStreetName" class="contentpart3label1">Street Name</label>
-                                                {{ form.street_name }}
+                                                {{form.street_name}}
                                             </div>
                                         </div>
                                         <div class="col-sm-3 contentpart4">
                                             <div class="form-group">
-                                                <label for="inputStreetNumber" class="contentpart3label2">Street Number</label>
-                                                {{ form.street_number }}
+                                                <label for="inputStreetNumber">Street Number</label>
+                                                {{form.street_number}}
                                             </div>
                                         </div>
                                         <div class="col-sm-5 col-sm-offset-1 contentpart5">
                                             <div class="form-group">
-                                                <label for="inputCity" class="contentpart3label3">City</label>
-                                                {{ form.city }}
+                                                <label for="inputCity">City</label>
+                                                {{form.city}}
                                             </div>
                                         </div>
                                         <div class="col-sm-5 contentpart6">
                                             <div class="form-group">
-                                                <label for="inputCountry" class="contentpart3label4">Country</label>
-                                                {{ form.country }}  
+                                                <label for="inputCountry">Country</label>
+                                                {{form.country}}  
                                                 <br>
                                             </div>
                                         </div>
@@ -193,4 +197,5 @@
 
 <!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+
 {% endblock scripts %}
