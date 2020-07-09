@@ -21,7 +21,7 @@ class Sensor(models.Model):
     ]
     
     name = models.CharField(max_length=25, null=False, blank=False)
-    organization = models.ForeignKey(Organization, related_name='sensors', on_delete=models.CASCADE)
+    organization = models.ForeignKey(Organization, related_name='sensors', null=True, on_delete=models.CASCADE)
     sensor_type = models.CharField(max_length=100, choices=TYPES, default='None')
     threshold_min = models.CharField(max_length=100, default='0')
     threshold_max = models.CharField(max_length=100, default='100')
