@@ -57,15 +57,7 @@
                                             <h4 class="info-text"> Select Sensor Type </h4>
 
                                             <div class="form-group">
-                                                <select id="sensorselection" name="sensorselection"
-                                                    class="form-control form-control-lg" onchange="myFunction()">
-                                                    <option disabled selected value>Select Sensor</option>
-                                                    <option value="Temperature">Temperature</option>
-                                                    <option value="Humidity">Humidity</option>
-                                                    <option value="Benzene">Benzene</option>
-                                                    <option value="Chloroform">Chloroform</option>
-                                                    <option value="Carbondioxide">Carbon Dioxide</option>
-                                                </select>
+                                                {{form.sensor_type}}
                                             </div>
 
                                         </div>
@@ -101,14 +93,6 @@
                                             <div id="sensorwarningmin" class="input-group threshold">
                                                 {{form.threshold_min}}
                                             </div>
-                                            <div class="input-group threshold">
-                                                <div class="form-group">
-                                                    <select id="sensormeasurement1" class="form-control ">
-                                                        <!-- <option value="celsius">C</option>
-                                                        <option value="fahrenheit">F</option> -->
-                                                    </select>
-                                                </div>
-                                            </div>
                                             <!-- End of Minimum Threshold -->
                                         </div>
 
@@ -117,14 +101,6 @@
                                             <h4 class="info-text"> Maximum </h4>
                                             <div id="sensorwarningmax" class="input-group threshold">
                                                 {{form.threshold_max}}
-                                            </div>
-                                            <div class="input-group threshold">
-                                                <div class="form-group">
-                                                    <select id="sensormeasurement2" class="form-control">
-                                                        <!-- <option value="celsius">C</option>
-                                                        <option value="fahrenheit">F</option> -->
-                                                    </select>
-                                                </div>
                                             </div>
                                             <!-- End of Maximum Threshold -->
                                         </div>
