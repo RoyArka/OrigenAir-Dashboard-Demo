@@ -6,17 +6,17 @@ class SensorCreateForm(forms.ModelForm):
     
     class Meta:
         model = Sensor
-        fields = ('name',)
+        fields = ('name', 'sensor_type')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputSensorName',
                                         'placeholder': 'Sensor Name',
                                         'name': 'sensor-name'}),
-            # 'sensor_type': forms.TextInput(attrs={'class': 'form-control',
-            #                             'id': 'inputType',
-            #                             'placeholder': 'Sensor Type',
-            #                             'name': 'sensor-type'}),
+            'sensor_type': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputType',
+                                        'placeholder': 'Sensor Type',
+                                        'name': 'sensor-type'}),
         }
 
     def __init__(self, *args, **kwargs):

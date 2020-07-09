@@ -45,6 +45,10 @@
                                 class="btn btn-danger btn-lg">Leave</a>
                             {% endif %}
                         </div>
+                        <a href="{% url 'sensor:all' slug=organization.slug %}">List all Sensors</a>
+                        <a href="{% url 'sensor:create' slug=organization.slug %}">Create new Sensor</a>
+                        
+                        
                         <!-- /END JOIN/LEAVE BUTTON -->
                     </div>
                     <!-- /END HEADER -->
