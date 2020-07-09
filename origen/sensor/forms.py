@@ -38,11 +38,19 @@ class SensorUpdateForm(forms.ModelForm):
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
-                                        'id': 'SensorName-edit',
-                                        'placeholder': 'Sensor Name',
-                                        'name': 'sensor-name-edit'})
-            # 'sensor_type': forms.TextInput(attrs={'class': 'form-control',
-            #                             'id': 'Type-edit',
-            #                             'placeholder': 'Sensor Type',
-            #                             'name': 'sensor-type-edit'}),
+                                        'id': 'inputSensorName',
+                                        'placeholder': 'Name',
+                                        'name': 'sensor-name'}),
+            'sensor_type': forms.Select(attrs={'class': 'form-control',
+                                        'id': 'inputType',
+                                        'placeholder': 'Type',
+                                        'name': 'sensor-type'}),
+            'threshold_min': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputThresholdMin',
+                                        'placeholder': 'Min',
+                                        'name': 'threshold-min'}),
+            'threshold_max': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputThresholdMax',
+                                        'placeholder': 'Max',
+                                        'name': 'threshold-max'})
         }
