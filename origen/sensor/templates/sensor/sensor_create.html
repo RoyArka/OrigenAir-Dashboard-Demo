@@ -4,7 +4,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/orgcreate-gsdk-bootstrap-wizard.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/style_sensorupdate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_sensorcreate.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -84,32 +84,17 @@
                                     <div class="row commentcontainer">
                                         <div class="col-sm-6 col-sm-offset-1">
                                             <h4 class="info-text"> Warning Threshold </h4>
-                                            <div class="form-group">
-                                                {{form.threshold_min.errors}}
-                                                {{form.threshold_min}}
-                                            </div>
-                                            <div class="form-group">
-                                                {{form.threshold_max.errors}}
-                                                {{form.threshold_max}}
-                                            </div>
                                         </div>
-                                        <!-- <div class="row">
-                                            <div class="col">
-                                                <h4 class="info-text"> Minimum </h4>
-                                                <div id="sensorwarningmin" class="input-group threshold">
-                                                    {{form.threshold_min.errors}}
-                                                    {{form.threshold_min}}
-                                                </div>
-                                            </div>
-                                        
-                                            <div class="col">
-                                                <h4 class="info-text"> Maximum </h4>
-                                                <div id="sensorwarningmax" class="input-group threshold">
-                                                    {{form.threshold_max.errors}}
-                                                    {{form.threshold_max}}
-                                                </div>
-                                            </div>
-                                        </div> -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-offset-1 threshold">
+                                            {{form.threshold_min.errors}}
+                                            {{form.threshold_min}}
+                                        </div>
+                                        <div class="col-md-5 col-sm-offset-1 threshold">
+                                            {{form.threshold_max.errors}}
+                                            {{form.threshold_max}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
