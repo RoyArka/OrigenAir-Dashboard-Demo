@@ -79,26 +79,37 @@
                     </li>
                     <!-- /END Separator -->
 
-                    <!-- DASHBOARD -->
+                    {% if user.is_authenticated %}
+                    <!-- SENSOR -->
                     <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
                         class="bg-success list-group-item list-group-item-action flex-column align-items-start sidebarclick">
                         <div class="d-flex w-100 justify-content-start align-items-center">
                             <span class="fa fa-star fa-fw mr-3"></span>
-                            <span class="menu-collapsed">Dashboard</span>
+                            <span class="menu-collapsed">Sensor</span>
                             <span class="submenu-icon ml-auto"></span>
                         </div>
                     </a>
+                    {% if user.person.organization %}
                     <!-- DASHBOARD Submenu -->
                     <div id='submenu1' class="collapse sidebar-submenu">
+                        <!-- SENSOR LIST -->
+                        <a href="{% url 'sensor:all' slug=user.person.organization.slug %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">List</span>
+                        </a>
+                        <!-- /END SENSOR LIST -->
+
+                        <!-- SENSOR CREATE -->
                         <a href="{% url 'sensor:create' slug=user.person.organization.slug %}"
                             class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Profile</span>
+                            <span class="menu-collapsed">Create</span>
                         </a>
+                        <!-- /END SENSOR CREATE -->
                     </div>
-                    <!-- /END DASHBOARD -->
+                    {% endif %}
+                    <!-- /END SENSOR -->
 
                     <!-- PROFILE -->
-                    {% if user.is_authenticated %}
                     <a href="#submenu2" data-toggle="collapse" aria-expanded="false"
                         class="bg-success list-group-item list-group-item-action flex-column align-items-start sidebarclick">
                         <div class="d-flex w-100 justify-content-start align-items-center">
@@ -109,18 +120,26 @@
                     </a>
                     <!-- PROFILE Submenu -->
                     <div id='submenu2' class="collapse sidebar-submenu">
+                        <!-- PROFILE -->
                         <a href="{% url 'accounts:profile' username=user.username %}"
                             class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Profile</span>
                         </a>
+                        <!-- /END PROFILE -->
+
+                        <!-- PROFILE UPDATE -->
                         <a href="{% url 'accounts:profile_update' %}"
                             class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Settings</span>
                         </a>
+                        <!-- /END PROFILE UPDATE -->
+
+                        <!-- PASSWORD CHANGE -->
                         <a href="{% url 'accounts:password_change' %}"
                             class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Change Password</span>
                         </a>
+                        <!-- /END PASSWORD CHANGE -->
                     </div>
                     {% else %}
                     {% endif %}
@@ -165,12 +184,12 @@
                     <!-- /END ORGANIZATION -->
 
                     <!-- TASKS -->
-                    <a href="#" id="bug" class="bg-success list-group-item list-group-item-action sidebarclick">
+                    <!-- <a href="#" id="bug" class="bg-success list-group-item list-group-item-action sidebarclick">
                         <div id="bug2" class="d-flex w-100 justify-content-start align-items-center">
                             <span class="fa fa-tasks fa-fw mr-3"></span>
                             <span class="menu-collapsed">Tasks</span>
                         </div>
-                    </a>
+                    </a> -->
                     <!-- /END TASKS -->
 
                     <!-- Separator with title -->
