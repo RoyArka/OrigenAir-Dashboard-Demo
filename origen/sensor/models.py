@@ -29,13 +29,6 @@ class Sensor(models.Model):
     def __str__(self):
         return self.name
     
-    def save(self,*args,**kwargs):
-        self.slug = slugify(self.name)
-        super().save(*args, **kwargs)
-    
-    def get_absolute_url(self):
-        return reverse("sensor:single", kwargs={"slug": self.slug})
-
 class Record(models.Model):
     sensor = models.ForeignKey(Sensor, related_name='records', null=True, blank=True, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now, null=False)
