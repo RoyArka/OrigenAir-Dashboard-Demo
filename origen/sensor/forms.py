@@ -13,7 +13,7 @@ class SensorCreateForm(forms.ModelForm):
                                         'id': 'inputSensorName',
                                         'placeholder': 'Name',
                                         'name': 'sensor-name'}),
-            'sensor_type': forms.TextInput(attrs={'class': 'form-control',
+            'sensor_type': forms.Select(attrs={'class': 'form-control',
                                         'id': 'inputType',
                                         'placeholder': 'Type',
                                         'name': 'sensor-type'}),
