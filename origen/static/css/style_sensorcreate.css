@@ -43,6 +43,10 @@
         width: 50%;
     }
 
+    .fa-search {
+        color: white !important;
+    }
+
     .btn-next {
         background: green !important;
         border-color: rgb(2, 151, 2) !important;
@@ -103,7 +107,11 @@
 
     .threshold {
         margin-left: 27%;
-        width: 50%;
+        width: 47%;
+    }
+
+    .fa-search {
+        color: white !important;
     }
 
     .btn-next {

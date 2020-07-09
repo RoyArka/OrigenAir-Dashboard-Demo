@@ -90,7 +90,8 @@
                                         <div class="col">
                                             <!-- Minimum Threshold -->
                                             <h4 class="info-text"> Minimum </h4>
-                                            <div id="sensorwarningmin" class="input-group threshold">
+                                            <div class="threshold">
+                                                {{form.threshold_min.errors}}
                                                 {{form.threshold_min}}
                                             </div>
                                             <!-- End of Minimum Threshold -->
@@ -99,7 +100,8 @@
                                         <div class="col">
                                             <!-- Maximum Threshold -->
                                             <h4 class="info-text"> Maximum </h4>
-                                            <div id="sensorwarningmax" class="input-group threshold">
+                                            <div class="threshold">
+                                                {{form.threshold_max.errors}}
                                                 {{form.threshold_max}}
                                             </div>
                                             <!-- End of Maximum Threshold -->

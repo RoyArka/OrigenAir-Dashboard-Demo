@@ -13,17 +13,17 @@ class SensorCreateForm(forms.ModelForm):
                                         'id': 'inputSensorName',
                                         'placeholder': 'Name',
                                         'name': 'sensor-name'}),
-            'sensor_type': forms.TextInput(attrs={'class': 'form-control',
+            'sensor_type': forms.Select(attrs={'class': 'form-control',
                                         'id': 'inputType',
                                         'placeholder': 'Type',
                                         'name': 'sensor-type'}),
             'threshold_min': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputThresholdMin',
-                                        'placeholder': 'Temp',
+                                        'placeholder': 'Min',
                                         'name': 'threshold-min'}),
             'threshold_max': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputThresholdMax',
-                                        'placeholder': 'Temp',
+                                        'placeholder': 'Max',
                                         'name': 'threshold-max'})
         }
 

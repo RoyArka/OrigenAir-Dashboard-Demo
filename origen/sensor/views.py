@@ -11,7 +11,7 @@ from . import forms
 
 class CreateSensor(CreateView):
     form_class = forms.SensorCreateForm
-    success_url = reverse_lazy('single')
+    success_url = reverse_lazy('sensor:single')
     template_name = 'sensor/sensor_create.html'
         
     def form_valid(self, form):

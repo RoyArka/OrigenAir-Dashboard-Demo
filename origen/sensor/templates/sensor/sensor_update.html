@@ -55,17 +55,11 @@
                                     <div class="row commentcontainer">
                                         <div class="col-sm-6 col-sm-offset-1">
                                             <h4 class="info-text"> Select Sensor Type </h4>
-                                            <form>
-                                                <div class="form-group">
-                                                    <select class="form-control form-control-lg">
-                                                        <option value="temperature">Temperature</option>
-                                                        <option value="humidity">Humidity</option>
-                                                        <option value="benzene">Benzene</option>
-                                                        <option value="chloroform">Chloroform</option>
-                                                        <option value="carbondioxide">Carbon Dioxide</option>
-                                                    </select>
-                                                </div>
-                                            </form>
+
+                                            <div class="form-group">
+                                                {{form.sensor_type}}
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -76,12 +70,10 @@
                                     <div class="row commentcontainer">
                                         <div class="col-sm-6 col-sm-offset-1">
                                             <h4 class="info-text"> Label The Sensor </h4>
-                                            <form>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control form-control-lg"
-                                                        placeholder="Sensor Name">
-                                                </div>
-                                            </form>
+                                            <div class="form-group">
+                                                {{form.name.errors}}
+                                                {{form.name}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,18 +90,9 @@
                                         <div class="col">
                                             <!-- Minimum Threshold -->
                                             <h4 class="info-text"> Minimum </h4>
-                                            <div class="input-group threshold">
-                                                <input type="text" class="form-control form-control-lg"
-                                                    placeholder="Temp" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2">
-                                            </div>
-                                            <div class="input-group threshold">
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option value="celsius">C</option>
-                                                        <option value="fahrenheit">F</option>
-                                                    </select>
-                                                </div>
+                                            <div class="threshold">
+                                                {{form.threshold_min.errors}}
+                                                {{form.threshold_min}}
                                             </div>
                                             <!-- End of Minimum Threshold -->
                                         </div>
@@ -117,18 +100,9 @@
                                         <div class="col">
                                             <!-- Maximum Threshold -->
                                             <h4 class="info-text"> Maximum </h4>
-                                            <div class="input-group threshold">
-                                                <input type="text" class="form-control form-control-lg"
-                                                    placeholder="Temp" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2">
-                                            </div>
-                                            <div class="input-group threshold">        
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option value="celsius">C</option>
-                                                        <option value="fahrenheit">F</option>
-                                                    </select>
-                                                </div>
+                                            <div class="threshold">
+                                                {{form.threshold_max.errors}}
+                                                {{form.threshold_max}}
                                             </div>
                                             <!-- End of Maximum Threshold -->
                                         </div>
@@ -159,21 +133,25 @@
             </div>
         </div><!-- end row -->
     </div> <!--  big container -->
-</div>
 
-{% endblock %}
+    {% endblock %}
 
-<!-- Scripts Block -->
-{% block scripts %}
-<!-- {{block.super}} -->
-<!--   Core JS Files   -->
-<script src="{% static 'js/orgcreate-jquery-2.2.4.min.js' %}"></script>
-<script src="{% static 'js/orgcreate-bootstrap.min.js' %}"></script>
-<script src="{% static 'js/orgcreate-jquery.bootstrap.wizard.js' %}"></script>
 
-<!--  Plugin for the Wizard -->
-<script src="{% static 'js/orgcreate-gsdk-bootstrap-wizard.js' %}"></script>
+    <!-- Scripts Block -->
+    {% block scripts %}
+    <!-- {{block.super}} -->
+    <!--   Core JS Files   -->
+    <script src="{% static 'js/orgcreate-jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'js/orgcreate-bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/orgcreate-jquery.bootstrap.wizard.js' %}"></script>
 
-<!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
-<script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
-{% endblock scripts %}
+    <!--  Plugin for the Wizard -->
+    <script src="{% static 'js/orgcreate-gsdk-bootstrap-wizard.js' %}"></script>
+
+    <!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+    <script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+
+    <!-- javascript for the sensor create page -->
+    <script type="text/javascript" src="{% static 'js/sensorcreate.js' %}"></script>
+
+    {% endblock scripts %}
