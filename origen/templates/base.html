@@ -88,7 +88,14 @@
                             <span class="submenu-icon ml-auto"></span>
                         </div>
                     </a>
-                    
+                    <!-- DASHBOARD Submenu -->
+                    <div id='submenu1' class="collapse sidebar-submenu">
+                        <a href="{% url 'sensor:create' slug=user.person.organization.slug %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Profile</span>
+                        </a>
+                    </div>
+                    <!-- /END DASHBOARD -->
 
                     <!-- PROFILE -->
                     {% if user.is_authenticated %}

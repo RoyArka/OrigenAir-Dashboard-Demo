@@ -6,17 +6,25 @@ class SensorCreateForm(forms.ModelForm):
     
     class Meta:
         model = Sensor
-        fields = ('name', 'sensor_type')
+        fields = ('name', 'sensor_type', 'threshold_min', 'threshold_max')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputSensorName',
-                                        'placeholder': 'Sensor Name',
+                                        'placeholder': 'Name',
                                         'name': 'sensor-name'}),
             'sensor_type': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputType',
-                                        'placeholder': 'Sensor Type',
+                                        'placeholder': 'Type',
                                         'name': 'sensor-type'}),
+            'threshold_min': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputThresholdMin',
+                                        'placeholder': 'Temp',
+                                        'name': 'threshold-min'}),
+            'threshold_max': forms.TextInput(attrs={'class': 'form-control',
+                                        'id': 'inputThresholdMax',
+                                        'placeholder': 'Temp',
+                                        'name': 'threshold-max'})
         }
 
     def __init__(self, *args, **kwargs):
@@ -32,7 +40,7 @@ class SensorUpdateForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'SensorName-edit',
                                         'placeholder': 'Sensor Name',
-                                        'name': 'sensor-name-edit'}),
+                                        'name': 'sensor-name-edit'})
             # 'sensor_type': forms.TextInput(attrs={'class': 'form-control',
             #                             'id': 'Type-edit',
             #                             'placeholder': 'Sensor Type',
