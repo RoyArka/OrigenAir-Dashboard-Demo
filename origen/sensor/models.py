@@ -30,11 +30,7 @@ class Sensor(models.Model):
     
     def __str__(self):
         return self.name
-<<<<<<< HEAD
-
-=======
     
->>>>>>> arka
 class Record(models.Model):
     sensor = models.ForeignKey(Sensor, related_name='records', null=True, blank=True, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now, null=False)

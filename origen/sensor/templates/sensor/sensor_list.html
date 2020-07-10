@@ -8,41 +8,35 @@
 
 {% block content %}
 
-<!-- CONTAINER -->
-<div class="container member-container">
-    <!-- LIST Member -->
-    <div class="row">
-        {% for sensor in user.person.organization.sensors.all %}
-        <a href="{% url 'accounts:profile' username=user.username %}" class="col-xl-3 col-md-6 mb-4 member-card">
-            <div class="card border-0 shadow">
-                <!-- BODY Member -->
-                <div class="card-body2 text-center card-sensor">
-                    <br>
-                    <!-- NAME Member -->
-                    <div><h5 class="card-title mb-0 card-title-sensor">{{sensor.name}}</h5></div>
-                    <div><canvas id="doughnut-chart"></canvas></div>
-                </div>
-                <!-- /END BODY Member -->
-            </div>
-        </a>
-        {% endfor %}
-    </div>
-    <!-- /END LIST Member -->
-</div>
-<!-- /END CONTAINER -->
-
-<div class="main-container">
-    <div class="row">
-        <div class="col-sm-12">
-            <canvas id="myChart"></canvas>
-        </div>
-    </div>
+<div class="table-responsive-md">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">PK</th>
+                <th scope="col">Name</th>
+                <th scope="col">Value</th>
+                <th scope="col">Min</th>
+                <th scope="col">Max</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sensor in user.person.organization.sensors.all %}
+            <tr>
+                <th scope="row">{{sensor.pk}}</th>
+                <td><a href="{% url 'sensor:single' slug=user.person.organization.slug pk=sensor.pk %}"
+                        style="display:block;">{{sensor.name}}</a></td>
+                <td>{{sensor.value}}</td>
+                <td>{{sensor.threshold_min}}</td>
+                <td>{{sensor.threshold_max}}</td>
+                <td><a class="btn btn-success"
+                        href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit</a>&nbsp;&nbsp;<a
+                        class="btn btn-danger"
+                        href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 
 {% endblock %}
-
-<!-- Scripts Block -->
-{% block scripts %}
-    {{block.super}}
-    <script src="{% static 'js/charts.js' %}"></script>
-{% endblock scripts %}

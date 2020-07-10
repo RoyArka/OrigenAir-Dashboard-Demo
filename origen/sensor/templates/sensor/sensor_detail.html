@@ -1,6 +1,59 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_sensordetail.css' %}">
+{% endblock %}
 
 {% block content %}
-<p>this is the detail page</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-md-4">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor">
+                    <div>
+                        <br>
+                        <canvas id="doughnut-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor">
+                    <div>
+                        <br>
+                        <canvas id="bar-chart-grouped"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-4">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor">
+                    <div>
+                        <br>
+                        <canvas id="line-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="row">
+        <div class="col-sm-12">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+{{block.super}}
+<script src="{% static 'js/sensordetail.js' %}"></script>
+{% endblock scripts %}
