@@ -8,16 +8,22 @@ from django.urls import reverse
 from . models import Sensor
 from . import forms
 from django.shortcuts import get_object_or_404
+from organization.models import Organization
 
 # Create your views here.
 
 class CreateSensor(CreateView):
     form_class = forms.SensorCreateForm
     template_name = 'sensor/sensor_create.html'
-        
+    
     def form_valid(self, form):
-        print(form.cleaned_data)
+        self.object = form.save(commit=False)
+        self.object.organization = self.request.user.person.organization
+        self.object.save()
         return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse_lazy('sensor:single', kwargs={'slug': self.object.organization.slug, 'pk': self.object.pk})
         
 class SensorDetail(DetailView):
     model = Sensor
