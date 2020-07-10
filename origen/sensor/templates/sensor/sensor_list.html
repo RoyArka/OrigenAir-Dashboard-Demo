@@ -16,9 +16,11 @@
         <a href="{% url 'accounts:profile' username=user.username %}" class="col-xl-3 col-md-6 mb-4 member-card">
             <div class="card border-0 shadow">
                 <!-- BODY Member -->
-                <div class="card-body2 text-center">
+                <div class="card-body2 text-center card-sensor">
+                    <br>
                     <!-- NAME Member -->
-                    <div><h5 class="card-title mb-0">{{sensor.name}}</h5></div>
+                    <div><h5 class="card-title mb-0 card-title-sensor">{{sensor.name}}</h5></div>
+                    <div><canvas id="doughnut-chart"></canvas></div>
                 </div>
                 <!-- /END BODY Member -->
             </div>
