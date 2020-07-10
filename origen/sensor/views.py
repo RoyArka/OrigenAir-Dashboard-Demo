@@ -35,8 +35,13 @@ class UpdateSensor(UpdateView):
     template_name = 'sensor/sensor_update.html'
 
     def form_valid(self, form):
-        print(form.cleaned_data)
+        self.object = form.save(commit=False)
+        self.object.organization = self.request.user.person.organization
+        self.object.save()
         return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse_lazy('sensor:single', kwargs={'slug': self.object.organization.slug, 'pk': self.object.pk})
 
 class SensorList(ListView):
     model = Sensor
