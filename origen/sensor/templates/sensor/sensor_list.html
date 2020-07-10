@@ -15,31 +15,35 @@
 </header>
 <!-- /END BANNER -->
 
-<!-- CONTAINER -->
-<div class="container member-container">
-    <!-- LIST Member -->
+<div class="main-container">
     <div class="row">
-        {% for sensor in user.person.organization.sensors.all %}
-        <a href="{% url 'accounts:profile' username=user.username %}" class="col-xl-3 col-md-6 mb-4 member-card">
-            <div class="card border-0 shadow">     
-                <div class="card-body2 text-center">
-                    
-                    <div><h5 class="card-title mb-0">{{sensor.name}}</h5></div>
-           
-                    <div class="text-black-50">Min: {{sensor.threshold_min}}</div>
-                    <div class="text-black-50">Max: {{sensor.threshold_max}}</div>
-                </div>
-            </div>
-        </a>
-        {% endfor %}
+
+        <div class="col-sm-12">
+            <canvas id="line-chart" width="800" height="250"></canvas>
+        </div>
+
+        <div class="col-8.col-sm-6">
+            <canvas id="polar-chart" width="800" height="450"></canvas>
+        </div>
+
+        <div class="col-4.col-sm-6">
+            <canvas id="bar-chart-grouped" width="800" height="450"></canvas>
+        </div>
+
+        <div class="col-sm-6">
+            <canvas id="mixed-chart" width="800" height="450"></canvas>
+        </div>
+
+        <div class="col-sm-6">
+            <canvas id="doughnut-chart" width="800" height="450"></canvas>
+        </div>
     </div>
-    <!-- /END LIST Member -->
 </div>
-<!-- /END CONTAINER -->
 
 {% endblock %}
 
 <!-- Scripts Block -->
 {% block scripts %}
-{{block.super}}
+    {{block.super}}
+    <script src="{% static 'js/charts.js' %}"></script>
 {% endblock scripts %}
