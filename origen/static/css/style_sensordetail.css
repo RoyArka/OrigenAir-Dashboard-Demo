@@ -1,0 +1,13 @@
+.card-sensor1 {
+    border-radius: 5px;
+    background-color: #52E0C1;
+    height: 150px;
+}
+
+.card-sensor2 {
+    height: 310px;
+}
+
+.card-title-sensor {
+    color: white;
+}

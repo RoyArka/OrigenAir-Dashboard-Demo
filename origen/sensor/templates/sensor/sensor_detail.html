@@ -1,6 +1,88 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_sensordetail.css' %}">
+{% endblock %}
 
 {% block content %}
-<p>this is the detail page</p>
+
+<div class="main-container">
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor1">
+                    <div>
+                        <div><h5 class="card-title mb-0 card-title-sensor">Sample Data 1</h5></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor1">
+                    <div>
+                        <div><h5 class="card-title mb-0 card-title-sensor">Sample Data 2</h5></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor1">
+                    <div>
+                        <div><h5 class="card-title mb-0 card-title-sensor">Sample Data 3</h5></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <canvas id="myChart" height="75"></canvas>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor2">
+                    <div>
+                        <br>
+                        <canvas id="doughnut-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor2">
+                    <div>
+                        <br>
+                        <canvas id="bar-chart-grouped"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor2">
+                    <div>
+                        <br>
+                        <canvas id="line-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+{{block.super}}
+<script src="{% static 'js/sensordetail.js' %}"></script>
+{% endblock scripts %}
