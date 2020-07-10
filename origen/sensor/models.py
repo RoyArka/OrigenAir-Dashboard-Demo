@@ -30,10 +30,6 @@ class Sensor(models.Model):
     
     def __str__(self):
         return self.name
-    
-    # error here foreignkey instance of org has no slug member
-    # self.organization.slug
-
 
 class Record(models.Model):
     sensor = models.ForeignKey(Sensor, related_name='records', null=True, blank=True, on_delete=models.CASCADE)
