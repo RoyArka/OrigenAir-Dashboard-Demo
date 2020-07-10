@@ -2,40 +2,39 @@
 
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_sensorlist.css' %}">
+{% endblock %}
+
 {% block content %}
 
-<!-- BANNER -->
-<header class="bg-primary text-center py-5 mb-4 members-banner" style="background-color: {{user.person.organization.color}} !important;">
-    <div class="container">
-        <!-- NAME Organization -->
-        <h1 class="font-weight-light text-white">{{user.person.organization.name}}</h1>
-        <!-- Heading -->
-        <h1 class="font-weight-light text-white">Sensors</h1>
+<!-- CONTAINER -->
+<div class="container member-container">
+    <!-- LIST Member -->
+    <div class="row">
+        {% for sensor in user.person.organization.sensors.all %}
+        <a href="{% url 'accounts:profile' username=user.username %}" class="col-xl-3 col-md-6 mb-4 member-card">
+            <div class="card border-0 shadow">
+                <!-- BODY Member -->
+                <div class="card-body2 text-center card-sensor">
+                    <br>
+                    <!-- NAME Member -->
+                    <div><h5 class="card-title mb-0 card-title-sensor">{{sensor.name}}</h5></div>
+                    <div><canvas id="doughnut-chart"></canvas></div>
+                </div>
+                <!-- /END BODY Member -->
+            </div>
+        </a>
+        {% endfor %}
     </div>
-</header>
-<!-- /END BANNER -->
+    <!-- /END LIST Member -->
+</div>
+<!-- /END CONTAINER -->
 
 <div class="main-container">
     <div class="row">
-
         <div class="col-sm-12">
-            <canvas id="line-chart" width="800" height="250"></canvas>
-        </div>
-
-        <div class="col-8.col-sm-6">
-            <canvas id="polar-chart" width="800" height="450"></canvas>
-        </div>
-
-        <div class="col-4.col-sm-6">
-            <canvas id="bar-chart-grouped" width="800" height="450"></canvas>
-        </div>
-
-        <div class="col-sm-6">
-            <canvas id="mixed-chart" width="800" height="450"></canvas>
-        </div>
-
-        <div class="col-sm-6">
-            <canvas id="doughnut-chart" width="800" height="450"></canvas>
+            <canvas id="myChart"></canvas>
         </div>
     </div>
 </div>
