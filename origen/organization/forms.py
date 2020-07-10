@@ -50,13 +50,14 @@ class OrganizationCreateForm(forms.ModelForm):
             'color': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputColor',
                                         'placeholder': 'Color',
-                                        'name': 'color'}),
+                                        'name': 'color'})
         }
 
     def __init__(self, *args, **kwargs):
         super(OrganizationCreateForm, self).__init__(*args, **kwargs)
         
 class OrganizationUpdateForm(forms.ModelForm):
+    
     class Meta:
         model = Organization
         fields = ('name', 'email', 'phone', 'website', 'street_name', 'street_number', 'city', 'country', 'description', 'color')
@@ -100,5 +101,5 @@ class OrganizationUpdateForm(forms.ModelForm):
             'color': forms.TextInput(attrs={'class': 'form-control', 
                                         'id': 'color-edit',
                                         'placeholder': 'Color',
-                                        'name': 'color-edit'}),
+                                        'name': 'color-edit'})
         }

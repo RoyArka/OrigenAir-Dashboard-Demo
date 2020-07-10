@@ -1,5 +1,49 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
+<!-- BANNER -->
+<header class="bg-primary text-center py-5 mb-4 members-banner" style="background-color: {{user.person.organization.color}} !important;">
+    <div class="container">
+        <!-- NAME Organization -->
+        <h1 class="font-weight-light text-white">{{user.person.organization.name}}</h1>
+        <!-- Heading -->
+        <h1 class="font-weight-light text-white">Sensors</h1>
+    </div>
+</header>
+<!-- /END BANNER -->
+
+<div class="main-container">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <canvas id="line-chart" width="800" height="250"></canvas>
+        </div>
+
+        <div class="col-8.col-sm-6">
+            <canvas id="polar-chart" width="800" height="450"></canvas>
+        </div>
+
+        <div class="col-4.col-sm-6">
+            <canvas id="bar-chart-grouped" width="800" height="450"></canvas>
+        </div>
+
+        <div class="col-sm-6">
+            <canvas id="mixed-chart" width="800" height="450"></canvas>
+        </div>
+
+        <div class="col-sm-6">
+            <canvas id="doughnut-chart" width="800" height="450"></canvas>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+    {{block.super}}
+    <script src="{% static 'js/charts.js' %}"></script>
+{% endblock scripts %}
