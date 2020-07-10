@@ -4,20 +4,21 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView 
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.urls import reverse
 from . models import Sensor
 from . import forms
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
 class CreateSensor(CreateView):
     form_class = forms.SensorCreateForm
-    success_url = reverse_lazy('sensor:single')
     template_name = 'sensor/sensor_create.html'
         
     def form_valid(self, form):
         print(form.cleaned_data)
         return super().form_valid(form)
-
+        
 class SensorDetail(DetailView):
     model = Sensor
     template_name = 'sensor/sensor_detail.html'
