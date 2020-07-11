@@ -1,3 +1,8 @@
+.btn-sensor-detail {
+    text-align: right;
+    margin: 15px;
+}
+
 .card-sensor1 {
     border-radius: 5px;
     background-color: #52E0C1;
