@@ -10,11 +10,36 @@
 
 <div class="main-container">
     <div class="row">
+        <div class="col btn-sensor-detail">
+            <div>
+                <!-- LIST Button -->
+                <a class="btn btn-success btn-sensor-detail-left"
+                    href="{% url 'sensor:all' slug=user.person.organization.slug %}">List
+                </a>
+                <!-- /END LIST Button -->
+
+                <!-- DELETE Button -->
+                <a class="btn btn-danger btn-sensor-detail-right"
+                    href="{% url 'sensor:delete' slug=user.person.organization.slug pk=sensor.pk %}">Delete
+                </a>
+                <!-- /END DELETE Button -->
+
+                <!-- EDIT Button -->
+                <a class="btn btn-success btn-sensor-detail-right"
+                    href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit
+                </a>
+                <!-- /END EDIT Button -->
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-4 col-sm-12">
             <div class="card border-0 shadow">
                 <div class="card-body2 text-center card-sensor1">
                     <div>
-                        <div><h5 class="card-title mb-0 card-title-sensor">Sample Data 1</h5></div>
+                        <div>
+                            <h5 class="card-title mb-0 card-title-sensor">Sample Data 1</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -23,7 +48,9 @@
             <div class="card border-0 shadow">
                 <div class="card-body2 text-center card-sensor1">
                     <div>
-                        <div><h5 class="card-title mb-0 card-title-sensor">Sample Data 2</h5></div>
+                        <div>
+                            <h5 class="card-title mb-0 card-title-sensor">Sample Data 2</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -32,7 +59,9 @@
             <div class="card border-0 shadow">
                 <div class="card-body2 text-center card-sensor1">
                     <div>
-                        <div><h5 class="card-title mb-0 card-title-sensor">Sample Data 3</h5></div>
+                        <div>
+                            <h5 class="card-title mb-0 card-title-sensor">Sample Data 3</h5>
+                        </div>
                     </div>
                 </div>
             </div>

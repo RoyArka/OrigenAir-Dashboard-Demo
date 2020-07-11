@@ -14,6 +14,7 @@
             <tr>
                 <th scope="col">PK</th>
                 <th scope="col">Name</th>
+                <th scope="col">Type</th>
                 <th scope="col">Value</th>
                 <th scope="col">Min</th>
                 <th scope="col">Max</th>
@@ -26,17 +27,23 @@
                 <th scope="row">{{sensor.pk}}</th>
                 <td><a href="{% url 'sensor:single' slug=user.person.organization.slug pk=sensor.pk %}"
                         style="display:block;">{{sensor.name}}</a></td>
+                <td>{{sensor.sensor_type}}</td>
                 <td>{{sensor.value}}</td>
                 <td>{{sensor.threshold_min}}</td>
                 <td>{{sensor.threshold_max}}</td>
                 <td><a class="btn btn-success"
-                        href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit</a>&nbsp;&nbsp;<a
-                        class="btn btn-danger"
-                        href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Delete</a></td>
+                        href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit</a>&nbsp;&nbsp;
+                    <a class="btn btn-danger"
+                        href="{% url 'sensor:delete' slug=user.person.organization.slug pk=sensor.pk %}">Delete</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
+    <!-- CREATE Button -->
+    <a class="fab" href="{% url 'sensor:create' slug=user.person.organization.slug %}">+</a>
+    <!-- /END CREATE Button -->
 </div>
 
 {% endblock %}

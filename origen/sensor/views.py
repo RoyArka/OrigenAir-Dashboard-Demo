@@ -2,6 +2,7 @@ from django.views.generic import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.list import ListView 
 from django.views.generic.detail import DetailView 
+from django.views.generic.edit import DeleteView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.urls import reverse
@@ -46,3 +47,10 @@ class UpdateSensor(UpdateView):
 class SensorList(ListView):
     model = Sensor
     template_name = 'sensor/sensor_list.html'
+
+class DeleteSensor(DeleteView):
+    model = Sensor
+    template_name = 'sensor/sensor_delete.html'
+     
+    def get_success_url(self):
+        return reverse_lazy('sensor:all', kwargs={'slug': self.object.organization.slug})

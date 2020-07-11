@@ -1,3 +1,13 @@
+.btn-sensor-detail-left {
+    float: left;
+    margin: 0px 0px 15px 15px;
+}
+
+.btn-sensor-detail-right {
+    float: right;
+    margin: 0px 15px 15px 0px;
+}
+
 .card-sensor1 {
     border-radius: 5px;
     background-color: #52E0C1;
