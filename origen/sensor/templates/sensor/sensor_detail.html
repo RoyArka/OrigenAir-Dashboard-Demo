@@ -18,18 +18,17 @@
                 </a>
                 <!-- /END LIST Button -->
 
-                <!-- EDIT Button -->
-                <a class="btn btn-success btn-sensor-detail-right"
-                    href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit
-                </a>
-                <!-- /END EDIT Button -->
-
                 <!-- DELETE Button -->
                 <a class="btn btn-danger btn-sensor-detail-right"
                     href="{% url 'sensor:delete' slug=user.person.organization.slug pk=sensor.pk %}">Delete
                 </a>
                 <!-- /END DELETE Button -->
 
+                <!-- EDIT Button -->
+                <a class="btn btn-success btn-sensor-detail-right"
+                    href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit
+                </a>
+                <!-- /END EDIT Button -->
             </div>
         </div>
     </div>
