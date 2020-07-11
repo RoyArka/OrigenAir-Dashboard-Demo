@@ -34,7 +34,7 @@
                 <td><a class="btn btn-success"
                         href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit</a>&nbsp;&nbsp;<a
                         class="btn btn-danger"
-                        href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Delete</a></td>
+                        href="{% url 'sensor:delete' slug=user.person.organization.slug pk=sensor.pk %}">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>
