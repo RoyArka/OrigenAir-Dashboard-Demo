@@ -1,6 +1,11 @@
-.btn-sensor-detail {
-    text-align: right;
-    margin: 15px;
+.btn-sensor-detail-left {
+    float: left;
+    margin: 0px 0px 15px 15px;
+}
+
+.btn-sensor-detail-right {
+    float: right;
+    margin: 0px 15px 15px 0px;
 }
 
 .card-sensor1 {

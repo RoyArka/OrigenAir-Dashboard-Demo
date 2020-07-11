@@ -40,6 +40,10 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <!-- CREATE Button -->
+    <a class="fab" href="{% url 'sensor:create' slug=user.person.organization.slug %}">+</a>
+    <!-- /END CREATE Button -->
 </div>
 
 {% endblock %}
