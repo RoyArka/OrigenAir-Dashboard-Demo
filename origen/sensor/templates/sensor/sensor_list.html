@@ -26,8 +26,8 @@
             <tr>
                 <th scope="row">{{sensor.pk}}</th>
                 <td><a href="{% url 'sensor:single' slug=user.person.organization.slug pk=sensor.pk %}"
-                        style="display:block;">{{sensor.name}}</a></td>
-                <td>{{sensor.sensor_type}}</td>
+                        style="display:block;">{{sensor.name|capfirst}}</a></td>
+                <td>{{sensor.sensor_type|capfirst}}</td>
                 <td>{{sensor.value}}</td>
                 <td>{{sensor.threshold_min}}</td>
                 <td>{{sensor.threshold_max}}</td>
