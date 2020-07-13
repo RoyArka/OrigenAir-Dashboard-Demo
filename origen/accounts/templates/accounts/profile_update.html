@@ -14,20 +14,19 @@
         {{form.non_field_errors}}
         <div class="row">
             <!-- PROFILE PHOTO -->
-            <div class="col-md-4">
-                <div class="profile-img">
+            <div class="col-md-4 picture-container">
+                <div class="profile-img picture">
                     <!-- PROFILE IMAGE -->
-                    <img src="{{user.person.avatar.url}}" alt=""/>
+                    <!-- <img src="{{user.person.avatar.url}}" alt=""/> -->
+                    <img src="{{user.person.avatar.url}}" class="picture-src" id="wizardPicturePreview" title="" />
                     <!-- /END PROFILE IMAGE -->
 
                     <!-- CHANGE PHOTO -->
                     <div class="file btn btn-lg btn-primary">
-                       <span class="file">
-                        Change Photo
-                       </span>
+                       <span class="file">Change Photo</span>
                         {{form.avatar.errors}}
                         {{form.avatar}}
-                        <!-- <input type="file" name="file"/> -->
+                        <input type="file" name="file" id="wizard-picture"/>
                     </div>
                     <!-- /END CHANGE PHOTO -->
                 </div>
@@ -227,5 +226,15 @@
 
 <!-- Scripts Block -->
 {% block scripts %}
-    {{block.super}}
+{{block.super}}
+<!--   Core JS Files   -->
+<script src="{% static 'js/orgcreate-jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/orgcreate-bootstrap.min.js' %}"></script>
+<script src="{% static 'js/orgcreate-jquery.bootstrap.wizard.js' %}"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="{% static 'js/orgcreate-gsdk-bootstrap-wizard.js' %}"></script>
+
+<!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
 {% endblock scripts %}
