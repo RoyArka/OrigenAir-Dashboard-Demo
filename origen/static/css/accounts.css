@@ -22,10 +22,6 @@ body {
     background-color: #ea4335;
 }
 
-.card-body2 {
-    height: 550px;
-}
-
 .card-signin {
     border: 0;
     border-radius: 1rem;
@@ -251,6 +247,24 @@ body {
 #header2 {
     font-size: 14pt;
     text-align: justify;
+}
+
+/* ----------------------------------------------- */
+
+/* PASSWORD CHANGE */
+
+/* Mobile view */
+@media (max-width: 749px) {
+    .card-body2 {
+        height: 720px;
+    }
+}
+
+/* Tablet & Desktop view */
+@media (min-width: 750px) {
+    .card-body2 {
+        height: 650px;
+    }
 }
 
 /* ----------------------------------------------- */
