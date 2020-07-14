@@ -250,3 +250,27 @@ body {
 }
 
 /* ----------------------------------------------- */
+
+/* PASSWORD CHANGE */
+
+/* Mobile view */
+@media (max-width: 374px) {
+    .card-body2 {
+        height: 780px;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 749px) {
+    .card-body2 {
+        height: 700px;
+    }
+}
+
+/* Tablet & Desktop view */
+@media (min-width: 750px) {
+    .card-body2 {
+        height: 650px;
+    }
+}
+
+/* ----------------------------------------------- */
