@@ -254,9 +254,15 @@ body {
 /* PASSWORD CHANGE */
 
 /* Mobile view */
-@media (max-width: 749px) {
+@media (max-width: 374px) {
     .card-body2 {
-        height: 720px;
+        height: 780px;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 749px) {
+    .card-body2 {
+        height: 700px;
     }
 }
 
