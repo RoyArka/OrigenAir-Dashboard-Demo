@@ -89,6 +89,12 @@ a.bg-success:focus, a.bg-success:hover, button.bg-success:focus, button.bg-succe
     filter: brightness(90%);
 }
 
+a.fab:hover {
+    background-color: var(--main-bg-color) !important;
+    color: white !important;
+    filter: brightness(90%);
+}
+
 /* ----------------------------------------------- */
 
 /* TOP BAR */
