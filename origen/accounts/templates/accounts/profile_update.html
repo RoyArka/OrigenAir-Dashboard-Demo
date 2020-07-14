@@ -4,10 +4,6 @@
 
 {% block content %}
 
-<!-- <form method=post class="form-signin">
-    {% csrf_token %}
-    {{form.non_field_errors}} -->
-
 <div class="container emp-profile">
     <form method="post">
         {% csrf_token %}
@@ -17,7 +13,6 @@
             <div class="col-md-4 picture-container">
                 <div class="profile-img picture">
                     <!-- PROFILE IMAGE -->
-                    <!-- <img src="{{user.person.avatar.url}}" alt=""/> -->
                     <img src="{{user.person.avatar.url}}" class="picture-src" id="wizardPicturePreview" title="" />
                     <!-- /END PROFILE IMAGE -->
 
@@ -88,8 +83,10 @@
                                 <label for="accountJobTitle">Job Title</label>
                             </div>
                             <div class="col-md-6">
-                                {{form.job_title.errors}}
                                 {{form.job_title}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.job_title.errors}}
                             </div>
                         </div>
                         <!-- /END JOB TITLE -->
@@ -111,8 +108,10 @@
                                 <label for="accountTimeZone">Time Zone</label>
                             </div>
                             <div class="col-md-6">
-                                {{form.time_zone.errors}}
                                 {{form.time_zone}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.time_zone.errors}}
                             </div>
                         </div>
                         <!-- /END TIME ZONE -->
@@ -123,8 +122,10 @@
                                 <label for="accountBio">Bio</label>
                             </div>
                             <div class="col-md-6">
-                                {{form.biography.errors}}
                                 {{form.biography}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.biography.errors}}
                             </div>
                         </div>
                         <!-- /END BIO -->
@@ -184,8 +185,10 @@
                                 <label for="accountPhoneNumber">Phone</label>
                             </div>
                             <div class="col-md-6">
-                                {{form.phone_number.errors}}
                                 {{form.phone_number}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.phone_number.errors}}
                             </div>
                         </div>
                         <!-- /END PHONE NUMBER -->
@@ -206,13 +209,11 @@
     
                             <!-- UPDATE PROFILE BUTTON -->
                             <button type="submit" class="btn btn-success">Update Profile</button>
-                            <!-- <a class="btn btn-success" href="{% url 'accounts:profile' username=user.username %}">Update Profile</a> -->
                             <!-- /END UPDATE PROFILE BUTTON -->
                         </div>
                     </div>
                     <!-- /END NOTIFICATION & BUTTON -->
                 </div>
-                </form>
             </div>
         </div>
     </form>
