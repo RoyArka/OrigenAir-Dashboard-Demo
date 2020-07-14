@@ -184,6 +184,13 @@
                         </a>
                         <!-- /END ORGANIZATION PROFILE -->
                         {% endif %}
+
+                        <!-- ORGANIZATION CREATE -->
+                        <a href="{% url 'organization:create' %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Create</span>
+                        </a>
+                        <!-- /END ORGANIZATION CREATE -->
                     </div>
                     {% endif %}
                     <!-- /END ORGANIZATION -->
