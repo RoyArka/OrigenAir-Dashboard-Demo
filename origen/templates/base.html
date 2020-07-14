@@ -85,6 +85,7 @@
                     <!-- /END Separator -->
 
                     {% if user.is_authenticated %}
+                    {% if user.person.organization %}
                     <!-- SENSOR -->
                     <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
                         class="bg-success list-group-item list-group-item-action flex-column align-items-start sidebarclick">
@@ -94,7 +95,6 @@
                             <span class="submenu-icon ml-auto"></span>
                         </div>
                     </a>
-                    {% if user.person.organization %}
                     <!-- DASHBOARD Submenu -->
                     <div id='submenu1' class="collapse sidebar-submenu">
                         <!-- SENSOR LIST -->
