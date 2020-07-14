@@ -23,10 +23,10 @@
 
                     <!-- CHANGE PHOTO -->
                     <div class="file btn btn-lg btn-primary">
-                       <span class="file" input type="file" name="file" id="wizard-picture">Change Photo</span>
+                       <span>Change Photo</span>
                         {{form.avatar.errors}}
                         {{form.avatar}}
-                        <!-- <input type="file" name="file" id="wizard-picture"/> -->
+                        <input type="file" name="file" id="wizard-picture" style="padding-bottom: 10px"/>
                     </div>
                     <!-- /END CHANGE PHOTO -->
                 </div>
@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-md-4">
                 <!-- PROFILE LINKS -->
-                <div class="profile-work">
+                <div class="profile-work" style="padding-top: 0px; margin-top: 0px;">
                     <!-- DATE JOINED -->
                     <p>Joined {{user.date_joined}}</p>
                     <!-- /END DATE JOINED -->
