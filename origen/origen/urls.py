@@ -26,6 +26,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('organization/', include('organization.urls', namespace='organization')),
-    path('sensor/', include('sensor.urls', namespace='sensor')),
-    path('django_plotly_dash/', include('django_plotly_dash.urls'))
+    path('sensor/', include('sensor.urls', namespace='sensor'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
