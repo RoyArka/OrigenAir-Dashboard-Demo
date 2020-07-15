@@ -41,12 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'accounts',
     'organization',
     'colorful',
     'sensor',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
-    'phonenumber_field'
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
