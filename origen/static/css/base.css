@@ -95,6 +95,10 @@ a.fab:hover {
     filter: brightness(90%);
 }
 
+.members-card:hover, .card-title:hover, .member-card:hover, #home-tab:hover, #profile-tab:hover {
+    color: hsla(var(--main-bg-color), .1) !important;
+}
+
 /* ----------------------------------------------- */
 
 /* TOP BAR */
