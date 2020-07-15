@@ -54,3 +54,44 @@ class DeleteSensor(DeleteView):
      
     def get_success_url(self):
         return reverse_lazy('sensor:all', kwargs={'slug': self.object.organization.slug})
+
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+
+class SensorDetailAPI(APIView):
+    # authentication_classes = (authentication.SessionAuthentication,)
+    # permission_classes = (permissions.IsAuthenticated,)
+
+    def get_object(self, pk):
+        return (get_object_or_404(Sensor, pk=pk))
+
+
+    def get(self, request, *args, **kwargs):
+        sensor = self.get_object(self.kwargs.get('pk'))
+
+        data = {
+            "name": sensor.name,
+            "organization": sensor.organization.name,
+            "type": sensor.sensor_type,
+            "value": sensor.value,
+        }
+        return Response(data)
+
+    
+    def put(self, request, *args, **kwargs):
+        sensor = self.get_object(self.kwargs.get('pk'))
+
+
+        value = request.data['value']
+        sensor.value = value
+        sensor.save()
+
+        data = {
+            "name": sensor.name,
+            "value": sensor.value,
+            "updated": "True"
+        }
+
+        return Response(data)
