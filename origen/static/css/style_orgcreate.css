@@ -1,7 +1,15 @@
 /*** MEDIA QUERIES ***/
 
+/* Background Image */
+.main-content {
+    background-image: url("/static/img/nature.jpg");
+    background-size: cover;
+    height: 94vh;
+}
+
 /* for screen size less than 500px (Mobile View) */
 @media only screen and (max-width: 574px) {
+
     .hugecontainer {
         margin-top: -40px;
     }
@@ -125,12 +133,6 @@
         padding: 10px 15px;
         text-decoration: none;
         box-sizing: border-box;
-    }
-
-    .image-container {
-        min-height: 100vh;
-        background-position: center center;
-        background-size: cover;
     }
 
     div {
@@ -304,12 +306,6 @@
         box-sizing: border-box;
     }
 
-    .image-container {
-        min-height: 100vh;
-        background-position: center center;
-        background-size: cover;
-    }
-
     div {
         display: block;
     }
@@ -458,7 +454,7 @@
 
 /* when screen size is greater than 1250px (Desktop View) */
 @media screen and (min-width: 1250px) {
-
+    
     .hugecontainer {
         margin-top: -40px;
     }

@@ -1,5 +1,12 @@
 /*** MEDIA QUERIES ***/
 
+/* Background Image */
+.main-content {
+    background-image: url("/static/img/nature.jpg");
+    background-size: cover;
+    height: 94vh;
+}
+
 /* for screen size smaller than 600px */
 @media (max-width: 600px) {
     .hugecontainer {

@@ -192,19 +192,9 @@ a.fab:hover {
 }
 
 .main-content {
+    padding: 0px;
     height: 91vh;
     overflow-y: auto;
-}
-
-@media (min-width: 768px) and (max-width: 850px) {
-    .main-container {
-        padding: 15px 15px 0px 15px;
-    }
-    
-    .main-content {
-        height: 91vh !important;
-        overflow-y: auto;
-    }
 }
 
 ::-webkit-scrollbar {
