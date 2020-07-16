@@ -30,8 +30,18 @@ class Sensor(models.Model):
     
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        Record.objects.create(
+            sensor = self,
+            value = self.value
+        )
+        super(Sensor, self).save(*args,**kwargs)
     
 class Record(models.Model):
     sensor = models.ForeignKey(Sensor, related_name='records', null=True, blank=True, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now, null=False)
     value = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.sensor.name + " @ " + str(self.created_at)
