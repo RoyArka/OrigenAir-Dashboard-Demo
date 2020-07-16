@@ -18,6 +18,19 @@
     height: 310px;
 }
 
+.card-text-sensor {
+    color: white;
+    height: 100px;
+}
+
 .card-title-sensor {
     color: white;
+}
+
+.container-sensor-detail {
+    margin: 15px 15px 0px 15px;
+}
+
+.sensor-detail-margin {
+    margin: 10px 0px 10px 0px;
 }
