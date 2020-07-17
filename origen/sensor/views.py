@@ -10,10 +10,11 @@ from . models import Sensor
 from . import forms
 from django.shortcuts import get_object_or_404
 from organization.models import Organization
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-class CreateSensor(CreateView):
+class CreateSensor(LoginRequiredMixin, CreateView):
     form_class = forms.SensorCreateForm
     template_name = 'sensor/sensor_create.html'
         
@@ -26,11 +27,11 @@ class CreateSensor(CreateView):
     def get_success_url(self):
         return reverse_lazy('sensor:single', kwargs={'slug': self.object.organization.slug, 'pk': self.object.pk})
         
-class SensorDetail(DetailView):
+class SensorDetail(LoginRequiredMixin, DetailView):
     model = Sensor
     template_name = 'sensor/sensor_detail.html'
 
-class UpdateSensor(UpdateView):
+class UpdateSensor(LoginRequiredMixin, UpdateView):
     model = Sensor
     form_class = forms.SensorUpdateForm
     template_name = 'sensor/sensor_update.html'
@@ -44,11 +45,11 @@ class UpdateSensor(UpdateView):
     def get_success_url(self):
         return reverse_lazy('sensor:single', kwargs={'slug': self.object.organization.slug, 'pk': self.object.pk})
 
-class SensorList(ListView):
+class SensorList(LoginRequiredMixin, ListView):
     model = Sensor
     template_name = 'sensor/sensor_list.html'
 
-class DeleteSensor(DeleteView):
+class DeleteSensor(LoginRequiredMixin, DeleteView):
     model = Sensor
     template_name = 'sensor/sensor_delete.html'
      
