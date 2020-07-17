@@ -90,7 +90,8 @@ var chartColors = {
 };
 
 function randomScalingFactor() {
-    return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+    return 10;
+    // return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
 }
 
 function onRefresh(chart) {
