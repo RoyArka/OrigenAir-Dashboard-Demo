@@ -31,12 +31,13 @@ class Sensor(models.Model):
     def __str__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
+    def save(self,  *args, **kwargs):
+        super(Sensor, self).save(*args,**kwargs)
         Record.objects.create(
             sensor = self,
             value = self.value
         )
-        super(Sensor, self).save(*args,**kwargs)
+        
     
 class Record(models.Model):
     sensor = models.ForeignKey(Sensor, related_name='records', null=True, blank=True, on_delete=models.CASCADE)

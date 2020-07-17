@@ -16,7 +16,7 @@ from organization.models import Organization
 class CreateSensor(CreateView):
     form_class = forms.SensorCreateForm
     template_name = 'sensor/sensor_create.html'
-    
+        
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.organization = self.request.user.person.organization
