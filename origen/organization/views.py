@@ -19,6 +19,9 @@ class CreateOrg(LoginRequiredMixin, CreateView):
     template_name = 'organization/organization_create.html'
 
     def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.admin = self.request.user
+        self.object.save()
         print(form.cleaned_data)
         return super().form_valid(form)
         

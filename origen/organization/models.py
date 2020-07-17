@@ -4,6 +4,10 @@ from django.utils import timezone
 from django.urls import reverse
 from colorful.fields import RGBColorField
 
+# circular import error or suggestion for when using Person
+# from accounts.models import Person
+from django.contrib.auth.models import User
+
 # DEFAULT = '../origen/static/img/placeholder.jpg/'
 
 def org_directory_path(instance, filename):
@@ -24,6 +28,8 @@ class Organization(models.Model):
     slug = models.SlugField(allow_unicode=True, unique=True)
     created_at = models.DateTimeField(default=timezone.now, null=False)
     
+    admin = models.ForeignKey(User, related_name='organization', null=True, blank=True, on_delete=models.CASCADE)
+
     logo = models.ImageField(upload_to=org_directory_path, default='org/contemplating.png', null=True, blank=True)
    
     def __str__(self):
