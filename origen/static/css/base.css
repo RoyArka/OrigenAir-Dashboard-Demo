@@ -96,7 +96,8 @@ a.fab:hover {
 }
 
 .members-card:hover, .card-title:hover, .member-card:hover, #home-tab:hover, #profile-tab:hover {
-    color: hsla(var(--main-bg-color), .1) !important;
+    color: var(--main-bg-color) !important;
+    filter: brightness(90%);
 }
 
 /* ----------------------------------------------- */

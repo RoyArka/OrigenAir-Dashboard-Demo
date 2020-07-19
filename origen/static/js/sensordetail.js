@@ -96,8 +96,6 @@ function randomScalingFactor() {
     return randomNum;
 }
 
-
-
 function getSensorValue() {
     var originalUrlArray = window.location.href.split("/")
     var sensorId = originalUrlArray[originalUrlArray.length-1];
