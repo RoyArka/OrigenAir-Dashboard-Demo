@@ -43,7 +43,11 @@ new Chart(document.getElementById("line-chart"), {
     options: {
         legend: {
             display: false
-        }
+        },
+        title: {
+            display: true,
+            text: 'Line Chart 2'
+        },
     }
 });
 
@@ -64,7 +68,11 @@ new Chart(document.getElementById("bar-chart-grouped"), {
     options: {
         legend: {
             display: false
-        }
+        },
+        title: {
+            display: true,
+            text: 'Bar Chart'
+        },
     }
 });
 
@@ -77,6 +85,12 @@ new Chart(document.getElementById("doughnut-chart"), {
             data: [2478, 5267, 734, 784, 433]
         }]
     },
+    options: {
+        title: {
+            display: true,
+            text: 'Doughnut Chart'
+        },
+    }
 });
 
 var chartColors = {
@@ -151,7 +165,7 @@ var config = {
     options: {
         title: {
             display: true,
-            text: 'Line Chart'
+            text: 'Temperature (Celsius)'
         },
         scales: {
             xAxes: [{
