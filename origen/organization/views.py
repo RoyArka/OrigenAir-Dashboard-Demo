@@ -7,6 +7,7 @@ from django.views.generic.detail import DetailView
 from . forms import OrganizationUpdateForm
 from . import forms
 from . models import Organization
+from accounts.models import Person
 from django.http import Http404 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
@@ -14,7 +15,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
-class CreateOrg(LoginRequiredMixin, CreateView):
+class CreateOrg(LoginRequiredMixin, CreateView): 
     form_class = forms.OrganizationCreateForm
     template_name = 'organization/organization_create.html'
 
@@ -22,9 +23,8 @@ class CreateOrg(LoginRequiredMixin, CreateView):
         self.object = form.save(commit=False)
         self.object.admin = self.request.user
         self.object.save()
-        print(form.cleaned_data)
         return super().form_valid(form)
-        
+            
 class OrgProfile(DetailView):
     model = Organization
     template_name = 'organization/organization_profile.html'

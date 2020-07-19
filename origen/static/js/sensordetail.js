@@ -90,14 +90,41 @@ var chartColors = {
 };
 
 function randomScalingFactor() {
-    return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+    var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+    console.log("X:" + Date.now());
+    console.log("\n Y: " + randomNum);
+    return randomNum;
+}
+
+
+
+function getSensorValue() {
+    var originalUrlArray = window.location.href.split("/")
+    var sensorId = originalUrlArray[originalUrlArray.length-1];
+    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
+    var value = 0.0;
+    $.ajax({
+        async: false,
+        url: sensorApiUrl,
+        method: "GET",
+        data: {},
+        success: function(data){
+            var sensorValue = $("#sensor-value")[0];
+            value = data.value;
+            sensorValue.textContent = value;
+            
+        }
+    });
+    
+    return value;
+
 }
 
 function onRefresh(chart) {
     chart.config.data.datasets.forEach(function (dataset) {
         dataset.data.push({
             x: Date.now(),
-            y: randomScalingFactor()
+            y: getSensorValue()
         });
     });
 }
@@ -164,7 +191,7 @@ window.onload = function () {
 document.getElementById('randomizeData').addEventListener('click', function () {
     config.data.datasets.forEach(function (dataset) {
         dataset.data.forEach(function (dataObj) {
-            dataObj.y = randomScalingFactor();
+            dataObj.y = getSensorValue();
         });
     });
     window.myChart.update();
