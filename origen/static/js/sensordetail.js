@@ -114,7 +114,7 @@ function getSensorValue() {
     var originalUrlArray = window.location.href.split("/")
     var sensorId = originalUrlArray[originalUrlArray.length - 1];
     // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bcit/" + sensorId;
+    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg4/" + sensorId;
     var value = 0.0;
     $.ajax({
         async: false,
@@ -125,12 +125,9 @@ function getSensorValue() {
             var sensorValue = $("#sensor-value")[0];
             value = data.value;
             sensorValue.textContent = value;
-
         }
     });
-
     return value;
-
 }
 
 function onRefresh(chart) {
