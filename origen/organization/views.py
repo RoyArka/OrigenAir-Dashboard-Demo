@@ -4,6 +4,7 @@ from django.views.generic import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.list import ListView 
 from django.views.generic.detail import DetailView 
+from django.views.generic.edit import DeleteView
 from . forms import OrganizationUpdateForm
 from . import forms
 from . models import Organization
@@ -81,3 +82,9 @@ class LeaveOrg(LoginRequiredMixin, generic.RedirectView):
             print("You're not a member of this organization!")
         return super().get(request, *args, **kwargs)
 
+class DeleteOrg(OrgAdminRequiredMixin, DeleteView):
+    model = Organization
+    template_name = 'organization/organization_delete.html'
+     
+    def get_success_url(self):
+        return reverse_lazy('organization:all')

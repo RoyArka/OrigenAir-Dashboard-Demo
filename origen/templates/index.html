@@ -9,7 +9,7 @@
 
 {% if user.person.organization %}
 <div class="main-container">
-    <div class="row">
+    <div class="row nextcontainer" style="background-color: whitesmoke; border-radius: 5px">
         <div class="col-sm-6">
             <canvas id="line-chart" width="800" height="450"></canvas>
         </div>
@@ -33,8 +33,8 @@
 
 {% else %}
 
-<body>
-    <div class="container">
+
+    <div class="index-container">
         <div class="row justify-content-center index-card-margin">
             <!-- Create Organization-->
             <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11 mt-4 index-card-margin2">
@@ -115,7 +115,7 @@
             </div>
         </div>
     </div>
-</body>
+
 {% endif %}
 
 

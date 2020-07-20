@@ -23,15 +23,17 @@ body {
 }
 
 @media (max-width: 420px) {
-    .container {
+    .index-container {
         height: 125vh;
     }
 }
 
-.main-content {
+.index-container {
     background-image: url("/static/img/nature.jpg");
     background-size: cover;
     height: 94vh;
+    margin-top: -68.6px;
+    margin-bottom: -68.6px;
 }
 
 .index-card-margin {
