@@ -14,10 +14,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 #Create your views here.
 
-class SensorAdminRequiredMixin(UserPassesTestMixin, LoginRequiredMixin):
-    def test_func(self):
-        self.object = self.get_object()
-        return self.request.user.person == self.request.object.admin
+# class SensorAdminRequiredMixin(UserPassesTestMixin, LoginRequiredMixin):
+#     def test_func(self):
+#         self.object = self.get_object()
+#         return self.request.user.person == self.request.object.admin
     
 class CreateSensor(LoginRequiredMixin, CreateView):
     form_class = forms.SensorCreateForm
