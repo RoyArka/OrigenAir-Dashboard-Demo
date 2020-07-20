@@ -19,5 +19,6 @@ def main(pk):
         print(res.status_code)
         time.sleep(1)
 
+main(1)
 # main(3) this is the origin air one
 main(2) # this is the ok for the one you are using 
