@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 from colorful.fields import RGBColorField
 
+
 # circular import error or suggestion for when using Person
 # from accounts.models import Person
 from django.contrib.auth.models import User
