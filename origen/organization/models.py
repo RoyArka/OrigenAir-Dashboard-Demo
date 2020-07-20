@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 from colorful.fields import RGBColorField
 
+
 # circular import error or suggestion for when using Person
 # from accounts.models import Person
 from django.contrib.auth.models import User
@@ -14,7 +15,7 @@ def org_directory_path(instance, filename):
     return 'organization/logos/{0}'.format(filename)
     
 class Organization(models.Model):
-
+    
     name = models.CharField(max_length=25, null=False, blank=False)
     email = models.CharField(max_length=100, null=True, blank=True, default='None')
     street_name = models.CharField(max_length=100, null= True, blank=True)
