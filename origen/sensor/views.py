@@ -16,10 +16,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 class SensorAdminRequiredMixin(UserPassesTestMixin, LoginRequiredMixin):
     def test_func(self):
-        self.object = self.get_object()
-        return self.request.user.person == self.request.object.admin
+        full_path = self.request.get_full_path()
+        split_full_path = full_path.split("/")
+        org_slug = split_full_path[3]
+        org = Organization.objects.get(slug=org_slug)
+        return self.request.user == org.admin
     
-class CreateSensor(LoginRequiredMixin, CreateView):
+class CreateSensor(SensorAdminRequiredMixin, CreateView):
+    model = Sensor
     form_class = forms.SensorCreateForm
     template_name = 'sensor/sensor_create.html'
 
@@ -36,7 +40,7 @@ class SensorDetail(LoginRequiredMixin, DetailView):
     model = Sensor
     template_name = 'sensor/sensor_detail.html'
 
-class UpdateSensor(LoginRequiredMixin, UpdateView):
+class UpdateSensor(SensorAdminRequiredMixin, UpdateView):
     model = Sensor
     form_class = forms.SensorUpdateForm
     template_name = 'sensor/sensor_update.html'
@@ -54,7 +58,7 @@ class SensorList(LoginRequiredMixin, ListView):
     model = Sensor
     template_name = 'sensor/sensor_list.html'
 
-class DeleteSensor(LoginRequiredMixin, DeleteView):
+class DeleteSensor(SensorAdminRequiredMixin, DeleteView):
     model = Sensor
     template_name = 'sensor/sensor_delete.html'
      
