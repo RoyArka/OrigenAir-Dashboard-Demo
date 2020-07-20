@@ -39,12 +39,11 @@ class OrgMembers(DetailView):
     model = Organization
     template_name = 'organization/organization_members.html'
 
-class OrgProfileUpdate(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
+class OrgProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Organization
     form_class = OrganizationUpdateForm
     template_name = 'organization/organization_update.html'
-    # permission_required = ('organization.can_open')
-
+    
     def form_valid(self, form):
         print(form.cleaned_data)
         return super().form_valid(form)
