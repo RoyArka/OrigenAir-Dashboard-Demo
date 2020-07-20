@@ -17,7 +17,7 @@
                     href="{% url 'sensor:all' slug=user.person.organization.slug %}">List
                 </a>
                 <!-- /END LIST Button -->
-
+                {% if organization.admin %}
                 <!-- DELETE Button -->
                 <a class="btn btn-danger btn-sensor-detail-right"
                     href="{% url 'sensor:delete' slug=user.person.organization.slug pk=sensor.pk %}">Delete
@@ -29,6 +29,7 @@
                     href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit
                 </a>
                 <!-- /END EDIT Button -->
+                {% endif %}
             </div>
         </div>
     </div>

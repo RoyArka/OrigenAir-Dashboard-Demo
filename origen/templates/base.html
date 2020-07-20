@@ -103,12 +103,13 @@
                             <span class="menu-collapsed">List</span>
                         </a>
                         <!-- /END SENSOR LIST -->
-
+                        {% if organization.admin %}
                         <!-- SENSOR CREATE -->
                         <a href="{% url 'sensor:create' slug=user.person.organization.slug %}"
                             class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Create</span>
                         </a>
+                        {% endif %}
                         <!-- /END SENSOR CREATE -->
                     </div>
                     {% endif %}
