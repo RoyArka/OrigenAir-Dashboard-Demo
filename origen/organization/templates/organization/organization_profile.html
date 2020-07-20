@@ -96,8 +96,10 @@
 
                         <!-- EDIT BUTTON -->
                         <address>
+                            {% if organization.admin %}
                             <a class="btn btn-success"
                                 href="{% url 'organization:update' slug=organization.slug %}">Edit</a>
+                            {% endif %}
                         </address>
                         <!-- /END EDIT BUTTON -->
                     </div>
