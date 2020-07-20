@@ -12,17 +12,17 @@ from django.shortcuts import get_object_or_404
 from organization.models import Organization
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-# Create your views here.
+#Create your views here.
 
-# class SensorAdminRequiredMixin(UserPassesTestMixin, LoginRequiredMixin):
-#     def test_func(self):
-#         self.object = self.get_object()
-#         return self.request.user.person == self.request.user.person
+class SensorAdminRequiredMixin(UserPassesTestMixin, LoginRequiredMixin):
+    def test_func(self):
+        self.object = self.get_object()
+        return self.request.user.person == self.request.object.admin
     
 class CreateSensor(LoginRequiredMixin, CreateView):
     form_class = forms.SensorCreateForm
     template_name = 'sensor/sensor_create.html'
-        
+
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.organization = self.request.user.person.organization
