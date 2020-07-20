@@ -9,10 +9,15 @@ from . import forms
 from . models import Organization
 from accounts.models import Person
 from django.http import Http404 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
+
+class OrgAdminRequiredMixin(UserPassesTestMixin, LoginRequiredMixin):
+    def test_func(self):
+        self.object = self.get_object()
+        return self.request.user == self.object.admin
 
 # Create your views here.
 class CreateOrg(LoginRequiredMixin, CreateView): 
@@ -24,7 +29,7 @@ class CreateOrg(LoginRequiredMixin, CreateView):
         self.object.admin = self.request.user
         self.object.save()
         return super().form_valid(form)
-            
+     
 class OrgProfile(DetailView):
     model = Organization
     template_name = 'organization/organization_profile.html'
@@ -33,7 +38,7 @@ class OrgMembers(DetailView):
     model = Organization
     template_name = 'organization/organization_members.html'
 
-class OrgProfileUpdate(LoginRequiredMixin, UpdateView):
+class OrgProfileUpdate(OrgAdminRequiredMixin, UpdateView):
     model = Organization
     form_class = OrganizationUpdateForm
     template_name = 'organization/organization_update.html'
@@ -75,3 +80,4 @@ class LeaveOrg(LoginRequiredMixin, generic.RedirectView):
         else:
             print("You're not a member of this organization!")
         return super().get(request, *args, **kwargs)
+

@@ -43,7 +43,11 @@ new Chart(document.getElementById("line-chart"), {
     options: {
         legend: {
             display: false
-        }
+        },
+        title: {
+            display: true,
+            text: 'Line Chart 2'
+        },
     }
 });
 
@@ -64,7 +68,11 @@ new Chart(document.getElementById("bar-chart-grouped"), {
     options: {
         legend: {
             display: false
-        }
+        },
+        title: {
+            display: true,
+            text: 'Bar Chart'
+        },
     }
 });
 
@@ -77,6 +85,12 @@ new Chart(document.getElementById("doughnut-chart"), {
             data: [2478, 5267, 734, 784, 433]
         }]
     },
+    options: {
+        title: {
+            display: true,
+            text: 'Doughnut Chart'
+        },
+    }
 });
 
 var chartColors = {
@@ -96,26 +110,25 @@ function randomScalingFactor() {
     return randomNum;
 }
 
-
-
 function getSensorValue() {
     var originalUrlArray = window.location.href.split("/")
-    var sensorId = originalUrlArray[originalUrlArray.length-1];
-    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
+    var sensorId = originalUrlArray[originalUrlArray.length - 1];
+    // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
+    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bcit/" + sensorId;
     var value = 0.0;
     $.ajax({
         async: false,
         url: sensorApiUrl,
         method: "GET",
         data: {},
-        success: function(data){
+        success: function (data) {
             var sensorValue = $("#sensor-value")[0];
             value = data.value;
             sensorValue.textContent = value;
-            
+
         }
     });
-    
+
     return value;
 
 }
@@ -134,26 +147,28 @@ var config = {
     type: 'line',
     data: {
         datasets: [{
-            label: 'Dataset 1 (linear interpolation)',
-            backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
-            borderColor: chartColors.red,
-            fill: false,
-            lineTension: 0,
-            borderDash: [8, 4],
-            data: []
-        }, {
-            label: 'Dataset 2 (cubic interpolation)',
-            backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-            borderColor: chartColors.blue,
-            fill: false,
-            cubicInterpolationMode: 'monotone',
-            data: []
-        }]
+                label: 'Current Value',
+                backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
+                borderColor: chartColors.red,
+                fill: false,
+                lineTension: 0,
+                borderDash: [8, 4],
+                data: []
+            },
+            // {
+            //     label: 'Value 2 (cubic interpolation)',
+            //     backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+            //     borderColor: chartColors.blue,
+            //     fill: false,
+            //     cubicInterpolationMode: 'monotone',
+            //     data: []
+            // }
+        ]
     },
     options: {
         title: {
             display: true,
-            text: 'Line Chart'
+            text: 'Temperature (°C)'
         },
         scales: {
             xAxes: [{
@@ -168,7 +183,7 @@ var config = {
             yAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'value'
+                    labelString: 'Temperature (°C)'
                 }
             }]
         },
@@ -180,6 +195,20 @@ var config = {
             mode: 'nearest',
             intersect: false
         }
+    },
+    annotation: {
+        annotations: [{
+            type: 'line',
+            mode: 'horizontal',
+            scaleID: 'y-axis-0',
+            value: 50,
+            borderColor: 'rgb(75, 192, 192)',
+            borderWidth: 4,
+            label: {
+                enabled: false,
+                content: 'Test label'
+            }
+        }]
     }
 };
 

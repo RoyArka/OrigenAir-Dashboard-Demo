@@ -31,19 +31,23 @@
                 <td>{{sensor.value}}</td>
                 <td>{{sensor.threshold_min}}</td>
                 <td>{{sensor.threshold_max}}</td>
-                <td><a class="btn btn-success"
+                <td>
+                    {% if user.person.organization.admin %}
+                    <a class= "btn btn-success"
                         href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit</a>&nbsp;&nbsp;
                     <a class="btn btn-danger"
                         href="{% url 'sensor:delete' slug=user.person.organization.slug pk=sensor.pk %}">Delete</a>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-
+    {% if user.person.organization.admin %}
     <!-- CREATE Button -->
     <a class="fab" href="{% url 'sensor:create' slug=user.person.organization.slug %}">+</a>
     <!-- /END CREATE Button -->
+    {% endif %}
 </div>
 
 {% endblock %}
