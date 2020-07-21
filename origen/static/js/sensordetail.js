@@ -226,7 +226,7 @@ var config = {
     type: 'line',
     data: {
         datasets: [{
-                label: 'Current Value',
+                label: 'Current Value (Linear)',
                 backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
                 borderColor: chartColors.red,
                 fill: false,
@@ -234,14 +234,14 @@ var config = {
                 borderDash: [8, 4],
                 data: []
             },
-            // {
-            //     label: 'Value 2 (cubic interpolation)',
-            //     backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-            //     borderColor: chartColors.blue,
-            //     fill: false,
-            //     cubicInterpolationMode: 'monotone',
-            //     data: []
-            // }
+            {
+                label: 'Current Value (Cubic)',
+                backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+                borderColor: chartColors.blue,
+                fill: false,
+                cubicInterpolationMode: 'monotone',
+                data: []
+            }
         ]
     },
     options: {
