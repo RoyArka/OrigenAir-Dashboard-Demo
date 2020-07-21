@@ -9,24 +9,75 @@
 
 {% if user.person.organization %}
 <div class="main-container">
-    <div class="row nextcontainer" style="background-color: whitesmoke; border-radius: 5px">
-        <div class="col-sm-6">
-            <canvas id="line-chart" width="800" height="450"></canvas>
+    <div class="row">
+        <!-- <div class="col-sm-3 index-card-margin3">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center index-card1 index-card-padding">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 index-card1-text">Temperature</h5>
+                        </div>
+                        <div class="card-text2 index-card1-text">
+                            <h5>30°C</h5>
+                            <canvas id="doughnut-chart1" height="200vh"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="col-sm-3 index-card-margin3">
+            <div class="card border-0 shadow">
+                <canvas id="doughnut-chart1" height="200vh"></canvas>
+            </div>
         </div>
-        <div class="col-sm-6">
-            <canvas id="radar-chart" width="800" height="600"></canvas>
+
+        <div class="col-sm-9 index-card-margin3">
+            <div class="card border-0 shadow index-card-padding">
+                <canvas id="line-chart1" height="200vh"></canvas>
+            </div>
         </div>
         <div class="col-sm-6">
             <canvas id="polar-chart" width="800" height="450"></canvas>
         </div>
-        <div class="col-sm-6">
-            <canvas id="bar-chart-grouped" width="800" height="450"></canvas>
+
+        <div class="col-sm-9 index-card-margin3">
+            <div class="card border-0 shadow index-card-padding">
+                <canvas id="line-chart2" height="200vh"></canvas>
+            </div>
         </div>
         <div class="col-sm-6">
             <canvas id="mixed-chart" width="800" height="450"></canvas>
         </div>
-        <div class="col-sm-6">
-            <canvas id="doughnut-chart" width="800" height="450"></canvas>
+
+        <div class="col-sm-9 index-card-margin3">
+            <div class="card border-0 shadow index-card-padding">
+                <canvas id="line-chart3" height="200vh"></canvas>
+            </div>
+        </div>
+
+        <div class="col-sm-3 index-card-margin3">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center index-card1 index-card-padding">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 index-card1-text">CO2</h5>
+                        </div>
+
+                        <br>
+
+                        <div class="card-text2 index-card1-text">
+                            <h5>5ppm</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-9 index-card-margin3">
+            <div class="card border-0 shadow index-card-padding">
+                <canvas id="line-chart4" height="200vh"></canvas>
+            </div>
         </div>
     </div>
 </div>
