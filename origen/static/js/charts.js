@@ -15,9 +15,9 @@ new Chart(document.getElementById("doughnut-chart1"), {
     rotation: -Math.PI,
     cutoutPercentage: 30,
     circumference: Math.PI,
-  },
-  responsive: true,
-  maintainAspectRatio: false
+    responsive: true,
+    maintainAspectRatio: false
+  }
 });
 
 new Chart(document.getElementById("line-chart1"), {
