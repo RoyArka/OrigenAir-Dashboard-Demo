@@ -1,3 +1,9 @@
+@media (max-width: 420px) {
+    .main-content {
+        height: 89vh;
+    }
+}
+
 .btn-sensor-detail-left {
     float: left;
     margin: 0px 0px 15px 15px;
@@ -18,11 +24,6 @@
     height: 150px;
 }
 
-.card-sensor2 {
-    height: 30vh;
-    margin: 20px;
-}
-
 .card-text-sensor {
     color: white;
     height: 100px;
@@ -37,5 +38,6 @@
 }
 
 .sensor-detail-margin {
-    margin: 10px 0px 10px 0px;
+    margin-top: 10px;
+    padding: 10px;
 }

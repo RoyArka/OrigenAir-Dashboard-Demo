@@ -1,78 +1,157 @@
-new Chart(document.getElementById("line-chart"), {
-    type: 'line',
+// new Chart(document.getElementById("line-chart"), {
+//     type: 'line',
+//     data: {
+//         labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+//         datasets: [{
+//                 data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
+//                 label: "Africa",
+//                 borderColor: "#3e95cd",
+//                 fill: false,
+//                 lineTension: 0
+//             },
+//             {
+//                 data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 2000],
+//                 // label: "Asia",
+//                 label: "Temperature",
+//                 borderColor: "#ff0066",
+//                 fill: false,
+//                 lineTension: 0
+//             }, {
+//                 data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
+//                 // label: "Europe",
+//                 label: "Humidity",
+//                 borderColor: "#cc0000",
+//                 fill: false,
+//                 lineTension: 0
+//             }, {
+//                 data: [40, 20, 10, 16, 24, 38, 74, 167, 508, 784],
+//                 // label: "Latin America",
+//                 label: "VOC",
+//                 borderColor: "#0000cc",
+//                 fill: false,
+//                 lineTension: 0
+//             }, {
+//                 data: [6, 3, 2, 2, 7, 26, 82, 172, 312, 433],
+//                 // label: "North America",
+//                 label: "CO2",
+//                 borderColor: "#ffd700",
+//                 fill: false,
+//                 lineTension: 0
+//             }
+//         ]
+//     },
+//     options: {
+//         legend: {
+//             display: false
+//         },
+//         title: {
+//             display: true,
+//             text: 'Line Chart 2'
+//         },
+//     }
+// });
+
+new Chart(document.getElementById("bubble-chart"), {
+    type: 'bubble',
     data: {
-        labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
-        datasets: [{
-                data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
-                label: "Africa",
-                borderColor: "#3e95cd",
-                fill: false,
-                lineTension: 0
-            },
-            {
-                data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 2000],
-                // label: "Asia",
-                label: "Temperature",
-                borderColor: "#ff0066",
-                fill: false,
-                lineTension: 0
-            }, {
-                data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
-                // label: "Europe",
-                label: "Humidity",
-                borderColor: "#cc0000",
-                fill: false,
-                lineTension: 0
-            }, {
-                data: [40, 20, 10, 16, 24, 38, 74, 167, 508, 784],
-                // label: "Latin America",
-                label: "VOC",
-                borderColor: "#0000cc",
-                fill: false,
-                lineTension: 0
-            }, {
-                data: [6, 3, 2, 2, 7, 26, 82, 172, 312, 433],
-                // label: "North America",
-                label: "CO2",
-                borderColor: "#ffd700",
-                fill: false,
-                lineTension: 0
-            }
-        ]
+      labels: "Africa",
+      datasets: [
+        {
+          label: ["China"],
+          backgroundColor: "rgba(255,221,50,0.2)",
+          borderColor: "rgba(255,221,50,1)",
+          data: [{
+            x: 2169017,
+            y: 5.245,
+            r: 15
+          }]
+        }, {
+          label: ["Denmark"],
+          backgroundColor: "rgba(60,186,159,0.2)",
+          borderColor: "rgba(60,186,159,1)",
+          data: [{
+            x: 258702,
+            y: 7.526,
+            r: 10
+          }]
+        }, {
+          label: ["Germany"],
+          backgroundColor: "rgba(0,0,0,0.2)",
+          borderColor: "#000",
+          data: [{
+            x: 3979083,
+            y: 6.994,
+            r: 15
+          }]
+        }, {
+          label: ["Japan"],
+          backgroundColor: "rgba(193,46,12,0.2)",
+          borderColor: "rgba(193,46,12,1)",
+          data: [{
+            x: 4931877,
+            y: 5.921,
+            r: 15
+          }]
+        }
+      ]
     },
     options: {
-        legend: {
-            display: false
-        },
-        title: {
+      title: {
+        display: true,
+        text: 'Frequency of Temperature Levels (°C)'
+      }, scales: {
+        yAxes: [{ 
+          scaleLabel: {
             display: true,
-            text: 'Line Chart 2'
-        },
+            labelString: "Frequency"
+          }
+        }],
+        xAxes: [{ 
+          scaleLabel: {
+            display: true,
+            labelString: "Temperature (°C)"
+          }
+        }]
+      }
     }
 });
 
-new Chart(document.getElementById("bar-chart-grouped"), {
+new Chart(document.getElementById("mixed-chart"), {
     type: 'bar',
     data: {
-        labels: ["1900", "1950", "1999", "2050"],
-        datasets: [{
-            label: "Africa",
-            backgroundColor: "#3e95cd",
-            data: [133, 221, 783, 2478]
+      labels: ["1900", "1950", "1999", "2050"],
+      datasets: [{
+          label: "Europe",
+          type: "line",
+          borderColor: "#8e5ea2",
+          data: [408,547,675,734],
+          fill: false
         }, {
-            label: "Europe",
-            backgroundColor: "#8e5ea2",
-            data: [408, 547, 675, 734]
-        }]
+          label: "Africa",
+          type: "line",
+          borderColor: "#3e95cd",
+          data: [133,221,783,2478],
+          fill: false
+        }, {
+          label: "Europe",
+          type: "bar",
+          backgroundColor: "rgba(0,0,0,0.2)",
+          data: [408,547,675,734],
+        }, {
+          label: "Africa",
+          type: "bar",
+          backgroundColor: "rgba(0,0,0,0.2)",
+          backgroundColorHover: "#3e95cd",
+          data: [133,221,783,2478]
+        }
+      ]
     },
     options: {
-        legend: {
-            display: false
-        },
-        title: {
-            display: true,
-            text: 'Bar Chart'
-        },
+      title: {
+        display: true,
+        text: 'Population growth (millions): Europe & Africa'
+      },
+      legend: { display: false }
     }
 });
 
@@ -88,8 +167,11 @@ new Chart(document.getElementById("doughnut-chart"), {
     options: {
         title: {
             display: true,
-            text: 'Doughnut Chart'
+            text: 'Threshold Monitor'
         },
+        rotation: -Math.PI,
+        cutoutPercentage: 30,
+        circumference: Math.PI,
     }
 });
 
@@ -125,12 +207,9 @@ function getSensorValue() {
             var sensorValue = $("#sensor-value")[0];
             value = data.value;
             sensorValue.textContent = value;
-
         }
     });
-
     return value;
-
 }
 
 function onRefresh(chart) {
@@ -147,7 +226,7 @@ var config = {
     type: 'line',
     data: {
         datasets: [{
-                label: 'Current Value',
+                label: 'Current Value (Linear)',
                 backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
                 borderColor: chartColors.red,
                 fill: false,
@@ -155,14 +234,14 @@ var config = {
                 borderDash: [8, 4],
                 data: []
             },
-            // {
-            //     label: 'Value 2 (cubic interpolation)',
-            //     backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-            //     borderColor: chartColors.blue,
-            //     fill: false,
-            //     cubicInterpolationMode: 'monotone',
-            //     data: []
-            // }
+            {
+                label: 'Current Value (Cubic)',
+                backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+                borderColor: chartColors.blue,
+                fill: false,
+                cubicInterpolationMode: 'monotone',
+                data: []
+            }
         ]
     },
     options: {
@@ -217,15 +296,6 @@ window.onload = function () {
     window.myChart = new Chart(ctx, config);
 };
 
-document.getElementById('randomizeData').addEventListener('click', function () {
-    config.data.datasets.forEach(function (dataset) {
-        dataset.data.forEach(function (dataObj) {
-            dataObj.y = getSensorValue();
-        });
-    });
-    window.myChart.update();
-});
-
 var colorNames = Object.keys(chartColors);
 document.getElementById('addDataset').addEventListener('click', function () {
     var colorName = colorNames[config.data.datasets.length % colorNames.length];
@@ -238,17 +308,4 @@ document.getElementById('addDataset').addEventListener('click', function () {
         lineTension: 0,
         data: []
     };
-
-    config.data.datasets.push(newDataset);
-    window.myChart.update();
-});
-
-document.getElementById('removeDataset').addEventListener('click', function () {
-    config.data.datasets.pop();
-    window.myChart.update();
-});
-
-document.getElementById('addData').addEventListener('click', function () {
-    onRefresh(window.myChart);
-    window.myChart.update();
 });

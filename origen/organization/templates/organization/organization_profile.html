@@ -17,7 +17,7 @@
             <div class="container">
                 <div class="row">
                     <!-- HEADER -->
-                    <div class="col-md-6 ml-auto mr-auto">
+                    <div class="col-md-6 ml-auto mr-auto"> 
                         <!-- IMAGE Profile -->
                         <div class="card-avatar1">
                             {% if organization.logo %}
@@ -99,6 +99,10 @@
                             {% if organization.admin %}
                             <a class="btn btn-success"
                                 href="{% url 'organization:update' slug=organization.slug %}">Edit</a>
+                            
+                            <a class="btn btn-danger btn-organization-right"
+                                href="{% url 'organization:delete' slug=organization.slug %}">Delete
+                            </a>
                             {% endif %}
                         </address>
                         <!-- /END EDIT BUTTON -->
