@@ -9,6 +9,7 @@ def main(pk):
         sensor_input = round(sensor_input, 2)
 
         url = "http://127.0.0.1:8000/sensor/api/for/testorg4/" + str(pk)
+        #url = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + str(pk)
         headers = {'Content-Type': "application/json", 'Accept': "application/json"}
         data = {}
         data['value'] = sensor_input
