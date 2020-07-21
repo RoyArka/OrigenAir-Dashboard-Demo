@@ -6,11 +6,12 @@ from django.views.generic.edit import DeleteView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.urls import reverse
-from . models import Sensor
+from . models import Sensor, Record
 from . import forms
 from django.shortcuts import get_object_or_404
 from organization.models import Organization
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+import datetime
 
 #Create your views here.
 
@@ -86,6 +87,9 @@ class SensorDetailAPI(APIView):
             "organization": sensor.organization.name,
             "type": sensor.sensor_type,
             "value": sensor.value,
+            "min": sensor.threshold_min,
+            "max": sensor.threshold_max,
+        
         }
         return Response(data)
 
@@ -105,3 +109,26 @@ class SensorDetailAPI(APIView):
         }
 
         return Response(data)
+
+class RecordLastDayAPI(APIView):
+
+    def get_object(self, pk):
+        return (get_object_or_404(Sensor, pk=pk))
+
+    def get(self, request, *args, **kwargs):
+        sensor = self.get_object(self.kwargs.get('pk'))
+        time_24_hours_ago = datetime.datetime.utcnow() - datetime.timedelta(days=1)
+        records = Record.objects.filter(sensor__id=sensor.id, created_at__gte=time_24_hours_ago)
+
+        data = { 
+            "sensor": sensor.name,
+        }
+
+        for record in records:
+            data[record.pk] = {
+                "created_at": record.created_at,
+                "value": record.value,
+            }
+            
+        return Response(data)
+

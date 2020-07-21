@@ -51,6 +51,84 @@
 //     }
 // });
 
+function getSensorType(){
+    var originalUrlArray = window.location.href.split("/");
+    var sensorId = originalUrlArray[originalUrlArray.length - 1];
+    var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
+    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId;
+    var sensorString = ""
+    $.ajax({
+        async: false,
+        url: sensorApiUrl,
+        method: "GET",
+        data: {},
+        success: function (data) {
+            var sensorType = data.type;
+            if (sensorType.localeCompare("voc") == 0){
+                sensorString = "VOC (PPM)";
+            }
+        }
+    });
+    return sensorString;
+}
+
+function getThresholdValues(){
+    var originalUrlArray = window.location.href.split("/");
+    var sensorId = originalUrlArray[originalUrlArray.length - 1];
+    var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
+    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId;
+    var thresholdValues = [0,0]
+    $.ajax({
+        async: false,
+        url: sensorApiUrl,
+        method: "GET",
+        data: {},
+        success: function (data) {
+            var sensorMin = data.min;
+            var sensorMax = data.max;
+            thresholdValues = [sensorMin, sensorMax];
+        }
+    });
+    return thresholdValues;
+}
+
+function getDoughnutData(min, max){
+    var originalUrlArray = window.location.href.split("/");
+    var sensorId = originalUrlArray[originalUrlArray.length - 1];
+    var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
+    var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/last/day/records";
+    var recordData = [20,40,30];
+    var under_min = 0;
+    var over_max = 0;
+    var in_range = 0;
+
+    $.ajax({
+        async: false,
+        url: recordApiUrl,
+        method: "GET",
+        data: {},
+        
+        success: function (data) {
+           num_records = Object.keys(data).length-1;
+
+           for (var key in data){
+            var value = data[key].value;
+            if (value < min){
+                under_min += 1;
+            } else if (value > max){
+                over_max += 1;
+            } else {
+                in_range += 1;
+            } 
+          }
+          recordData = [(under_min/num_records * 100).toFixed(2), (in_range/num_records * 100).toFixed(2), (over_max/num_records * 100).toFixed(2)];
+        
+        }
+    });
+
+    return recordData;
+}
+
 new Chart(document.getElementById("bubble-chart"), {
     type: 'bubble',
     data: {
@@ -98,7 +176,7 @@ new Chart(document.getElementById("bubble-chart"), {
     options: {
       title: {
         display: true,
-        text: 'Frequency of Temperature Levels (°C)'
+        text: 'Frequency of ' + getSensorType()
       }, scales: {
         yAxes: [{ 
           scaleLabel: {
@@ -109,7 +187,7 @@ new Chart(document.getElementById("bubble-chart"), {
         xAxes: [{ 
           scaleLabel: {
             display: true,
-            labelString: "Temperature (°C)"
+            labelString: getSensorType()
           }
         }]
       }
@@ -158,16 +236,21 @@ new Chart(document.getElementById("mixed-chart"), {
 new Chart(document.getElementById("doughnut-chart"), {
     type: 'doughnut',
     data: {
+        labels:[
+            'Below Min',
+            'In Range',
+            'Above Max',
+        ],
         datasets: [{
             label: "Population (millions)",
-            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-            data: [2478, 5267, 734, 784, 433]
+            backgroundColor: ["#ffcd56", "#36a3eb", "#ff6384"],
+            data: getDoughnutData(getThresholdValues()[0], getThresholdValues()[1])
         }]
     },
     options: {
         title: {
             display: true,
-            text: 'Threshold Monitor'
+            text: 'Threshold Monitor - Last 24 Hours (%)'
         },
         rotation: -Math.PI,
         cutoutPercentage: 30,
@@ -247,7 +330,7 @@ var config = {
     options: {
         title: {
             display: true,
-            text: 'Temperature (°C)'
+            text: getSensorType()
         },
         scales: {
             xAxes: [{
@@ -262,7 +345,7 @@ var config = {
             yAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Temperature (°C)'
+                    labelString: getSensorType()
                 }
             }]
         },

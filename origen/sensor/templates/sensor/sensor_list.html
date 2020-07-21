@@ -23,7 +23,7 @@
         </thead>
         <tbody>
             {% for sensor in user.person.organization.sensors.all %}
-            <tr>
+            <tr id={{sensor.pk}}>
                 <th scope="row">{{sensor.pk}}</th>
                 <td><a href="{% url 'sensor:single' slug=user.person.organization.slug pk=sensor.pk %}"
                         style="display:block;">{{sensor.name|capfirst}}</a></td>
