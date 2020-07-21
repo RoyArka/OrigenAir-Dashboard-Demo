@@ -25,7 +25,7 @@ new Chart(document.getElementById("line-chart1"), {
   data: {
     labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 2000],
+        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
         label: "Temperature",
         borderColor: "#ff0066",
         fill: false,
@@ -36,10 +36,30 @@ new Chart(document.getElementById("line-chart1"), {
   options: {
     title: {
       display: true,
-      text: 'Sensors Data'
+      text: 'Sensor Data'
+    },
+    scales: {
+      xAxes: [{
+        type: 'realtime',
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 2000,
+          onRefresh: onRefresh
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Celsius (°C)'
+        }
+      }]
     },
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0
+    }
   }
 });
 
@@ -81,7 +101,7 @@ new Chart(document.getElementById("line-chart2"), {
   options: {
     title: {
       display: true,
-      text: 'Sensors Data'
+      text: 'Sensor Data'
     },
     responsive: true,
     maintainAspectRatio: false
@@ -126,7 +146,7 @@ new Chart(document.getElementById("line-chart3"), {
   options: {
     title: {
       display: true,
-      text: 'Sensors Data'
+      text: 'Sensor Data'
     },
     responsive: true,
     maintainAspectRatio: false
@@ -171,9 +191,42 @@ new Chart(document.getElementById("line-chart4"), {
   options: {
     title: {
       display: true,
-      text: 'Sensors Data'
+      text: 'Sensor Data'
     },
     responsive: true,
     maintainAspectRatio: false
   }
 });
+
+function getSensorValue() {
+  var originalUrlArray = window.location.href.split("/")
+  var sensorId = originalUrlArray[originalUrlArray.length - 1];
+  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg" + sensorId;
+  var value = 0.0;
+  $.ajax({
+      async: false,
+      url: sensorApiUrl,
+      method: "GET",
+      data: {},
+      success: function (data) {
+          var sensorValue = $("#sensor-value")[0];
+          value = data.value;
+          sensorValue.textContent = value;
+      }
+  });
+  return value;
+}
+
+function randomScalingFactor() {
+	return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+}
+
+function onRefresh(chart) {
+	chart.config.data.datasets.forEach(function(dataset) {
+		dataset.data.push({
+			x: Date.now(),
+			y: getSensorValue()
+		});
+	});
+}

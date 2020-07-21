@@ -18,4 +18,4 @@ def main(pk):
         print(res.status_code)
         time.sleep(1)
 
-main(33)
+main(1)

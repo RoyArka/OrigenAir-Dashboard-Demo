@@ -296,15 +296,6 @@ window.onload = function () {
     window.myChart = new Chart(ctx, config);
 };
 
-document.getElementById('randomizeData').addEventListener('click', function () {
-    config.data.datasets.forEach(function (dataset) {
-        dataset.data.forEach(function (dataObj) {
-            dataObj.y = getSensorValue();
-        });
-    });
-    window.myChart.update();
-});
-
 var colorNames = Object.keys(chartColors);
 document.getElementById('addDataset').addEventListener('click', function () {
     var colorName = colorNames[config.data.datasets.length % colorNames.length];
@@ -317,17 +308,4 @@ document.getElementById('addDataset').addEventListener('click', function () {
         lineTension: 0,
         data: []
     };
-
-    config.data.datasets.push(newDataset);
-    window.myChart.update();
-});
-
-document.getElementById('removeDataset').addEventListener('click', function () {
-    config.data.datasets.pop();
-    window.myChart.update();
-});
-
-document.getElementById('addData').addEventListener('click', function () {
-    onRefresh(window.myChart);
-    window.myChart.update();
 });
