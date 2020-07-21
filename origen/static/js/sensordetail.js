@@ -111,10 +111,10 @@ function randomScalingFactor() {
 }
 
 function getSensorValue() {
-    var originalUrlArray = window.location.href.split("/")
+    var originalUrlArray = window.location.href.split("/");
     var sensorId = originalUrlArray[originalUrlArray.length - 1];
-    // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bcit/" + sensorId;
+    var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
+    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId;
     var value = 0.0;
     $.ajax({
         async: false,
