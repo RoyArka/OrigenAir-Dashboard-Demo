@@ -10,6 +10,49 @@
 {% if user.person.organization %}
 <div class="main-container">
     <div class="row">
+        <div class="col-sm-4 index-card-margin3">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center index-card1 index-card-padding">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 index-card1-text">Active</h5>
+                        </div>
+                        <div class="card-text2 index-card1-text index-card1-text-margin">
+                            <h5>PLACEHOLDER</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 index-card-margin3">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center index-card1 index-card-padding">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 index-card1-text">Inactive</h5>
+                        </div>
+                        <div class="card-text2 index-card1-text index-card1-text-margin">
+                            <h5>PLACEHOLDER</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 index-card-margin3">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center index-card1 index-card-padding">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 index-card1-text">Maintenance</h5>
+                        </div>
+                        <div class="card-text2 index-card1-text index-card1-text-margin">
+                            <h5>PLACEHOLDER</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Temperature Doughnut -->
         <div class="col-sm-3 index-card-margin3">
             <div class="card border-0 shadow index-card-padding">
@@ -71,87 +114,87 @@
 {% else %}
 
 
-<div class="index-container">
-    <div class="row justify-content-center index-card-margin">
-        <!-- Create Organization-->
-        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11 mt-4 index-card-margin2">
-            <div class="card text-center h-100">
-                <div class="card-body px-5 pt-5 d-flex flex-column">
-                    <div>
-                        <div class="h3 text-primary font-weight-400">Create</div>
-                        <p class="text-muted mb-4">Create an organization and invite new members</p>
+    <div class="index-container">
+        <div class="row justify-content-center index-card-margin">
+            <!-- Create Organization-->
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11 mt-4 index-card-margin2">
+                <div class="card text-center h-100">
+                    <div class="card-body px-5 pt-5 d-flex flex-column">
+                        <div>
+                            <div class="h3 text-primary font-weight-400">Create</div>
+                            <p class="text-muted mb-4">Create an organization and invite new members</p>
+                        </div>
+                        <div class="icons-org-create align-items-center mx-auto mt-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-users icon-users">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <svg class="svg-inline--fa fa-plus fa-w-14 icon-plus" aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                                </path>
+                                <path fill="currentColor"
+                                    d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                                </path>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="icons-org-create align-items-center mx-auto mt-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-users icon-users">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                        <svg class="svg-inline--fa fa-plus fa-w-14 icon-plus" aria-hidden="true" focusable="false"
-                            data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
-                            </path>
-                            <path fill="currentColor"
-                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
-                            </path>
-                        </svg>
+                    <div class="card-footer bg-transparent px-5 py-4">
+                        <div class="small text-center"><a class="btn btn-block btn-primary"
+                                href="{% url 'organization:create' %}">Create new organization</a></div>
                     </div>
-                </div>
-                <div class="card-footer bg-transparent px-5 py-4">
-                    <div class="small text-center"><a class="btn btn-block btn-primary"
-                            href="{% url 'organization:create' %}">Create new organization</a></div>
                 </div>
             </div>
-        </div>
-        <!-- Join Organization-->
-        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11 mt-4 index-card-margin2">
-            <div class="card text-center h-100">
-                <div class="card-body px-5 pt-5 d-flex flex-column">
-                    <div>
-                        <div class="h3 text-secondary font-weight-400">Join</div>
-                        <p class="text-muted mb-4">View and join an organization</p>
+            <!-- Join Organization-->
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-11 mt-4 index-card-margin2">
+                <div class="card text-center h-100">
+                    <div class="card-body px-5 pt-5 d-flex flex-column">
+                        <div>
+                            <div class="h3 text-secondary font-weight-400">Join</div>
+                            <p class="text-muted mb-4">View and join an organization</p>
+                        </div>
+                        <div class="icons-org-join align-items-center mx-auto mt-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-user icon-user">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <svg class="svg-inline--fa fa-long-arrow-alt-right fa-w-14 icon-arrow" aria-hidden="true"
+                                focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z">
+                                </path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-users icon-users">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
                     </div>
-                    <div class="icons-org-join align-items-center mx-auto mt-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-user icon-user">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <svg class="svg-inline--fa fa-long-arrow-alt-right fa-w-14 icon-arrow" aria-hidden="true"
-                            focusable="false" data-prefix="fas" data-icon="long-arrow-alt-right" role="img"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
-                            <path fill="currentColor"
-                                d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z">
-                            </path>
-                        </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-users icon-users">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
+                    <div class="card-footer bg-transparent px-5 py-4">
+                        <div class="small text-center"><a class="btn btn-block btn-secondary"
+                                href="{% url 'organization:all' %}">Join an organization</a></div>
                     </div>
-                </div>
-                <div class="card-footer bg-transparent px-5 py-4">
-                    <div class="small text-center"><a class="btn btn-block btn-secondary"
-                            href="{% url 'organization:all' %}">Join an organization</a></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 {% endif %}
 

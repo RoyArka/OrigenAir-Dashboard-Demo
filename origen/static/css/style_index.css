@@ -35,6 +35,10 @@
     color: white;
 }
 
+.index-card1-text-margin {
+  margin-top: 30px;
+}
+
 .index-card-margin {
   margin-top: 100px !important;
 }
