@@ -10,70 +10,99 @@
 {% if user.person.organization %}
 <div class="main-container">
     <div class="row">
-        <!-- <div class="col-sm-3 index-card-margin3">
+        <div class="col-sm-4 index-card-margin3">
             <div class="card border-0 shadow">
                 <div class="card-body2 text-center index-card1 index-card-padding">
                     <div class="card3">
                         <div>
-                            <h5 class="card-title mb-0 index-card1-text">Temperature</h5>
+                            <h5 class="card-title mb-0 index-card1-text">Active</h5>
                         </div>
-                        <div class="card-text2 index-card1-text">
-                            <h5>30°C</h5>
-                            <canvas id="doughnut-chart1" height="200vh"></canvas>
+                        <div class="card-text2 index-card1-text index-card1-text-margin">
+                            <h5>PLACEHOLDER</h5>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-
-        <div class="col-sm-3 index-card-margin3">
+        </div>
+        <div class="col-sm-4 index-card-margin3">
             <div class="card border-0 shadow">
+                <div class="card-body2 text-center index-card1 index-card-padding">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 index-card1-text">Inactive</h5>
+                        </div>
+                        <div class="card-text2 index-card1-text index-card1-text-margin">
+                            <h5>PLACEHOLDER</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 index-card-margin3">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center index-card1 index-card-padding">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 index-card1-text">Maintenance</h5>
+                        </div>
+                        <div class="card-text2 index-card1-text index-card1-text-margin">
+                            <h5>PLACEHOLDER</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Temperature Doughnut -->
+        <div class="col-sm-3 index-card-margin3">
+            <div class="card border-0 shadow index-card-padding">
                 <canvas id="doughnut-chart1" height="200vh"></canvas>
             </div>
         </div>
 
+        <!-- Temperature Line -->
         <div class="col-sm-9 index-card-margin3">
             <div class="card border-0 shadow index-card-padding">
                 <canvas id="line-chart1" height="200vh"></canvas>
             </div>
         </div>
-        <div class="col-sm-6">
-            <canvas id="polar-chart" width="800" height="450"></canvas>
+
+        <!-- Humidity Doughnut -->
+        <div class="col-sm-3 index-card-margin3">
+            <div class="card border-0 shadow index-card-padding">
+                <canvas id="doughnut-chart2" height="200vh"></canvas>
+            </div>
         </div>
 
+        <!-- Humidity Line -->
         <div class="col-sm-9 index-card-margin3">
             <div class="card border-0 shadow index-card-padding">
                 <canvas id="line-chart2" height="200vh"></canvas>
             </div>
         </div>
-        <div class="col-sm-6">
-            <canvas id="mixed-chart" width="800" height="450"></canvas>
+
+        <!-- VOC Doughnut -->
+        <div class="col-sm-3 index-card-margin3">
+            <div class="card border-0 shadow index-card-padding">
+                <canvas id="doughnut-chart3" height="200vh"></canvas>
+            </div>
         </div>
 
+        <!-- VOC Line -->
         <div class="col-sm-9 index-card-margin3">
             <div class="card border-0 shadow index-card-padding">
                 <canvas id="line-chart3" height="200vh"></canvas>
             </div>
         </div>
 
+        <!-- CO2 Doughnut -->
         <div class="col-sm-3 index-card-margin3">
-            <div class="card border-0 shadow">
-                <div class="card-body2 text-center index-card1 index-card-padding">
-                    <div class="card3">
-                        <div>
-                            <h5 class="card-title mb-0 index-card1-text">CO2</h5>
-                        </div>
-
-                        <br>
-
-                        <div class="card-text2 index-card1-text">
-                            <h5>5ppm</h5>
-                        </div>
-                    </div>
-                </div>
+            <div class="card border-0 shadow index-card-padding">
+                <canvas id="doughnut-chart4" height="200vh"></canvas>
             </div>
         </div>
 
+        <!-- CO2 Line -->
         <div class="col-sm-9 index-card-margin3">
             <div class="card border-0 shadow index-card-padding">
                 <canvas id="line-chart4" height="200vh"></canvas>
