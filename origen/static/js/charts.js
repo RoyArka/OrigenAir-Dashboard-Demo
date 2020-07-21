@@ -62,7 +62,10 @@ new Chart(document.getElementById("line-chart"), {
       title: {
         display: true,
         text: 'Sensors Data'
-	  }
+    },
+      responsive: true,
+      maintainAspectRatio: false
+    
     }
   }); 
 
