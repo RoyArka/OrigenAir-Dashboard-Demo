@@ -330,13 +330,13 @@ var config = {
                 borderDash: [8, 4],
                 data: []
             },
-            // {
-            //     label: 'Current Value (Cubic)',
-            //     backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-            //     borderColor: chartColors.blue,
-            //     fill: false,
-            //     data: []
-            // },
+            {
+                label: 'Current Value (Cubic)',
+                backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+                borderColor: chartColors.blue,
+                fill: false,
+                data: []
+            },
             // {
             //     label: 'Min Threshold',
             //     backgroundColor: color(chartColors.yellow).alpha(0.5).rgbString(),
@@ -365,7 +365,7 @@ var config = {
                     duration: 20000,
                     refresh: 1000,
                     delay: 2000,
-                    onRefresh: onRefresh, onRefresh2, onRefresh3
+                    onRefresh: onRefresh
                 }
             }],
             yAxes: [{
