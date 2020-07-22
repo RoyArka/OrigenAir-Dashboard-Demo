@@ -1,5 +1,14 @@
-//Get sensor_type
-function getSensorType(){
+var chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+};
+
+function getSensorType() {
     var originalUrlArray = window.location.href.split("/");
     var sensorId = originalUrlArray[originalUrlArray.length - 1];
     var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
@@ -12,20 +21,27 @@ function getSensorType(){
         data: {},
         success: function (data) {
             var sensorType = data.type;
-            if (sensorType.localeCompare("voc") == 0){
-                sensorString = "VOC (PPM)";
+
+            if (sensorType.localeCompare("temperature") == 0) {
+                sensorString = "Temperature (°C)";
+            } else if (sensorType.localeCompare("humidity") == 0) {
+                sensorString = "Humidity (%)";
+            } else if (sensorType.localeCompare("voc") == 0) {
+                sensorString = "VOC (ppm)";
+            } else if (sensorType.localeCompare("co2") == 0) {
+                sensorString = "CO2 (ppm)";
             }
         }
     });
     return sensorString;
 }
-//Get threshold_min & threshold_max
-function getThresholdValues(){
+
+function getThresholdValues() {
     var originalUrlArray = window.location.href.split("/");
     var sensorId = originalUrlArray[originalUrlArray.length - 1];
     var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
     var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId;
-    var thresholdValues = [0,0]
+    var thresholdValues = [0, 0]
     $.ajax({
         async: false,
         url: sensorApiUrl,
@@ -40,162 +56,92 @@ function getThresholdValues(){
     return thresholdValues;
 }
 
-//Get Doughnut Chart Data
-function getDoughnutData(min, max){
+function getRecordDayData(min, max, days=1, doughnut=true) {
     var originalUrlArray = window.location.href.split("/");
     var sensorId = originalUrlArray[originalUrlArray.length - 1];
     var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
-    var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/last/day/records";
-    var recordData = [20,40,30];
-    var under_min = 0;
-    var over_max = 0;
-    var in_range = 0;
+    var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/day/records/" + days;
+    var recordData = [20, 40, 30];
+    var underMin = 0;
+    var overMax = 0;
+    var inRange = 0;
 
     $.ajax({
         async: false,
         url: recordApiUrl,
         method: "GET",
         data: {},
-        
-        success: function (data) {
-           num_records = Object.keys(data).length-1;
 
-           for (var key in data){
-            var value = data[key].value;
-            if (value < min){
-                under_min += 1;
-            } else if (value > max){
-                over_max += 1;
+        success: function (data) {
+            numRecords = Object.keys(data).length;
+
+            if (doughnut){
+              for (var key in data) {
+                  var value = data[key].value;
+                  if (value < min) {
+                      underMin += 1;
+                  } else if (value > max) {
+                      overMax += 1;
+                  } else {
+                      inRange += 1;
+                  }
+              }
+              recordData = [(underMin / numRecords * 100).toFixed(2), (inRange / numRecords * 100).toFixed(2), (overMax / numRecords * 100).toFixed(2)];
             } else {
-                in_range += 1;
-            } 
-          }
-          recordData = [(under_min/num_records * 100).toFixed(2), (in_range/num_records * 100).toFixed(2), (over_max/num_records * 100).toFixed(2)];
+              var recordArray = [];
+              for (var key in data){
+                var value = data[key].value;
+                recordArray.push(value);
+                
+              }
+              
+              recordArray.sort();
+              var minArray = recordArray[0];
+              
+              var maxArray = recordArray[recordArray.length - 1];
+              
+              
+              var avgArray = 0;
+              // for (int i=0; i<recordArray.length; i++){
+              //   avgArray += recordArray[i];
+              // }
+              // avgArray = avgArray / recordArray.length;
+              
+              recordData = [minArray, avgArray, maxArray];
+              console.log(recordData);
+            }
+
         }
     });
-
     return recordData;
 }
+function formatMixedChartData(type){
+  // Type 0: min
+  // Type 1: average
+  // Type 2: max
 
-//Bubble Chart
-new Chart(document.getElementById("bubble-chart"), {
-    type: 'bubble',
-    data: {
-      labels: "Africa",
-      datasets: [
-        {
-          label: ["China"],
-          backgroundColor: "rgba(255,221,50,0.2)",
-          borderColor: "rgba(255,221,50,1)",
-          data: [{
-            x: 2169017,
-            y: 5.245,
-            r: 15
-          }]
-        }, {
-          label: ["Denmark"],
-          backgroundColor: "rgba(60,186,159,0.2)",
-          borderColor: "rgba(60,186,159,1)",
-          data: [{
-            x: 258702,
-            y: 7.526,
-            r: 10
-          }]
-        }, {
-          label: ["Germany"],
-          backgroundColor: "rgba(0,0,0,0.2)",
-          borderColor: "#000",
-          data: [{
-            x: 3979083,
-            y: 6.994,
-            r: 15
-          }]
-        }, {
-          label: ["Japan"],
-          backgroundColor: "rgba(193,46,12,0.2)",
-          borderColor: "rgba(193,46,12,1)",
-          data: [{
-            x: 4931877,
-            y: 5.921,
-            r: 15
-          }]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Frequency of ' + getSensorType()
-      }, scales: {
-        yAxes: [{ 
-          scaleLabel: {
-            display: true,
-            labelString: "Frequency"
-          }
-        }],
-        xAxes: [{ 
-          scaleLabel: {
-            display: true,
-            labelString: getSensorType()
-          }
-        }]
-      }
-    }
-});
+  var dayOneData = getRecordDayData(0,0,1,false);
+  var dayTwoData = getRecordDayData(0,0,2,false);
+  var dayThreeData = getRecordDayData(0,0,3,false);
+  var dayFourData = getRecordDayData(0,0,4,false);
+  
+  var formattedArray = [dayFourData[type], dayThreeData[type], dayTwoData[type], dayOneData[type]];
+  
+  return formattedArray;
+}
 
-//Mxed Bar & Line Chart
-new Chart(document.getElementById("mixed-chart"), {
-    type: 'bar',
-    data: {
-      labels: ["1900", "1950", "1999", "2050"],
-      datasets: [{
-          label: "Europe",
-          type: "line",
-          borderColor: "#8e5ea2",
-          data: [408,547,675,734],
-          fill: false
-        }, {
-          label: "Africa",
-          type: "line",
-          borderColor: "#3e95cd",
-          data: [133,221,783,2478],
-          fill: false
-        }, {
-          label: "Europe",
-          type: "bar",
-          backgroundColor: "rgba(0,0,0,0.2)",
-          data: [408,547,675,734],
-        }, {
-          label: "Africa",
-          type: "bar",
-          backgroundColor: "rgba(0,0,0,0.2)",
-          backgroundColorHover: "#3e95cd",
-          data: [133,221,783,2478]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Population growth (millions): Europe & Africa'
-      },
-      legend: { display: false }
-    }
-});
-
-//Threshold Min, Max, Avg Chart (Doughnut Chart)
 new Chart(document.getElementById("doughnut-chart"), {
     type: 'doughnut',
     data: {
-        labels:[
+        labels: [
             'Below Min',
             'In Range',
             'Above Max',
         ],
         datasets: [{
-            label: "Population (millions)",
+            label: "",
             backgroundColor: ["#ffcd56", "#36a3eb", "#ff6384"],
-            data: getDoughnutData(getThresholdValues()[0], getThresholdValues()[1])
+            data: getRecordDayData(getThresholdValues()[0], getThresholdValues()[1])
         }]
     },
     options: {
@@ -209,20 +155,125 @@ new Chart(document.getElementById("doughnut-chart"), {
     }
 });
 
-var chartColors = {
-    red: 'rgb(255, 99, 132)',
-    orange: 'rgb(255, 159, 64)',
-    yellow: 'rgb(255, 205, 86)',
-    green: 'rgb(75, 192, 192)',
-    blue: 'rgb(54, 162, 235)',
-    purple: 'rgb(153, 102, 255)',
-    grey: 'rgb(201, 203, 207)'
-};
+//Mxed Bar & Line Chart
+new Chart(document.getElementById("mixed-chart"), {
+    type: 'bar',
+    data: {
+        labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
+        datasets: [{
+            label: "Average",
+            type: "line",
+            borderColor: "#4bc076",
+            data: formatMixedChartData(1),
+            fill: false
+        }, {
+            label: "Min",
+            type: "bar",
+            backgroundColor: "rgba(255, 205, 86, 0.7)",
+            data: formatMixedChartData(0),
+        }, {
+            label: "Average",
+            type: "bar",
+            backgroundColor: "rgba(54, 163, 235, 0.7)",
+            data: formatMixedChartData(1),
+        }, {
+            label: "Max",
+            type: "bar",
+            backgroundColor: "rgba(255, 99, 132, 0.7)",
+            data: formatMixedChartData(2),
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Historical ' + getSensorType() + ' Levels'
+        },
+        legend: {
+            display: false
+        },
+        scales: {
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: getSensorType()
+                }
+            }],
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Days'
+                }
+            }]
+        }
+    }
+});
+
+new Chart(document.getElementById("bubble-chart"), {
+    type: 'bubble',
+    data: {
+        labels: "Africa",
+        datasets: [{
+            label: ["China"],
+            backgroundColor: "rgba(255,221,50,0.2)",
+            borderColor: "rgba(255,221,50,1)",
+            data: [{
+                x: 2169017,
+                y: 5.245,
+                r: 15
+            }]
+        }, {
+            label: ["Denmark"],
+            backgroundColor: "rgba(60,186,159,0.2)",
+            borderColor: "rgba(60,186,159,1)",
+            data: [{
+                x: 258702,
+                y: 7.526,
+                r: 10
+            }]
+        }, {
+            label: ["Germany"],
+            backgroundColor: "rgba(0,0,0,0.2)",
+            borderColor: "#000",
+            data: [{
+                x: 3979083,
+                y: 6.994,
+                r: 15
+            }]
+        }, {
+            label: ["Japan"],
+            backgroundColor: "rgba(193,46,12,0.2)",
+            borderColor: "rgba(193,46,12,1)",
+            data: [{
+                x: 4931877,
+                y: 5.921,
+                r: 15
+            }]
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Frequency of ' + getSensorType()
+        },
+        scales: {
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: "Frequency"
+                }
+            }],
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: getSensorType()
+                }
+            }]
+        }
+    }
+});
 
 function randomScalingFactor() {
     var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-    console.log("X:" + Date.now());
-    console.log("\n Y: " + randomNum);
     return randomNum;
 }
 
@@ -248,25 +299,20 @@ function getSensorValue() {
     return value;
 }
 
-// function onRefresh(chart) {
-//     chart.config.data.datasets.forEach(function (dataset) {
-//         dataset.data.push({
-//             x: Date.now(),
-//             y: getSensorValue()
-//         });
-//     });
-// }
-
 //Onrefresh sensor value
 function onRefresh(chart) {
     chart.config.data.datasets.forEach(function (dataset) {
-        console.log(1);
-        // console.log(dataset);
-        // console.log(config.data.datasets[0] + "3 hours of sleep is good");
+        if (dataset.cubicInterpolationMode){
+          dataset.data.push({
+            x: Date.now(),
+            y: randomScalingFactor()
+          })
+        } else {
         dataset.data.push({
             x: Date.now(),
             y: getSensorValue()
         });
+        }
     });
 }
 
@@ -336,8 +382,48 @@ var config = {
         hover: {
             mode: 'nearest',
             intersect: false
-        }
-    },
+        },
+        annotation: {
+			events: ['click'],
+			annotations: [{
+					drawTime: 'afterDatasetsDraw',
+					id: 'max_line',
+					type: 'line',
+					mode: 'horizontal',
+					scaleID: 'y-axis-0',
+					value: getThresholdValues()[1],
+					borderColor: 'black',
+					borderWidth: 1,
+					label: {
+						backgroundColor: 'red',
+						content: 'Max',
+						enabled: true
+					},
+					onClick: function(e) {
+						console.log('Annotation', e.type, this);
+					}
+                },
+                {
+					drawTime: 'afterDatasetsDraw',
+					id: 'min_line',
+					type: 'line',
+					mode: 'horizontal',
+					scaleID: 'y-axis-0',
+					value: getThresholdValues()[0],
+					borderColor: 'black',
+					borderWidth: 1,
+					label: {
+						backgroundColor: 'red',
+						content: 'Min',
+						enabled: true
+					},
+					onClick: function(e) {
+						console.log('Annotation', e.type, this);
+					}
+                }
+			]
+		}
+    }
 };
 
 window.onload = function () {
