@@ -56,15 +56,15 @@ function getThresholdValues() {
     return thresholdValues;
 }
 
-function getDoughnutData(min, max) {
+function getRecordDayData(min, max, days=1, doughnut=true) {
     var originalUrlArray = window.location.href.split("/");
     var sensorId = originalUrlArray[originalUrlArray.length - 1];
     var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
-    var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/last/day/records";
+    var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/day/records/" + days;
     var recordData = [20, 40, 30];
-    var under_min = 0;
-    var over_max = 0;
-    var in_range = 0;
+    var underMin = 0;
+    var overMax = 0;
+    var inRange = 0;
 
     $.ajax({
         async: false,
@@ -73,22 +73,61 @@ function getDoughnutData(min, max) {
         data: {},
 
         success: function (data) {
-            num_records = Object.keys(data).length - 1;
+            numRecords = Object.keys(data).length;
 
-            for (var key in data) {
+            if (doughnut){
+              for (var key in data) {
+                  var value = data[key].value;
+                  if (value < min) {
+                      underMin += 1;
+                  } else if (value > max) {
+                      overMax += 1;
+                  } else {
+                      inRange += 1;
+                  }
+              }
+              recordData = [(underMin / numRecords * 100).toFixed(2), (inRange / numRecords * 100).toFixed(2), (overMax / numRecords * 100).toFixed(2)];
+            } else {
+              var recordArray = [];
+              for (var key in data){
                 var value = data[key].value;
-                if (value < min) {
-                    under_min += 1;
-                } else if (value > max) {
-                    over_max += 1;
-                } else {
-                    in_range += 1;
-                }
+                recordArray.push(value);
+                
+              }
+              
+              recordArray.sort();
+              var minArray = recordArray[0];
+              
+              var maxArray = recordArray[recordArray.length - 1];
+              
+              
+              var avgArray = 0;
+              // for (int i=0; i<recordArray.length; i++){
+              //   avgArray += recordArray[i];
+              // }
+              // avgArray = avgArray / recordArray.length;
+              
+              recordData = [minArray, avgArray, maxArray];
+              console.log(recordData);
             }
-            recordData = [(under_min / num_records * 100).toFixed(2), (in_range / num_records * 100).toFixed(2), (over_max / num_records * 100).toFixed(2)];
+
         }
     });
     return recordData;
+}
+function formatMixedChartData(type){
+  // Type 0: min
+  // Type 1: average
+  // Type 2: max
+
+  var dayOneData = getRecordDayData(0,0,1,false);
+  var dayTwoData = getRecordDayData(0,0,2,false);
+  var dayThreeData = getRecordDayData(0,0,3,false);
+  var dayFourData = getRecordDayData(0,0,4,false);
+  
+  var formattedArray = [dayFourData[type], dayThreeData[type], dayTwoData[type], dayOneData[type]];
+  
+  return formattedArray;
 }
 
 new Chart(document.getElementById("doughnut-chart"), {
@@ -102,7 +141,7 @@ new Chart(document.getElementById("doughnut-chart"), {
         datasets: [{
             label: "",
             backgroundColor: ["#ffcd56", "#36a3eb", "#ff6384"],
-            data: getDoughnutData(getThresholdValues()[0], getThresholdValues()[1])
+            data: getRecordDayData(getThresholdValues()[0], getThresholdValues()[1])
         }]
     },
     options: {
@@ -124,23 +163,23 @@ new Chart(document.getElementById("mixed-chart"), {
             label: "Average",
             type: "line",
             borderColor: "#4bc076",
-            data: [408, 547, 675, 734],
+            data: formatMixedChartData(1),
             fill: false
         }, {
             label: "Min",
             type: "bar",
             backgroundColor: "rgba(255, 205, 86, 0.7)",
-            data: [408, 547, 675, 734],
+            data: formatMixedChartData(0),
         }, {
             label: "Average",
             type: "bar",
             backgroundColor: "rgba(54, 163, 235, 0.7)",
-            data: [408, 547, 675, 734],
+            data: formatMixedChartData(1),
         }, {
             label: "Max",
             type: "bar",
             backgroundColor: "rgba(255, 99, 132, 0.7)",
-            data: [408, 547, 675, 734],
+            data: formatMixedChartData(2),
         }]
     },
     options: {
@@ -234,8 +273,6 @@ new Chart(document.getElementById("bubble-chart"), {
 
 function randomScalingFactor() {
     var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-    console.log("X:" + Date.now());
-    console.log("\n Y: " + randomNum);
     return randomNum;
 }
 
@@ -261,10 +298,17 @@ function getSensorValue() {
 
 function onRefresh(chart) {
     chart.config.data.datasets.forEach(function (dataset) {
+        if (dataset.cubicInterpolationMode){
+          dataset.data.push({
+            x: Date.now(),
+            y: randomScalingFactor()
+          })
+        } else {
         dataset.data.push({
             x: Date.now(),
             y: getSensorValue()
         });
+        }
     });
 }
 

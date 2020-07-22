@@ -110,18 +110,22 @@ class SensorDetailAPI(APIView):
 
         return Response(data)
 
-class RecordLastDayAPI(APIView):
+class RecordDayAPI(APIView):
 
     def get_object(self, pk):
         return (get_object_or_404(Sensor, pk=pk))
 
     def get(self, request, *args, **kwargs):
         sensor = self.get_object(self.kwargs.get('pk'))
-        time_24_hours_ago = datetime.datetime.utcnow() - datetime.timedelta(days=1)
-        records = Record.objects.filter(sensor__id=sensor.id, created_at__gte=time_24_hours_ago)
+        days_offset = int(self.kwargs.get('days'))
+
+        start_time = datetime.datetime.utcnow() - datetime.timedelta(days=days_offset)
+        end_time = start_time + datetime.timedelta(days=1)
+
+        records = Record.objects.filter(sensor__id=sensor.id, created_at__range=(start_time, end_time))
 
         data = {
-            "sensor": sensor.name,
+            
         }
 
         for record in records:
