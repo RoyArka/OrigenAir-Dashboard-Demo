@@ -120,7 +120,7 @@ class RecordLastDayAPI(APIView):
         time_24_hours_ago = datetime.datetime.utcnow() - datetime.timedelta(days=1)
         records = Record.objects.filter(sensor__id=sensor.id, created_at__gte=time_24_hours_ago)
 
-        data = { 
+        data = {
             "sensor": sensor.name,
         }
 
@@ -131,4 +131,3 @@ class RecordLastDayAPI(APIView):
             }
             
         return Response(data)
-
