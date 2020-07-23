@@ -163,15 +163,15 @@ function getSensorValue() {
   return value;
 }
 
-  let avg = 0.0
-  let new_value = getSensorValue()
+var runningAvg = 0.0
 
 //Get Sensor AvgValue
-function getAvgSensorValue(avg, new_value) {
-  avg -= avg/3
-  avg += new_value/3
-  console.log(avg);
-  return avg;
+function getAvgSensorValue(runningAvg) {
+  var newValue = getSensorValue()
+  runningAvg -= runningAvg/3
+  runningAvg += newValue/3
+  console.log(runningAvg);
+  return runningAvg;
 }
 
 //Main Streaming Chart onRfresh property function 
@@ -193,7 +193,7 @@ function onRefresh(chart) {
       //Sensor Avg Value
       dataset.data.push({
         x: Date.now(),
-        y: getAvgSensorValue()
+        y: getAvgSensorValue(runningAvg)
       });
     } else if (dataset.id == 'max_threshold') {
       //Sensor Min_Threshold
