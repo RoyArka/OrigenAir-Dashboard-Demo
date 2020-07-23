@@ -60,7 +60,7 @@ function getRecordDayData(minimum, maximum, time = "days", offset = 1, doughnut 
   var originalUrlArray = window.location.href.split("/");
   var sensorId = originalUrlArray[originalUrlArray.length - 1];
   var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
-  var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/records/" + days + "/" + offset;
+  var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/records/" + time + "/" + offset;
   var recordData = [20, 40, 30];
   var underMin = 0;
   var overMax = 0;
@@ -111,7 +111,7 @@ function getRecordDayData(minimum, maximum, time = "days", offset = 1, doughnut 
         }
         const [forLoopMin, forLoopAvg, forLoopMax] = forLoopMinAvgMax()
 
-        recordData = [forLoopMin, forLoopAvg, forLoopMax];
+        recordData = [forLoopMin.toFixed(2), forLoopAvg.toFixed(2), forLoopMax.toFixed(2)];
         console.log(recordData);
       }
     }
@@ -212,10 +212,9 @@ new Chart(document.getElementById("mixed-chart"), {
                     labelString: 'Days'
                 }
             }]
-        }
-      }]
+        },
+      }
     }
-  }
 });
 
 // TIME SERIES CHART
@@ -274,37 +273,6 @@ new Chart(document.getElementById("timeseries-chart"), {
   }
 });
 
-// new Chart(document.getElementById("timeseries-chart"), {
-//   type: 'line',
-//   animation: false,
-//   data: {
-//       labels: dates,
-//       datasets: [{
-//           label: '',
-//           data: prices,
-//           pointRadius: 0,
-//           borderWidth: 1,
-//           borderColor: '#a97f35',
-//           backgroundColor: '#a97f35'
-//       }]
-//   },
-//   title: {
-//       position: 'bottom',
-//       text: 'Test'
-//   },
-//   options: {
-//       legend: {
-//           display: false
-//       },
-//       scales: {
-//           xAxes: [{
-//               ticks: {
-//                   maxTicksLimit: 8
-//               }
-//           }]
-//       }
-//   }
-// });
 
 function randomScalingFactor() {
   var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
