@@ -64,15 +64,15 @@ function getThresholdValues() {
     return thresholdValues;
 }
 
-function getRecordDayData(min, max, days=1, doughnut=true) {
-    var originalUrlArray = window.location.href.split("/");
-    var sensorId = originalUrlArray[originalUrlArray.length - 1];
-    var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
-    var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/day/records/" + days;
-    var recordData = [20, 40, 30];
-    var underMin = 0;
-    var overMax = 0;
-    var inRange = 0;
+function getRecordDayData(minimum, maximum, time = "days", offset = 1, doughnut = true) {
+  var originalUrlArray = window.location.href.split("/");
+  var sensorId = originalUrlArray[originalUrlArray.length - 1];
+  var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
+  var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/records/" + time + "/" + offset;
+  var recordData = [0, 0, 0];
+  var underMin = 0;
+  var overMax = 0;
+  var inRange = 0;
 
     $.ajax({
         async: false,
@@ -173,9 +173,15 @@ function getSensorValue() {
   return value;
 }
 
+  let avg = 0.0
+  let new_value = getSensorValue()
+
 //Get Sensor AvgValue
-function getAvgSensorValue() {
-  return 0;
+function getAvgSensorValue(avg, new_value) {
+  avg -= avg/3
+  avg += new_value/3
+  console.log(avg);
+  return avg;
 }
 
 //Main Streaming Chart onRfresh property function 
