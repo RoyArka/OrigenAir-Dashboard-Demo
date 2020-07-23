@@ -56,11 +56,11 @@ function getThresholdValues() {
     return thresholdValues;
 }
 
-function getRecordDayData(min, max, days=1, doughnut=true) {
+function getRecordDayData(minimum, maximum, time="days", offset=1, doughnut=true) {
     var originalUrlArray = window.location.href.split("/");
     var sensorId = originalUrlArray[originalUrlArray.length - 1];
     var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
-    var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/day/records/" + days;
+    var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/records/" + days + "/" + offset;
     var recordData = [20, 40, 30];
     var underMin = 0;
     var overMax = 0;
@@ -77,10 +77,10 @@ function getRecordDayData(min, max, days=1, doughnut=true) {
 
             if (doughnut){
               for (var key in data) {
-                  var value = data[key].value;
-                  if (value < min) {
+                  var val = data[key].value;
+                  if (val < minimum) {
                       underMin += 1;
-                  } else if (value > max) {
+                  } else if (val > maximum) {
                       overMax += 1;
                   } else {
                       inRange += 1;
@@ -90,24 +90,26 @@ function getRecordDayData(min, max, days=1, doughnut=true) {
             } else {
               var recordArray = [];
               for (var key in data){
-                var value = data[key].value;
-                recordArray.push(value);
+                var val = data[key].value;
+                recordArray.push(val);
                 
               }
               
-              recordArray.sort();
-              var minArray = recordArray[0];
-              
-              var maxArray = recordArray[recordArray.length - 1];
-              
-              
-              var avgArray = 0;
-              // for (int i=0; i<recordArray.length; i++){
-              //   avgArray += recordArray[i];
-              // }
-              // avgArray = avgArray / recordArray.length;
-              
-              recordData = [minArray, avgArray, maxArray];
+              const forLoopMinAvgMax = () => {
+                let min = recordArray[0], max = recordArray[0], avg = recordArray[0]
+
+                for (let i=1; i<recordArray.length; i++){
+                  let value = recordArray[i]
+                  avg += value
+                  min = (value < min) ? value : min
+                  max = (value > max) ? value : max
+                }
+                avg = avg / recordArray.length
+                return [min, avg, max]
+              }
+              const [forLoopMin, forLoopAvg, forLoopMax] = forLoopMinAvgMax() 
+
+              recordData = [forLoopMin, forLoopAvg, forLoopMax];
               console.log(recordData);
             }
 
@@ -115,15 +117,16 @@ function getRecordDayData(min, max, days=1, doughnut=true) {
     });
     return recordData;
 }
+
 function formatMixedChartData(type){
   // Type 0: min
   // Type 1: average
   // Type 2: max
 
-  var dayOneData = getRecordDayData(0,0,1,false);
-  var dayTwoData = getRecordDayData(0,0,2,false);
-  var dayThreeData = getRecordDayData(0,0,3,false);
-  var dayFourData = getRecordDayData(0,0,4,false);
+  var dayOneData = getRecordDayData(0,0,"days",1,false);
+  var dayTwoData = getRecordDayData(0,0,"days",2,false);
+  var dayThreeData = getRecordDayData(0,0,"days",3,false);
+  var dayFourData = getRecordDayData(0,0,"days",4,false);
   
   var formattedArray = [dayFourData[type], dayThreeData[type], dayTwoData[type], dayOneData[type]];
   
@@ -414,15 +417,15 @@ window.onload = function () {
 };
 
 var colorNames = Object.keys(chartColors);
-document.getElementById('addDataset').addEventListener('click', function () {
-    var colorName = colorNames[config.data.datasets.length % colorNames.length];
-    var newColor = chartColors[colorName];
-    var newDataset = {
-        label: 'Dataset ' + (config.data.datasets.length + 1),
-        backgroundColor: color(newColor).alpha(0.5).rgbString(),
-        borderColor: newColor,
-        fill: false,
-        lineTension: 0,
-        data: []
-    };
-});
+// document.getElementById('addDataset').addEventListener('click', function () {
+//     var colorName = colorNames[config.data.datasets.length % colorNames.length];
+//     var newColor = chartColors[colorName];
+//     var newDataset = {
+//         label: 'Dataset ' + (config.data.datasets.length + 1),
+//         backgroundColor: color(newColor).alpha(0.5).rgbString(),
+//         borderColor: newColor,
+//         fill: false,
+//         lineTension: 0,
+//         data: []
+//     };
+// });
