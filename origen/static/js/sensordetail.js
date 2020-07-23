@@ -1,3 +1,4 @@
+//list of Chart colors
 var chartColors = {
     red: 'rgb(255, 99, 132)',
     orange: 'rgb(255, 159, 64)',
@@ -7,6 +8,13 @@ var chartColors = {
     purple: 'rgb(153, 102, 255)',
     grey: 'rgb(201, 203, 207)'
 };
+
+//Functions Used for Charts 
+
+function randomScalingFactor() {
+  var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+  return randomNum;
+}
 
 function getSensorType() {
     var originalUrlArray = window.location.href.split("/");
@@ -111,9 +119,23 @@ function getRecordDayData(min, max, days=1, doughnut=true) {
               console.log(recordData);
             }
 
+          for (let i = 1; i < recordArray.length; i++) {
+            let value = recordArray[i]
+            avg += value
+            min = (value < min) ? value : min
+            max = (value > max) ? value : max
+          }
+          avg = avg / recordArray.length
+          return [min.toFixed(2), avg.toFixed(2), max.toFixed(2)]
         }
-    });
-    return recordData;
+        const [forLoopMin, forLoopAvg, forLoopMax] = forLoopMinAvgMax()
+
+        recordData = [forLoopMin, forLoopAvg, forLoopMax];
+        console.log(recordData);
+      }
+    }
+  });
+  return recordData;
 }
 function formatMixedChartData(type){
   // Type 0: min
@@ -130,176 +152,33 @@ function formatMixedChartData(type){
   return formattedArray;
 }
 
-new Chart(document.getElementById("doughnut-chart"), {
-    type: 'doughnut',
-    data: {
-        labels: [
-            'Below Min',
-            'In Range',
-            'Above Max',
-        ],
-        datasets: [{
-            label: "",
-            backgroundColor: ["#ffcd56", "#36a3eb", "#ff6384"],
-            data: getRecordDayData(getThresholdValues()[0], getThresholdValues()[1])
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Threshold Monitor - Last 24 Hours (%)'
-        },
-        rotation: -Math.PI,
-        cutoutPercentage: 30,
-        circumference: Math.PI,
-    }
-});
-
-new Chart(document.getElementById("mixed-chart"), {
-    type: 'bar',
-    data: {
-        labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
-        datasets: [{
-            label: "Average",
-            type: "line",
-            borderColor: "#4bc076",
-            data: formatMixedChartData(1),
-            fill: false
-        }, {
-            label: "Min",
-            type: "bar",
-            backgroundColor: "rgba(255, 205, 86, 0.7)",
-            data: formatMixedChartData(0),
-        }, {
-            label: "Average",
-            type: "bar",
-            backgroundColor: "rgba(54, 163, 235, 0.7)",
-            data: formatMixedChartData(1),
-        }, {
-            label: "Max",
-            type: "bar",
-            backgroundColor: "rgba(255, 99, 132, 0.7)",
-            data: formatMixedChartData(2),
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Historical ' + getSensorType() + ' Levels'
-        },
-        legend: {
-            display: false
-        },
-        scales: {
-            yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: getSensorType()
-                }
-            }],
-            xAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Days'
-                }
-            }]
-        }
-    }
-});
-
-new Chart(document.getElementById("bubble-chart"), {
-    type: 'bubble',
-    data: {
-        labels: "Africa",
-        datasets: [{
-            label: ["China"],
-            backgroundColor: "rgba(255,221,50,0.2)",
-            borderColor: "rgba(255,221,50,1)",
-            data: [{
-                x: 2169017,
-                y: 5.245,
-                r: 15
-            }]
-        }, {
-            label: ["Denmark"],
-            backgroundColor: "rgba(60,186,159,0.2)",
-            borderColor: "rgba(60,186,159,1)",
-            data: [{
-                x: 258702,
-                y: 7.526,
-                r: 10
-            }]
-        }, {
-            label: ["Germany"],
-            backgroundColor: "rgba(0,0,0,0.2)",
-            borderColor: "#000",
-            data: [{
-                x: 3979083,
-                y: 6.994,
-                r: 15
-            }]
-        }, {
-            label: ["Japan"],
-            backgroundColor: "rgba(193,46,12,0.2)",
-            borderColor: "rgba(193,46,12,1)",
-            data: [{
-                x: 4931877,
-                y: 5.921,
-                r: 15
-            }]
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Frequency of ' + getSensorType()
-        },
-        scales: {
-            yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: "Frequency"
-                }
-            }],
-            xAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: getSensorType()
-                }
-            }]
-        }
-    }
-});
-
-function randomScalingFactor() {
-    var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-    return randomNum;
-}
-
+//Get Sensor Value
 function getSensorValue() {
-    var originalUrlArray = window.location.href.split("/");
-    var sensorId = originalUrlArray[originalUrlArray.length - 1];
-    var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
-    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId;
-    var value = 0.0;
-    $.ajax({
-        async: false,
-        url: sensorApiUrl,
-        method: "GET",
-        data: {},
-        success: function (data) {
-            var sensorValue = $("#sensor-value")[0];
-            value = data.value;
-            sensorValue.textContent = value;
-        }
-    });
-    return value;
+  var originalUrlArray = window.location.href.split("/");
+  var sensorId = originalUrlArray[originalUrlArray.length - 1];
+  var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId;
+  var value = 0.0;
+  $.ajax({
+    async: false,
+    url: sensorApiUrl,
+    method: "GET",
+    data: {},
+    success: function (data) {
+      var sensorValue = $("#sensor-value")[0];
+      value = data.value;
+      sensorValue.textContent = value;
+    }
+  });
+  return value;
 }
 
-for (var i = 0; i < value.length; i++){
-
+//Get Sensor AvgValue
+function getAvgSensorValue() {
+  return 0;
 }
 
+//Main Streaming Chart onRfresh property function 
 function onRefresh(chart) {
     chart.config.data.datasets.forEach(function (dataset) {
         if (dataset.cubicInterpolationMode){
@@ -418,15 +297,93 @@ window.onload = function () {
 };
 
 var colorNames = Object.keys(chartColors);
-document.getElementById('addDataset').addEventListener('click', function () {
-    var colorName = colorNames[config.data.datasets.length % colorNames.length];
-    var newColor = chartColors[colorName];
-    var newDataset = {
-        label: 'Dataset ' + (config.data.datasets.length + 1),
-        backgroundColor: color(newColor).alpha(0.5).rgbString(),
-        borderColor: newColor,
-        fill: false,
-        lineTension: 0,
-        data: []
-    };
+
+//Threshold monitor doughnut-chart
+new Chart(document.getElementById("doughnut-chart"), {
+  type: 'doughnut',
+  data: {
+    labels: [
+      'Below Min',
+      'In Range',
+      'Above Max',
+    ],
+    datasets: [{
+      label: "",
+      backgroundColor: ["#ffcd56", "#36a3eb", "#ff6384"],
+      data: getRecordDayData(getThresholdValues()[0], getThresholdValues()[1])
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Threshold Monitor - Last 24 Hours (%)'
+    },
+    rotation: -Math.PI,
+    cutoutPercentage: 30,
+    circumference: Math.PI,
+  }
 });
+
+// Time Series Chart
+new Chart(document.getElementById("mixed-chart"), {
+  type: 'bar',
+  data: {
+    labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
+    datasets: [{
+      label: "Average",
+      type: "line",
+      borderColor: "#4bc076",
+      data: formatMixedChartData(1),
+      fill: false
+    }, {
+      label: "Min",
+      type: "bar",
+      backgroundColor: "rgba(255, 205, 86, 0.7)",
+      data: formatMixedChartData(0),
+    }, {
+      label: "Average",
+      type: "bar",
+      backgroundColor: "rgba(54, 163, 235, 0.7)",
+      data: formatMixedChartData(1),
+    }, {
+      label: "Max",
+      type: "bar",
+      backgroundColor: "rgba(255, 99, 132, 0.7)",
+      data: formatMixedChartData(2),
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Historical ' + getSensorType() + ' Levels'
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Recent ' + getSensorType() + ' Levels'
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: getSensorType()
+          }
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Days'
+          }
+        }]
+      },
+    }
+  }
+});
+
+
+
+
+
