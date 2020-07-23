@@ -366,61 +366,6 @@ new Chart(document.getElementById("mixed-chart"), {
   }
 });
 
-//Third cahrt
-new Chart(document.getElementById("timeseries-chart"), {
-  type: 'bar',
-  data: {
-    labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
-    datasets: [{
-      label: "Average",
-      type: "line",
-      borderColor: "#4bc076",
-      data: formatMixedChartData(1),
-      fill: false
-    }, {
-      label: "Min",
-      type: "bar",
-      backgroundColor: "rgba(255, 205, 86, 0.7)",
-      data: formatMixedChartData(0),
-    }, {
-      label: "Average",
-      type: "bar",
-      backgroundColor: "rgba(54, 163, 235, 0.7)",
-      data: formatMixedChartData(1),
-    }, {
-      label: "Max",
-      type: "bar",
-      backgroundColor: "rgba(255, 99, 132, 0.7)",
-      data: formatMixedChartData(2),
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Historical ' + getSensorType() + ' Levels'
-    },
-    legend: {
-      display: false
-    },
-    scales: {
-      yAxes: [{
-        scaleLabel: {
-          display: true,
-          labelString: getSensorType()
-        }
-      }],
-      xAxes: [{
-        // type: 'time',
-        distribution: 'series',
-        scaleLabel: {
-          display: true,
-          labelString: 'Days'
-        }
-      }]
-    }
-  }
-});
-
 
 
 
