@@ -12,6 +12,7 @@ from django.shortcuts import get_object_or_404
 from organization.models import Organization
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 import datetime
+from django.http import Http404
 
 #Create your views here.
 
@@ -110,17 +111,24 @@ class SensorDetailAPI(APIView):
 
         return Response(data)
 
-class RecordDayAPI(APIView):
+class RecordTimeAPI(APIView):
 
     def get_object(self, pk):
         return (get_object_or_404(Sensor, pk=pk))
 
     def get(self, request, *args, **kwargs):
         sensor = self.get_object(self.kwargs.get('pk'))
-        days_offset = int(self.kwargs.get('days'))
+        offset = int(self.kwargs.get('offset'))
+        time = self.kwargs.get('time')
 
-        start_time = datetime.datetime.utcnow() - datetime.timedelta(days=days_offset)
-        end_time = start_time + datetime.timedelta(days=1)
+        if (time=="days"):
+            start_time = datetime.datetime.utcnow() - datetime.timedelta(days=offset)
+            end_time = start_time + datetime.timedelta(days=1)
+        elif(time=="hours"):
+            start_time = datetime.datetime.utcnow() - datetime.timedelta(hours=offset)
+            end_time = start_time + datetime.timedelta(hours=1)
+        else:
+            raise Http404
 
         records = Record.objects.filter(sensor__id=sensor.id, created_at__range=(start_time, end_time))
 
