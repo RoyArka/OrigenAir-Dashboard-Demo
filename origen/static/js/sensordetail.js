@@ -185,7 +185,7 @@ new Chart(document.getElementById("mixed-chart"), {
     options: {
         title: {
             display: true,
-            text: 'Historical ' + getSensorType() + ' Levels'
+            text: 'Recent ' + getSensorType() + ' Levels'
         },
         legend: {
             display: false
@@ -207,69 +207,93 @@ new Chart(document.getElementById("mixed-chart"), {
     }
 });
 
-new Chart(document.getElementById("bubble-chart"), {
-    type: 'bubble',
-    data: {
-        labels: "Africa",
-        datasets: [{
-            label: ["China"],
-            backgroundColor: "rgba(255,221,50,0.2)",
-            borderColor: "rgba(255,221,50,1)",
-            data: [{
-                x: 2169017,
-                y: 5.245,
-                r: 15
-            }]
-        }, {
-            label: ["Denmark"],
-            backgroundColor: "rgba(60,186,159,0.2)",
-            borderColor: "rgba(60,186,159,1)",
-            data: [{
-                x: 258702,
-                y: 7.526,
-                r: 10
-            }]
-        }, {
-            label: ["Germany"],
-            backgroundColor: "rgba(0,0,0,0.2)",
-            borderColor: "#000",
-            data: [{
-                x: 3979083,
-                y: 6.994,
-                r: 15
-            }]
-        }, {
-            label: ["Japan"],
-            backgroundColor: "rgba(193,46,12,0.2)",
-            borderColor: "rgba(193,46,12,1)",
-            data: [{
-                x: 4931877,
-                y: 5.921,
-                r: 15
-            }]
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Frequency of ' + getSensorType()
-        },
-        scales: {
-            yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: "Frequency"
-                }
-            }],
-            xAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: getSensorType()
-                }
-            }]
-        }
-    }
+// TIME SERIES CHART
+
+new Chart(document.getElementById("timeseries-chart"), {
+  type: 'bar',
+  data: {
+      labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
+      datasets: [{
+          label: "Average",
+          type: "line",
+          borderColor: "#4bc076",
+          data: formatMixedChartData(1),
+          fill: false
+      }, {
+          label: "Min",
+          type: "bar",
+          backgroundColor: "rgba(255, 205, 86, 0.7)",
+          data: formatMixedChartData(0),
+      }, {
+          label: "Average",
+          type: "bar",
+          backgroundColor: "rgba(54, 163, 235, 0.7)",
+          data: formatMixedChartData(1),
+      }, {
+          label: "Max",
+          type: "bar",
+          backgroundColor: "rgba(255, 99, 132, 0.7)",
+          data: formatMixedChartData(2),
+      }]
+  },
+  options: {
+      title: {
+          display: true,
+          text: 'Historical ' + getSensorType() + ' Levels'
+      },
+      legend: {
+          display: false
+      },
+      scales: {
+          yAxes: [{
+              scaleLabel: {
+                  display: true,
+                  labelString: getSensorType()
+              }
+          }],
+          xAxes: [{
+              // type: 'time',
+              distribution: 'series',
+              scaleLabel: {
+                  display: true,
+                  labelString: 'Days'
+              }
+          }]
+      }
+  }
 });
+
+// new Chart(document.getElementById("timeseries-chart"), {
+//   type: 'line',
+//   animation: false,
+//   data: {
+//       labels: dates,
+//       datasets: [{
+//           label: '',
+//           data: prices,
+//           pointRadius: 0,
+//           borderWidth: 1,
+//           borderColor: '#a97f35',
+//           backgroundColor: '#a97f35'
+//       }]
+//   },
+//   title: {
+//       position: 'bottom',
+//       text: 'Test'
+//   },
+//   options: {
+//       legend: {
+//           display: false
+//       },
+//       scales: {
+//           xAxes: [{
+//               ticks: {
+//                   maxTicksLimit: 8
+//               }
+//           }]
+//       }
+//   }
+// });
 
 function randomScalingFactor() {
     var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
@@ -412,17 +436,3 @@ window.onload = function () {
     var ctx = document.getElementById('myChart').getContext('2d');
     window.myChart = new Chart(ctx, config);
 };
-
-var colorNames = Object.keys(chartColors);
-document.getElementById('addDataset').addEventListener('click', function () {
-    var colorName = colorNames[config.data.datasets.length % colorNames.length];
-    var newColor = chartColors[colorName];
-    var newDataset = {
-        label: 'Dataset ' + (config.data.datasets.length + 1),
-        backgroundColor: color(newColor).alpha(0.5).rgbString(),
-        borderColor: newColor,
-        fill: false,
-        lineTension: 0,
-        data: []
-    };
-});
