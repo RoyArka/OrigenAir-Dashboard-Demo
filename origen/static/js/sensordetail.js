@@ -74,50 +74,39 @@ function getRecordDayData(minimum, maximum, time = "days", offset = 1, doughnut 
   var overMax = 0;
   var inRange = 0;
 
-    $.ajax({
-        async: false,
-        url: recordApiUrl,
-        method: "GET",
-        data: {},
+  $.ajax({
+    async: false,
+    url: recordApiUrl,
+    method: "GET",
+    data: {},
 
-        success: function (data) {
-            numRecords = Object.keys(data).length;
+    success: function (data) {
+      numRecords = Object.keys(data).length;
 
-            if (doughnut){
-              for (var key in data) {
-                  var value = data[key].value;
-                  if (value < min) {
-                      underMin += 1;
-                  } else if (value > max) {
-                      overMax += 1;
-                  } else {
-                      inRange += 1;
-                  }
-              }
-              recordData = [(underMin / numRecords * 100).toFixed(2), (inRange / numRecords * 100).toFixed(2), (overMax / numRecords * 100).toFixed(2)];
-            } else {
-              var recordArray = [];
-              for (var key in data){
-                var value = data[key].value;
-                recordArray.push(value);
-                
-              }
-              
-              recordArray.sort();
-              var minArray = recordArray[0];
-              
-              var maxArray = recordArray[recordArray.length - 1];
-              
-              
-              var avgArray = 0;
-              // for (int i=0; i<recordArray.length; i++){
-              //   avgArray += recordArray[i];
-              // }
-              // avgArray = avgArray / recordArray.length;
-              
-              recordData = [minArray, avgArray, maxArray];
-              console.log(recordData);
-            }
+      if (doughnut) {
+        for (var key in data) {
+          var val = data[key].value;
+          if (val < minimum) {
+            underMin += 1;
+          } else if (val > maximum) {
+            overMax += 1;
+          } else {
+            inRange += 1;
+          }
+        }
+        recordData = [(underMin / numRecords * 100).toFixed(2), (inRange / numRecords * 100).toFixed(2), (overMax / numRecords * 100).toFixed(2)];
+      } else {
+        var recordArray = [];
+        for (var key in data) {
+          var val = data[key].value;
+          recordArray.push(val);
+
+        }
+
+        const forLoopMinAvgMax = () => {
+          let min = recordArray[0],
+            max = recordArray[0],
+            avg = recordArray[0]
 
           for (let i = 1; i < recordArray.length; i++) {
             let value = recordArray[i]
@@ -137,6 +126,7 @@ function getRecordDayData(minimum, maximum, time = "days", offset = 1, doughnut 
   });
   return recordData;
 }
+
 function formatMixedChartData(type){
   // Type 0: min
   // Type 1: average
