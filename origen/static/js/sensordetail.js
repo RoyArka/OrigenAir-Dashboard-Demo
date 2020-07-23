@@ -1,3 +1,4 @@
+//list of Chart colors
 var chartColors = {
   red: 'rgb(255, 99, 132)',
   orange: 'rgb(255, 159, 64)',
@@ -7,6 +8,13 @@ var chartColors = {
   purple: 'rgb(153, 102, 255)',
   grey: 'rgb(201, 203, 207)'
 };
+
+//Functions Used for Charts 
+
+function randomScalingFactor() {
+  var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+  return randomNum;
+}
 
 function getSensorType() {
   var originalUrlArray = window.location.href.split("/");
@@ -107,11 +115,11 @@ function getRecordDayData(minimum, maximum, time = "days", offset = 1, doughnut 
             max = (value > max) ? value : max
           }
           avg = avg / recordArray.length
-          return [min, avg, max]
+          return [min.toFixed(2), avg.toFixed(2), max.toFixed(2)]
         }
         const [forLoopMin, forLoopAvg, forLoopMax] = forLoopMinAvgMax()
 
-        recordData = [forLoopMin.toFixed(2), forLoopAvg.toFixed(2), forLoopMax.toFixed(2)];
+        recordData = [forLoopMin, forLoopAvg, forLoopMax];
         console.log(recordData);
       }
     }
@@ -132,151 +140,6 @@ function formatMixedChartData(type) {
   var formattedArray = [dayFourData[type], dayThreeData[type], dayTwoData[type], dayOneData[type]];
 
   return formattedArray;
-}
-
-new Chart(document.getElementById("doughnut-chart"), {
-  type: 'doughnut',
-  data: {
-    labels: [
-      'Below Min',
-      'In Range',
-      'Above Max',
-    ],
-    datasets: [{
-      label: "",
-      backgroundColor: ["#ffcd56", "#36a3eb", "#ff6384"],
-      data: getRecordDayData(getThresholdValues()[0], getThresholdValues()[1])
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Threshold Monitor - Last 24 Hours (%)'
-    },
-    rotation: -Math.PI,
-    cutoutPercentage: 30,
-    circumference: Math.PI,
-  }
-});
-
-new Chart(document.getElementById("mixed-chart"), {
-  type: 'bar',
-  data: {
-    labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
-    datasets: [{
-      label: "Average",
-      type: "line",
-      borderColor: "#4bc076",
-      data: formatMixedChartData(1),
-      fill: false
-    }, {
-      label: "Min",
-      type: "bar",
-      backgroundColor: "rgba(255, 205, 86, 0.7)",
-      data: formatMixedChartData(0),
-    }, {
-      label: "Average",
-      type: "bar",
-      backgroundColor: "rgba(54, 163, 235, 0.7)",
-      data: formatMixedChartData(1),
-    }, {
-      label: "Max",
-      type: "bar",
-      backgroundColor: "rgba(255, 99, 132, 0.7)",
-      data: formatMixedChartData(2),
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Historical ' + getSensorType() + ' Levels'
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Recent ' + getSensorType() + ' Levels'
-        },
-        legend: {
-            display: false
-        },
-        scales: {
-            yAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: getSensorType()
-                }
-            }],
-            xAxes: [{
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Days'
-                }
-            }]
-        },
-      }
-    }
-});
-
-// TIME SERIES CHART
-
-new Chart(document.getElementById("timeseries-chart"), {
-  type: 'bar',
-  data: {
-      labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
-      datasets: [{
-          label: "Average",
-          type: "line",
-          borderColor: "#4bc076",
-          data: formatMixedChartData(1),
-          fill: false
-      }, {
-          label: "Min",
-          type: "bar",
-          backgroundColor: "rgba(255, 205, 86, 0.7)",
-          data: formatMixedChartData(0),
-      }, {
-          label: "Average",
-          type: "bar",
-          backgroundColor: "rgba(54, 163, 235, 0.7)",
-          data: formatMixedChartData(1),
-      }, {
-          label: "Max",
-          type: "bar",
-          backgroundColor: "rgba(255, 99, 132, 0.7)",
-          data: formatMixedChartData(2),
-      }]
-  },
-  options: {
-      title: {
-          display: true,
-          text: 'Historical ' + getSensorType() + ' Levels'
-      },
-      legend: {
-          display: false
-      },
-      scales: {
-          yAxes: [{
-              scaleLabel: {
-                  display: true,
-                  labelString: getSensorType()
-              }
-          }],
-          xAxes: [{
-              // type: 'time',
-              distribution: 'series',
-              scaleLabel: {
-                  display: true,
-                  labelString: 'Days'
-              }
-          }]
-      }
-  }
-});
-
-
-function randomScalingFactor() {
-  var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-  return randomNum;
 }
 
 //Get Sensor Value
@@ -300,72 +163,10 @@ function getSensorValue() {
   return value;
 }
 
-
 //Get Sensor AvgValue
-function getAvgSensorValue (minimum, maximum, time = "days", offset = 1, doughnut = true) {
-  var originalUrlArray = window.location.href.split("/");
-  var sensorId = originalUrlArray[originalUrlArray.length - 1];
-  var sensorOrg = originalUrlArray[originalUrlArray.length - 2];
-  var days = 2;
-  var recordApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId + "/records/" + days + "/" + offset;
-  var recordData = [20, 40, 30];
-  var underMin = 0;
-  var overMax = 0;
-  var inRange = 0;
-
-  $.ajax({
-    async: false,
-    url: recordApiUrl,
-    method: "GET",
-    data: {},
-
-    success: function (data) {
-      numRecords = Object.keys(data).length;
-
-      if (doughnut) {
-        for (var key in data) {
-          var val = data[key].value;
-          if (val < minimum) {
-            underMin += 1;
-          } else if (val > maximum) {
-            overMax += 1;
-          } else {
-            inRange += 1;
-          }
-        }
-        recordData = [(underMin / numRecords * 100).toFixed(2), (inRange / numRecords * 100).toFixed(2), (overMax / numRecords * 100).toFixed(2)];
-      } else {
-        var recordArray = [];
-        for (var key in data) {
-          var val = data[key].value;
-          recordArray.push(val);
-
-        }
-
-        const forLoopMinAvgMax = () => {
-          let min = recordArray[0],
-            max = recordArray[0],
-            avg = recordArray[0]
-
-          for (let i = 1; i < recordArray.length; i++) {
-            let value = recordArray[i]
-            avg += value
-            min = (value < min) ? value : min
-            max = (value > max) ? value : max
-          }
-          avg = avg / recordArray.length
-          return [min, avg, max]
-        }
-        const [forLoopMin, forLoopAvg, forLoopMax] = forLoopMinAvgMax()
-
-        recordData = [forLoopAvg];
-        console.log(recordData);
-      }
-    }
-  });
-  return recordData;
+function getAvgSensorValue() {
+  return 0;
 }
-
 
 //Main Streaming Chart onRfresh property function 
 function onRefresh(chart) {
@@ -479,4 +280,148 @@ window.onload = function () {
 };
 
 var colorNames = Object.keys(chartColors);
+
+//Threshold monitor doughnut-chart
+new Chart(document.getElementById("doughnut-chart"), {
+  type: 'doughnut',
+  data: {
+    labels: [
+      'Below Min',
+      'In Range',
+      'Above Max',
+    ],
+    datasets: [{
+      label: "",
+      backgroundColor: ["#ffcd56", "#36a3eb", "#ff6384"],
+      data: getRecordDayData(getThresholdValues()[0], getThresholdValues()[1])
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Threshold Monitor - Last 24 Hours (%)'
+    },
+    rotation: -Math.PI,
+    cutoutPercentage: 30,
+    circumference: Math.PI,
+  }
+});
+
+// Time Series Chart
+new Chart(document.getElementById("mixed-chart"), {
+  type: 'bar',
+  data: {
+    labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
+    datasets: [{
+      label: "Average",
+      type: "line",
+      borderColor: "#4bc076",
+      data: formatMixedChartData(1),
+      fill: false
+    }, {
+      label: "Min",
+      type: "bar",
+      backgroundColor: "rgba(255, 205, 86, 0.7)",
+      data: formatMixedChartData(0),
+    }, {
+      label: "Average",
+      type: "bar",
+      backgroundColor: "rgba(54, 163, 235, 0.7)",
+      data: formatMixedChartData(1),
+    }, {
+      label: "Max",
+      type: "bar",
+      backgroundColor: "rgba(255, 99, 132, 0.7)",
+      data: formatMixedChartData(2),
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Historical ' + getSensorType() + ' Levels'
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Recent ' + getSensorType() + ' Levels'
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: getSensorType()
+          }
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Days'
+          }
+        }]
+      },
+    }
+  }
+});
+
+//Third cahrt
+new Chart(document.getElementById("timeseries-chart"), {
+  type: 'bar',
+  data: {
+    labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
+    datasets: [{
+      label: "Average",
+      type: "line",
+      borderColor: "#4bc076",
+      data: formatMixedChartData(1),
+      fill: false
+    }, {
+      label: "Min",
+      type: "bar",
+      backgroundColor: "rgba(255, 205, 86, 0.7)",
+      data: formatMixedChartData(0),
+    }, {
+      label: "Average",
+      type: "bar",
+      backgroundColor: "rgba(54, 163, 235, 0.7)",
+      data: formatMixedChartData(1),
+    }, {
+      label: "Max",
+      type: "bar",
+      backgroundColor: "rgba(255, 99, 132, 0.7)",
+      data: formatMixedChartData(2),
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Historical ' + getSensorType() + ' Levels'
+    },
+    legend: {
+      display: false
+    },
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: getSensorType()
+        }
+      }],
+      xAxes: [{
+        // type: 'time',
+        distribution: 'series',
+        scaleLabel: {
+          display: true,
+          labelString: 'Days'
+        }
+      }]
+    }
+  }
+});
+
+
+
+
 
