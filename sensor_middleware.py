@@ -5,7 +5,7 @@ import requests
 
 def main(pk):
     while(True):
-        sensor_input = random.uniform(-100, 1200)
+        sensor_input = random.uniform(-5, 110)
         sensor_input = round(sensor_input, 2)
 
         url = "http://127.0.0.1:8000/sensor/api/for/testorg4/" + str(pk)
