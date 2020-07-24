@@ -10,7 +10,6 @@ var chartColors = {
 };
 
 //Functions Used for Charts 
-
 function randomScalingFactor() {
   var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
   return randomNum;
