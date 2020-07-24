@@ -9,6 +9,8 @@ var chartColors = {
   grey: 'rgb(201, 203, 207)'
 };
 
+var color = Chart.helpers.color;
+
 //Functions 
 function getSensorValue() {
   var originalUrlArray = window.location.href.split("/")
@@ -17,33 +19,63 @@ function getSensorValue() {
   var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg" + sensorId;
   var value = 0.0;
   $.ajax({
-      async: false,
-      url: sensorApiUrl,
-      method: "GET",
-      data: {},
-      success: function (data) {
-          var sensorValue = $("#sensor-value")[0];
-          value = data.value;
-          sensorValue.textContent = value;
-      }
+    async: false,
+    url: sensorApiUrl,
+    method: "GET",
+    data: {},
+    success: function (data) {
+      var sensorValue = $("#sensor-value")[0];
+      value = data.value;
+      sensorValue.textContent = value;
+    }
   });
   return value;
 }
 
 //RandomScalingFactor Function 
 function randomScalingFactor() {
-	return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+  return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
 }
 
 
-//OnRefresh Function
-function onRefresh(chart) {
-	chart.config.data.datasets.forEach(function(dataset) {
-		dataset.data.push({
-			x: Date.now(),
-			y: randomScalingFactor()
-		});
-	});
+//Temperature OnRefresh Function
+function onRefreshTemp(chart) {
+  chart.config.data.datasets.forEach(function (dataset) {
+    dataset.data.push({
+      x: Date.now(),
+      y: randomScalingFactor()
+    });
+  });
+}
+
+//Humidity OnRefresh Function
+function onRefreshHum(chart) {
+  chart.config.data.datasets.forEach(function (dataset) {
+    dataset.data.push({
+      x: Date.now(),
+      y: randomScalingFactor() * 100
+    });
+  });
+}
+
+//VOC OnRefresh Function
+function onRefreshVOC(chart) {
+  chart.config.data.datasets.forEach(function (dataset) {
+    dataset.data.push({
+      x: Date.now(),
+      y: randomScalingFactor() * 150
+    });
+  });
+}
+
+//Carbon Dioxide OnRefresh Function
+function onRefreshCarbdonDioxide(chart) {
+  chart.config.data.datasets.forEach(function (dataset) {
+    dataset.data.push({
+      x: Date.now(),
+      y: randomScalingFactor() * 200
+    });
+  });
 }
 
 //Temperature Gauge
@@ -52,8 +84,8 @@ new Chart(document.getElementById("doughnut-chart1"), {
   data: {
     datasets: [{
       label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#3cba9f", "#c45850"],
-      data: [30, 70, 30]
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+      data: [2478, 5267, 734, 784, 433]
     }]
   },
   options: {
@@ -73,14 +105,27 @@ new Chart(document.getElementById("doughnut-chart1"), {
 new Chart(document.getElementById("line-chart1"), {
   type: 'line',
   data: {
-datasets: [{
-        label: 'Min Threshold',
-        backgroundColor: color(chartColors.yellow).alpha(0.5).rgbString(),
-        borderColor: chartColors.yellow,
+    datasets: [{
+        label: '1 (Linear)',
+        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
+        borderColor: chartColors.red,
         fill: false,
+        lineTension: 0,
+        borderDash: [8, 4],
         data: [],
-        id: 'min_threshold',
+        id: '1',
       },
+      {
+        label: '2 (Cubic)',
+        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+        borderColor: chartColors.blue,
+        fill: false,
+        cubicInterpolationMode: 'monotone',
+        data: [],
+        id: '2',
+      }
+    ]
+  },
   options: {
     title: {
       display: true,
@@ -93,13 +138,13 @@ datasets: [{
           duration: 20000,
           refresh: 1000,
           delay: 2000,
-          onRefresh: onRefresh
+          onRefresh: onRefreshTemp
         }
       }],
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Celsius (°C)'
+          labelString: 'Temperature (°C)'
         }
       }]
     },
@@ -138,13 +183,24 @@ new Chart(document.getElementById("doughnut-chart2"), {
 new Chart(document.getElementById("line-chart2"), {
   type: 'line',
   data: {
-    labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
-        label: "Humidity",
-        borderColor: "#32cd32",
+        label: '1 (Linear)',
+        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
+        borderColor: chartColors.red,
         fill: false,
-        lineTension: 0
+        lineTension: 0,
+        borderDash: [8, 4],
+        data: [],
+        id: '1',
+      },
+      {
+        label: '2 (Cubic)',
+        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+        borderColor: chartColors.blue,
+        fill: false,
+        cubicInterpolationMode: 'monotone',
+        data: [],
+        id: '2',
       }
     ]
   },
@@ -160,13 +216,13 @@ new Chart(document.getElementById("line-chart2"), {
           duration: 20000,
           refresh: 1000,
           delay: 2000,
-          onRefresh: onRefresh
+          onRefresh: onRefreshHum
         }
       }],
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Absolute Humidity (mg/L)'
+          labelString: 'Humidity (%)'
         }
       }]
     },
@@ -205,13 +261,24 @@ new Chart(document.getElementById("doughnut-chart3"), {
 new Chart(document.getElementById("line-chart3"), {
   type: 'line',
   data: {
-    labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
-        label: "VOC",
-        borderColor: "#0047ab", 
+        label: '1 (Linear)',
+        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
+        borderColor: chartColors.red,
         fill: false,
-        lineTension: 0
+        lineTension: 0,
+        borderDash: [8, 4],
+        data: [],
+        id: '1',
+      },
+      {
+        label: '2 (Cubic)',
+        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+        borderColor: chartColors.blue,
+        fill: false,
+        cubicInterpolationMode: 'monotone',
+        data: [],
+        id: '2',
       }
     ]
   },
@@ -227,13 +294,13 @@ new Chart(document.getElementById("line-chart3"), {
           duration: 20000,
           refresh: 1000,
           delay: 2000,
-          onRefresh: onRefresh
+          onRefresh: onRefreshVOC
         }
       }],
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Concentration (ppm)'
+          labelString: 'VOC (ppm)'
         }
       }]
     },
@@ -272,13 +339,24 @@ new Chart(document.getElementById("doughnut-chart4"), {
 new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
-    labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
-        label: "Carbon Dioxide",
-        borderColor: "#ffd700",
+        label: '1 (Linear)',
+        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
+        borderColor: chartColors.red,
         fill: false,
-        lineTension: 0
+        data: [],
+        lineTension: 0,
+        borderDash: [8, 4],
+        id: '1',
+      },
+      {
+        label: '2 (Cubic)',
+        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+        borderColor: chartColors.blue,
+        fill: false,
+        cubicInterpolationMode: 'monotone',
+        data: [],
+        id: '2',
       }
     ]
   },
@@ -294,13 +372,13 @@ new Chart(document.getElementById("line-chart4"), {
           duration: 20000,
           refresh: 1000,
           delay: 2000,
-          onRefresh: onRefresh
+          onRefresh: onRefreshCarbdonDioxide
         }
       }],
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Concentration (ppm)'
+          labelString: 'CO2 (ppm)'
         }
       }]
     },
