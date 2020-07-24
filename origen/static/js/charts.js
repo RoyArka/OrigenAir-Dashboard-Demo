@@ -1,3 +1,41 @@
+//Functions 
+function getSensorValue() {
+  var originalUrlArray = window.location.href.split("/")
+  var sensorId = originalUrlArray[originalUrlArray.length - 1];
+  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg" + sensorId;
+  var value = 0.0;
+  $.ajax({
+      async: false,
+      url: sensorApiUrl,
+      method: "GET",
+      data: {},
+      success: function (data) {
+          var sensorValue = $("#sensor-value")[0];
+          value = data.value;
+          sensorValue.textContent = value;
+      }
+  });
+  return value;
+}
+
+//RandomScalingFactor Function 
+function randomScalingFactor() {
+	return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+}
+
+
+//OnRefresh Function
+function onRefresh(chart) {
+	chart.config.data.datasets.forEach(function(dataset) {
+		dataset.data.push({
+			x: Date.now(),
+			y: randomScalingFactor()
+		});
+	});
+}
+
+//Temperature Gauge
 new Chart(document.getElementById("doughnut-chart1"), {
   type: 'doughnut',
   data: {
@@ -20,6 +58,7 @@ new Chart(document.getElementById("doughnut-chart1"), {
   }
 });
 
+//Temperature Chart
 new Chart(document.getElementById("line-chart1"), {
   type: 'line',
   data: {
@@ -63,6 +102,7 @@ new Chart(document.getElementById("line-chart1"), {
   }
 });
 
+//Humidity Gauge 
 new Chart(document.getElementById("doughnut-chart2"), {
   type: 'doughnut',
   data: {
@@ -85,14 +125,15 @@ new Chart(document.getElementById("doughnut-chart2"), {
   }
 });
 
+//Humidity Chart
 new Chart(document.getElementById("line-chart2"), {
   type: 'line',
   data: {
     labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
+        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
         label: "Humidity",
-        borderColor: "#cc0000",
+        borderColor: "#32cd32",
         fill: false,
         lineTension: 0
       }
@@ -103,11 +144,32 @@ new Chart(document.getElementById("line-chart2"), {
       display: true,
       text: 'Sensor Data'
     },
+    scales: {
+      xAxes: [{
+        type: 'realtime',
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 2000,
+          onRefresh: onRefresh
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Absolute Humidity (mg/L)'
+        }
+      }]
+    },
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0
+    }
   }
 });
 
+//VOC Gauge 
 new Chart(document.getElementById("doughnut-chart3"), {
   type: 'doughnut',
   data: {
@@ -130,14 +192,15 @@ new Chart(document.getElementById("doughnut-chart3"), {
   }
 });
 
+//VOC Chart
 new Chart(document.getElementById("line-chart3"), {
   type: 'line',
   data: {
     labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [40, 20, 10, 16, 24, 38, 74, 167, 508, 784],
+        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
         label: "VOC",
-        borderColor: "#0000cc",
+        borderColor: "#0047ab", 
         fill: false,
         lineTension: 0
       }
@@ -148,11 +211,32 @@ new Chart(document.getElementById("line-chart3"), {
       display: true,
       text: 'Sensor Data'
     },
+    scales: {
+      xAxes: [{
+        type: 'realtime',
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 2000,
+          onRefresh: onRefresh
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Concentration (ppm)'
+        }
+      }]
+    },
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0
+    }
   }
 });
 
+//Carbon Dioxide Gauge
 new Chart(document.getElementById("doughnut-chart4"), {
   type: 'doughnut',
   data: {
@@ -175,12 +259,13 @@ new Chart(document.getElementById("doughnut-chart4"), {
   }
 });
 
+//Carbon Dioxide Chart
 new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
     labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [6, 3, 2, 2, 7, 26, 82, 172, 312, 433],
+        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
         label: "Carbon Dioxide",
         borderColor: "#ffd700",
         fill: false,
@@ -193,40 +278,27 @@ new Chart(document.getElementById("line-chart4"), {
       display: true,
       text: 'Sensor Data'
     },
+    scales: {
+      xAxes: [{
+        type: 'realtime',
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 2000,
+          onRefresh: onRefresh
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Concentration (ppm)'
+        }
+      }]
+    },
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0
+    }
   }
 });
-
-function getSensorValue() {
-  var originalUrlArray = window.location.href.split("/")
-  var sensorId = originalUrlArray[originalUrlArray.length - 1];
-  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg" + sensorId;
-  var value = 0.0;
-  $.ajax({
-      async: false,
-      url: sensorApiUrl,
-      method: "GET",
-      data: {},
-      success: function (data) {
-          var sensorValue = $("#sensor-value")[0];
-          value = data.value;
-          sensorValue.textContent = value;
-      }
-  });
-  return value;
-}
-
-function randomScalingFactor() {
-	return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-}
-
-function onRefresh(chart) {
-	chart.config.data.datasets.forEach(function(dataset) {
-		dataset.data.push({
-			x: Date.now(),
-			y: getSensorValue()
-		});
-	});
-}
