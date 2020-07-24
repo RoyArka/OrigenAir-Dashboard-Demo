@@ -1,3 +1,14 @@
+//list of Chart colors
+var chartColors = {
+  red: 'rgb(255, 99, 132)',
+  orange: 'rgb(255, 159, 64)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  purple: 'rgb(153, 102, 255)',
+  grey: 'rgb(201, 203, 207)'
+};
+
 //Functions 
 function getSensorValue() {
   var originalUrlArray = window.location.href.split("/")
@@ -62,16 +73,14 @@ new Chart(document.getElementById("doughnut-chart1"), {
 new Chart(document.getElementById("line-chart1"), {
   type: 'line',
   data: {
-    labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [{
-        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
-        label: "Temperature",
-        borderColor: "#ff0066",
+datasets: [{
+        label: 'Min Threshold',
+        backgroundColor: color(chartColors.yellow).alpha(0.5).rgbString(),
+        borderColor: chartColors.yellow,
         fill: false,
-        lineTension: 0
-      }
-    ]
-  },
+        data: [],
+        id: 'min_threshold',
+      },
   options: {
     title: {
       display: true,
