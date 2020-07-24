@@ -100,7 +100,6 @@ function getRecordDayData(minimum, maximum, time = "days", offset = 1, doughnut 
         for (var key in data) {
           var val = data[key].value;
           recordArray.push(val);
-
         }
 
         const forLoopMinAvgMax = () => {
@@ -120,27 +119,55 @@ function getRecordDayData(minimum, maximum, time = "days", offset = 1, doughnut 
         const [forLoopMin, forLoopAvg, forLoopMax] = forLoopMinAvgMax()
 
         recordData = [forLoopMin, forLoopAvg, forLoopMax];
-        console.log(recordData);
       }
     }
   });
   return recordData;
 }
 
-function formatMixedChartData(type) {
+function formatMixedChartData(time, type) {
   // Type 0: min
   // Type 1: average
   // Type 2: max
 
-  var dayOneData = getRecordDayData(0, 0, "days", 1, false);
-  var dayTwoData = getRecordDayData(0, 0, "days", 2, false);
-  var dayThreeData = getRecordDayData(0, 0, "days", 3, false);
-  var dayFourData = getRecordDayData(0, 0, "days", 4, false);
+  var dayOneData = getRecordDayData(0, 0, time, 1, false);
+  var dayTwoData = getRecordDayData(0, 0, time, 2, false);
+  var dayThreeData = getRecordDayData(0, 0, time, 3, false);
+  var dayFourData = getRecordDayData(0, 0, time, 4, false);
 
   var formattedArray = [dayFourData[type], dayThreeData[type], dayTwoData[type], dayOneData[type]];
 
   return formattedArray;
 }
+
+// Update Button of Mixed Chart on Click
+function mixedChartToggle() {
+  var data = [];
+  if (historicalChart.data.labels[0] == "Hour 4") {
+    data = ["Day 4", "Day 3", "Day 2", "Day 1"];
+  } else {
+    data = ["Hour 4", "Hour 3", "Hour 2", "Hour 1"];
+  }
+  return data;
+}
+
+document.getElementById('update').addEventListener('click', function () {
+  historicalChart.data.labels = mixedChartToggle();
+
+  if (historicalChart.data.labels[0] == "Hour 4") {
+    historicalChart.data.datasets[0].data = formatMixedChartData("hours", 1);
+    historicalChart.data.datasets[1].data = formatMixedChartData("hours", 0);
+    historicalChart.data.datasets[2].data = formatMixedChartData("hours", 1);
+    historicalChart.data.datasets[3].data = formatMixedChartData("hours", 2);
+  } else {
+    historicalChart.data.datasets[0].data = formatMixedChartData("days", 1);
+    historicalChart.data.datasets[1].data = formatMixedChartData("days", 0);
+    historicalChart.data.datasets[2].data = formatMixedChartData("days", 1);
+    historicalChart.data.datasets[3].data = formatMixedChartData("days", 2);
+  }
+
+  historicalChart.update();
+});
 
 //Get Sensor Value
 function getSensorValue() {
@@ -165,13 +192,13 @@ function getSensorValue() {
 
 var runningAvg = 0.0
 var valueArr = []
-// //Get Sensor AvgValue
+//Get Sensor AvgValue
 function getAvgSensorValue(runningAvg) {
   var newValue = getSensorValue()
-  console.log(newValue + " new value")
   valueArr.push(newValue)
-  runningAvg = valueArr.reduce(function(a, b) {return a + b;}) / valueArr.length 
-  console.log(runningAvg + " avg")
+  runningAvg = valueArr.reduce(function (a, b) {
+    return a + b;
+  }) / valueArr.length
   return runningAvg;
 }
 
@@ -190,7 +217,7 @@ function onRefresh(chart) {
         x: Date.now(),
         y: getSensorValue()
       });
-    } else if (dataset.id == 'avg') { 
+    } else if (dataset.id == 'avg') {
       //Sensor Avg Value
       dataset.data.push({
         x: Date.now(),
@@ -315,32 +342,36 @@ new Chart(document.getElementById("doughnut-chart"), {
   }
 });
 
-// Time Series Chart
-new Chart(document.getElementById("mixed-chart"), {
+//Historical Chart
+var historicalChart = new Chart(document.getElementById("mixed-chart"), {
   type: 'bar',
   data: {
     labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
     datasets: [{
       label: "Average",
       type: "line",
+      backgroundColor: "#4bc076",
       borderColor: "#4bc076",
-      data: formatMixedChartData(1),
+      data: formatMixedChartData("days", 1),
       fill: false
     }, {
       label: "Min",
       type: "bar",
       backgroundColor: "rgba(255, 205, 86, 0.7)",
-      data: formatMixedChartData(0),
+      borderColor: chartColors.yellow,
+      data: formatMixedChartData("days", 0),
     }, {
       label: "Average",
       type: "bar",
       backgroundColor: "rgba(54, 163, 235, 0.7)",
-      data: formatMixedChartData(1),
+      borderColor: chartColors.blue,
+      data: formatMixedChartData("days", 1),
     }, {
       label: "Max",
       type: "bar",
       backgroundColor: "rgba(255, 99, 132, 0.7)",
-      data: formatMixedChartData(2),
+      borderColor: chartColors.red,
+      data: formatMixedChartData("days", 2),
     }]
   },
   options: {
@@ -373,8 +404,3 @@ new Chart(document.getElementById("mixed-chart"), {
     }
   }
 });
-
-
-
-
-
