@@ -140,9 +140,9 @@ new Chart(document.getElementById("line-chart2"), {
   data: {
     labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
+        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
         label: "Humidity",
-        borderColor: "#cc0000",
+        borderColor: "#32cd32",
         fill: false,
         lineTension: 0
       }
@@ -153,8 +153,28 @@ new Chart(document.getElementById("line-chart2"), {
       display: true,
       text: 'Sensor Data'
     },
+    scales: {
+      xAxes: [{
+        type: 'realtime',
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 2000,
+          onRefresh: onRefresh
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Absolute Humidity (mg/L)'
+        }
+      }]
+    },
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0
+    }
   }
 });
 
@@ -187,9 +207,9 @@ new Chart(document.getElementById("line-chart3"), {
   data: {
     labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [40, 20, 10, 16, 24, 38, 74, 167, 508, 784],
+        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
         label: "VOC",
-        borderColor: "#0000cc",
+        borderColor: "#0047ab", 
         fill: false,
         lineTension: 0
       }
@@ -200,8 +220,28 @@ new Chart(document.getElementById("line-chart3"), {
       display: true,
       text: 'Sensor Data'
     },
+    scales: {
+      xAxes: [{
+        type: 'realtime',
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 2000,
+          onRefresh: onRefresh
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Concentration (ppm)'
+        }
+      }]
+    },
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0
+    }
   }
 });
 
@@ -234,7 +274,7 @@ new Chart(document.getElementById("line-chart4"), {
   data: {
     labels: ['Sep','Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [{
-        data: [6, 3, 2, 2, 7, 26, 82, 172, 312, 433],
+        data: [28, 25, 18, 15, 15, 16, 18, 22, 25, 28],
         label: "Carbon Dioxide",
         borderColor: "#ffd700",
         fill: false,
@@ -247,7 +287,27 @@ new Chart(document.getElementById("line-chart4"), {
       display: true,
       text: 'Sensor Data'
     },
+    scales: {
+      xAxes: [{
+        type: 'realtime',
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 2000,
+          onRefresh: onRefresh
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Concentration (ppm)'
+        }
+      }]
+    },
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0
+    }
   }
 });
