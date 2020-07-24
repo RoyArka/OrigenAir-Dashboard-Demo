@@ -1,3 +1,41 @@
+//Functions 
+function getSensorValue() {
+  var originalUrlArray = window.location.href.split("/")
+  var sensorId = originalUrlArray[originalUrlArray.length - 1];
+  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg" + sensorId;
+  var value = 0.0;
+  $.ajax({
+      async: false,
+      url: sensorApiUrl,
+      method: "GET",
+      data: {},
+      success: function (data) {
+          var sensorValue = $("#sensor-value")[0];
+          value = data.value;
+          sensorValue.textContent = value;
+      }
+  });
+  return value;
+}
+
+//RandomScalingFactor Function 
+function randomScalingFactor() {
+	return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+}
+
+
+//OnRefresh Function
+function onRefresh(chart) {
+	chart.config.data.datasets.forEach(function(dataset) {
+		dataset.data.push({
+			x: Date.now(),
+			y: randomScalingFactor()
+		});
+	});
+}
+
+//Temperature Gauge
 new Chart(document.getElementById("doughnut-chart1"), {
   type: 'doughnut',
   data: {
@@ -20,6 +58,7 @@ new Chart(document.getElementById("doughnut-chart1"), {
   }
 });
 
+//Temperature Chart
 new Chart(document.getElementById("line-chart1"), {
   type: 'line',
   data: {
@@ -63,6 +102,7 @@ new Chart(document.getElementById("line-chart1"), {
   }
 });
 
+//Humidity Gauge 
 new Chart(document.getElementById("doughnut-chart2"), {
   type: 'doughnut',
   data: {
@@ -85,6 +125,7 @@ new Chart(document.getElementById("doughnut-chart2"), {
   }
 });
 
+//Humidity Chart
 new Chart(document.getElementById("line-chart2"), {
   type: 'line',
   data: {
@@ -108,6 +149,7 @@ new Chart(document.getElementById("line-chart2"), {
   }
 });
 
+//VOC Gauge 
 new Chart(document.getElementById("doughnut-chart3"), {
   type: 'doughnut',
   data: {
@@ -130,6 +172,7 @@ new Chart(document.getElementById("doughnut-chart3"), {
   }
 });
 
+//VOC Chart
 new Chart(document.getElementById("line-chart3"), {
   type: 'line',
   data: {
@@ -153,6 +196,7 @@ new Chart(document.getElementById("line-chart3"), {
   }
 });
 
+//Carbon Dioxide Gauge
 new Chart(document.getElementById("doughnut-chart4"), {
   type: 'doughnut',
   data: {
@@ -175,6 +219,7 @@ new Chart(document.getElementById("doughnut-chart4"), {
   }
 });
 
+//Carbon Dioxide Chart
 new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
@@ -197,36 +242,3 @@ new Chart(document.getElementById("line-chart4"), {
     maintainAspectRatio: false
   }
 });
-
-function getSensorValue() {
-  var originalUrlArray = window.location.href.split("/")
-  var sensorId = originalUrlArray[originalUrlArray.length - 1];
-  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg" + sensorId;
-  var value = 0.0;
-  $.ajax({
-      async: false,
-      url: sensorApiUrl,
-      method: "GET",
-      data: {},
-      success: function (data) {
-          var sensorValue = $("#sensor-value")[0];
-          value = data.value;
-          sensorValue.textContent = value;
-      }
-  });
-  return value;
-}
-
-function randomScalingFactor() {
-	return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-}
-
-function onRefresh(chart) {
-	chart.config.data.datasets.forEach(function(dataset) {
-		dataset.data.push({
-			x: Date.now(),
-			y: getSensorValue()
-		});
-	});
-}

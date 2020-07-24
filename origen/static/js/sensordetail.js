@@ -143,10 +143,10 @@ function formatMixedChartData(time, type) {
 // Update Button of Mixed Chart on Click
 function mixedChartToggle() {
   var data = [];
-  if (historicalChart.data.labels[0] == "Hour 4") {
-    data = ["Day 4", "Day 3", "Day 2", "Day 1"];
+  if (historicalChart.data.labels[0] == "4 Hours ago") {
+    data = ["4 Days ago", "3 Days ago", "2 Days ago", "1 Days ago"];
   } else {
-    data = ["Hour 4", "Hour 3", "Hour 2", "Hour 1"];
+    data = ["4 Hours ago", "3 Hours ago", "2 Hours ago", "1 Hours ago"];
   }
   return data;
 }
@@ -154,7 +154,7 @@ function mixedChartToggle() {
 document.getElementById('update').addEventListener('click', function () {
   historicalChart.data.labels = mixedChartToggle();
 
-  if (historicalChart.data.labels[0] == "Hour 4") {
+  if (historicalChart.data.labels[0] == "4 Hours ago") {
     historicalChart.data.datasets[0].data = formatMixedChartData("hours", 1);
     historicalChart.data.datasets[1].data = formatMixedChartData("hours", 0);
     historicalChart.data.datasets[2].data = formatMixedChartData("hours", 1);
@@ -165,7 +165,6 @@ document.getElementById('update').addEventListener('click', function () {
     historicalChart.data.datasets[2].data = formatMixedChartData("days", 1);
     historicalChart.data.datasets[3].data = formatMixedChartData("days", 2);
   }
-
   historicalChart.update();
 });
 
@@ -346,7 +345,7 @@ new Chart(document.getElementById("doughnut-chart"), {
 var historicalChart = new Chart(document.getElementById("mixed-chart"), {
   type: 'bar',
   data: {
-    labels: ["Day 4", "Day 3", "Day 2", "Day 1"],
+    labels: ["4 Days ago", "3 Days ago", "2 Days ago", "1 Days ago"],
     datasets: [{
       label: "Average",
       type: "line",
