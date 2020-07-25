@@ -11,18 +11,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-@media (max-width: 420px) {
-  .index-container {
-    height: 125vh;
-  }
-}
-
-.index-container {
-  background-image: url("/static/img/nature.jpg");
-  background-size: cover;
-  height: 94vh;
-  margin-top: -68.6px;
-  margin-bottom: -68.6px;
+body {
+  background-color: lightcyan;
 }
 
 .index-card1 {
@@ -32,7 +22,7 @@
 }
 
 .index-card1-text {
-    color: white;
+  color: white;
 }
 
 .index-card1-text-margin {
@@ -12846,7 +12836,7 @@ i-feather svg {
   max-width: 15rem;
 }
 
-.sbp-preview {
+/* .sbp-preview {
   border-radius: 0.35rem;
   border: 0.25rem solid #e3e6ec;
   border-style: solid;
@@ -12891,7 +12881,7 @@ i-feather svg {
   background-color: #eff3f9;
   font-size: 0.875rem;
   padding: 1.5rem;
-}
+} */
 
 code[class*=language-],
 pre[class*=language-] {
