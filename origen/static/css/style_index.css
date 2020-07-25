@@ -11,20 +11,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-@media (max-width: 420px) {
-  .index-container {
-    height: 125vh;
-  }
-}
-
-.index-container {
-  background-image: url("/static/img/nature.jpg");
-  background-size: cover;
-  height: 94vh;
-  margin-top: -68.6px;
-  margin-bottom: -68.6px;
-}
-
 .index-card1 {
   border-radius: 5px;
   background-color: #52E0C1;
@@ -32,7 +18,7 @@
 }
 
 .index-card1-text {
-    color: white;
+  color: white;
 }
 
 .index-card1-text-margin {
@@ -12846,52 +12832,6 @@ i-feather svg {
   max-width: 15rem;
 }
 
-.sbp-preview {
-  border-radius: 0.35rem;
-  border: 0.25rem solid #e3e6ec;
-  border-style: solid;
-}
-
-.sbp-preview .sbp-preview-content {
-  padding: 1.5rem;
-  border-bottom: 1px solid #e3e6ec;
-  position: relative;
-}
-
-.sbp-preview .sbp-preview-code {
-  background-color: #eff3f9;
-  padding: 1.5rem;
-  border-bottom: 1px solid #e3e6ec;
-}
-
-.sbp-preview .sbp-preview-code .nav-tabs {
-  border-bottom-color: transparent;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.sbp-preview .sbp-preview-code .nav-tabs .nav-item .nav-link {
-  border-bottom: 0;
-  display: inline-flex;
-  align-items: center;
-}
-
-.sbp-preview .sbp-preview-code .nav-tabs .nav-item .nav-link.active {
-  border-color: transparent;
-  background-color: #2f2f2f;
-  color: white;
-}
-
-.sbp-preview .sbp-preview-code .nav-tabs .nav-item .nav-link .img-pug {
-  height: 1em;
-  padding: 1px 0;
-}
-
-.sbp-preview .sbp-preview-text {
-  background-color: #eff3f9;
-  font-size: 0.875rem;
-  padding: 1.5rem;
-}
 
 code[class*=language-],
 pre[class*=language-] {

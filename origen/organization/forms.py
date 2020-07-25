@@ -60,12 +60,9 @@ class OrganizationUpdateForm(forms.ModelForm):
     
     class Meta:
         model = Organization
-        fields = ('name', 'email', 'phone', 'website', 'street_name', 'street_number', 'city', 'country', 'description', 'color')
+        fields = ('email', 'phone', 'website', 'street_name', 'street_number', 'city', 'country', 'description', 'color')
         
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control',
-                                        'placeholder': 'Organization Name',
-                                        'name': 'Org-edit'}),
             'email': forms.TextInput(attrs={'class': 'form-control',
                                         'placeholder': 'Contact Email',
                                         'name': 'Org-email-edit',
