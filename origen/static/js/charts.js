@@ -79,25 +79,25 @@ function onRefreshCarbdonDioxide(chart) {
 }
 
 //Temperature Gauge
-new Chart(document.getElementById("doughnut-chart1"), {
-  type: 'doughnut',
-  data: {
-    datasets: [{
-      label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Temperature'
-    },
-    rotation: -Math.PI,
-    cutoutPercentage: 30,
-    circumference: Math.PI,
-  }
-});
+// new Chart(document.getElementById("doughnut-chart1"), {
+//   type: 'doughnut',
+//   data: {
+//     datasets: [{
+//       label: "Population (millions)",
+//       backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+//       data: [2478, 5267, 734, 784, 433]
+//     }]
+//   },
+//   options: {
+//     title: {
+//       display: true,
+//       text: 'Temperature'
+//     },
+//     rotation: -Math.PI,
+//     cutoutPercentage: 30,
+//     circumference: Math.PI,
+//   }
+// });
 
 //Temperature Chart
 new Chart(document.getElementById("line-chart1"), {
@@ -155,27 +155,27 @@ new Chart(document.getElementById("line-chart1"), {
 });
 
 //Humidity Gauge 
-new Chart(document.getElementById("doughnut-chart2"), {
-  type: 'doughnut',
-  data: {
-    datasets: [{
-      label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Humidity'
-    },
-    rotation: -Math.PI,
-    cutoutPercentage: 30,
-    circumference: Math.PI,
-    responsive: true,
-    maintainAspectRatio: false
-  }
-});
+// new Chart(document.getElementById("doughnut-chart2"), {
+//   type: 'doughnut',
+//   data: {
+//     datasets: [{
+//       label: "Population (millions)",
+//       backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+//       data: [2478, 5267, 734, 784, 433]
+//     }]
+//   },
+//   options: {
+//     title: {
+//       display: true,
+//       text: 'Humidity'
+//     },
+//     rotation: -Math.PI,
+//     cutoutPercentage: 30,
+//     circumference: Math.PI,
+//     responsive: true,
+//     maintainAspectRatio: false
+//   }
+// });
 
 //Humidity Chart
 new Chart(document.getElementById("line-chart2"), {
@@ -233,27 +233,27 @@ new Chart(document.getElementById("line-chart2"), {
 });
 
 //VOC Gauge 
-new Chart(document.getElementById("doughnut-chart3"), {
-  type: 'doughnut',
-  data: {
-    datasets: [{
-      label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'VOC'
-    },
-    rotation: -Math.PI,
-    cutoutPercentage: 30,
-    circumference: Math.PI,
-    responsive: true,
-    maintainAspectRatio: false
-  }
-});
+// new Chart(document.getElementById("doughnut-chart3"), {
+//   type: 'doughnut',
+//   data: {
+//     datasets: [{
+//       label: "Population (millions)",
+//       backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+//       data: [2478, 5267, 734, 784, 433]
+//     }]
+//   },
+//   options: {
+//     title: {
+//       display: true,
+//       text: 'VOC'
+//     },
+//     rotation: -Math.PI,
+//     cutoutPercentage: 30,
+//     circumference: Math.PI,
+//     responsive: true,
+//     maintainAspectRatio: false
+//   }
+// });
 
 //VOC Chart
 new Chart(document.getElementById("line-chart3"), {
@@ -311,27 +311,27 @@ new Chart(document.getElementById("line-chart3"), {
 });
 
 //Carbon Dioxide Gauge
-new Chart(document.getElementById("doughnut-chart4"), {
-  type: 'doughnut',
-  data: {
-    datasets: [{
-      label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Carbon Dioxide'
-    },
-    rotation: -Math.PI,
-    cutoutPercentage: 30,
-    circumference: Math.PI,
-    responsive: true,
-    maintainAspectRatio: false
-  }
-});
+// new Chart(document.getElementById("doughnut-chart4"), {
+//   type: 'doughnut',
+//   data: {
+//     datasets: [{
+//       label: "Population (millions)",
+//       backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+//       data: [2478, 5267, 734, 784, 433]
+//     }]
+//   },
+//   options: {
+//     title: {
+//       display: true,
+//       text: 'Carbon Dioxide'
+//     },
+//     rotation: -Math.PI,
+//     cutoutPercentage: 30,
+//     circumference: Math.PI,
+//     responsive: true,
+//     maintainAspectRatio: false
+//   }
+// });
 
 //Carbon Dioxide Chart
 new Chart(document.getElementById("line-chart4"), {
