@@ -13,4 +13,5 @@ urlpatterns = [
     path('for/<slug>/<pk>/delete/', views.DeleteSensor.as_view(), name='delete'),
     path('api/for/<slug>/<pk>', views.SensorDetailAPI.as_view(), name='single-api'),
     path('api/for/<slug>/<pk>/records/<time>/<offset>', views.RecordTimeAPI.as_view(), name='time-records'),
+    path('api/for/<slug>/', views.SensorListAPI.as_view(), name='sensor-list'),
 ]

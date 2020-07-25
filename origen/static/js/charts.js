@@ -202,7 +202,7 @@ function getSensorValue() {
   var originalUrlArray = window.location.href.split("/")
   var sensorId = originalUrlArray[originalUrlArray.length - 1];
   // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg" + sensorId;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit" + sensorId;
   var value = 0.0;
   $.ajax({
       async: false,
@@ -219,14 +219,43 @@ function getSensorValue() {
 }
 
 function randomScalingFactor() {
+  getSensorCount()
 	return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+}
+
+function getSensorCount() {
+  // var originalUrlArray = window.location.href.split("/");
+  // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit";
+  var typeCount = [{},{},{},{}]
+  $.ajax({
+    async: false,
+    url: sensorApiUrl,
+    method: "GET",
+    data: {},
+    success: function (data) {
+      for (var key in data) {
+        var sensor_type = data[key].type;
+        if (sensor_type=="temperature")
+          typeCount[0][key] = data[key]
+        else if(sensor_type=="humidity")
+          typeCount[1][key] = data[key]
+        else if(sensor_type=="voc")
+          typeCount[2][key] = data[key]
+        else if(sensor_type=="co2")
+          typeCount[3][key] = data[key]
+      }
+    }
+  });
+  console.log(typeCount);
+  return typeCount;
 }
 
 function onRefresh(chart) {
 	chart.config.data.datasets.forEach(function(dataset) {
 		dataset.data.push({
 			x: Date.now(),
-			y: getSensorValue()
+			y: randomScalingFactor()
 		});
 	});
 }
