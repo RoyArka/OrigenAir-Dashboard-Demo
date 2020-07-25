@@ -143,3 +143,26 @@ class RecordTimeAPI(APIView):
             }
             
         return Response(data)
+
+
+class SensorListAPI(APIView):
+
+    def get_object(self, slug):
+        organization = get_object_or_404(Organization, slug=slug)
+        return Sensor.objects.filter(organization=organization)
+
+
+    def get(self, request, *args, **kwargs):
+        sensors = self.get_object(self.kwargs.get('slug'))
+
+        data = {}
+        
+        for sensor in sensors:
+            data[sensor.pk] = {
+                "name": sensor.name,
+                "organization": sensor.organization.name,
+                "type": sensor.sensor_type,
+                "value": sensor.value,
+            }
+            
+        return Response(data)
