@@ -45,7 +45,7 @@
     </table>
     {% if user.person.organization.admin %}
     <!-- CREATE Button -->
-    <a class="fab" href="{% url 'sensor:create' slug=user.person.organization.slug %}">+</a>
+    <a id="sensor-fab" class="fab" href="{% url 'sensor:create' slug=user.person.organization.slug %}">+</a>
     <!-- /END CREATE Button -->
     {% endif %}
 </div>

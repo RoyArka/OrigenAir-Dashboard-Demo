@@ -1,3 +1,9 @@
+@media (max-width: 425px) {
+    #sensor-fab {
+        display: none;
+    }
+}
+
 .container-sensor-list {
     margin: 15px 15px 0px 15px;
 }

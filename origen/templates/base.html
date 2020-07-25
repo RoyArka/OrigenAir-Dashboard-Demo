@@ -43,11 +43,12 @@
 
     <!-- Responsive Chart -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@1.8.0"></script>
-    
+
     <!-- Responsive Chart - Annotations -->
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@0.5.7/chartjs-plugin-annotation.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@0.5.7/chartjs-plugin-annotation.min.js">
+    </script>
 
     <!-- Stylesheet CSS -->
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" media="all" />
@@ -106,14 +107,14 @@
                             <span class="menu-collapsed">List</span>
                         </a>
                         <!-- /END SENSOR LIST -->
-                    
+
                         <!-- SENSOR CREATE -->
                         {% if user.person.organization.admin %}
                         <a href="{% url 'sensor:create' slug=user.person.organization.slug %}"
                             class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Create</span>
                         </a>
-                         {% endif %}
+                        {% endif %}
                         <!-- /END SENSOR CREATE -->
                     </div>
                     {% endif %}
@@ -187,7 +188,7 @@
                             class="list-group-item list-group-item-action bg-success text-white">
                             <span class="menu-collapsed">Members</span>
                         </a>
-                        <!-- /END ORGANIZATION PROFILE -->
+                        <!-- /END ORGANIZATION MEMBERS -->
                         {% endif %}
 
                         <!-- ORGANIZATION CREATE -->
@@ -199,11 +200,11 @@
                     </div>
                     {% endif %}
                     <!-- /END ORGANIZATION -->
-                   
+
                     <!-- Separator without title -->
                     <!-- <li class="list-group-item sidebar-separator menu-collapsed"></li> -->
                     <!-- /END Separator -->
-                    
+
                     <!-- COLLAPSE -->
                     <a href="#" data-toggle="sidebar-colapse"
                         class="bg-success list-group-item list-group-item-action d-flex align-items-center">
@@ -235,7 +236,84 @@
                             </div>
                         </div>
                     </form> -->
-                    <!-- /END SEARCH BAR -->
+
+                    <!-- SIDEBAR DROPDOWN - MOBILE VIEW -->
+                    <a id="sidebarDropdown" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i id="" class="fas fa-bars"></i>
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="sidebarDropdown">
+                        {% if user.is_authenticated %}
+
+                        {% if user.person.organization %}
+                        <!-- SENSOR LIST -->
+                        <a class="dropdown-item" href="{% url 'sensor:all' slug=user.person.organization.slug %}">
+                            Sensor - List
+                        </a>
+                        <!-- /END SENSOR LIST -->
+
+                        {% if user.person.organization.admin %}
+                        <!-- SENSOR CREATE -->
+                        <a class="dropdown-item" href="{% url 'sensor:create' slug=user.person.organization.slug %}">
+                            Sensor - Create
+                        </a>
+                        <!-- /END SENSOR CREATE -->
+                        {% endif %}
+                        <div class="dropdown-divider"></div>
+                        {% endif %}
+
+                        <!-- PROFILE -->
+                        <a class="dropdown-item" href="{% url 'accounts:profile' username=user.username %}">
+                            Profile
+                        </a>
+                        <!-- /END PROFILE -->
+
+                        <!-- PROFILE UPDATE -->
+                        <a class="dropdown-item" href="{% url 'accounts:profile_update' %}">
+                            Profile Update
+                        </a>
+                        <!-- /END PROFILE UPDATE -->
+
+                        <!-- PASSWORD CHANGE -->
+                        <a class="dropdown-item" href="{% url 'accounts:password_change' %}">
+                            Password Change
+                        </a>
+                        <!-- /END PASSWORD CHANGE -->
+
+                        <div class="dropdown-divider"></div>
+
+                        {% else %}
+                        {% endif %}
+
+                        {% if user.is_authenticated %}
+                        <!-- ORGANIZATION LIST -->
+                        <a class="dropdown-item" href="{% url 'organization:all' %}">
+                            Organization - List
+                        </a>
+                        <!-- /END ORGANIZATION LIST -->
+
+                        {% if user.person.organization %}
+                        <!-- ORGANIZATION PROFILE -->
+                        <a class="dropdown-item" href="{% url 'organization:single' slug=user.person.organization.slug %}">
+                            {{user.person.organization.name}}
+                        </a>
+                        <!-- /END ORGANIZATION PROFILE -->
+
+                        <!-- ORGANIZATION MEMBERS -->
+                        <a class="dropdown-item" href="{% url 'organization:members' slug=user.person.organization.slug %}">
+                            Organization - Members
+                        </a>
+                        <!-- /END ORGANIZATION MEMBERS -->
+                        {% endif %}
+
+                        <!-- ORGANIZATION CREATE -->
+                        <a class="dropdown-item" href="{% url 'organization:create' %}">
+                            Organization - Create
+                        </a>
+                        <!-- /END ORGANIZATION CREATE -->
+                        {% endif %}
+                    </div>
+                    <!-- /END SIDEBAR DROPDOWN - MOBILE VIEW -->
 
                     <!-- NOTIFICATION / USER PROFILE -->
                     <ul class="navbar-nav ml-auto">
@@ -243,8 +321,8 @@
                         <!-- <li class="nav-item dropdown no-arrow mx-1 topbarnotification">
                             <a>
                                 <i class="fas fa-bell fa-fw"></i> -->
-                                <!-- Alerts -->
-                                <!-- <span class="badge badge-danger badge-counter">10+</span>
+                        <!-- Alerts -->
+                        <!-- <span class="badge badge-danger badge-counter">10+</span>
                             </a>
                         </li> -->
                         <!-- /END NOTIFICATION -->

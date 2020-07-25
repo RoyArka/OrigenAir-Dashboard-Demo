@@ -1,5 +1,11 @@
 /* ORGANIZATION LIST */
 
+@media (max-width: 425px) {
+    #organization-fab {
+        display: none;
+    }
+}
+
 .card-body {
     height: 220px;
 }
