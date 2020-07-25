@@ -5,6 +5,8 @@ from accounts.models import Person
 from django.forms import ModelForm
 import pytz
 from django.forms.widgets import ClearableFileInput
+from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'inputUsername', 'placeholder': 'Username', 'autocomplete': 'off'}))
@@ -26,6 +28,12 @@ class PersonCreateForm(UserCreationForm):
 
         for fieldname in ['username', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise ValidationError("Email is already in use")
+        return self.cleaned_data
 
     def save(self):
         user = super().save(commit=False)
