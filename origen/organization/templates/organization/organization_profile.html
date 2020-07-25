@@ -99,7 +99,8 @@
                             {% if organization.admin %}
                             <a class="btn btn-success"
                                 href="{% url 'organization:update' slug=organization.slug %}">Edit</a>
-                            
+                            {% endif %}
+                            {% if organization.admin and not user.person.organization %}
                             <a class="btn btn-danger btn-organization-right"
                                 href="{% url 'organization:delete' slug=organization.slug %}">Delete
                             </a>
