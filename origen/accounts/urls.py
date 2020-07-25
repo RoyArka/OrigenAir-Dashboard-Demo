@@ -7,7 +7,7 @@ app_name = 'accounts'
 
 urlpatterns = [
     path('signup/', views.SignUp.as_view(), name='signup'),
-    path('login/', views.Login.as_view(), name='login'),
+    path('login/', views.Login.as_view(redirect_authenticated_user=True), name='login'),
     path('logout/',auth_views.LogoutView.as_view(),name='logout'),
     path('password_reset/', auth_views.PasswordResetView.as_view(from_email='forgot-password@origenair.com', form_class=MyPasswordResetForm), name='password_reset'), 
     # TODO: Above email account needs to be created, and email details must be included in Settings.py

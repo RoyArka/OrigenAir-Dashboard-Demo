@@ -20,7 +20,7 @@
     <!-- LIST Member -->
     <div class="row">
         {% for person in organization.persons.all %}
-        <a href="{% url 'accounts:profile' username=user.username %}" class="col-xl-3 col-md-6 mb-4 member-card">
+        <a href="{% url 'accounts:profile' username=person.user.username %}" class="col-xl-3 col-md-6 mb-4 member-card">
             <div class="card border-0 shadow members-card">
                 <!-- PHOTO Member -->
                 <div class="card-avatar">
