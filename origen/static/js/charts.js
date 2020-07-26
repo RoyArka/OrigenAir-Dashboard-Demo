@@ -1,12 +1,22 @@
 //list of Chart colors
+// var chartColors = {
+//   red: 'rgb(255, 99, 132)',
+//   orange: 'rgb(255, 159, 64)',
+//   yellow: 'rgb(255, 205, 86)',
+//   green: 'rgb(75, 192, 192)',
+//   blue: 'rgb(54, 162, 235)',
+//   purple: 'rgb(153, 102, 255)',
+//   grey: 'rgb(201, 203, 207)'
+// };
+
 var chartColors = {
-  red: 'rgb(255, 99, 132)',
-  orange: 'rgb(255, 159, 64)',
-  yellow: 'rgb(255, 205, 86)',
-  green: 'rgb(75, 192, 192)',
-  blue: 'rgb(54, 162, 235)',
-  purple: 'rgb(153, 102, 255)',
-  grey: 'rgb(201, 203, 207)'
+  red: '#F44336',
+  orange: '#FF5722',
+  yellow: '#FFEE58',
+  green: '#00C853',
+  blue: '#03A9F4',
+  purple: '#7E57C2',
+  grey: '#EEEEEE'
 };
 
 var color = Chart.helpers.color;
@@ -100,8 +110,8 @@ new Chart(document.getElementById("doughnut-chart1"), {
   data: {
     datasets: [{
       label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
+      backgroundColor: ["#03A9F4", "#00C853", "#FFEE58", "#FF5722", "#E53935"],
+      data: [2000, 2000, 2000, 2000, 2000]
     }]
   },
   options: {
@@ -160,8 +170,8 @@ new Chart(document.getElementById("doughnut-chart2"), {
   data: {
     datasets: [{
       label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
+      backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
+      data: [2000, 2000, 2000, 2000, 2000]
     }]
   },
   options: {
@@ -238,8 +248,8 @@ new Chart(document.getElementById("doughnut-chart3"), {
   data: {
     datasets: [{
       label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
+      backgroundColor: ["#54478C", "#0DB39E", "#83E377", "#EFEA5A", "#F29E4C"],
+      data: [2000, 2000, 2000, 2000, 2000]
     }]
   },
   options: {
@@ -316,8 +326,8 @@ new Chart(document.getElementById("doughnut-chart4"), {
   data: {
     datasets: [{
       label: "Population (millions)",
-      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-      data: [2478, 5267, 734, 784, 433]
+      backgroundColor: ["#fff4a0", "#a8c162", "#488f31", "#f9a160", "#de425b"],
+      data: [2000, 2000, 2000, 2000, 2000]
     }]
   },
   options: {
