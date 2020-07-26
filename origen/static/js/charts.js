@@ -18,6 +18,7 @@ var chartColors = {
   purple: '#7E57C2',
   grey: '#EEEEEE'
 };
+var chartColorArray = ["red", "blue", "yellow", "green", "orange", "purple", "grey"]
 
 var color = Chart.helpers.color;
 
@@ -46,25 +47,30 @@ function randomScalingFactor() {
   return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
 }
 
-
+var refreshTempFlag = false
 //Temperature OnRefresh Function
 function onRefreshTemp(chart) {
-  var sensorDict = getSensorCount("temperature")
-  console.log(sensorDict)
-  // for (var key in sensorDict){
+  let sensorDict = getSensorCount("temperature")
 
-  //   chart.config.data.datasets.push({
-  //       label: sensorDict[key].name,
-  //       backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
-  //       borderColor: chartColors.red,
-  //       fill: false,
-  //       lineTension: 0,
-  //       borderDash: [8, 4],
-  //       data: [],
-  //       id: key,
-  //   });
-
-  // }
+  if (refreshTempFlag == false){
+    let i = 0;
+    for (var key in sensorDict){
+      chart.config.data.datasets.push({
+          label: sensorDict[key].name,
+          backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
+          borderColor: chartColors[chartColorArray[i]],
+          fill: false,
+          lineTension: 0,
+          borderDash: [8, 4],
+          data: [],
+          id: key,
+      });
+      i += 1;
+      if (i==7)
+        i = 0
+    }
+    refreshTempFlag = true;
+  }
 
   chart.config.data.datasets.forEach(function (dataset) {
     dataset.data.push({
@@ -75,31 +81,100 @@ function onRefreshTemp(chart) {
 }
 
 //Humidity OnRefresh Function
+var refreshHumFlag = false;
 function onRefreshHum(chart) {
+  let sensorDict = getSensorCount("humidity")
+
+  if (refreshHumFlag == false){
+    let i = 0;
+    for (var key in sensorDict){
+      chart.config.data.datasets.push({
+          label: sensorDict[key].name,
+          backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
+          borderColor: chartColors[chartColorArray[i]],
+          fill: false,
+          lineTension: 0,
+          borderDash: [8, 4],
+          data: [],
+          id: key,
+      });
+      i += 1;
+      if (i==7)
+        i = 0
+    }
+    refreshHumFlag = true;
+  }
+
   chart.config.data.datasets.forEach(function (dataset) {
     dataset.data.push({
       x: Date.now(),
-      y: randomScalingFactor() * 100
+      y: getSensorValue(dataset.id)
     });
   });
 }
 
-//VOC OnRefresh Function
+//VOC OnRefresh 
+var refreshVocFlag = false;
 function onRefreshVOC(chart) {
+  let sensorDict = getSensorCount("voc")
+
+  if (refreshVocFlag == false){
+    let i = 0;
+    for (var key in sensorDict){
+      chart.config.data.datasets.push({
+          label: sensorDict[key].name,
+          backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
+          borderColor: chartColors[chartColorArray[i]],
+          fill: false,
+          lineTension: 0,
+          borderDash: [8, 4],
+          data: [],
+          id: key,
+      });
+      i += 1;
+      if (i==7)
+        i = 0
+    }
+    refreshVocFlag = true;
+  }
+
   chart.config.data.datasets.forEach(function (dataset) {
     dataset.data.push({
       x: Date.now(),
-      y: randomScalingFactor() * 150
+      y: getSensorValue(dataset.id)
     });
   });
 }
 
 //Carbon Dioxide OnRefresh Function
+var refreshCo2Flag = false;
 function onRefreshCarbdonDioxide(chart) {
+  let sensorDict = getSensorCount("co2")
+
+  if (refreshCo2Flag == false){
+    let i = 0;
+    for (var key in sensorDict){
+      chart.config.data.datasets.push({
+          label: sensorDict[key].name,
+          backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
+          borderColor: chartColors[chartColorArray[i]],
+          fill: false,
+          lineTension: 0,
+          borderDash: [8, 4],
+          data: [],
+          id: key,
+      });
+      i += 1;
+      if (i==7)
+        i = 0
+    }
+    refreshCo2Flag = true;
+  }
+
   chart.config.data.datasets.forEach(function (dataset) {
     dataset.data.push({
       x: Date.now(),
-      y: randomScalingFactor() * 200
+      y: getSensorValue(dataset.id)
     });
   });
 }
@@ -188,26 +263,7 @@ new Chart(document.getElementById("doughnut-chart2"), {
 new Chart(document.getElementById("line-chart2"), {
   type: 'line',
   data: {
-    datasets: [{
-        label: '1 (Linear)',
-        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
-        borderColor: chartColors.red,
-        fill: false,
-        lineTension: 0,
-        borderDash: [8, 4],
-        data: [],
-        id: '1',
-      },
-      {
-        label: '2 (Cubic)',
-        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-        borderColor: chartColors.blue,
-        fill: false,
-        cubicInterpolationMode: 'monotone',
-        data: [],
-        id: '2',
-      }
-    ]
+    datasets: []
   },
   options: {
     title: {
@@ -266,26 +322,7 @@ new Chart(document.getElementById("doughnut-chart3"), {
 new Chart(document.getElementById("line-chart3"), {
   type: 'line',
   data: {
-    datasets: [{
-        label: '1 (Linear)',
-        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
-        borderColor: chartColors.red,
-        fill: false,
-        lineTension: 0,
-        borderDash: [8, 4],
-        data: [],
-        id: '1',
-      },
-      {
-        label: '2 (Cubic)',
-        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-        borderColor: chartColors.blue,
-        fill: false,
-        cubicInterpolationMode: 'monotone',
-        data: [],
-        id: '2',
-      }
-    ]
+    datasets: []
   },
   options: {
     title: {
@@ -344,26 +381,7 @@ new Chart(document.getElementById("doughnut-chart4"), {
 new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
-    datasets: [{
-        label: '1 (Linear)',
-        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
-        borderColor: chartColors.red,
-        fill: false,
-        data: [],
-        lineTension: 0,
-        borderDash: [8, 4],
-        id: '1',
-      },
-      {
-        label: '2 (Cubic)',
-        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-        borderColor: chartColors.blue,
-        fill: false,
-        cubicInterpolationMode: 'monotone',
-        data: [],
-        id: '2',
-      }
-    ]
+    datasets: []
   },
   options: {
     title: {
