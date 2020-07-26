@@ -56,7 +56,8 @@
         <!-- Temperature Doughnut -->
         <div class="col-sm-3 index-card-margin3">
             <div class="card border-0 shadow index-card-padding">
-                <canvas id="doughnut-chart1" height="400vh"></canvas>
+                <!-- <canvas id="doughnut-chart1" height="200vh"></canvas> -->
+                <div id="chartdiv" style="width: 75%; height: 19vh;"></div>
             </div>
         </div>
 
@@ -70,7 +71,7 @@
         <!-- Humidity Doughnut -->
         <div class="col-sm-3 index-card-margin3">
             <div class="card border-0 shadow index-card-padding">
-                <canvas id="doughnut-chart2" height="400vh"></canvas>
+                <!-- <canvas id="doughnut-chart2" height="200vh"></canvas> -->
             </div>
         </div>
 
@@ -84,7 +85,7 @@
         <!-- VOC Doughnut -->
         <div class="col-sm-3 index-card-margin3">
             <div class="card border-0 shadow index-card-padding">
-                <canvas id="doughnut-chart3" height="400vh"></canvas>
+                <!-- <canvas id="doughnut-chart3" height="200vh"></canvas> -->
             </div>
         </div>
 
@@ -98,7 +99,7 @@
         <!-- CO2 Doughnut -->
         <div class="col-sm-3 index-card-margin3">
             <div class="card border-0 shadow index-card-padding">
-                <canvas id="doughnut-chart4" height="400vh"></canvas>
+                <!-- <canvas id="doughnut-chart4" height="200vh"></canvas> -->
             </div>
         </div>
 
@@ -203,5 +204,8 @@
 
 {% block scripts %}
 {{block.super}}
+<!-- chart.js -->
 <script src="{% static 'js/charts.js' %}"></script>
+<!-- amCharts.js -->
+<script src="{% static 'js/amCharts.js' %}"></script>
 {% endblock scripts %}
