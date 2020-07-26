@@ -29,7 +29,7 @@ class Organization(models.Model):
     slug = models.SlugField(allow_unicode=True, unique=True)
     created_at = models.DateTimeField(default=timezone.now, null=False)
     
-    admin = models.ForeignKey(User, related_name='organization_admin', null=True, blank=True, on_delete=models.PROTECT)
+    admin = models.ForeignKey(User, related_name='organization_admin', null=True, blank=True, on_delete=models.SET_NULL)
 
     logo = models.ImageField(upload_to=org_directory_path, default='org/contemplating.png', null=True, blank=True)
    

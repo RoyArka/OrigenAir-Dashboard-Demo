@@ -33,7 +33,13 @@ class PersonCreateForm(UserCreationForm):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
             raise ValidationError("Email is already in use")
-        return self.cleaned_data
+        return self.cleaned_data.get('email')
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if User.objects.filter(username=username).exists():
+            raise ValidationError("Username is already in use")
+        return self.cleaned_data.get('username')
 
     def save(self):
         user = super().save(commit=False)

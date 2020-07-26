@@ -12,11 +12,10 @@ var chartColors = {
 var color = Chart.helpers.color;
 
 //Functions 
-function getSensorValue() {
+function getSensorValue(sensorId) {
   var originalUrlArray = window.location.href.split("/")
-  var sensorId = originalUrlArray[originalUrlArray.length - 1];
   // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg" + sensorId;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit/" + sensorId;
   var value = 0.0;
   $.ajax({
     async: false,
@@ -24,9 +23,9 @@ function getSensorValue() {
     method: "GET",
     data: {},
     success: function (data) {
-      var sensorValue = $("#sensor-value")[0];
+      
       value = data.value;
-      sensorValue.textContent = value;
+      
     }
   });
   return value;
@@ -40,10 +39,27 @@ function randomScalingFactor() {
 
 //Temperature OnRefresh Function
 function onRefreshTemp(chart) {
+  var sensorDict = getSensorCount("temperature")
+  console.log(sensorDict)
+  // for (var key in sensorDict){
+    
+  //   chart.config.data.datasets.push({
+  //       label: sensorDict[key].name,
+  //       backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
+  //       borderColor: chartColors.red,
+  //       fill: false,
+  //       lineTension: 0,
+  //       borderDash: [8, 4],
+  //       data: [],
+  //       id: key,
+  //   });
+
+  // }
+  
   chart.config.data.datasets.forEach(function (dataset) {
     dataset.data.push({
       x: Date.now(),
-      y: randomScalingFactor()
+      y: getSensorValue(dataset.id)
     });
   });
 }
@@ -103,25 +119,7 @@ function onRefreshCarbdonDioxide(chart) {
 new Chart(document.getElementById("line-chart1"), {
   type: 'line',
   data: {
-    datasets: [{
-        label: '1 (Linear)',
-        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
-        borderColor: chartColors.red,
-        fill: false,
-        lineTension: 0,
-        borderDash: [8, 4],
-        data: [],
-        id: '1',
-      },
-      {
-        label: '2 (Cubic)',
-        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-        borderColor: chartColors.blue,
-        fill: false,
-        cubicInterpolationMode: 'monotone',
-        data: [],
-        id: '2',
-      }
+    datasets: [
     ]
   },
   options: {
@@ -388,32 +386,9 @@ new Chart(document.getElementById("line-chart4"), {
   }
 });
 
-function getSensorValue() {
-  var originalUrlArray = window.location.href.split("/")
-  var sensorId = originalUrlArray[originalUrlArray.length - 1];
-  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit" + sensorId;
-  var value = 0.0;
-  $.ajax({
-      async: false,
-      url: sensorApiUrl,
-      method: "GET",
-      data: {},
-      success: function (data) {
-          var sensorValue = $("#sensor-value")[0];
-          value = data.value;
-          sensorValue.textContent = value;
-      }
-  });
-  return value;
-}
 
-function randomScalingFactor() {
-  getSensorCount()
-	return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-}
 
-function getSensorCount() {
+function getSensorCount(desiredType) {
   // var originalUrlArray = window.location.href.split("/");
   // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
   var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit";
@@ -437,15 +412,13 @@ function getSensorCount() {
       }
     }
   });
-  console.log(typeCount);
-  return typeCount;
+  if (desiredType == "temperature")
+    return typeCount[0]
+  else if(desiredType == "humidity")
+    return typeCount[1]
+  else if(desiredType == "voc")
+    return typeCount[2]
+  else if(desiredType == "co2")
+    return typeCount[3]
 }
 
-function onRefresh(chart) {
-	chart.config.data.datasets.forEach(function(dataset) {
-		dataset.data.push({
-			x: Date.now(),
-			y: randomScalingFactor()
-		});
-	});
-}
