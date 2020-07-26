@@ -185,7 +185,8 @@ new Chart(document.getElementById("doughnut-chart1"), {
   data: {
     datasets: [{
       label: "Population (millions)",
-      backgroundColor: ["#03A9F4", "#00C853", "#FFEE58", "#FF5722", "#E53935"],
+      // backgroundColor: ["#03A9F4", "#00C853", "#FFEE58", "#FF5722", "#E53935"],
+      backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
       data: [1, 1, 1, 1, 1]
     }]
   },
@@ -301,7 +302,7 @@ new Chart(document.getElementById("doughnut-chart3"), {
   data: {
     datasets: [{
       label: "Population (millions)",
-      backgroundColor: ["#54478C", "#0DB39E", "#83E377", "#EFEA5A", "#F29E4C"],
+      backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
       data: [1, 1, 1, 1, 1]
     }]
   },
@@ -360,7 +361,7 @@ new Chart(document.getElementById("doughnut-chart4"), {
   data: {
     datasets: [{
       label: "Population (millions)",
-      backgroundColor: ["#fff4a0", "#a8c162", "#488f31", "#f9a160", "#de425b"],
+      backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
       data: [1, 1, 1, 1, 1]
     }]
   },
