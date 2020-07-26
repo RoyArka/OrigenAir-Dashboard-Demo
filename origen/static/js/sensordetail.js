@@ -143,9 +143,9 @@ function formatMixedChartData(time, type) {
 function mixedChartToggle() {
   var data = [];
   if (historicalChart.data.labels[0] == "4 Hours ago") {
-    data = ["4 Days ago", "3 Days ago", "2 Days ago", "1 Days ago"];
+    data = ["4 Days ago", "3 Days ago", "2 Days ago", "1 Day ago"];
   } else {
-    data = ["4 Hours ago", "3 Hours ago", "2 Hours ago", "1 Hours ago"];
+    data = ["4 Hours ago", "3 Hours ago", "2 Hours ago", "1 Hour ago"];
   }
   return data;
 }
@@ -344,7 +344,7 @@ new Chart(document.getElementById("doughnut-chart"), {
 var historicalChart = new Chart(document.getElementById("mixed-chart"), {
   type: 'bar',
   data: {
-    labels: ["4 Days ago", "3 Days ago", "2 Days ago", "1 Days ago"],
+    labels: ["4 Days ago", "3 Days ago", "2 Days ago", "1 Day ago"],
     datasets: [{
       label: "Average",
       type: "line",
