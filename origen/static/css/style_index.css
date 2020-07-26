@@ -12897,3 +12897,9 @@ pre[class*=language-] {
 [class*=language-] .namespace {
   opacity: 0.7;
 }
+
+@media (min-width: 300px) {
+  
+  g>g>g>g>g{
+  }
+}
