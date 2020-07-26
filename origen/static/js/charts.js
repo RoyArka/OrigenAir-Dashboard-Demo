@@ -25,8 +25,8 @@ var color = Chart.helpers.color;
 //Functions 
 function getSensorValue(sensorId) {
   var originalUrlArray = window.location.href.split("/")
-  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit/" + sensorId;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/final-fight/" + sensorId;
+  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit/" + sensorId;
   var value = 0.0;
   $.ajax({
     async: false,
@@ -419,7 +419,8 @@ new Chart(document.getElementById("line-chart4"), {
 function getSensorCount(desiredType) {
   // var originalUrlArray = window.location.href.split("/");
   // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit";
+  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit";
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/final-fight";
   var typeCount = [{}, {}, {}, {}]
   $.ajax({
     async: false,
