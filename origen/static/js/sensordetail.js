@@ -197,7 +197,7 @@ function getAvgSensorValue(runningAvg) {
   runningAvg = valueArr.reduce(function (a, b) {
     return a + b;
   }) / valueArr.length
-  return runningAvg;
+  return runningAvg.toFixed(2);
 }
 
 //Main Streaming Chart onRfresh property function 

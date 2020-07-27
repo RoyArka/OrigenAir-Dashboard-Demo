@@ -17,5 +17,5 @@ def main(pk):
         res = requests.put(url, json=data, headers=headers,)
         print(res.status_code)
         time.sleep(1)
-
 main(14)
+
