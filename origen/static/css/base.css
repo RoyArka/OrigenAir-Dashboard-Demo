@@ -159,6 +159,10 @@ a.fab:hover {
 
 /* Sidebar Dropdown for Mobile View */
 @media (min-width: 768px) {
+    #sidebarHome {
+        display: none;
+    }
+    
     #sidebarDropdown {
         display: none;
     }
