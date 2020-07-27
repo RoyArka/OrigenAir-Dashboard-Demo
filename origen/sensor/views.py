@@ -13,6 +13,7 @@ from organization.models import Organization
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 import datetime
 from django.http import Http404
+from django.utils import timezone
 
 #Create your views here.
 class SensorAdminRequiredMixin(UserPassesTestMixin, LoginRequiredMixin):
@@ -134,7 +135,6 @@ class RecordTimeAPI(APIView):
         data = {
             
         }
-
         for record in records:
             data[record.pk] = {
                 "created_at": record.created_at,
@@ -143,8 +143,9 @@ class RecordTimeAPI(APIView):
             
         return Response(data)
 
-
 class SensorListAPI(APIView):
+
+    is_active = False
 
     def get_object(self, slug):
         organization = get_object_or_404(Organization, slug=slug)
@@ -153,8 +154,8 @@ class SensorListAPI(APIView):
     def get(self, request, *args, **kwargs):
         sensors = self.get_object(self.kwargs.get('slug'))
         data = {}
-        # time_threshold = datetime.datetime.utcnow() - datetime.timedelta(minutes=1)
-        start_time = datetime.datetime.utcnow() - datetime.timedelta(minutes=1)
+
+        start_time = timezone.now() - datetime.timedelta(minutes=1)
         end_time = start_time + datetime.timedelta(minutes=1)
         for sensor in sensors:
             data[sensor.pk] = {
@@ -165,17 +166,11 @@ class SensorListAPI(APIView):
                 "last_updated": sensor.last_updated,
             }
             
-            # print(start_time)
-            # print(end_time)
-
-            # if sensor.last_updated in range(start_time, end_time):
-            #     print("YAY")
-            # else:
-            #     print("STILL DONT KNOW WHAT IM DOING")
-
-            # if (sensor.last_updated != time_threshold):
-            #     return False 
-            # else:
-            #     return True
-
+            if(start_time <= sensor.last_updated <= end_time):
+                 is_active = True
+                 print("its active")
+            else:
+                 is_active = False
+                 print("its inactive")
+                 
         return Response(data)

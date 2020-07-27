@@ -65,6 +65,22 @@ function getSensorCount(desiredType) {
     return typeCount[3]
 }
 
+//used for counting inactive/active sensors
+function getSensorStatus() {
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/" + sensorId;
+  var count = [{},{}];
+  $.ajax({
+    async: false,
+    url: sensorApiUrl,
+    method: "GET",
+    data: {},
+    success: function (data) {
+      value = data.value;
+    }
+  });
+  return value;
+}
+
 //RandomScalingFactor Function 
 function randomScalingFactor() {
   return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
@@ -572,6 +588,68 @@ new Chart(document.getElementById("line-chart3"), {
   }
 });
 
+<<<<<<< HEAD
+=======
+// Carbon Dioxide Gauge
+new Chart(document.getElementById("doughnut-chart4"), {
+  type: 'doughnut',
+  data: {
+    datasets: [{
+      label: "Population (millions)",
+      backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
+      data: [1, 1, 1, 1, 1]
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Carbon Dioxide'
+    },
+    rotation: -Math.PI,
+    cutoutPercentage: 30,
+    circumference: Math.PI,
+    responsive: true,
+    maintainAspectRatio: false
+  }
+});
+
+//Carbon Dioxide Chart
+new Chart(document.getElementById("line-chart4"), {
+  type: 'line',
+  data: {
+    datasets: []
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Sensor Data'
+    },
+    scales: {
+      xAxes: [{
+        type: 'realtime',
+        realtime: {
+          duration: 20000,
+          refresh: 1000,
+          delay: 2000,
+          onRefresh: onRefreshCarbdonDioxide
+        }
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'CO2 (ppm)'
+        }
+      }]
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 0
+    }
+  }
+});
+
+>>>>>>> arka
 // amCharts
 //Gauge 4 [CO2]
 am4core.ready(function () {
@@ -659,7 +737,29 @@ am4core.ready(function () {
 new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
+<<<<<<< HEAD
     datasets: []
+=======
+    datasets: [{
+        label: '1 (Linear)',
+        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
+        borderColor: chartColors.red,
+        fill: false,
+        data: [],
+        lineTension: 0,
+        id: '1',
+      },
+      {
+        label: '2 (Cubic)',
+        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
+        borderColor: chartColors.blue,
+        fill: false,
+        cubicInterpolationMode: 'monotone',
+        data: [],
+        id: '2',
+      }
+    ]
+>>>>>>> arka
   },
   options: {
     title: {
@@ -689,4 +789,8 @@ new Chart(document.getElementById("line-chart4"), {
       duration: 0
     }
   }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> arka
