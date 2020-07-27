@@ -17,9 +17,4 @@ def main(pk):
         res = requests.put(url, json=data, headers=headers,)
         print(res.status_code)
         time.sleep(1)
-<<<<<<< HEAD
 main(14)
-=======
-
-main(10)
->>>>>>> development
