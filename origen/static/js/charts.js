@@ -88,10 +88,11 @@ function getAvgTempValue(runningAvgTemp) {
   tempChart.config.data.datasets.forEach(function (dataset) {
     newValue = getSensorValue(dataset.id)
     tempArr.push(newValue)
-    runningAvgTemp = tempArr.reduce(function (a, b) {
-      return a + b;
-    }) / tempArr.length
   });
+  runningAvgTemp = tempArr.reduce(function (a, b) {
+    return a + b;
+  }) / tempArr.length
+
   return runningAvgTemp.toFixed(2);
 }
 
@@ -102,10 +103,11 @@ function getAvgHumidValue(runningAvgHumid) {
   humidChart.config.data.datasets.forEach(function (dataset) {
     newValue = getSensorValue(dataset.id)
     humidArr.push(newValue)
-    runningAvgHumid = humidArr.reduce(function (a, b) {
-      return a + b;
-    }) / humidArr.length
   });
+  runningAvgHumid = humidArr.reduce(function (a, b) {
+    return a + b;
+  }) / humidArr.length
+
   return runningAvgHumid.toFixed(2);
 }
 
@@ -116,10 +118,11 @@ function getAvgVocValue(runningAvgVoc) {
   vocChart.config.data.datasets.forEach(function (dataset) {
     newValue = getSensorValue(dataset.id)
     vocArr.push(newValue)
-    runningAvgVoc = vocArr.reduce(function (a, b) {
-      return a + b;
-    }) / vocArr.length
   });
+  runningAvgVoc = vocArr.reduce(function (a, b) {
+    return a + b;
+  }) / vocArr.length
+
   return runningAvgVoc.toFixed(2);
 }
 
@@ -130,10 +133,11 @@ function getAvgCo2Value(runningAvgCo2) {
   co2Chart.config.data.datasets.forEach(function (dataset) {
     newValue = getSensorValue(dataset.id)
     co2Arr.push(newValue)
-    runningAvgCo2 = co2Arr.reduce(function (a, b) {
-      return a + b;
-    }) / co2Arr.length
   });
+  runningAvgCo2 = co2Arr.reduce(function (a, b) {
+    return a + b;
+  }) / co2Arr.length
+  
   return runningAvgCo2.toFixed(2);
 }
 
