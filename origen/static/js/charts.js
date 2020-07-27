@@ -26,7 +26,7 @@ var color = Chart.helpers.color;
 function getSensorValue(sensorId) {
   var originalUrlArray = window.location.href.split("/")
   // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit/" + sensorId;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit/" + 40;
   var value = 0.0;
   $.ajax({
     async: false,
