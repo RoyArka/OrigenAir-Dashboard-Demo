@@ -322,6 +322,7 @@
                     </div>
                     <!-- /END SIDEBAR DROPDOWN - MOBILE VIEW -->
 
+                    {% if user.person.organization %}
                     <div class="organization-name-top-bar">
                         <a href="{% url 'organization:single' slug=user.person.organization.slug %}">
                             <p class="top-bar-font-size">
@@ -329,6 +330,7 @@
                             </p>
                         </a>
                     </div>
+                    {% endif %}
 
                     <!-- NOTIFICATION / USER PROFILE -->
                     <ul class="navbar-nav ml-auto">
