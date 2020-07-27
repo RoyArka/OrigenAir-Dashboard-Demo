@@ -65,6 +65,22 @@ function getSensorCount(desiredType) {
     return typeCount[3]
 }
 
+//used for counting inactive/active sensors
+function getSensorStatus() {
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/" + sensorId;
+  var count = [{},{}];
+  $.ajax({
+    async: false,
+    url: sensorApiUrl,
+    method: "GET",
+    data: {},
+    success: function (data) {
+      value = data.value;
+    }
+  });
+  return value;
+}
+
 var runningAvgTemp = 0.0
 var tempArr = []
 

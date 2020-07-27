@@ -8,7 +8,7 @@ var chartColors = {
   purple: 'rgb(153, 102, 255)',
   grey: 'rgb(201, 203, 207)'
 };
-
+ 
 //Functions Used for Charts 
 function randomScalingFactor() {
   var randomNum = (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
