@@ -34,7 +34,7 @@ function getSensorValue(sensorId) {
 function getSensorCount(desiredType) {
   // var originalUrlArray = window.location.href.split("/");
   // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit";
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/final-fight";
   var typeCount = [{}, {}, {}, {}]
   $.ajax({
     async: false,
@@ -279,8 +279,13 @@ am4core.ready(function () {
 
   function randomValue() {
     // hand.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
-    hand.showValue(getAvgSensorValue(runningAvg), 1000, am4core.ease.cubicOut);
-    console.log(getAvgSensorValue(runningAvg));
+    console.log("Checker is " + getAvgSensorValue(runningAvg));
+    let randomNumber = getAvgSemsprValue(runningAvg);
+    console.log("Check 2 is " + getAvgSensorValue(runningAvg));
+
+
+    hand.showValue(randomNumber, 1000, am4core.ease.cubicOut);
+    
     chart.setTimeout(randomValue, 2000);
   }
 
