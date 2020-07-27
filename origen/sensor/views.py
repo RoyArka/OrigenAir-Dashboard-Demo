@@ -144,9 +144,6 @@ class RecordTimeAPI(APIView):
         return Response(data)
 
 class SensorListAPI(APIView):
-
-    
-
     def get_object(self, slug):
         organization = get_object_or_404(Organization, slug=slug)
         return Sensor.objects.filter(organization=organization)

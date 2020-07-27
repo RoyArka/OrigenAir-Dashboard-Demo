@@ -15,7 +15,7 @@ var color = Chart.helpers.color;
 function getSensorValue(sensorId) {
   var originalUrlArray = window.location.href.split("/")
   // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit/" + sensorId;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/" + sensorId;
   var value = 0.0;
   $.ajax({
     async: false,
@@ -35,7 +35,7 @@ function getSensorValue(sensorId) {
 function getSensorCount(desiredType) {
   // var originalUrlArray = window.location.href.split("/");
   // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit";
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg";
   var typeCount = [{}, {}, {}, {}]
   $.ajax({
     async: false,
@@ -64,28 +64,6 @@ function getSensorCount(desiredType) {
     return typeCount[2]
   else if (desiredType == "co2")
     return typeCount[3]
-}
-
-//used for counting inactive/active sensors
-function getSensorStatus() {
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/"
-  active_count = 0;
-  inactive_count = 0;
-  $.ajax({
-    async: false,
-    url: sensorApiUrl,
-    method: "GET",
-    data: {},
-    success: function (data) {
-      for (var key in data) {
-        var sensor_status = data[key].is_active;
-        if (sensor_status == true)
-          active_count += 1;
-        else if (sensor_status == false)
-          inactive_count += 1;
-    }
-  });
-  return value;
 }
 
 var runningAvgTemp = 0.0
