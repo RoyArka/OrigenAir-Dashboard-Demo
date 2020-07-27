@@ -38,7 +38,7 @@
                         <div class="btn-join-leave text-center">
                             {% if not user.person.organization %}
                             <a href="{% url 'organization:join' slug=organization.slug %}"
-                                class="btn btn-success btn-lg"> Join</a>
+                                class="btn btn-success btn-lg">Join</a>
                             {% endif %}
                             {% if user.person.organization == organization %}
                             <a href=" {% url 'organization:leave' slug=organization.slug %}"
@@ -96,6 +96,9 @@
 
                         <!-- EDIT BUTTON -->
                         <address>
+                            {% if user.person.organization == organization %}
+                            <a class="btn btn-success" href="{% url 'organization:members' slug=user.person.organization.slug %}">Members</a>
+                            {% endif %}
                             {% if organization.admin %}
                             <a class="btn btn-success"
                                 href="{% url 'organization:update' slug=organization.slug %}">Edit</a>

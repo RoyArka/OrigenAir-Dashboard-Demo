@@ -242,8 +242,9 @@
                     </form> -->
 
                     <!-- SIDEBAR DROPDOWN - MOBILE VIEW -->
-                    <a id="sidebarDropdown" href="#" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false"><i id="" class="fas fa-bars"></i>
+                    <a id="sidebarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-bars"></i>
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="sidebarDropdown">
@@ -298,13 +299,15 @@
 
                         {% if user.person.organization %}
                         <!-- ORGANIZATION PROFILE -->
-                        <a class="dropdown-item" href="{% url 'organization:single' slug=user.person.organization.slug %}">
+                        <a class="dropdown-item"
+                            href="{% url 'organization:single' slug=user.person.organization.slug %}">
                             {{user.person.organization.name}}
                         </a>
                         <!-- /END ORGANIZATION PROFILE -->
 
                         <!-- ORGANIZATION MEMBERS -->
-                        <a class="dropdown-item" href="{% url 'organization:members' slug=user.person.organization.slug %}">
+                        <a class="dropdown-item"
+                            href="{% url 'organization:members' slug=user.person.organization.slug %}">
                             Organization - Members
                         </a>
                         <!-- /END ORGANIZATION MEMBERS -->
@@ -318,6 +321,16 @@
                         {% endif %}
                     </div>
                     <!-- /END SIDEBAR DROPDOWN - MOBILE VIEW -->
+
+                    {% if user.person.organization %}
+                    <div class="organization-name-top-bar">
+                        <a href="{% url 'organization:single' slug=user.person.organization.slug %}">
+                            <p class="top-bar-font-size">
+                            {{user.person.organization.name}}
+                            </p>
+                        </a>
+                    </div>
+                    {% endif %}
 
                     <!-- NOTIFICATION / USER PROFILE -->
                     <ul class="navbar-nav ml-auto">

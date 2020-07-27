@@ -133,6 +133,10 @@ a.fab:hover {
     width: 30px;
 }
 
+.organization-name-top-bar {
+    margin-left: 20px;
+}
+
 .topbar-divider {
     border-left: 2px solid rgb(204, 203, 203);
     height: 40px;
@@ -140,6 +144,13 @@ a.fab:hover {
 
 .topbarnotification {
     padding: 10px;
+}
+
+.top-bar-font-size {
+    color: var(--main-bg-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
 }
 
 .dropdown-menu {
