@@ -79,7 +79,7 @@ function onRefreshTemp(chart) {
     let i = 0;
     for (var key in sensorDict) {
       chart.config.data.datasets.push({
-        label: sensorDict[key].name,
+        label: sensorDict[key].name.charAt(0).toUpperCase() + sensorDict[key].name.slice(1),
         backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
         borderColor: chartColors[chartColorArray[i]],
         fill: false,
@@ -112,7 +112,7 @@ function onRefreshHum(chart) {
     let i = 0;
     for (var key in sensorDict) {
       chart.config.data.datasets.push({
-        label: sensorDict[key].name,
+        label: sensorDict[key].name.charAt(0).toUpperCase() + sensorDict[key].name.slice(1),
         backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
         borderColor: chartColors[chartColorArray[i]],
         fill: false,
@@ -145,7 +145,7 @@ function onRefreshVOC(chart) {
     let i = 0;
     for (var key in sensorDict) {
       chart.config.data.datasets.push({
-        label: sensorDict[key].name,
+        label: sensorDict[key].name.charAt(0).toUpperCase() + sensorDict[key].name.slice(1),
         backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
         borderColor: chartColors[chartColorArray[i]],
         fill: false,
@@ -178,7 +178,7 @@ function onRefreshCarbdonDioxide(chart) {
     let i = 0;
     for (var key in sensorDict) {
       chart.config.data.datasets.push({
-        label: sensorDict[key].name,
+        label: sensorDict[key].name.charAt(0).toUpperCase() + sensorDict[key].name.slice(1),
         backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
         borderColor: chartColors[chartColorArray[i]],
         fill: false,
@@ -645,25 +645,7 @@ am4core.ready(function () {
 new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
-    datasets: [{
-        label: '1 (Linear)',
-        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
-        borderColor: chartColors.red,
-        fill: false,
-        data: [],
-        lineTension: 0,
-        id: '1',
-      },
-      {
-        label: '2 (Cubic)',
-        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-        borderColor: chartColors.blue,
-        fill: false,
-        cubicInterpolationMode: 'monotone',
-        data: [],
-        id: '2',
-      }
-    ]
+    datasets: []
   },
   options: {
     title: {
