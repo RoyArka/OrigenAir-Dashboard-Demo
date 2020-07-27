@@ -278,7 +278,12 @@
 }
 
 /* for screen size between 850 to 1250px */
-@media screen and (min-width: 850px) and (max-width: 1249px) {
+@media (min-width: 850px) and (max-width: 1249px) {
+
+    .main-content {
+        height: 97vh;
+        overflow-y: scroll;
+    }
 
     .hugecontainer{
         margin-top: -40px;
@@ -450,7 +455,6 @@
     }
 
 }
-
 
 /* when screen size is greater than 1250px (Desktop View) */
 @media screen and (min-width: 1250px) {
