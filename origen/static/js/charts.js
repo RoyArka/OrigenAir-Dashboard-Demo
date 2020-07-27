@@ -137,7 +137,7 @@ function getAvgCo2Value(runningAvgCo2) {
   runningAvgCo2 = co2Arr.reduce(function (a, b) {
     return a + b;
   }) / co2Arr.length
-  
+
   return runningAvgCo2.toFixed(2);
 }
 
@@ -594,7 +594,7 @@ am4core.ready(function () {
 // end am4core.ready()
 
 //VOC Chart
-var VocChart = new Chart(document.getElementById("line-chart3"), {
+var vocChart = new Chart(document.getElementById("line-chart3"), {
   type: 'line',
   data: {
     datasets: []
@@ -694,7 +694,7 @@ am4core.ready(function () {
   chart.setTimeout(randomValue, 1000);
 
   function randomValue() {
-    hand.showValue(Number(getAvgCo2Value(runningCo2Temp)), 1000, am4core.ease.cubicOut);
+    hand.showValue(Number(getAvgCo2Value(runningAvgCo2)), 1000, am4core.ease.cubicOut);
     chart.setTimeout(randomValue, 1000);
   }
 
@@ -713,7 +713,7 @@ am4core.ready(function () {
 // end am4core.ready()
 
 //Carbon Dioxide Chart
-var Co2Chart = new Chart(document.getElementById("line-chart4"), {
+var co2Chart = new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
     datasets: []
