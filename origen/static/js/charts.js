@@ -67,15 +67,21 @@ function getSensorCount(desiredType) {
 
 //used for counting inactive/active sensors
 function getSensorStatus() {
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/" + sensorId;
-  var count = [{},{}];
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/"
+  active_count = 0;
+  inactive_count = 0;
   $.ajax({
     async: false,
     url: sensorApiUrl,
     method: "GET",
     data: {},
     success: function (data) {
-      value = data.value;
+      for (var key in data) {
+        var sensor_status = data[key].is_active;
+        if (sensor_status == true)
+          active_count += 1;
+        else if (sensor_status == false)
+          inactive_count += 1;
     }
   });
   return value;
