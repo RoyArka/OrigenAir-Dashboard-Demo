@@ -65,6 +65,22 @@ function getSensorCount(desiredType) {
     return typeCount[3]
 }
 
+//used for counting inactive/active sensors
+function getSensorStatus() {
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/" + sensorId;
+  var count = [{},{}];
+  $.ajax({
+    async: false,
+    url: sensorApiUrl,
+    method: "GET",
+    data: {},
+    success: function (data) {
+      value = data.value;
+    }
+  });
+  return value;
+}
+
 //RandomScalingFactor Function 
 function randomScalingFactor() {
   return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
@@ -626,30 +642,6 @@ new Chart(document.getElementById("line-chart3"), {
   }
 });
 
-<<<<<<< HEAD
-// // Carbon Dioxide Gauge
-// new Chart(document.getElementById("doughnut-chart4"), {
-//   type: 'doughnut',
-//   data: {
-//     datasets: [{
-//       label: "Population (millions)",
-//       backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
-//       data: [1, 1, 1, 1, 1]
-//     }]
-//   },
-//   options: {
-//     title: {
-//       display: true,
-//       text: 'Carbon Dioxide'
-//     },
-//     rotation: -Math.PI,
-//     cutoutPercentage: 30,
-//     circumference: Math.PI,
-//     responsive: true,
-//     maintainAspectRatio: false
-//   }
-// });
-=======
 // Carbon Dioxide Gauge
 new Chart(document.getElementById("doughnut-chart4"), {
   type: 'doughnut',
@@ -708,7 +700,6 @@ new Chart(document.getElementById("line-chart4"), {
     }
   }
 });
->>>>>>> arka
 
 // amCharts
 //Gauge 1 [Temperature]
@@ -797,9 +788,6 @@ am4core.ready(function () {
 new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
-<<<<<<< HEAD
-    datasets: []
-=======
     datasets: [{
         label: '1 (Linear)',
         backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
@@ -819,7 +807,6 @@ new Chart(document.getElementById("line-chart4"), {
         id: '2',
       }
     ]
->>>>>>> arka
   },
   options: {
     title: {
@@ -849,42 +836,4 @@ new Chart(document.getElementById("line-chart4"), {
       duration: 0
     }
   }
-<<<<<<< HEAD
 });
-
-function getSensorCount(desiredType) {
-  // var originalUrlArray = window.location.href.split("/");
-  // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg";
-  var typeCount = [{}, {}, {}, {}]
-  $.ajax({
-    async: false,
-    url: sensorApiUrl,
-    method: "GET",
-    data: {},
-    success: function (data) {
-      for (var key in data) {
-        var sensor_type = data[key].type;
-        if (sensor_type == "temperature")
-          typeCount[0][key] = data[key]
-        else if (sensor_type == "humidity")
-          typeCount[1][key] = data[key]
-        else if (sensor_type == "voc")
-          typeCount[2][key] = data[key]
-        else if (sensor_type == "co2")
-          typeCount[3][key] = data[key]
-      }
-    }
-  });
-  if (desiredType == "temperature")
-    return typeCount[0]
-  else if (desiredType == "humidity")
-    return typeCount[1]
-  else if (desiredType == "voc")
-    return typeCount[2]
-  else if (desiredType == "co2")
-    return typeCount[3]
-}
-=======
-});
->>>>>>> arka
