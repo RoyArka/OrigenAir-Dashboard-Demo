@@ -31,6 +31,7 @@ function getSensorValue(sensorId) {
   return value;
 }
 
+
 function getSensorCount(desiredType) {
   // var originalUrlArray = window.location.href.split("/");
   // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
@@ -590,7 +591,7 @@ am4core.ready(function () {
 // end am4core.ready()
 
 //VOC Chart
-var VocChart = new Chart(document.getElementById("line-chart3"), {
+var vocChart = new Chart(document.getElementById("line-chart3"), {
   type: 'line',
   data: {
     datasets: []
@@ -684,13 +685,20 @@ am4core.ready(function () {
   range4.axisFill.fill = am4core.color("#ffa600");
   range4.axisFill.zIndex = -1;
 
+  var range5 = axis.axisRanges.create();
+  range5.value = 100;
+  range5.endValue = 1000;
+  range5.axisFill.fillOpacity = 1;
+  range5.axisFill.fill = am4core.color("#ff0000");
+  range5.axisFill.zIndex = -1;
+
   var hand = chart.hands.push(new am4charts.ClockHand());
 
   // using chart.setTimeout method as the timeout will be disposed together with a chart
   chart.setTimeout(randomValue, 1000);
 
   function randomValue() {
-    hand.showValue(Number(getAvgCo2Value(runningCo2Temp)), 1000, am4core.ease.cubicOut);
+    hand.showValue(Number(getAvgCo2Value(runningAvgCo2)), 1000, am4core.ease.cubicOut);
     chart.setTimeout(randomValue, 1000);
   }
 
@@ -709,7 +717,7 @@ am4core.ready(function () {
 // end am4core.ready()
 
 //Carbon Dioxide Chart
-var Co2Chart = new Chart(document.getElementById("line-chart4"), {
+var co2Chart = new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
     datasets: []

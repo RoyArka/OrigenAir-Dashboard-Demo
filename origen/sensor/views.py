@@ -145,7 +145,7 @@ class RecordTimeAPI(APIView):
 
 class SensorListAPI(APIView):
 
-    is_active = False
+    
 
     def get_object(self, slug):
         organization = get_object_or_404(Organization, slug=slug)
@@ -155,22 +155,22 @@ class SensorListAPI(APIView):
         sensors = self.get_object(self.kwargs.get('slug'))
         data = {}
 
-        start_time = timezone.now() - datetime.timedelta(minutes=1)
-        end_time = start_time + datetime.timedelta(minutes=1)
         for sensor in sensors:
+            is_active = False
+            start_time = timezone.now() - datetime.timedelta(minutes=1)
+            end_time = start_time + datetime.timedelta(minutes=1)
+            
+            if (start_time <= sensor.last_updated <= end_time):
+                is_active = True
+            else:
+                is_active = False
+
             data[sensor.pk] = {
                 "name": sensor.name,
                 "organization": sensor.organization.name,
                 "type": sensor.sensor_type,
                 "value": sensor.value,
-                "last_updated": sensor.last_updated,
+                "active": is_active,
             }
-            
-            if(start_time <= sensor.last_updated <= end_time):
-                 is_active = True
-                 print("its active")
-            else:
-                 is_active = False
-                 print("its inactive")
                  
         return Response(data)
