@@ -219,7 +219,6 @@ function onRefresh(chart) {
       //Sensor Avg Value
       dataset.data.push({
         x: Date.now(),
-        // y: getAvgSensorValue(runningAvg)
         y: getAvgSensorValue(runningAvg)
       });
     } else if (dataset.id == 'max_threshold') {

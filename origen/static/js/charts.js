@@ -34,7 +34,7 @@ function getSensorValue(sensorId) {
 function getSensorCount(desiredType) {
   // var originalUrlArray = window.location.href.split("/");
   // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg";
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit";
   var typeCount = [{}, {}, {}, {}]
   $.ajax({
     async: false,
@@ -70,6 +70,18 @@ function randomScalingFactor() {
   return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
 }
 
+var runningAvg = 0.0
+var valueArr = []
+//Get Sensor AvgValue
+function getAvgSensorValue(runningAvg) {
+  var newValue = getSensorValue()
+  valueArr.push(newValue)
+  runningAvg = valueArr.reduce(function (a, b) {
+    return a + b;
+  }) / valueArr.length
+  return runningAvg.toFixed(2);
+}
+
 var refreshTempFlag = false
 //Temperature OnRefresh Function
 function onRefreshTemp(chart) {
@@ -79,7 +91,7 @@ function onRefreshTemp(chart) {
     let i = 0;
     for (var key in sensorDict) {
       chart.config.data.datasets.push({
-        label: sensorDict[key].name,
+        label: sensorDict[key].name.charAt(0).toUpperCase() + sensorDict[key].name.slice(1),
         backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
         borderColor: chartColors[chartColorArray[i]],
         fill: false,
@@ -112,7 +124,7 @@ function onRefreshHum(chart) {
     let i = 0;
     for (var key in sensorDict) {
       chart.config.data.datasets.push({
-        label: sensorDict[key].name,
+        label: sensorDict[key].name.charAt(0).toUpperCase() + sensorDict[key].name.slice(1),
         backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
         borderColor: chartColors[chartColorArray[i]],
         fill: false,
@@ -145,7 +157,7 @@ function onRefreshVOC(chart) {
     let i = 0;
     for (var key in sensorDict) {
       chart.config.data.datasets.push({
-        label: sensorDict[key].name,
+        label: sensorDict[key].name.charAt(0).toUpperCase() + sensorDict[key].name.slice(1),
         backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
         borderColor: chartColors[chartColorArray[i]],
         fill: false,
@@ -178,7 +190,7 @@ function onRefreshCarbdonDioxide(chart) {
     let i = 0;
     for (var key in sensorDict) {
       chart.config.data.datasets.push({
-        label: sensorDict[key].name,
+        label: sensorDict[key].name.charAt(0).toUpperCase() + sensorDict[key].name.slice(1),
         backgroundColor: color(chartColors[chartColorArray[i]]).alpha(0.5).rgbString(),
         borderColor: chartColors[chartColorArray[i]],
         fill: false,
@@ -200,28 +212,6 @@ function onRefreshCarbdonDioxide(chart) {
     });
   });
 }
-
-// // Temperature Gauge
-// new Chart(document.getElementById("doughnut-chart1"), {
-//   type: 'doughnut',
-//   data: {
-//     datasets: [{
-//       label: "Population (millions)",
-//       // backgroundColor: ["#03A9F4", "#00C853", "#FFEE58", "#FF5722", "#E53935"],
-//       backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
-//       data: [1, 1, 1, 1, 1]
-//     }]
-//   },
-//   options: {
-//     title: {
-//       display: true,
-//       text: 'Temperature'
-//     },
-//     rotation: -Math.PI,
-//     cutoutPercentage: 30,
-//     circumference: Math.PI,
-//   }
-// });
 
 // amCharts
 //Gauge 1 [Temperature]
@@ -288,7 +278,9 @@ am4core.ready(function () {
   chart.setTimeout(randomValue, 2000);
 
   function randomValue() {
-    hand.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
+    // hand.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
+    hand.showValue(getAvgSensorValue(runningAvg), 1000, am4core.ease.cubicOut);
+    console.log(getAvgSensorValue(runningAvg));
     chart.setTimeout(randomValue, 2000);
   }
 
@@ -342,31 +334,8 @@ new Chart(document.getElementById("line-chart1"), {
   }
 });
 
-// // Humidity Gauge 
-// new Chart(document.getElementById("doughnut-chart2"), {
-//   type: 'doughnut',
-//   data: {
-//     datasets: [{
-//       label: "Population (millions)",
-//       backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
-//       data: [1, 1, 1, 1, 1]
-//     }]
-//   },
-//   options: {
-//     title: {
-//       display: true,
-//       text: 'Humidity'
-//     },
-//     rotation: -Math.PI,
-//     cutoutPercentage: 30,
-//     circumference: Math.PI,
-//     responsive: true,
-//     maintainAspectRatio: false
-//   }
-// });
-
 // amCharts
-//Gauge 1 [Temperature]
+//Gauge 2 [Humidity]
 am4core.ready(function () {
 
   // Themes begin
@@ -484,31 +453,8 @@ new Chart(document.getElementById("line-chart2"), {
   }
 });
 
-// // VOC Gauge 
-// new Chart(document.getElementById("doughnut-chart3"), {
-//   type: 'doughnut',
-//   data: {
-//     datasets: [{
-//       label: "Population (millions)",
-//       backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
-//       data: [1, 1, 1, 1, 1]
-//     }]
-//   },
-//   options: {
-//     title: {
-//       display: true,
-//       text: 'VOC'
-//     },
-//     rotation: -Math.PI,
-//     cutoutPercentage: 30,
-//     circumference: Math.PI,
-//     responsive: true,
-//     maintainAspectRatio: false
-//   }
-// });
-
 // amCharts
-//Gauge 1 [Temperature]
+//Gauge 3 [VOC]
 am4core.ready(function () {
 
   // Themes begin
@@ -626,67 +572,8 @@ new Chart(document.getElementById("line-chart3"), {
   }
 });
 
-// Carbon Dioxide Gauge
-new Chart(document.getElementById("doughnut-chart4"), {
-  type: 'doughnut',
-  data: {
-    datasets: [{
-      label: "Population (millions)",
-      backgroundColor: ["#003f5c", "#58508d", "#bc5090", "#ff6361", "#ffa600"],
-      data: [1, 1, 1, 1, 1]
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Carbon Dioxide'
-    },
-    rotation: -Math.PI,
-    cutoutPercentage: 30,
-    circumference: Math.PI,
-    responsive: true,
-    maintainAspectRatio: false
-  }
-});
-
-//Carbon Dioxide Chart
-new Chart(document.getElementById("line-chart4"), {
-  type: 'line',
-  data: {
-    datasets: []
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Sensor Data'
-    },
-    scales: {
-      xAxes: [{
-        type: 'realtime',
-        realtime: {
-          duration: 20000,
-          refresh: 1000,
-          delay: 2000,
-          onRefresh: onRefreshCarbdonDioxide
-        }
-      }],
-      yAxes: [{
-        scaleLabel: {
-          display: true,
-          labelString: 'CO2 (ppm)'
-        }
-      }]
-    },
-    responsive: true,
-    maintainAspectRatio: false,
-    animation: {
-      duration: 0
-    }
-  }
-});
-
 // amCharts
-//Gauge 1 [Temperature]
+//Gauge 4 [CO2]
 am4core.ready(function () {
 
   // Themes begin
@@ -772,25 +659,7 @@ am4core.ready(function () {
 new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
-    datasets: [{
-        label: '1 (Linear)',
-        backgroundColor: color(chartColors.red).alpha(0.5).rgbString(),
-        borderColor: chartColors.red,
-        fill: false,
-        data: [],
-        lineTension: 0,
-        id: '1',
-      },
-      {
-        label: '2 (Cubic)',
-        backgroundColor: color(chartColors.blue).alpha(0.5).rgbString(),
-        borderColor: chartColors.blue,
-        fill: false,
-        cubicInterpolationMode: 'monotone',
-        data: [],
-        id: '2',
-      }
-    ]
+    datasets: []
   },
   options: {
     title: {
