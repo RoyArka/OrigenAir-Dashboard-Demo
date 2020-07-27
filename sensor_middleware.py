@@ -18,4 +18,8 @@ def main(pk):
         print(res.status_code)
         time.sleep(1)
 
+<<<<<<< HEAD
 main(5)
+=======
+main(1)
+>>>>>>> arka
