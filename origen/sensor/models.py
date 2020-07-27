@@ -27,18 +27,19 @@ class Sensor(models.Model):
     value = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     threshold_min = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     threshold_max = models.DecimalField(max_digits=10, decimal_places=2, default=100)
+    last_updated = models.DateTimeField(default=timezone.now, null=True, blank=True)
     
     def __str__(self):
         return self.name
 
     def save(self,  *args, **kwargs):
+        self.last_updated = timezone.now()
         super(Sensor, self).save(*args,**kwargs)
         Record.objects.create(
             sensor = self,
-            value = self.value
+            value = self.value,
         )
-        
-    
+
 class Record(models.Model):
     sensor = models.ForeignKey(Sensor, related_name='records', null=True, blank=True, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now, null=False)
