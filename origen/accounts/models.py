@@ -22,7 +22,7 @@ class Person(models.Model):
     biography = models.TextField(max_length=180, default='', null=True, blank=True)
     job_title = models.CharField(max_length=20, null=True, blank=True)
     organization = models.ForeignKey(Organization, related_name='persons', null=True, blank=True, on_delete=models.SET_NULL)
-    phone_number = PhoneNumberField(default='604-123-4567', max_length=128, region=None)
+    phone_number = PhoneNumberField(default='+12125552368', max_length=128, region=None)
     time_zone = models.CharField(max_length=100, choices = TIMEZONES, default='America/Vancouver')
     
     def __unicode__(self):

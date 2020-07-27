@@ -84,11 +84,13 @@
                                                 <label for="inputEmail" class="contentpart1label2">Contact Email
                                                     <small>(optional)</small></label>
                                                 {{form.email}}
+                                                {{form.email.errors}}
                                             </div>
-                                            <div class="form-group contentpart1box2">
+                                            <div class="form-group contentpart1box2"></div>
                                                 <label for="inputPhone" class="contentpart1label2">Contact Phone
                                                     <small>(optional)</small></label>
                                                 {{form.phone}}
+                                                {{form.phone.errors}}
                                             </div>
                                         </div>
                                         <div class="col-sm-10 col-sm-offset-1 contentpart2">
