@@ -70,6 +70,18 @@ function randomScalingFactor() {
   return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
 }
 
+var runningAvg = 0.0
+var valueArr = []
+//Get Sensor AvgValue
+function getAvgSensorValue(runningAvg) {
+  var newValue = getSensorValue()
+  valueArr.push(newValue)
+  runningAvg = valueArr.reduce(function (a, b) {
+    return a + b;
+  }) / valueArr.length
+  return runningAvg.toFixed(2);
+}
+
 var refreshTempFlag = false
 //Temperature OnRefresh Function
 function onRefreshTemp(chart) {
@@ -266,7 +278,9 @@ am4core.ready(function () {
   chart.setTimeout(randomValue, 2000);
 
   function randomValue() {
-    hand.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
+    // hand.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
+    hand.showValue(getAvgSensorValue(runningAvg), 1000, am4core.ease.cubicOut);
+    console.log(getAvgSensorValue(runningAvg));
     chart.setTimeout(randomValue, 2000);
   }
 
