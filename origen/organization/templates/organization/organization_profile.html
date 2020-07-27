@@ -70,12 +70,6 @@
                         <!-- /END HEADER -->
 
                         <!-- NAME/LOCATION -->
-                        {% if user.person.organization == organization %}
-                        <a class="btn btn-success" href="{% url 'organization:members' slug=user.person.organization.slug %}">Members</a>
-                        <hr>
-                        {% endif %}
-                        {% if not user.person.organization %}
-                        {% endif %}
                         <address>
                             <strong>{{organization.name}}</strong>
                             <br>
@@ -102,6 +96,9 @@
 
                         <!-- EDIT BUTTON -->
                         <address>
+                            {% if user.person.organization == organization %}
+                            <a class="btn btn-success" href="{% url 'organization:members' slug=user.person.organization.slug %}">Members</a>
+                            {% endif %}
                             {% if organization.admin %}
                             <a class="btn btn-success"
                                 href="{% url 'organization:update' slug=organization.slug %}">Edit</a>
