@@ -31,6 +31,7 @@ function getSensorValue(sensorId) {
   return value;
 }
 
+
 function getSensorCount(desiredType) {
   // var originalUrlArray = window.location.href.split("/");
   // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
@@ -687,6 +688,13 @@ am4core.ready(function () {
   range4.axisFill.fillOpacity = 1;
   range4.axisFill.fill = am4core.color("#ffa600");
   range4.axisFill.zIndex = -1;
+
+  var range5 = axis.axisRanges.create();
+  range5.value = 100;
+  range5.endValue = 1000;
+  range5.axisFill.fillOpacity = 1;
+  range5.axisFill.fill = am4core.color("#ff0000");
+  range5.axisFill.zIndex = -1;
 
   var hand = chart.hands.push(new am4charts.ClockHand());
 
