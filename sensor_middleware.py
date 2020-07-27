@@ -8,7 +8,7 @@ def main(pk):
         sensor_input = random.uniform(-5, 110)
         sensor_input = round(sensor_input, 2)
 
-        url = "http://127.0.0.1:8000/sensor/api/for/bcit/" + str(pk)
+        url = "http://127.0.0.1:8000/sensor/api/for/testorg/" + str(pk)
         headers = {'Content-Type': "application/json", 'Accept': "application/json"}
         data = {}
         data['value'] = sensor_input
@@ -18,4 +18,8 @@ def main(pk):
         print(res.status_code)
         time.sleep(1)
 
-main(39)
+<<<<<<< HEAD
+main(5)
+=======
+main(1)
+>>>>>>> arka
