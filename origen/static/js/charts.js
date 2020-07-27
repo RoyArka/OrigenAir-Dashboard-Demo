@@ -15,7 +15,7 @@ var color = Chart.helpers.color;
 function getSensorValue(sensorId) {
   var originalUrlArray = window.location.href.split("/")
   // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit/" + 40;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit/" + sensorId;
   var value = 0.0;
   $.ajax({
     async: false,
@@ -65,21 +65,60 @@ function getSensorCount(desiredType) {
     return typeCount[3]
 }
 
-//RandomScalingFactor Function 
-function randomScalingFactor() {
-  return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
+var runningAvgTemp = 0.0
+var tempArr = []
+
+function getAvgTempValue(runningAvgTemp) {
+  tempChart.config.data.datasets.forEach(function (dataset) {
+    newValue = getSensorValue(dataset.id)
+    tempArr.push(newValue)
+    runningAvgTemp = tempArr.reduce(function (a, b) {
+      return a + b;
+    }) / tempArr.length
+  });
+  return runningAvgTemp.toFixed(2);
 }
 
-var runningAvg = 0.0
-var valueArr = []
-//Get Sensor AvgValue
-function getAvgSensorValue(runningAvg) {
-  var newValue = getSensorValue()
-  valueArr.push(newValue)
-  runningAvg = valueArr.reduce(function (a, b) {
-    return a + b;
-  }) / valueArr.length
-  return runningAvg.toFixed(2);
+var runningAvgHumid = 0.0
+var humidArr = []
+
+function getAvgHumidValue(runningAvgHumid) {
+  humidChart.config.data.datasets.forEach(function (dataset) {
+    newValue = getSensorValue(dataset.id)
+    humidArr.push(newValue)
+    runningAvgHumid = humidArr.reduce(function (a, b) {
+      return a + b;
+    }) / humidArr.length
+  });
+  return runningAvgHumid.toFixed(2);
+}
+
+var runningAvgVoc = 0.0
+var vocArr = []
+
+function getAvgVocValue(runningAvgVoc) {
+  vocChart.config.data.datasets.forEach(function (dataset) {
+    newValue = getSensorValue(dataset.id)
+    vocArr.push(newValue)
+    runningAvgVoc = vocArr.reduce(function (a, b) {
+      return a + b;
+    }) / vocArr.length
+  });
+  return runningAvgVoc.toFixed(2);
+}
+
+var runningAvgCo2 = 0.0
+var co2Arr = []
+
+function getAvgCo2Value(runningAvgCo2) {
+  co2Chart.config.data.datasets.forEach(function (dataset) {
+    newValue = getSensorValue(dataset.id)
+    co2Arr.push(newValue)
+    runningAvgCo2 = co2Arr.reduce(function (a, b) {
+      return a + b;
+    }) / co2Arr.length
+  });
+  return runningAvgCo2.toFixed(2);
 }
 
 var refreshTempFlag = false
@@ -275,13 +314,11 @@ am4core.ready(function () {
   var hand = chart.hands.push(new am4charts.ClockHand());
 
   // using chart.setTimeout method as the timeout will be disposed together with a chart
-  chart.setTimeout(randomValue, 2000);
+  chart.setTimeout(randomValue, 1000);
 
   function randomValue() {
-    // hand.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
-    hand.showValue(getAvgSensorValue(runningAvg), 1000, am4core.ease.cubicOut);
-    console.log(getAvgSensorValue(runningAvg));
-    chart.setTimeout(randomValue, 2000);
+    hand.showValue(Number(getAvgTempValue(runningAvgTemp)), 1000, am4core.ease.cubicOut);
+    chart.setTimeout(randomValue, 1000);
   }
 
   // title
@@ -299,7 +336,7 @@ am4core.ready(function () {
 // end am4core.ready()
 
 //Temperature Chart
-new Chart(document.getElementById("line-chart1"), {
+var tempChart = new Chart(document.getElementById("line-chart1"), {
   type: 'line',
   data: {
     datasets: []
@@ -396,11 +433,11 @@ am4core.ready(function () {
   var hand = chart.hands.push(new am4charts.ClockHand());
 
   // using chart.setTimeout method as the timeout will be disposed together with a chart
-  chart.setTimeout(randomValue, 2000);
+  chart.setTimeout(randomValue, 1000);
 
   function randomValue() {
-    hand.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
-    chart.setTimeout(randomValue, 2000);
+    hand.showValue(Number(getAvgHumidValue(runningAvgHumid)), 1000, am4core.ease.cubicOut);
+    chart.setTimeout(randomValue, 1000);
   }
 
   // title
@@ -418,7 +455,7 @@ am4core.ready(function () {
 // end am4core.ready()
 
 //Humidity Chart
-new Chart(document.getElementById("line-chart2"), {
+var humidChart = new Chart(document.getElementById("line-chart2"), {
   type: 'line',
   data: {
     datasets: []
@@ -515,11 +552,11 @@ am4core.ready(function () {
   var hand = chart.hands.push(new am4charts.ClockHand());
 
   // using chart.setTimeout method as the timeout will be disposed together with a chart
-  chart.setTimeout(randomValue, 2000);
+  chart.setTimeout(randomValue, 1000);
 
   function randomValue() {
-    hand.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
-    chart.setTimeout(randomValue, 2000);
+    hand.showValue(Number(getAvgVocValue(runningAvgVoc)), 1000, am4core.ease.cubicOut);
+    chart.setTimeout(randomValue, 1000);
   }
 
   // title
@@ -537,7 +574,7 @@ am4core.ready(function () {
 // end am4core.ready()
 
 //VOC Chart
-new Chart(document.getElementById("line-chart3"), {
+var VocChart = new Chart(document.getElementById("line-chart3"), {
   type: 'line',
   data: {
     datasets: []
@@ -634,11 +671,11 @@ am4core.ready(function () {
   var hand = chart.hands.push(new am4charts.ClockHand());
 
   // using chart.setTimeout method as the timeout will be disposed together with a chart
-  chart.setTimeout(randomValue, 2000);
+  chart.setTimeout(randomValue, 1000);
 
   function randomValue() {
-    hand.showValue(Math.random() * 100, 1000, am4core.ease.cubicOut);
-    chart.setTimeout(randomValue, 2000);
+    hand.showValue(Number(getAvgCo2Value(runningCo2Temp)), 1000, am4core.ease.cubicOut);
+    chart.setTimeout(randomValue, 1000);
   }
 
   // title
@@ -656,7 +693,7 @@ am4core.ready(function () {
 // end am4core.ready()
 
 //Carbon Dioxide Chart
-new Chart(document.getElementById("line-chart4"), {
+var Co2Chart = new Chart(document.getElementById("line-chart4"), {
   type: 'line',
   data: {
     datasets: []
