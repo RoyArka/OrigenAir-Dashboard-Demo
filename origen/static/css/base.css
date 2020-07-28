@@ -136,7 +136,6 @@ a.fab:hover {
 
 .organization-name-top-bar {
     margin-left: 20px;
-    font-family: 'Nunito', sans-serif;
 }
 
 .topbar-divider {
@@ -150,9 +149,10 @@ a.fab:hover {
 
 .top-bar-font-size {
     color: var(--main-bg-color);
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
+    /* font-family: 'Julius Sans One', sans-serif; */
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 2rem;
+    margin-bottom: 0rem;
 }
 
 .dropdown-menu {
