@@ -172,13 +172,6 @@
                     </a>
                     <!-- ORGANIZATION Submenu -->
                     <div id='submenu3' class="collapse sidebar-submenu">
-                        <!-- ORGANIZATION ALL -->
-                        <a href="{% url 'organization:all' %}"
-                            class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">List</span>
-                        </a>
-                        <!-- /END ORGANIZATION ALL -->
-
                         {% if user.person.organization %}
                         <!-- ORGANIZATION PROFILE -->
                         <a href="{% url 'organization:single' slug=user.person.organization.slug %}"
@@ -194,6 +187,13 @@
                         </a>
                         <!-- /END ORGANIZATION MEMBERS -->
                         {% endif %}
+
+                        <!-- ORGANIZATION ALL -->
+                        <a href="{% url 'organization:all' %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">List</span>
+                        </a>
+                        <!-- /END ORGANIZATION ALL -->
 
                         <!-- ORGANIZATION CREATE -->
                         <a href="{% url 'organization:create' %}"
@@ -330,7 +330,7 @@
                     <div class="organization-name-top-bar">
                         <a href="{% url 'organization:single' slug=user.person.organization.slug %}">
                             <p class="top-bar-font-size">
-                            {{user.person.organization.name}}
+                                {{user.person.organization.name}}
                             </p>
                         </a>
                     </div>
