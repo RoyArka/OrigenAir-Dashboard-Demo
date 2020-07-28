@@ -280,9 +280,8 @@
 /* for screen size between 850 to 1250px */
 @media (min-width: 850px) and (max-width: 1249px) {
 
-    .main-content {
-        height: 97vh;
-        overflow-y: scroll;
+    .card-scroll {
+        padding-bottom: 50px;
     }
 
     .hugecontainer{
@@ -458,6 +457,10 @@
 
 /* when screen size is greater than 1250px (Desktop View) */
 @media screen and (min-width: 1250px) {
+
+    .card-scroll {
+        padding-bottom: 50px;
+    }
     
     .hugecontainer {
         margin-top: -40px;
