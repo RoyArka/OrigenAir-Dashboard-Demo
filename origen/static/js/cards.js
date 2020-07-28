@@ -19,19 +19,15 @@ function getSensorStatus() {
               else if (data[key].active == false){
                 inactive += 1;
               }
-              console.log(active)
-              console.log(inactive)
-              console.log(total)
 
-              var activeCount = $("active-count")[0];
+              var activeCount = $("#activeCount")[0];
               activeCount.textContent = active;
 
-              var inactiveCount = $("inactive-count")[0];
+              var inactiveCount = $("#inactiveCount")[0];
               inactiveCount.textContent = inactive;
 
-              var totalCount = $("total-count")[0];
-              totalCount.textContent = total;
-              
+              var totalCount = $("#totalCount")[0];
+              totalCount.textContent = total;     
           }
       }
     });
@@ -39,4 +35,4 @@ function getSensorStatus() {
   
   window.setInterval(function(){
     getSensorStatus()
-  }, 5000);
+  }, 1000);

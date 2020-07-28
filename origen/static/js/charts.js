@@ -14,13 +14,8 @@ var color = Chart.helpers.color;
 //Functions 
 function getSensorValue(sensorId) {
   var originalUrlArray = window.location.href.split("/")
-<<<<<<< HEAD
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/final-fight/" + sensorId;
-  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/bc-transit/" + sensorId;
-=======
   // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
   var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/" + sensorId;
->>>>>>> arka
   var value = 0.0;
   $.ajax({
     async: false,
@@ -40,11 +35,7 @@ function getSensorValue(sensorId) {
 function getSensorCount(desiredType) {
   // var originalUrlArray = window.location.href.split("/");
   // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
-<<<<<<< HEAD
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/final-fight";
-=======
   var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg";
->>>>>>> arka
   var typeCount = [{}, {}, {}, {}]
   $.ajax({
     async: false,

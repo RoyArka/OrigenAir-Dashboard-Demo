@@ -16,7 +16,7 @@ class OrganizationCreateForm(forms.ModelForm):
             'email': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputEmail',
                                         'placeholder': 'Contact Email',
-                                        'name': 'Org-email'}),
+                                        'name': 'Org-email',}),
             'phone': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputPhone',
                                         'placeholder': 'Phone Number',
