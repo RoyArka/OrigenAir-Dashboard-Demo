@@ -11,7 +11,8 @@ body {
 }
 
 :root {
-    --main-bg-color: #1B9A4B;
+    /* --main-bg-color: #1B9A4B; */
+    --main-bg-color: #000000;
 }
 
 /* ----------------------------------------------- */
@@ -148,9 +149,10 @@ a.fab:hover {
 
 .top-bar-font-size {
     color: var(--main-bg-color);
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
+    /* font-family: 'Julius Sans One', sans-serif; */
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 2rem;
+    margin-bottom: 0rem;
 }
 
 .dropdown-menu {

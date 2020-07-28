@@ -54,6 +54,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@0.5.7/chartjs-plugin-annotation.min.js">
     </script>
 
+    <!-- Font - Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&display=swap" rel="stylesheet">
+
     <!-- Stylesheet CSS -->
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" media="all" />
     <link href="{% static 'css/profile.css' %}" rel="stylesheet" type="text/css" media="all" />
@@ -108,7 +113,7 @@
                         <!-- SENSOR LIST -->
                         <a href="{% url 'sensor:all' slug=user.person.organization.slug %}"
                             class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">List</span>
+                            <span class="menu-collapsed">Sensor List</span>
                         </a>
                         <!-- /END SENSOR LIST -->
 
@@ -116,7 +121,7 @@
                         {% if user.person.organization.admin %}
                         <a href="{% url 'sensor:create' slug=user.person.organization.slug %}"
                             class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Create</span>
+                            <span class="menu-collapsed">Sensor Create</span>
                         </a>
                         {% endif %}
                         <!-- /END SENSOR CREATE -->
@@ -172,13 +177,6 @@
                     </a>
                     <!-- ORGANIZATION Submenu -->
                     <div id='submenu3' class="collapse sidebar-submenu">
-                        <!-- ORGANIZATION ALL -->
-                        <a href="{% url 'organization:all' %}"
-                            class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">List</span>
-                        </a>
-                        <!-- /END ORGANIZATION ALL -->
-
                         {% if user.person.organization %}
                         <!-- ORGANIZATION PROFILE -->
                         <a href="{% url 'organization:single' slug=user.person.organization.slug %}"
@@ -190,15 +188,22 @@
                         <!-- ORGANIZATION MEMBERS -->
                         <a href="{% url 'organization:members' slug=user.person.organization.slug %}"
                             class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Members</span>
+                            <span class="menu-collapsed">Organization Members</span>
                         </a>
                         <!-- /END ORGANIZATION MEMBERS -->
                         {% endif %}
 
+                        <!-- ORGANIZATION ALL -->
+                        <a href="{% url 'organization:all' %}"
+                            class="list-group-item list-group-item-action bg-success text-white">
+                            <span class="menu-collapsed">Organization List</span>
+                        </a>
+                        <!-- /END ORGANIZATION ALL -->
+
                         <!-- ORGANIZATION CREATE -->
                         <a href="{% url 'organization:create' %}"
                             class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Create</span>
+                            <span class="menu-collapsed">Organization Create</span>
                         </a>
                         <!-- /END ORGANIZATION CREATE -->
                     </div>
@@ -257,14 +262,14 @@
                         {% if user.person.organization %}
                         <!-- SENSOR LIST -->
                         <a class="dropdown-item" href="{% url 'sensor:all' slug=user.person.organization.slug %}">
-                            Sensor - List
+                            Sensor List
                         </a>
                         <!-- /END SENSOR LIST -->
 
                         {% if user.person.organization.admin %}
                         <!-- SENSOR CREATE -->
                         <a class="dropdown-item" href="{% url 'sensor:create' slug=user.person.organization.slug %}">
-                            Sensor - Create
+                            Sensor Create
                         </a>
                         <!-- /END SENSOR CREATE -->
                         {% endif %}
@@ -295,12 +300,6 @@
                         {% endif %}
 
                         {% if user.is_authenticated %}
-                        <!-- ORGANIZATION LIST -->
-                        <a class="dropdown-item" href="{% url 'organization:all' %}">
-                            Organization - List
-                        </a>
-                        <!-- /END ORGANIZATION LIST -->
-
                         {% if user.person.organization %}
                         <!-- ORGANIZATION PROFILE -->
                         <a class="dropdown-item"
@@ -312,14 +311,20 @@
                         <!-- ORGANIZATION MEMBERS -->
                         <a class="dropdown-item"
                             href="{% url 'organization:members' slug=user.person.organization.slug %}">
-                            Organization - Members
+                            Organization Members
                         </a>
                         <!-- /END ORGANIZATION MEMBERS -->
                         {% endif %}
 
+                        <!-- ORGANIZATION LIST -->
+                        <a class="dropdown-item" href="{% url 'organization:all' %}">
+                            Organization List
+                        </a>
+                        <!-- /END ORGANIZATION LIST -->
+
                         <!-- ORGANIZATION CREATE -->
                         <a class="dropdown-item" href="{% url 'organization:create' %}">
-                            Organization - Create
+                            Organization Create
                         </a>
                         <!-- /END ORGANIZATION CREATE -->
                         {% endif %}
@@ -330,7 +335,7 @@
                     <div class="organization-name-top-bar">
                         <a href="{% url 'organization:single' slug=user.person.organization.slug %}">
                             <p class="top-bar-font-size">
-                            {{user.person.organization.name}}
+                                {{user.person.organization.name}}
                             </p>
                         </a>
                     </div>
