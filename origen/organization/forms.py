@@ -1,6 +1,8 @@
 from django import forms
 from organization.models import Organization
 from django.forms import ModelForm
+from django.core.exceptions import ValidationError
+
 
 class OrganizationCreateForm(forms.ModelForm):
 
@@ -56,6 +58,12 @@ class OrganizationCreateForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(OrganizationCreateForm, self).__init__(*args, **kwargs)
+    
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        if Organization.objects.filter(name=name).exists():
+            raise ValidationError("Organization name is already in use")
+        return self.cleaned_data.get('name')
         
 class OrganizationUpdateForm(forms.ModelForm):
     
