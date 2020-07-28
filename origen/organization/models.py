@@ -26,7 +26,7 @@ class Organization(models.Model):
     website = models.CharField(max_length=200, null=True, blank=True)
     phone = PhoneNumberField(default='+12125552368', max_length=128, region=None, null=True, blank=True)
     description = models.TextField(max_length=255, default='', null=True, blank=True)
-    color = RGBColorField(default='#1B9A4B')
+    color = RGBColorField(default='#000000')
     slug = models.SlugField(allow_unicode=True, unique=True)
     created_at = models.DateTimeField(default=timezone.now, null=False)
     
