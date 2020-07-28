@@ -188,7 +188,7 @@
                         <!-- ORGANIZATION MEMBERS -->
                         <a href="{% url 'organization:members' slug=user.person.organization.slug %}"
                             class="list-group-item list-group-item-action bg-success text-white">
-                            <span class="menu-collapsed">Organization Members</span>
+                            <span class="menu-collapsed">{{user.person.organization.name}} Members</span>
                         </a>
                         <!-- /END ORGANIZATION MEMBERS -->
                         {% endif %}
