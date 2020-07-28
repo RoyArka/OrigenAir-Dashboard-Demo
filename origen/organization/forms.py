@@ -64,7 +64,7 @@ class OrganizationCreateForm(forms.ModelForm):
         if Organization.objects.filter(name=name).exists():
             raise ValidationError("Organization name is already in use")
         return self.cleaned_data.get('name')
-        
+    
 class OrganizationUpdateForm(forms.ModelForm):
     
     class Meta:
