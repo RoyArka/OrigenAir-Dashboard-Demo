@@ -45,6 +45,11 @@ class UserProfileUpdate(UpdateView):
     model = Person
     form_class = PersonUpdateForm
     template_name = 'accounts/profile_update.html'
+
+    def form_valid(self, form):
+        print(form.instance.avatar)
+        return super().form_valid(form)
+
     def get_success_url(self):
         return reverse_lazy('accounts:profile', kwargs={'username': self.object.user.username})
 

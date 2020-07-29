@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="container emp-profile">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.non_field_errors}}
         <div class="row">
@@ -232,4 +232,6 @@
 
 <!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+
+<script src="{% static 'js/profile-img-preview.js' %}"></script>
 {% endblock scripts %}
