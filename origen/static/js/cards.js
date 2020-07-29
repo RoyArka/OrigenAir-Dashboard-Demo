@@ -1,7 +1,8 @@
 
 //used for counting inactive/active sensors
 function getSensorStatus() {
-    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/"
+    var sensorOrg = document.getElementById("orgSlug").value;
+    var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg;
     total = 0;
     inactive = 0;
     active = 0;
