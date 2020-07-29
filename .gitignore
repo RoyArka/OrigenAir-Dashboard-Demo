@@ -114,3 +114,5 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+origen/origen/dev_settings.py
