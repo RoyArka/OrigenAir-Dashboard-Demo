@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<body class="profile-page">
+    <!-- BACKGROUND Image -->
+    <div class="page-header header-filter"
+        style="background-image:url('https://i.pinimg.com/originals/e7/37/97/e73797e90db90a056e96291ca4f2a788.jpg');">
+    </div>
+    <!-- /END BACKGROUND Image -->
+
+    <!-- MAIN Content -->
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <!-- HEADER -->
+                    <div class="col-md-6 ml-auto mr-auto"> 
+                        <!-- IMAGE Profile -->
+                        <div class="card-avatar1">
+                            {% if organization.logo %}
+                            <img class="img" src="{{organization.logo.url}}">
+                            {% else %}
+                            <img class="img" src="{% static 'img/contemplating.png' %}">
+                            {% endif %}
+                        </div>
+                        <!-- /END IMAGE Profile -->
+
+                        <!-- NAME Profile -->
+                        <div class="name text-center">
+                            <h1>{{organization.name}}</h1>
+                        </div>
+                        <!-- /END NAME Profile -->
+
+                        <!-- JOIN/LEAVE BUTTON -->
+                        <div class="btn-join-leave text-center">
+                            {% if not user.person.organization %}
+                            <a href="{% url 'organization:join' slug=organization.slug %}"
+                                class="btn btn-success btn-lg">Join</a>
+                            {% endif %}
+                            {% if user.person.organization == organization %}
+                            <a href=" {% url 'organization:leave' slug=organization.slug %}"
+                                class="btn btn-danger btn-lg">Leave</a>
+                            {% endif %}
+                        </div>                  
+                        <!-- /END JOIN/LEAVE BUTTON -->
+                    </div>
+                    <!-- /END HEADER -->
+
+                    <!-- LEFT COLUMN -->
+                    <div class="col-md-8 mb-5 profile-left-content">
+                        <!-- HEADER -->
+                        <h2>What We Do</h2>
+                        <hr>
+                        <!-- /END HEADER -->
+
+                        <!-- DESCRIPTION -->
+                        <p>{{organization.description}}</p>
+                        <!-- /END DESCRIPTION -->
+                    </div>
+                    <!-- /END LEFT COLUMN -->
+
+                    <!-- RIGHT COLUMN -->
+                    <div class="col-md-4 mb-5 profile-right-content">
+                        <!-- HEADER -->
+                        <h2>Contact Us</h2>
+                        <hr>
+                        <!-- /END HEADER -->
+
+                        <!-- NAME/LOCATION -->
+                        <address>
+                            <strong>{{organization.name}}</strong>
+                            <br>
+                            {{organization.street_number}}
+                            {{organization.street_name}}
+                            </br>
+                            {{organization.city}},
+                            {{organization.country}}
+                        </address>
+                        <!-- /END NAME/LOCATION -->
+
+                        <!-- PHONE/EMAIL -->
+                        <address>
+                            <abbr title="Phone">P:</abbr>
+                            {{organization.phone}}
+                            <br>
+                            <abbr title="Email">E:</abbr>
+                            <a href="mailto:#">{{organization.email}}</a>
+                            <br>
+                            <abbr title="Website">W:</abbr>
+                            {{organization.website}}
+                        </address>
+                        <!-- /END PHONE/EMAIL -->
+
+                        <!-- EDIT BUTTON -->
+                        <address>
+                            {% if user.person.organization == organization %}
+                            <a class="btn btn-success" href="{% url 'organization:members' slug=user.person.organization.slug %}">Members</a>
+                            {% endif %}
+                            {% if organization.admin %}
+                            <a class="btn btn-success"
+                                href="{% url 'organization:update' slug=organization.slug %}">Edit</a>
+                            <a class="btn btn-danger btn-organization-right"
+                                href="{% url 'organization:delete' slug=organization.slug %}">Delete
+                            </a>
+                            {% endif %}
+                        </address>
+                        <!-- /END EDIT BUTTON -->
+                    </div>
+                    <!-- /END RIGHT COLUMN -->
+
+                    <!-- /END MAIN CONTENT -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /END MAIN Content -->
+</body>
+
+{% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+{{block.super}}
+<!-- Create Profile Javascript -->
+<script src="{% static 'js/createprofile.js' %}"></script>
+{% endblock scripts %}

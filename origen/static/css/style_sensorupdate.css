@@ -1,0 +1,142 @@
+/*** MEDIA QUERIES ***/
+
+/* Background Image */
+.main-content {
+    background-image: url("/static/img/nature.jpg");
+    background-size: cover;
+    height: 94vh;
+}
+
+/* for screen size smaller than 600px */
+@media (max-width: 600px) {
+    .hugecontainer {
+        margin-top: -40px;
+    }
+
+    .createorgnavbar {
+        text-align: center;
+    }
+
+    .createinside {
+        border: 1px solid #2CA8FF;
+        border-radius: 0;
+        color: #2CA8FF;
+        border: 0 !important;
+        text-transform: uppercase;
+        background-color: #999999;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .secondcontainer {
+        justify-content: center;
+    }
+
+    .commentcontainer {
+        text-align: center;
+        margin-left: 3%;
+        width: 95%;
+    }
+
+    .threshold {
+        margin-left: 27%;
+        width: 50%;
+    }
+
+    .fa-search {
+        color: white !important;
+    }
+
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .aboutheadline {
+        text-align: center;
+        display: block;
+    }
+
+    .pickle2 {
+        width: 33.33% !important;
+    }
+}
+
+/* for screen size bigger than 600px */
+@media screen and (min-width: 601px) {
+    .hugecontainer {
+        margin-top: -40px;
+    }
+
+    .createorgnavbar {
+        text-align: center;
+    }
+
+    .createinside {
+        border: 1px solid #2CA8FF;
+        border-radius: 0;
+        color: #2CA8FF;
+        border: 0 !important;
+        text-transform: uppercase;
+        background-color: #999999;
+        text-align: center;
+        color: #FFFFFF !important;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    .secondcontainer {
+        justify-content: center;
+    }
+
+    .commentcontainer {
+        text-align: center;
+        margin-left: 27%;
+        width: 95%;
+    }
+
+    .threshold {
+        margin-left: 27%;
+        width: 47%;
+    }
+
+    .fa-search {
+        color: white !important;
+    }
+
+    .btn-next {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .btn-finish {
+        background: green !important;
+        border-color: rgb(2, 151, 2) !important;
+    }
+
+    .aboutheadline {
+        text-align: center;
+        display: block;
+    }
+
+    .pickle2 {
+        width: 33.33% !important;
+    }
+}

@@ -17,9 +17,14 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 
+from . import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.HomePage.as_view(),name='home'),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
-]
+    path('organization/', include('organization.urls', namespace='organization')),
+    path('sensor/', include('sensor.urls', namespace='sensor'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
