@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container emp-profile">
+    <form method="post">
+        {% csrf_token %}
+        {{form.non_field_errors}}
+        <div class="row">
+            <!-- PROFILE PHOTO -->
+            <div class="col-md-4 picture-container">
+                <div class="profile-img picture">
+                    <!-- PROFILE IMAGE -->
+                    <img src="{{user.person.avatar.url}}" class="picture-src" id="wizardPicturePreview" title="" />
+                    <!-- /END PROFILE IMAGE -->
+
+                    <!-- CHANGE PHOTO -->
+                    <div class="file btn btn-lg btn-primary">
+                       <span>Change Photo</span>
+                        {{form.avatar.errors}}
+                        {{form.avatar}}
+                        <input type="file" name="file" id="wizard-picture" style="padding-bottom: 10px"/>
+                    </div>
+                    <!-- /END CHANGE PHOTO -->
+                </div>
+            </div>
+            <!-- /END PROFILE PHOTO -->
+
+            <!-- PROFILE HEAD -->
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <!-- FULL NAME -->
+                    <h5>{{person.user.get_full_name}}</h5>
+                    <!-- /END FULL NAME -->
+                    
+                    <br>
+                    
+                    <!-- TAB SELECTION -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <!-- ABOUT -->
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <!-- /END ABOUT -->
+
+                        <!-- DETAILS -->
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Details</a>
+                        </li>
+                        <!-- /END DETAILS -->
+                    </ul>
+                    <!-- /END TAB SELECTION -->
+                </div>
+            </div>
+            <!-- /END PROFILE HEAD -->
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <!-- PROFILE LINKS -->
+                <div class="profile-work" style="padding-top: 0px; margin-top: 0px;">
+                    <!-- DATE JOINED -->
+                    <p>Joined {{user.date_joined}}</p>
+                    <!-- /END DATE JOINED -->
+                </div>
+                <!-- /END PROFILE LINKS -->
+            </div>
+
+            <div class="col-md-6">
+                <!-- EDIT PROFILE FORM -->
+                
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <!-- ABOUT TAB -->
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        
+                        <!-- JOB TITLE -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="accountJobTitle">Job Title</label>
+                            </div>
+                            <div class="col-md-6">
+                                {{form.job_title}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.job_title.errors}}
+                            </div>
+                        </div>
+                        <!-- /END JOB TITLE -->
+
+                        <!-- ORGANIZATION -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountOrganization">Organization</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{user.person.organization}}</p>
+                            </div>
+                        </div>
+                        <!-- /END ORGANIZATION -->
+
+                        <!-- TIME ZONE -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountTimeZone">Time Zone</label>
+                            </div>
+                            <div class="col-md-6">
+                                {{form.time_zone}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.time_zone.errors}}
+                            </div>
+                        </div>
+                        <!-- /END TIME ZONE -->
+
+                        <!-- BIO -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountBio">Bio</label>
+                            </div>
+                            <div class="col-md-6">
+                                {{form.biography}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.biography.errors}}
+                            </div>
+                        </div>
+                        <!-- /END BIO -->
+                    </div>
+                    <!-- /END ABOUT TAB -->
+
+                    <!-- DETAILS TAB -->
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        
+                        <!-- USERNAME -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="username">Username</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{person.user.username}}</p>
+                            </div>
+                        </div>
+                        <!-- /END USERNAME -->
+
+                        <!-- FIRST NAME -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label>First Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{person.user.first_name}}</p>
+                            </div>
+                        </div>
+                        <!-- /END FIRST NAME -->
+
+                        <!-- LAST NAME -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountLastName">Last Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{person.user.last_name}}</p>
+                            </div>
+                        </div>
+                        <!-- /END LAST NAME -->
+
+                        <!-- EMAIL -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountEmail">Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{person.user.email}}</p>
+                            </div>
+                        </div>
+                        <!-- /END EMAIL -->
+
+                        <!-- PHONE NUMBER -->
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="accountPhoneNumber">Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                {{form.phone_number}}
+                            </div>
+                            <div class="col-md-6">
+                                {{form.phone_number.errors}}
+                            </div>
+                        </div>
+                        <!-- /END PHONE NUMBER -->
+                    </div>
+                    <!-- /END DETAILS TAB -->
+
+                    <!-- NOTIFICATION & BUTTON -->
+                    <div class="col-13">
+                        <hr class="mt-3 mb-3">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                            <!-- ENABLE NOTIFICATIONS -->
+                            <div class="custom-control custom-checkbox d-block">
+                                {{form.alerts.errors}}
+                                {{form.alerts}}
+                                <label class="custom-control-label" for="subscribe_me">Enable Notifications</label>
+                            </div>
+                            <!-- /END ENABLE NOTIFICATIONS -->
+    
+                            <!-- UPDATE PROFILE BUTTON -->
+                            <button type="submit" class="btn btn-success">Update Profile</button>
+                            <!-- /END UPDATE PROFILE BUTTON -->
+                        </div>
+                    </div>
+                    <!-- /END NOTIFICATION & BUTTON -->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+{{block.super}}
+<!--   Core JS Files   -->
+<script src="{% static 'js/orgcreate-jquery.bootstrap.wizard.js' %}"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="{% static 'js/orgcreate-gsdk-bootstrap-wizard.js' %}"></script>
+
+<!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+{% endblock scripts %}

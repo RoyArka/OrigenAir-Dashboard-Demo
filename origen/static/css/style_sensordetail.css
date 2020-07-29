@@ -1,0 +1,43 @@
+@media (max-width: 420px) {
+    .main-content {
+        height: 89vh;
+    }
+}
+
+.btn-sensor-detail-left {
+    float: left;
+    margin: 0px 0px 15px 15px;
+}
+
+.btn-sensor-detail-right {
+    float: right;
+    margin: 0px 15px 15px 0px;
+}
+
+.card3 {
+    margin: 20px;
+}
+
+.card-sensor1 {
+    border-radius: 5px;
+    background-color: #52E0C1;
+    height: 150px;
+}
+
+.card-text-sensor {
+    color: white;
+    height: 100px;
+}
+
+.card-title-sensor {
+    color: white;
+}
+
+.container-sensor-detail {
+    margin: 15px 15px 0px 15px;
+}
+
+.sensor-detail-margin {
+    margin-top: 10px;
+    padding: 10px;
+}

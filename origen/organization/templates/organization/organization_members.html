@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- BANNER -->
+<header class="bg-primary text-center py-5 mb-4 members-banner" style="background-color: {{organization.color}} !important;">
+    <div class="container">
+        <!-- NAME Organization -->
+        <h1 class="font-weight-light text-white">{{organization.name}}</h1>
+        <!-- Heading -->
+        <h1 class="font-weight-light text-white">Meet the Team</h1>
+    </div>
+</header>
+<!-- /END BANNER -->
+
+<!-- CONTAINER -->
+<div class="container member-container">
+    <!-- LIST Member -->
+    <div class="row">
+        {% for person in organization.persons.all %}
+        <a href="{% url 'accounts:profile' username=person.user.username %}" class="col-xl-3 col-md-6 mb-4 member-card">
+            <div class="card border-0 shadow members-card">
+                <!-- PHOTO Member -->
+                <div class="card-avatar">
+                    <img class="img" src="{{person.avatar.url}}">
+                </div>
+                <!-- /END PHOTO Member -->
+
+                <!-- BODY Member -->
+                <div class="card-body2 text-center">
+                    <!-- NAME Member -->
+                    <div><h5 class="card-title mb-0">{{person.user.get_full_name}}</h5></div>
+
+                    <!-- JOB TITLE Member -->
+                    <div class="text-black-50">{{person.job_title}}</div>
+
+                    <!-- BIO Member -->
+                    <div class="card-text2 text-black-50">{{person.biography}}</div>
+                </div>
+                <!-- /END BODY Member -->
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <!-- /END LIST Member -->
+</div>
+<!-- /END CONTAINER -->
+
+{% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+{{block.super}}
+{% endblock scripts %}

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_sensordetail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-sensor-detail">
+    <div class="row">
+        <div class="col btn-sensor-detail">
+            <div>
+                <!-- LIST Button -->
+                <a class="btn btn-success btn-sensor-detail-left"
+                    href="{% url 'sensor:all' slug=user.person.organization.slug %}">List
+                </a>
+                <!-- /END LIST Button -->
+                {% if user.person.organization.admin %}
+                <!-- DELETE Button -->
+                <a class="btn btn-danger btn-sensor-detail-right"
+                    href="{% url 'sensor:delete' slug=user.person.organization.slug pk=sensor.pk %}">Delete
+                </a>
+                <!-- /END DELETE Button -->
+
+                <!-- EDIT Button -->
+                <a class="btn btn-success btn-sensor-detail-right"
+                    href="{% url 'sensor:update' slug=user.person.organization.slug pk=sensor.pk %}">Edit
+                </a>
+                <!-- /END EDIT Button -->
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-12 sensor-detail-margin">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor1">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 card-title-sensor">Min Threshold</h5>
+                        </div>
+
+                        <br>
+
+                        <div class="card-text2 card-text-sensor">
+                            <h5>{{sensor.threshold_min}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 sensor-detail-margin">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor1">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 card-title-sensor">Current Value</h5>
+                        </div>
+                        <br>
+                        <div class="card-text2 card-text-sensor">
+                            <h5 id="sensor-value">{{sensor.value}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 sensor-detail-margin">
+            <div class="card border-0 shadow">
+                <div class="card-body2 text-center card-sensor1">
+                    <div class="card3">
+                        <div>
+                            <h5 class="card-title mb-0 card-title-sensor">Max Threshold</h5>
+                        </div>
+
+                        <br>
+
+                        <div class="card-text2 card-text-sensor">
+                            <h5>{{sensor.threshold_max}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 sensor-detail-margin">
+            <canvas id="myChart" height="75"></canvas>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12 sensor-detail-margin">
+            <div class="card border-0 shadow">
+                <div style="padding: 10px; margin-bottom: 18px; margin-top: 20px;">
+                    <canvas id="doughnut-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 sensor-detail-margin">
+            <div class="card border-0 shadow">
+                <div style="padding: 10px; text-align: right;">
+                    <canvas id="mixed-chart"></canvas>
+                    <button id="update" class="btn btn-success" style="margin-right: 10px;">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+{{block.super}}
+<script src="{% static 'js/sensordetail.js' %}"></script>
+{% endblock scripts %}

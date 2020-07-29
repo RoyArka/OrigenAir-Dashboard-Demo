@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import psycopg2
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,7 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'accounts',
+    'organization',
+    'colorful',
+    'sensor',
+    'phonenumber_field'
 ]
 
 MIDDLEWARE = [
@@ -84,6 +90,12 @@ DATABASES = {
     }
 }
 
+# DATABASE_ENGINE = 'postgresql_psycopg2'
+# DATABASE_NAME = 'wilsondevtest.postgres.database.azure.com'
+# DATABASE_USER = 'wilson@wilsondevtest'
+# DATABASE_PASSWORD = 'X#X8g95$a%W3gsiG'
+# DATABASE_HOST = ''
+# DATABASE_PORT = ''
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
@@ -134,3 +146,17 @@ STATICFILES_DIRS = [STATIC_DIR]
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+# REMOVE DURING DEPLOYMENT ONLY FOR TESTING
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
+EMAIL_HOST = 'mail.origenair.com'
+EMAIL_HOST_USER = 'forgot-password@origenair.com'
+EMAIL_HOST_PASSWORD = '9YxWrUkeqkU9'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+

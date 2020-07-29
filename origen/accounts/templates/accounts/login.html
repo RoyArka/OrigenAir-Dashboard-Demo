@@ -1,0 +1,47 @@
+{% extends "baseLogin.html" %}
+
+{% block content %}
+{% load static %}
+
+<h3 class="card-title text-center">Welcome Back!</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.non_field_errors}}
+
+    <!-- USERNAME -->
+    <div class="form-label-group">
+        {{form.username}}
+        <label for="inputUsername">Username</label>
+    </div>
+    <div class="form-label-group">
+        {{form.username.errors}}
+    </div>
+    <!-- /END USERNAME -->
+
+    <!-- PASSWORD -->
+    <div class="form-label-group">
+        {{form.password}}
+        <label for="inputPassword">Password</label>
+    </div>
+    <div class="form-label-group">
+        {{form.password.errors}}
+    </div>
+    <!-- /END PASSWORD -->
+
+    <hr class="my-4">
+
+    <!-- BUTTONS -->
+    <button class="btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">
+        Log In</button>
+    <div class="text-center">
+        <a class="small" href="{% url 'accounts:password_reset' %}">Forgot Password?</a>
+    </div>
+    <div class="text-center">
+        <a class="small" href="{% url 'accounts:signup' %}">Register</a>
+    </div>
+    <!-- /END BUTTONS -->
+</form>
+<!-- /END CONTENT -->
+
+{% endblock %}

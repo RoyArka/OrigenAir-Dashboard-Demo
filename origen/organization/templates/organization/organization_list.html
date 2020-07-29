@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div id="organization-list">
+    <!-- LIST Organization -->
+    <div class="row text-center">
+        {% for organization in object_list %}
+        <div class="col-md-4 list-card">
+            <div class="card card-profile">
+                <!-- PHOTO List -->
+                <div class="card-header card-header-image">
+                    {% if organization.logo %}
+                    <img src="{{organization.logo.url}}" class="img">
+                    <div class="colored-shadow" style="background-image: {{organization.logo.url}}; opacity: 1;"></div>
+                    {% else %}
+                    <img src="{% static 'img/contemplating.png' %}" class="img">
+                    <div class="colored-shadow" style="background-image: {% static 'img/contemplating.png' %}; opacity: 1;"></div>
+                    {% endif %}
+                </div>
+                <!-- /END PHOTO List -->
+
+                <!-- BODY List -->
+                <div class="card-body">
+                    <h4 class="card-title">{{organization.name}}</h4>
+                    <p class="card-text list-card-text">{{organization.description}}</p>
+                </div>
+                <!-- /END BODY List -->
+
+                <!-- FOOTER List -->
+                <div class="card-footer1 justify-content-center">
+                    <a href="{% url 'organization:single' slug=organization.slug %}" class="btn btn-success">More Details</a>
+                </div>
+                <!-- /END FOOTER List -->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- /END LIST Organization -->
+
+    <!-- CREATE Button -->
+    <a id="organization-fab" class="fab" href="{% url 'organization:create' %}">+</a>
+    <!-- /END CREATE Button -->
+</div>
+
+{% endblock %}
+
+<!-- Scripts Block -->
+{% block scripts %}
+{{block.super}}
+{% endblock scripts %}

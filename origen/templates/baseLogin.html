@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>OrigenAir</title>
+
+    <!-- Front Awesome Used in Top Bar-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css"
+        integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
+        </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
+        </script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <!-- Stylesheet CSS -->
+    <link href="{% static 'css/accounts.css' %}" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <!-- IMAGE -->
+                <div class="card-img-left d-none d-md-flex">
+                    <!-- Background image for card set in CSS! -->
+                </div>
+                <!-- /END IMAGE -->
+                
+                <!-- CONTENT -->
+                <div class="card-body">
+                    <!-- CLOSE BUTTON -->
+                    <div class="text-right">
+                        <a class="large" href="{% url 'login' %}" style="color:rgb(27, 154, 75)"><i class="fas fa-times"></i></a>
+                    </div>
+                    <!-- /END CLOSE BUTTON -->
+
+                    <!--LOGO IMAGE-->
+                    <div class="text-center">
+                        <img id="logo" src="{% static 'img/logo2.png' %}" width="60">
+                    </div>
+                    <!-- /END LOGO IMAGE -->
+
+                    <!-- CONTENT -->
+
+                    <body>
+                        {% block content %}
+                        {% endblock %}
+                    </body>
+                    <!-- /END CONTENT -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
