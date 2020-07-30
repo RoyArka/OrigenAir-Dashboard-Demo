@@ -111,6 +111,40 @@ class SensorDetailAPI(APIView):
 
         return Response(data)
 
+class NewRecordAPI(APIView):
+    def get_object(self, pk):
+        return (get_object_or_404(Sensor, pk=pk))
+
+    def put(self, request, *args, **kwargs):
+        sensor = self.get_object(self.kwargs.get('pk'))
+
+        value = request.data['value']
+        created_at = request.data['created_at']       
+        
+
+        success = False
+        
+        try:
+            Record.objects.create(
+                sensor = sensor,
+                created_at = created_at,
+                value = value,
+            )
+            success=True
+        except:
+            success=False
+            return Response({"success": success})
+        
+        data = {
+            "name": sensor.name,
+            "created_at": created_at,
+            "value": value,
+            "success": success,
+        }
+        
+        return Response(data)
+
+
 class RecordTimeAPI(APIView):
 
     def get_object(self, pk):

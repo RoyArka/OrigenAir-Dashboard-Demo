@@ -14,4 +14,5 @@ urlpatterns = [
     path('api/for/<slug>/<pk>', views.SensorDetailAPI.as_view(), name='single-api'),
     path('api/for/<slug>/<pk>/records/<time>/<offset>', views.RecordTimeAPI.as_view(), name='time-records'),
     path('api/for/<slug>/', views.SensorListAPI.as_view(), name='sensor-list'),
+    path('api/for/<slug>/<pk>/new/record/', views.NewRecordAPI.as_view(), name='new-record'),
 ]
