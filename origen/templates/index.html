@@ -8,6 +8,7 @@
 {% block content %}
 
 {% if user.person.organization %}
+<input type="hidden" id="orgSlug" name="hiddenOrgName" value="{{ user.person.organization.slug }}">
 <div class="main-container">
     <div class="row">
         <!-- ACTIVE SENSORS -->

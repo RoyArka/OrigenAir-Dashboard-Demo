@@ -17,8 +17,11 @@ class Person(models.Model):
 
     user = models.OneToOneField(auth.models.User, on_delete=models.CASCADE, primary_key=True)
 <<<<<<< HEAD
+<<<<<<< HEAD
     # organization = models.ForeignKey()
 =======
+=======
+>>>>>>> a3dffcd47fbe62378184722f860fb0c0938f8ec2
     
     alerts = models.BooleanField(default=True)
     avatar = models.ImageField(upload_to=user_directory_path, default='person/avatars/default.png', null=True, blank=True)
@@ -36,4 +39,7 @@ class Person(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+<<<<<<< HEAD
 >>>>>>> development
+=======
+>>>>>>> a3dffcd47fbe62378184722f860fb0c0938f8ec2

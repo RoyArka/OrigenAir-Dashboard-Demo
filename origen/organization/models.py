@@ -32,7 +32,7 @@ class Organization(models.Model):
     
     admin = models.ForeignKey(User, related_name='organization_admin', null=True, blank=True, on_delete=models.SET_NULL)
 
-    logo = models.ImageField(upload_to=org_directory_path, default='org/contemplating.png', null=True, blank=True)
+    logo = models.ImageField(upload_to=org_directory_path, default='org/default_org_logo.png', null=True, blank=True)
    
     def __str__(self):
         return self.name

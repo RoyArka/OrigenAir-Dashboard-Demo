@@ -2,13 +2,20 @@ from django import forms
 from organization.models import Organization
 from django.forms import ModelForm
 from django.core.exceptions import ValidationError
+from django.forms.widgets import ClearableFileInput
+
+class MyClearableFileInput(ClearableFileInput):
+    initial_text = ''
+    input_text = ''
+    clear_checkbox_label = ''
+    template_name = 'custom_clearable_file_input.html'
 
 
 class OrganizationCreateForm(forms.ModelForm):
 
     class Meta:
         model = Organization
-        fields = ('name', 'email', 'phone', 'website', 'street_name', 'street_number', 'city', 'country', 'description', 'color')
+        fields = ('name', 'email', 'phone', 'website', 'street_name', 'street_number', 'city', 'country', 'description', 'color', 'logo')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control',
@@ -53,7 +60,8 @@ class OrganizationCreateForm(forms.ModelForm):
             'color': forms.TextInput(attrs={'class': 'form-control',
                                         'id': 'inputColor',
                                         'placeholder': 'Color',
-                                        'name': 'color'})
+                                        'name': 'color'}),
+            'logo': MyClearableFileInput(),
         }
 
     def __init__(self, *args, **kwargs):
@@ -69,7 +77,7 @@ class OrganizationUpdateForm(forms.ModelForm):
     
     class Meta:
         model = Organization
-        fields = ('email', 'phone', 'website', 'street_name', 'street_number', 'city', 'country', 'description', 'color')
+        fields = ('email', 'phone', 'website', 'street_name', 'street_number', 'city', 'country', 'description', 'color', 'logo')
         
         widgets = {
             'email': forms.TextInput(attrs={'class': 'form-control',
@@ -108,5 +116,6 @@ class OrganizationUpdateForm(forms.ModelForm):
             'color': forms.TextInput(attrs={'class': 'form-control', 
                                         'id': 'color-edit',
                                         'placeholder': 'Color',
-                                        'name': 'color-edit'})
+                                        'name': 'color-edit'}),
+            'logo': MyClearableFileInput(),
         }

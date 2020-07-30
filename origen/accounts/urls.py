@@ -8,8 +8,11 @@ app_name = 'accounts'
 urlpatterns = [
     path('signup/', views.SignUp.as_view(), name='signup'),
 <<<<<<< HEAD
+<<<<<<< HEAD
 ]
 =======
+=======
+>>>>>>> a3dffcd47fbe62378184722f860fb0c0938f8ec2
     path('login/', views.Login.as_view(redirect_authenticated_user=True), name='login'),
     path('logout/',auth_views.LogoutView.as_view(),name='logout'),
     path('password_reset/', auth_views.PasswordResetView.as_view(from_email='forgot-password@origenair.com', form_class=MyPasswordResetForm), name='password_reset'), 
@@ -22,4 +25,7 @@ urlpatterns = [
     path('profile/<username>', views.UserProfile.as_view(), name='profile'),
     path('profile/update/', views.UserProfileUpdate.as_view(), name='profile_update'), 
 ]
+<<<<<<< HEAD
 >>>>>>> development
+=======
+>>>>>>> a3dffcd47fbe62378184722f860fb0c0938f8ec2

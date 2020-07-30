@@ -118,6 +118,7 @@
                         <!-- /END SENSOR LIST -->
 
                         <!-- SENSOR CREATE -->
+                        <!-- {% if user.person == user.person.organization.admin %} -->
                         {% if user.person.organization.admin %}
                         <a href="{% url 'sensor:create' slug=user.person.organization.slug %}"
                             class="list-group-item list-group-item-action bg-success text-white">

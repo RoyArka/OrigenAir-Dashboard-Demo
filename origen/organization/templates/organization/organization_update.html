@@ -63,9 +63,11 @@
                                         <div class="col-sm-4 col-sm-offset-1">
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="{{user.organization.avatar.url}}" class="picture-src"
+                                                    <img src="{{user.person.organization.logo.url}}" class="picture-src"
                                                         id="wizardPicturePreview" title="" />
-                                                    <input type="file" id="wizard-picture">
+                                                        {{form.logo.errors}}
+                                                        {{form.logo}}
+                                                    <!-- <input type="file" id="wizard-picture"> -->
                                                 </div>
                                                 <h6>Choose Picture</h6>
                                             </div>
@@ -196,5 +198,7 @@
 
 <!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+
+<script src="{% static 'js/org-img-preview.js' %}"></script>
 
 {% endblock scripts %}

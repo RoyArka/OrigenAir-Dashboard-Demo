@@ -65,11 +65,11 @@
                                                 <div class="picture">
                                                     <!-- <img src="{% static 'img/placeholder.jpg' %}" class="picture-src" 
                                                         id="wizardPicturePreview" title="" /> -->
-                                                    <img src="{{user.organization.avatar.url}}" class="picture-src"
+                                                    <img src="{% static 'img/default_org_logo.png' %}" class="picture-src"
                                                         id="wizardPicturePreview" title="" />
-                                                    <!-- <img src="{{request.user.person.organization.picture.url}}" class="picture-src" 
-                                                        id="wizardPicturePreview" title=""/> -->
-                                                    <input type="file" id="wizard-picture">
+
+                                                    {{form.logo.errors}}
+                                                    {{form.logo}}
                                                 </div>
                                                 <h6>Choose Picture</h6>
                                             </div>
@@ -203,5 +203,7 @@
 
 <!-- More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="{% static 'js/orgcreate-jquery.validate.min.js' %}"></script>
+
+<script src="{% static 'js/org-img-preview.js' %}"></script>
 
 {% endblock scripts %}

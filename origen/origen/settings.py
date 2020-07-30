@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import psycopg2
+from configparser import RawConfigParser
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,14 +22,17 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+config = RawConfigParser()
+config.read('/home/origen/origen/settings.ini')
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ko2giraahc_$&l0v+7!unm9(ozf6^prg_gcq#+f8v-rip_@*$r'
+SECRET_KEY = config.get('secrets', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['origenoptimized.com', '64.227.90.55', 'localhost']
 
 
 # Application definition
@@ -82,11 +85,16 @@ WSGI_APPLICATION = 'origen.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+DB_PASS = config.get('database', 'DB_PASS')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'origen',
+        'USER': 'origen',
+        'PASSWORD': DB_PASS,
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -142,7 +150,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR]
+STATIC_ROOT = STATIC_DIR
+# STATICFILES_DIRS = [STATIC_DIR]
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
@@ -154,7 +163,7 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
 EMAIL_HOST = 'mail.origenair.com'
 EMAIL_HOST_USER = 'forgot-password@origenair.com'
-EMAIL_HOST_PASSWORD = '9YxWrUkeqkU9'
+EMAIL_HOST_PASSWORD = config.get('email', 'EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

@@ -99,6 +99,7 @@
                             {% if user.person.organization == organization %}
                             <a class="btn btn-success" href="{% url 'organization:members' slug=user.person.organization.slug %}">Members</a>
                             {% endif %}
+                            <!-- {% if user.person == organization.admin %} -->
                             {% if organization.admin %}
                             <a class="btn btn-success"
                                 href="{% url 'organization:update' slug=organization.slug %}">Edit</a>

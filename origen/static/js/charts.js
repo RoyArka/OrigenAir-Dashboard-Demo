@@ -14,8 +14,8 @@ var color = Chart.helpers.color;
 //Functions 
 function getSensorValue(sensorId) {
   var originalUrlArray = window.location.href.split("/")
-  // var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/origen-air/" + sensorId;
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg/" + sensorId;
+  var sensorOrg = document.getElementById("orgSlug").value;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg + "/" + sensorId;
   var value = 0.0;
   $.ajax({
     async: false,
@@ -33,9 +33,8 @@ function getSensorValue(sensorId) {
 
 
 function getSensorCount(desiredType) {
-  // var originalUrlArray = window.location.href.split("/");
-  // var sensorOrg = originalUrlArray[originalUrlArray.length - 1];
-  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/testorg";
+  var sensorOrg = document.getElementById("orgSlug").value;
+  var sensorApiUrl = "http://127.0.0.1:8000/sensor/api/for/" + sensorOrg;
   var typeCount = [{}, {}, {}, {}]
   $.ajax({
     async: false,
