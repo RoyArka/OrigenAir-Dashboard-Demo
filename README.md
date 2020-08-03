@@ -12,7 +12,6 @@ Origenair website: https://www.origenair.com/
 * [Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. 
 * [Django](https://www.djangoproject.com/) - Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.
 * [Django Rest Framework](https://www.django-rest-framework.org/) - Django REST framework is a powerful and flexible toolkit for building Web APIs.
-* [Django Rest Framework](https://www.django-rest-framework.org/) - Django REST framework is a powerful and flexible toolkit for building Web APIs.
 * [Chart.js](https://www.chartjs.org/) - Simple yet flexible JavaScript charting for designers & developers.
 * [amChart](https://www.amcharts.com/) - Javascript charts and maps for data visualization.
 * [SQlite](https://www.sqlite.org/) - SQLite is a relational database management system contained in a C library. In contrast to many other database management systems, SQLite is not a client–server database engine (used for development).
